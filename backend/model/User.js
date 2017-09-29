@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Language = require('../model/Language');
+
 var userSchema = new Schema({
   id: {
     type: String,
@@ -22,10 +24,6 @@ var userSchema = new Schema({
     type: String,
     default: null
   },
-  country: { //Country에서 찾아서 참조로 넣을 것(나중에 imageUrl도 가져와댜 하구..
-    type: Schema.Types.ObjectId,
-    ref: 'Country'
-  },
   name: String,
   introduce: {
     type: String,
@@ -34,6 +32,19 @@ var userSchema = new Schema({
   language: {
     type: String,
     default: 'Korean'
+    //
+    // validate: {
+    //   validator: (language) => {
+    //     Language.findOne({language: language})
+    //     .exec(function(err, language){
+    //       if(err) {
+    //         return false;
+    //       }
+    //       return true;
+    //    });
+    //  },
+    //  message: 'DB에서 제공하지 않는 언어입니다.'
+    // }
   } // 추후 Model만들어서 연결해야 할 수도 있을 듯.(단어 장 때문에...?)
 });
 
