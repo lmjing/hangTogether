@@ -7,11 +7,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var users = require('./router/Users');
-var countries = require('./router/Countries');
+var languages = require('./router/Languages');
 var posts = require('./router/Posts');
 
 app.use('/user', users);
-app.use('/country', countries);
+app.use('/language', languages);
 app.use('/post', posts);
 
 app.listen(3000, function() {
