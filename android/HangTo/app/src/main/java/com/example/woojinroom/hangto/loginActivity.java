@@ -29,8 +29,9 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View view){
                 if(editText_id.getText().toString().equals("id")) {
                     if(editText_pass.getText().toString().equals("pw")) {
-                        Intent login_intent = new Intent(getApplicationContext(), mainPageActivity.class);
+                        Intent login_intent = new Intent(getApplicationContext(), mainPageActivity_.class);
                         startActivity(login_intent);
+                        finish();
                     } else{
                         Toast.makeText(getApplicationContext(),"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
                     }
