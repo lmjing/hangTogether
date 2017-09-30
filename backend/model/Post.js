@@ -28,7 +28,11 @@ var postSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
-    message: String
+    message: String,
+    date: {
+      type: Date,
+      min: Date.now
+    }
   }],
   guide: {
     type: Schema.Types.ObjectId,
