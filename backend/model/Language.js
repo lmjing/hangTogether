@@ -4,6 +4,8 @@ var languageSchema = new mongoose.Schema({
     type: String,
     unique: true
   }
+},{
+    versionKey: false // You should be aware of the outcome after set to false
 });
 
 mongoose.model('Language', languageSchema);

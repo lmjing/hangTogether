@@ -35,6 +35,8 @@ var postSchema = new Schema({
     ref: 'User',
     default: null
   }
+},{
+    versionKey: false // You should be aware of the outcome after set to false
 });
 
 mongoose.model('Post', postSchema);

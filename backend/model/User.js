@@ -47,6 +47,8 @@ var userSchema = new Schema({
     default: null,
     maxlength: 100
   }
+},{
+    versionKey: false // You should be aware of the outcome after set to false
 });
 
 mongoose.model('User', userSchema);
