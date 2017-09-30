@@ -98,25 +98,30 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-  User.find({}, function(err, users) {
-    if (err) {
-      console.log("User 목록 조회 실패", err);
-      return res.status(500).json('User 목록 조회 실패');
-    }else {
-      console.log('User 목록 조회 성공');
-      return res.status(200).json(users);
-    }
-  });
+  User.find({})
+   .then((userList) => {
+     return res.status(200).json(userList);
+   })
+   .catch((err) => {
+     console.log(err);
+     return res.status(404).json("User 목록 조회 실패");
+   });
 });
 
 router.get('/:email', function(req, res) {
- User.findOne({ email : req.params.email })
+  if(req.params.email == null){
+    return res.status(400).json('bad input parameter');
+  }
+  User.findOne({ email : req.params.email })
   .then((user) => {
-    return res.status(200).json(user);
+    if(user) {
+      return res.status(200).json(user);
+    }
+    return res.status(404).json('not found');
   })
   .catch((err) => {
     console.log(err);
-    return res.status(500).json("User 조회 실패");
+    return res.status(500).json('internal server error');
   });
 });
 
