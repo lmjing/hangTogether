@@ -7,7 +7,10 @@
     "express": "^4.16.0",
     "mongoose": "^4.11.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "swagger-jsdoc": "^1.9.7",
+    "swagger-ui-express": "^2.0.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
