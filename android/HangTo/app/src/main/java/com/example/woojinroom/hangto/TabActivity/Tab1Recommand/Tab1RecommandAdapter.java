@@ -73,8 +73,8 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
             Food food = mDataset.get(position-1);
 
-            itemViewHolder.cellFoodHeader.setVisibility(View.GONE);
-            itemViewHolder.foodName.setText(food.name);
+//            itemViewHolder.cellFoodHeader.setVisibility(View.GONE);
+ //           itemViewHolder.foodName.setText(food.name);
 
             // LOAD MORE
 //            if (position == mDataset.size()-1 && !fragment.endOfPage)

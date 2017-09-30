@@ -44,7 +44,7 @@ public class Tab2FeedsFragment extends TabParentFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
-        initViewSetting(view);
+//        initViewSetting(view);
         return view;
     }
 
@@ -71,13 +71,13 @@ public class Tab2FeedsFragment extends TabParentFragment {
 
         //indicator = (LinearLayout)view.findViewById(R.id.indicator);
        // pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
-        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+/*        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(false);
                 refresh();
             }
-        });
+        });*/
 
         connectFeed();
     }
