@@ -4,13 +4,22 @@ var Schema = mongoose.Schema;
 var Language = require('../model/Language');
 
 var userSchema = new Schema({
-  id: {
+  email: {
     type: String,
     index: true,
-    unique: true
+    unique: true,
+    validate: {
+      validator: function(email) {
+        return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(email);
+      },
+      message: 'The e-mail field cannot be empty.'
+    }
   },
   password: String,
-  email: String,
+  nickname: {
+    type: String,
+    unique: true
+  },
   sex: {
     type: String,
     enum: ['male','female']
@@ -24,28 +33,20 @@ var userSchema = new Schema({
     type: String,
     default: null
   },
-  name: String,
+  type: {
+    type: String,
+    enum: ['korean','foreigner']
+  },
+  languages: [{
+    language: {
+      type: String
+    }
+  }],
   introduce: {
     type: String,
-    default: null
-  },
-  language: {
-    type: String,
-    default: 'Korean'
-    //
-    // validate: {
-    //   validator: (language) => {
-    //     Language.findOne({language: language})
-    //     .exec(function(err, language){
-    //       if(err) {
-    //         return false;
-    //       }
-    //       return true;
-    //    });
-    //  },
-    //  message: 'DB에서 제공하지 않는 언어입니다.'
-    // }
-  } // 추후 Model만들어서 연결해야 할 수도 있을 듯.(단어 장 때문에...?)
+    default: null,
+    maxlength: 100
+  }
 });
 
 mongoose.model('User', userSchema);

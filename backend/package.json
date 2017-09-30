@@ -5,7 +5,8 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.0",
-    "mongoose": "^4.11.13"
+    "mongoose": "^4.11.13",
+    "nodemon": "^1.12.1"
   },
   "devDependencies": {
     "swagger-jsdoc": "^1.9.7",
