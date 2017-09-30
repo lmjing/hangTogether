@@ -42,7 +42,7 @@ router.get('/check', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  User.create({
+  var newUser = new User({
     email: req.body.email,
     password: req.body.password,
     nickname: req.body.nickname,
@@ -52,16 +52,21 @@ router.post('/', function(req, res) {
     type: req.body.type,
     languages: req.body.languages,
     introduce: req.body.introduce
-  },function(err, user){
-    if (err) {
-      console.log("User 생성 실패", err.message);
-      return res.status(500).send("User 생성 실패");
-    }else {
-      console.log("User 생성 성공");
-      return res.status(200).send(user);
-    }
   });
 
+  newUser.save()
+  .then((user) => {
+    return res.status(201).json(user);
+  })
+  .catch((err) => {
+  console.log(err);
+    if (err.name == 'ValidationError') {
+      return res.status(400).json('invalid input, object invalid.');
+    }else if (err.name == 'MongoError') {
+      return res.status(409).json('an existing item already exists');
+    }
+    return res.status(500).json('internal server error');
+  });
   //만약 언어를 참조? 한다면
   // Language.findOne({ name: req.body.language }, function(err, language) {
   //   if (err) {
