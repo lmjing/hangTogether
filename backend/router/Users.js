@@ -12,21 +12,30 @@ router.get('/check', function(req, res) {
     if (nickname != null) {
       return res.status(400).json('이메일, 닉네임 동시 중복확인은 불가합니다.');
     }
-    User.findOne({ email: email })
-    .exec(function(err, user){
-      if(err) {
-        return res.status(200).json('사용 가능');
-      }
-      return res.status(409).json('이미 존재하는 이메일입니다.');
-    });
+    console.log(email);
+    User.findOne({ email : email })
+     .then((user) => {
+       if (user == null) {
+         return res.status(200).json('사용 가능');
+       }else {
+         return res.status(409).json('이미 존재하는 이메일입니다.');
+       }
+     })
+     .catch((err) => {
+       return res.status(500).json('internal server error');
+     });
   }else if (nickname != null) {
-    User.findOne({ nickname: nickname })
-    .exec(function(err, user){
-      if(err) {
-        return res.status(200).json('사용 가능');
-      }
-      return res.status(409).json('이미 존재하는 닉네임입니다.');
-    });
+    User.findOne({ nickname : nickname })
+     .then((user) => {
+       if (user == null) {
+         return res.status(200).json('사용 가능');
+       }else {
+         return res.status(409).json('이미 존재하는 닉네임입니다.');
+       }
+     })
+     .catch((err) => {
+       return res.status(500).json('internal server error');
+     });
   }else {
     return res.status(400).send('bad input parameter')
   }
@@ -96,16 +105,6 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:email', function(req, res) {
- //  User.findOne({email : req.params.email})
- //  // .populate('country')
- //  .exec(function(err, user){
- //    if(err) {
- //      console.log("User 조회 실패", err);
- //      return res.status(500).json("User 조회 실패");
- //    }
- //    console.log("User 조회 성공");
- //    return res.status(200).json(user);
- // });
  User.findOne({ email : req.params.email })
   .then((user) => {
     return res.status(200).json(user);
