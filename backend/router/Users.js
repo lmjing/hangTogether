@@ -129,8 +129,11 @@ router.get('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-  if(req.params.id == null){
+  if(!req.params.id){
     return res.status(400).json('bad input parameter');
+  }
+  if (!req.body.password || !req.body.nickname || !req.body.introduce ) {
+    return res.status(400).json('invalid input, object invalid.');
   }
 
   User.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
@@ -142,12 +145,6 @@ router.put('/:id', function(req, res) {
       return res.status(404).json('not found');
     }
   })
-  // .then((user) => {
-  //   if(user) {
-  //     return res.status(201).json(user);
-  //   }
-  //   return res.status(404).json('not found');
-  // })
   .catch((err) => {
     if(err.name == 'CastError') {
       return res.status(404).json('not found');
