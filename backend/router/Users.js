@@ -96,16 +96,24 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:email', function(req, res) {
-  User.findOne({email : req.params.email})
-  // .populate('country')
-  .exec(function(err, user){
-    if(err) {
-      console.log("User 조회 실패", err);
-      return res.status(500).json("User 조회 실패");
-    }
-    console.log("User 조회 성공");
+ //  User.findOne({email : req.params.email})
+ //  // .populate('country')
+ //  .exec(function(err, user){
+ //    if(err) {
+ //      console.log("User 조회 실패", err);
+ //      return res.status(500).json("User 조회 실패");
+ //    }
+ //    console.log("User 조회 성공");
+ //    return res.status(200).json(user);
+ // });
+ User.findOne({ email : req.params.email })
+  .then((user) => {
     return res.status(200).json(user);
- });
+  })
+  .catch((err) => {
+    console.log(err);
+    return res.status(500).json("User 조회 실패");
+  });
 });
 
 module.exports = router;
