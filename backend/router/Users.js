@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const Type = mongoose.Schema.Types;
 
 const Language = require('../model/Language');
 const User = require('../model/User');
@@ -114,10 +112,7 @@ router.get('/:id', function(req, res) {
   if(req.params.id == null){
     return res.status(400).json('bad input parameter');
   }
-  if(!Type.ObjectId(req.params.id)){
-    return res.status(404).json('not found');
-  }
-  
+
   User.findById(req.params.id)
   .then((user) => {
     if(user) {
@@ -126,34 +121,37 @@ router.get('/:id', function(req, res) {
     return res.status(404).json('not found');
   })
   .catch((err) => {
-    console.log(err);
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
     return res.status(500).json('internal server error');
   });
 });
 
-router.put('/:email', function(req, res) {
-  if(req.params.email == null){
+router.put('/:id', function(req, res) {
+  if(req.params.id == null){
     return res.status(400).json('bad input parameter');
   }
 
-  User.update({ email: req.params.email })
-  // User.findById(email)
-  .then((result) => {
-    if(result) {
-      // return res.status(201).json(user);
-      User.findOne({ email: req.params.email })
-    }else {
-      return res.status(400).json('not changed');
-    }
-  })
+  User.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
   .then((user) => {
+    console.log(user);
     if(user) {
       return res.status(201).json(user);
+    }else {
+      return res.status(404).json('not found');
     }
-    return res.status(404).json('not found');
   })
+  // .then((user) => {
+  //   if(user) {
+  //     return res.status(201).json(user);
+  //   }
+  //   return res.status(404).json('not found');
+  // })
   .catch((err) => {
-    console.log(err);
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
     return res.status(500).json('internal server error');
   });
 });
