@@ -12,7 +12,6 @@ router.get('/check', function(req, res) {
     if (nickname != null) {
       return res.status(400).json('이메일, 닉네임 동시 중복확인은 불가합니다.');
     }
-    console.log(email);
     User.findOne({ email : email })
      .then((user) => {
        if (user == null) {
@@ -138,7 +137,6 @@ router.put('/:id', function(req, res) {
 
   User.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
   .then((user) => {
-    console.log(user);
     if(user) {
       return res.status(201).json(user);
     }else {
@@ -152,5 +150,25 @@ router.put('/:id', function(req, res) {
     return res.status(500).json('internal server error');
   });
 });
+
+router.delete('/:id', function(req, res) {
+  if(!req.params.id){
+    return res.status(400).json('bad input parameter');
+  }
+
+  User.findByIdAndRemove(req.params.id)
+  .then((user) => {
+    if(user) {
+      return res.status(201).json('success - not found');
+    }else {
+      return res.status(404).json('not found');
+    }
+  }).catch((err) => {
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
+    return res.status(500).json('internal server error');
+  });
+})
 
 module.exports = router;
