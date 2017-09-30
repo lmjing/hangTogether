@@ -1,8 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const Type = mongoose.Schema.Types;
 
-var Language = require('../model/Language');
-var User = require('../model/User');
+const Language = require('../model/Language');
+const User = require('../model/User');
 
 router.get('/check', function(req, res) {
   var email = req.query.email;
@@ -108,14 +110,45 @@ router.get('/', function(req, res) {
    });
 });
 
-router.get('/:email', function(req, res) {
-  if(req.params.email == null){
+router.get('/:id', function(req, res) {
+  if(req.params.id == null){
     return res.status(400).json('bad input parameter');
   }
-  User.findOne({ email : req.params.email })
+  if(!Type.ObjectId(req.params.id)){
+    return res.status(404).json('not found');
+  }
+  
+  User.findById(req.params.id)
   .then((user) => {
     if(user) {
       return res.status(200).json(user);
+    }
+    return res.status(404).json('not found');
+  })
+  .catch((err) => {
+    console.log(err);
+    return res.status(500).json('internal server error');
+  });
+});
+
+router.put('/:email', function(req, res) {
+  if(req.params.email == null){
+    return res.status(400).json('bad input parameter');
+  }
+
+  User.update({ email: req.params.email })
+  // User.findById(email)
+  .then((result) => {
+    if(result) {
+      // return res.status(201).json(user);
+      User.findOne({ email: req.params.email })
+    }else {
+      return res.status(400).json('not changed');
+    }
+  })
+  .then((user) => {
+    if(user) {
+      return res.status(201).json(user);
     }
     return res.status(404).json('not found');
   })
