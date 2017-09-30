@@ -1,28 +1,29 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 var User = require('../model/User');
 var Post = require('../model/Post');
 
-router.post('/', function(req, res) {
-  User.findOne({ id: req.body.writer }, function(err, writer) {
-    if (err) {
-      console.log('writer id를 찾을 수 없습니다.');
-      return res.status(400).send('writer id를 찾을 수 없습니다.');
-    }
+router.get('/', function(req, res) {
 
-    Post.create({
-      writer: writer,
-      content: req.body.content,
-      trip: req.body.trip
-    }, function(err, post) {
-      if (err) {
-        console.log('Post 생성 실패');
-        return res.status(500).send('Post 생성 실패');
-      }
-      return res.status(200).send(post);
-    });
-  })
+  var ageArea = req.query.age;
+  var ageStartDate = moment().add(-24, 'years').calendar();
+  console.log(ageStartDate);
+
+  return res.status(500).json('internal server error');
+
+  // Post.find({ $or : [{writer: {birth}} {age: req.query.age}, {startDate: req.query.startDate}, {endDate:}]})
+  // .then((results) => {
+  //   if(results) {
+  //     return res.status(200).json(results);
+  //   }
+  //   return res.status(404).json('not found');
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  //   return res.status(500).json('internal server error');
+  // });
 });
 
 module.exports = router;
