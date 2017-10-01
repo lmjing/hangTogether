@@ -254,18 +254,37 @@ router.get('/user/:id', function(req, res) {
   if(!req.params.id){
     return res.status(400).json('bad input parameter');
   }
+
+  var ing = []
+  var end = []
   Post.find({
-    writer: req.params.id
+    writer: req.params.id, recruiting: true
   }).sort({ created: -1 })
   .populate('writer')
   .populate('volunteer.user')
   .populate('guide')
   .then((posts) => {
     if(posts.length > 0) {
-      res.status(200).json(posts)
+      // res.status(200).json(posts)
+      ing = posts
+      return Post.find({
+        writer: req.params.id, recruiting: false
+      }).sort({ created: -1 })
+      .populate('writer')
+      .populate('volunteer.user')
+      .populate('guide')
+      .exec()
+    }else{
+      res.status(404).json('not found')
+    }
+  }).then((posts) => {
+    if(posts.length > 0) {
+      end = posts
+      return res.status(200).json({'ing': ing, 'end': end})
     }
     res.status(404).json('not found')
-  }).catch((err) => {
+  })
+  .catch((err) => {
     console.log(err)
     return res.status(500).json('internal server error');
   });
