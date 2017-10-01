@@ -82,6 +82,9 @@ router.get('/', function(req, res) {
       queryList.push({'tripDate.start': { $gte: new Date(req.query.startDate) }});
       queryList.push({'tripDate.end': { $lte: new Date(req.query.endDate) }});
     }
+    if(req.query.sex) {
+      writerQuery['sex'] = req.query.sex
+    }
 
     var query = {}
     if(queryList.length > 0){
@@ -90,7 +93,7 @@ router.get('/', function(req, res) {
 
     Post.find(query)
     .populate({path: 'writer', match: writerQuery})
-    .then((results) => {
+    .then((posts) => {
       if(posts) {
         var result = posts.filter((post) => {
           return post.writer != null
