@@ -58,6 +58,10 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
+    if(!req.query.page){
+      return res.status(400).json('bad input parameter');
+    }
+
     var queryList = [{'recruiting': true}]
     var writerQuery = {}
 
@@ -95,6 +99,8 @@ router.get('/', function(req, res) {
 
     Post.find(query)
     .sort({ created: -1 })
+    .skip(req.query.page * 10)
+    .limit(10)
     .populate({path: 'writer', match: writerQuery})
     .then((posts) => {
       if(posts) {
