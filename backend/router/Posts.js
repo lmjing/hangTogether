@@ -240,16 +240,10 @@ router.delete('/:id/apply', function(req, res){
       volunteer : { user: req.query.user }
     }}
   ).then((post) => {
-    console.log('before')
-    console.log(post)
-    return Post.findById(req.params.id).exec()
-  }).then((post) => {
     if(post) {
-      console.log('after')
-      console.log(post)
-      return res.status(200).json(post)
+      return res.status(201).json('Success - 신청이 취소되었습니다.')
     }
-    return res.status(404).json('not found')
+    return res.status(409).json('Fail - 신청에 실패했습니다.')
   }).catch((err) => {
     console.log(err)
     return res.status(500).json('internal server error');
