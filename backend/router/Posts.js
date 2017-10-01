@@ -63,7 +63,8 @@ router.get('/:id', function(req, res) {
 });
 router.get('/', function(req, res) {
     var queryList = []
-    var query = {}
+    var writerQuery = {}
+
     if(req.query.age) {
       var age = req.query.age;
       var ageEndDate = moment().add(-age, 'years').calendar();
@@ -72,7 +73,7 @@ router.get('/', function(req, res) {
         ageStartDate = moment().add(-120, 'years').calendar();
       }
 
-      query = {'birth': {
+      writerQuery = {'birth': {
         $gte: new Date(ageStartDate), $lte: new Date(ageEndDate)
       }};
     }
@@ -82,16 +83,19 @@ router.get('/', function(req, res) {
       queryList.push({'tripDate.end': { $lte: new Date(req.query.endDate) }});
     }
 
-    var abc = {}
+    var query = {}
     if(queryList.length > 0){
-      abc = {$and: queryList}
+      query = {$and: queryList}
     }
-    console.log(abc)
-    Post.find(abc)
-    // .populate({path: 'writer', match: query})
+
+    Post.find(query)
+    .populate({path: 'writer', match: writerQuery})
     .then((results) => {
-      if(results) {
-        return res.status(200).json(results);
+      if(posts) {
+        var result = posts.filter((post) => {
+          return post.writer != null
+        });
+        return res.status(200).json(result);
       }
       return res.status(404).json('not found');
     })
