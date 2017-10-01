@@ -58,7 +58,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/', function(req, res) {
-    var queryList = []
+    var queryList = [{'recruiting': true}]
     var writerQuery = {}
 
     // 나이대 옵션
