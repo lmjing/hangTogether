@@ -171,82 +171,36 @@ router.put('/:id/apply', function(req, res) {
     volunteerData['message'] = req.body.message
   }
 
-//삭제 테스트
+  //우선 기존에 있던게 있다면 삭제함
   Post.findByIdAndUpdate(
     req.params.id,
     {$pull: {
       volunteer : { user: req.body.volunteer }
     }}
   ).then((post) => {
-    console.log('before')
     console.log(post)
-    return Post.findById(req.params.id).exec()
+    if(post) {
+      return Post.findByIdAndUpdate(
+        req.params.id,
+        { $push: { volunteer: volunteerData } }
+      ).exec()
+    }else{
+      return res.status(404).json('not found');
+    }
   }).then((post) => {
     if(post) {
-      console.log('after')
-      console.log(post)
-      return res.status(200).json(post)
+      return res.status(201).json('신청됨');
+    }else{
+      return res.status(404).json('not found');
     }
-    return res.status(404).json('not found')
   })
-
-  //조회 테스트
-    // Post.find({
-    //   volunteer : {
-    //       $elemMatch: { user: req.body.volunteer }
-    //   }
-    // }).select('volunteer').then((post) => {
-    //   if(post) {
-    //     return res.status(200).json(post)
-    //   }
-    //   return res.status(404).json('not found')
-    // })
-
-  //삽입 테스트
-    // Post.findByIdAndUpdate(
-    //   req.params.id,
-    //   { $push: { volunteer: volunteerData } }
-    // ).then((post) => {
-    //   return Post.findById(req.params.id).exec()
-    // }).then((post) => {
-    //   if(post) {
-    //     return res.status(200).json(post)
-    //   }
-    //   return res.status(404).json('not found')
-    // })
-
-  //우선 기존에 있던게 있다면 삭제함
-  // Post.findByIdAndUpdate(
-  //   req.params.id,
-  //   {$pull: {
-  //     volunteer : {
-  //       $elemMatch: { user: req.body.volunteer }
-  //     }
-  //   }}
-  // ).then((post) => {
-  //   console.log(post)
-  //   if(post) {
-  //     return Post.findByIdAndUpdate(
-  //       req.params.id,
-  //       { $push: { volunteer: volunteerData } }
-  //     ).exec()
-  //   }else{
-  //     return res.status(404).json('not found');
-  //   }
-  // }).then((post) => {
-  //   if(post) {
-  //     return res.status(201).json('신청됨');
-  //   }else{
-  //     return res.status(404).json('not found');
-  //   }
-  // })
-  // .catch((err) => {
-  //   console.log(err)
-  //   if(err.name == 'CastError') {
-  //     return res.status(404).json('not found');
-  //   }
-  //   return res.status(500).json('internal server error');
-  // });
+  .catch((err) => {
+    console.log(err)
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
+    return res.status(500).json('internal server error');
+  });
 });
 
 module.exports = router;
