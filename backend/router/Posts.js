@@ -18,12 +18,11 @@ router.post('/', function(req, res) {
         content: req.body.content,
         tripDate: req.body.tripDate,
         trip: req.body.trip,
-        volunteer: null
+        volunteer: []
       });
 
       newPost.save()
       .then((result) => {
-        // return res.status(201).json(result);
         Post.findOne(result)
          .then((post) => {
            if (post) {
@@ -174,7 +173,12 @@ router.put('/:id/apply', function(req, res) {
   .then((user) => {
     if(user) {
       setData['user'] = user
-      Post.findByIdAndUpdate(req.params.id, {$push: setData}, {new: false})
+      if(user.type == 'foreigner') {
+        return res.status(400).json('외국인은 지원할 수 없습니다.');
+      }
+
+      console.log(setData)
+      Post.findByIdAndUpdate(req.params.id, {$push: { volunteer: setData }}, {new: true})
       .then((post) => {
         if(post) {
           return res.status(201).json(post);
