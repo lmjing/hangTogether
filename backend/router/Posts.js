@@ -24,6 +24,7 @@ router.post('/', function(req, res) {
       newPost.save()
       .then((result) => {
         Post.findOne(result)
+        .populate({path: 'writer'})
          .then((post) => {
            if (post) {
              return res.status(201).json(post);
@@ -178,7 +179,7 @@ router.put('/:id/apply', function(req, res) {
       }
 
       console.log(setData)
-      Post.findByIdAndUpdate(req.params.id, {$push: { volunteer: setData }}, {new: true})
+      Post.findByIdAndUpdate(req.params.id, {$push: { volunteer: setData }}, {upsert: true})
       .then((post) => {
         if(post) {
           return res.status(201).json(post);
