@@ -8,33 +8,55 @@ var postSchema = new Schema({
   },
   created: {
     type: Date,
-    max: Date.now
+    default: Date.now
   },
-  recruiting: {
-    type: Boolean,
-    default: true
+  content: {
+    type: String,
   },
-  content: String,
+  tripDate: {
+    start: {
+      type: Date,
+      min: Date.now
+    },
+    end: {
+      type: Date,
+      min: Date.now
+    }
+  },
   trip: [{
     date: {
       type: Date,
       min: Date.now
     },
-    place: String,
-    address: String
+    place: {
+      name: String,
+      address: String
+    }
+  }],
+  recruiting: {
+    type: Boolean,
+    default: true
+  },
+  guide: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }],
   volunteer: [{
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
-    message: String
-  }],
-  guide: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    default: null
-  }
+    message: {
+      type: String,
+      default: null
+    },
+    dates: [{
+      type: Date,
+      min: Date.now
+    }]
+  }]
+},{
+    versionKey: false // You should be aware of the outcome after set to false
 });
 
 mongoose.model('Post', postSchema);
