@@ -4,13 +4,24 @@ var Schema = mongoose.Schema;
 var Language = require('../model/Language');
 
 var userSchema = new Schema({
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   id: {
+=======
+  email: {
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
     type: String,
     index: true,
-    unique: true
+    unique: true,
+    validate: {
+      validator: function(email) {
+        return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(email);
+      },
+      message: 'The e-mail field cannot be empty.'
+    }
   },
   password: String,
+<<<<<<< HEAD
   email: String,
 =======
   email: {
@@ -25,11 +36,16 @@ var userSchema = new Schema({
     }
   },
   password: String,
+=======
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
   nickname: {
     type: String,
     unique: true
   },
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
   sex: {
     type: String,
     enum: ['male','female']
@@ -43,14 +59,24 @@ var userSchema = new Schema({
     type: String,
     default: null
   },
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   name: String,
   introduce: {
+=======
+  type: {
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
     type: String,
-    default: null
+    enum: ['korean','foreigner']
   },
-  language: {
+  languages: [{
+    language: {
+      type: String
+    }
+  }],
+  introduce: {
     type: String,
+<<<<<<< HEAD
     default: 'Korean'
     //
     // validate: {
@@ -78,12 +104,17 @@ var userSchema = new Schema({
   }],
   introduce: {
     type: String,
+=======
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
     default: null,
     maxlength: 100
   }
 },{
     versionKey: false // You should be aware of the outcome after set to false
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
 });
 
 mongoose.model('User', userSchema);

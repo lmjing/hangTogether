@@ -4,6 +4,7 @@ var router = express.Router();
 var Language = require('../model/Language');
 
 router.post('/', function(req, res) {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   Language.create({
     language: req.body.language
@@ -13,6 +14,10 @@ router.post('/', function(req, res) {
 =======
   var language = new Language({
     language: req.body.language
+=======
+  var language = new Language({
+    language: req.body.language
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
   });
   language.save()
   .then((language) => {
@@ -40,7 +45,10 @@ router.get('/', function(req, res) {
   .catch((err) => {
     console.log(err);
     return res.status(500).json('internal server error');
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> d24634c134a2223ba5206760384aa1375c4c6eca
   });
 });
 
