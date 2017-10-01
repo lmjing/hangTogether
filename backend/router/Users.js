@@ -56,7 +56,6 @@ router.post('/', function(req, res) {
 
   newUser.save()
   .then((user) => {
-    // return res.status(201).json(user);
     User.findOne({ email : req.body.email })
      .then((user) => {
        if (user) {

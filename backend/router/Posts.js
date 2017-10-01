@@ -23,7 +23,17 @@ router.post('/', function(req, res) {
 
       newPost.save()
       .then((result) => {
-        return res.status(201).json(result);
+        // return res.status(201).json(result);
+        Post.findOne(result)
+         .then((post) => {
+           if (post) {
+             return res.status(201).json(post);
+           }
+           return res.status(404).json('not found');
+         })
+         .catch((err) => {
+           return res.status(500).json('internal server error');
+         });
       })
       .catch((err) => {
         console.log(err);
