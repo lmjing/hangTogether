@@ -94,6 +94,7 @@ router.get('/', function(req, res) {
     }
 
     Post.find(query)
+    .sort({ created: -1 })
     .populate({path: 'writer', match: writerQuery})
     .then((posts) => {
       if(posts) {
@@ -261,7 +262,8 @@ router.get('/user/:id', function(req, res) {
   }
   Post.find({
     writer: req.params.id
-  }).populate('writer')
+  }).sort({ created: -1 })
+  .populate('writer')
   .populate('volunteer.user')
   .populate('guide')
   .then((posts) => {
