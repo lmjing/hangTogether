@@ -45,8 +45,7 @@ var postSchema = new Schema({
   volunteer: [{
     user: {
       type: Schema.Types.ObjectId,
-      ref: 'User',
-      unique: true
+      ref: 'User'
     },
     message: {
       type: String,

@@ -155,16 +155,13 @@ router.put('/:id', function(req, res) {
   });
 });
 
-router.delete('/:id/apply', function(req, res){
-  if(!req.params.id || !req.query.user ){
+router.delete('/:id', function(req, res) {
+  if(!req.params.id){
     return res.status(400).json('bad input parameter');
   }
 
   Post.findByIdAndUpdate(
-    req.params.id,
-    {$pull: {
-      volunteer : { user: req.query.user }
-    }}
+    req.params.id, {$set: {recruiting : false}}
   ).then((post) => {
     console.log('before')
     console.log(post)
@@ -226,5 +223,30 @@ router.put('/:id/apply', function(req, res) {
     return res.status(500).json('internal server error');
   });
 });
+
+// Test 요망
+router.delete('/:id/apply', function(req, res){
+  if(!req.params.id || !req.query.user ){
+    return res.status(400).json('bad input parameter');
+  }
+
+  Post.findByIdAndUpdate(
+    req.params.id,
+    {$pull: {
+      volunteer : { user: req.query.user }
+    }}
+  ).then((post) => {
+    console.log('before')
+    console.log(post)
+    return Post.findById(req.params.id).exec()
+  }).then((post) => {
+    if(post) {
+      console.log('after')
+      console.log(post)
+      return res.status(200).json(post)
+    }
+    return res.status(404).json('not found')
+  })
+})
 
 module.exports = router;
