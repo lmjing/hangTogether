@@ -163,40 +163,45 @@ router.put('/:id/apply', function(req, res) {
     return res.status(400).json('invalid input, object invalid.');
   }
 
-  var setData = {
-    'dates' : req.body.dates
+  var volunteerData = {
+    'dates' : req.body.dates,
+    'user': req.body.volunteer
   }
   if(req.body.message) {
-    setData['message'] = req.body.message
+    volunteerData['message'] = req.body.message
   }
 
-  User.findById(req.body.volunteer)
-  .then((user) => {
-    if(user) {
-      setData['user'] = user
-      if(user.type == 'foreigner') {
-        return res.status(400).json('외국인은 지원할 수 없습니다.');
+  //우선 기존에 있던게 있다면 삭제함
+  Post.findByIdAndUpdate(
+    req.params.id,
+    {$pull: {
+      volunteer : {
+        $elemMatch: { user: req.body.volunteer }
       }
-
-      console.log(setData)
-      Post.findByIdAndUpdate(req.params.id, {$push: { volunteer: setData }}, {upsert: true})
-      .then((post) => {
-        if(post) {
-          return res.status(201).json(post);
-        }else {
-          return res.status(404).json('not found');
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        if(err.name == 'CastError') {
-          return res.status(404).json('not found');
-        }
-        return res.status(500).json('internal server error');
-      });
+    }}
+  ).then((post) => {
+    console.log(post)
+    if(post) {
+      return Post.findByIdAndUpdate(
+        req.params.id,
+        { $push: { volunteer: volunteerData } }
+      ).exec()
     }else{
       return res.status(404).json('not found');
     }
+  }).then((post) => {
+    if(post) {
+      return res.status(201).json('신청됨');
+    }else{
+      return res.status(404).json('not found');
+    }
+  })
+  .catch((err) => {
+    console.log(err)
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
+    return res.status(500).json('internal server error');
   });
 });
 
