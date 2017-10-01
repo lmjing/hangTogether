@@ -37,11 +37,10 @@ var postSchema = new Schema({
     type: Boolean,
     default: true
   },
-  guide: {
+  guide: [{
     type: Schema.Types.ObjectId,
-    ref: 'User',
-    default: null
-  },
+    ref: 'User'
+  }],
   volunteer: [{
     user: {
       type: Schema.Types.ObjectId,

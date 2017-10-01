@@ -18,7 +18,8 @@ router.post('/', function(req, res) {
         content: req.body.content,
         tripDate: req.body.tripDate,
         trip: req.body.trip,
-        volunteer: []
+        volunteer: [],
+        guide: []
       });
 
       newPost.save()
@@ -116,6 +117,8 @@ router.get('/:id', function(req, res) {
 
   Post.findById(req.params.id)
   .populate('writer')
+  .populate('volunteer.user')
+  .populate('guide')
   .then((post) => {
     if (post) {
       return res.status(200).json(post)
@@ -259,6 +262,8 @@ router.get('/user/:id', function(req, res) {
   Post.find({
     writer: req.params.id
   }).populate('writer')
+  .populate('volunteer.user')
+  .populate('guide')
   .then((posts) => {
     if(posts.length > 0) {
       res.status(200).json(posts)
