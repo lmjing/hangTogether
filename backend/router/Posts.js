@@ -65,6 +65,7 @@ router.get('/', function(req, res) {
     var queryList = []
     var writerQuery = {}
 
+    // 나이대 옵션
     if(req.query.age) {
       var age = req.query.age;
       var ageEndDate = moment().add(-age, 'years').calendar();
@@ -77,11 +78,16 @@ router.get('/', function(req, res) {
         $gte: new Date(ageStartDate), $lte: new Date(ageEndDate)
       }};
     }
-    if(req.query.startDate && req.query.endDate) {
-      //여행 일정 옵션
-      queryList.push({'tripDate.start': { $gte: new Date(req.query.startDate) }});
-      queryList.push({'tripDate.end': { $lte: new Date(req.query.endDate) }});
+    //여행 일정 옵션
+    if(req.query.startDate || req.query.endDate) {
+      if(req.query.startDate && req.query.endDate) {
+        queryList.push({'tripDate.start': { $gte: new Date(req.query.startDate) }});
+        queryList.push({'tripDate.end': { $lte: new Date(req.query.endDate) }});
+      }else {
+        return res.status(404).json('날짜 옵션은 출발/도착일 모두 입력해야 합니다.');
+      }
     }
+    // 성별 옵션
     if(req.query.sex) {
       writerQuery['sex'] = req.query.sex
     }
@@ -107,35 +113,5 @@ router.get('/', function(req, res) {
       return res.status(500).json('internal server error');
     });
 });
-
-// router.get('/', function(req, res) {
-  // var age = req.query.age;
-  // var ageEndDate = moment().add(-age, 'years').calendar();
-  // var ageStartDate = moment().add(-age - 10, 'years').calendar();
-  // if (age == 40) {
-  //   ageStartDate = moment().add(-120, 'years').calendar();
-  // }
-//   console.log(ageStartDate);
-//   console.log(ageEndDate);
-//
-//   Post.find({
-//     // $or :[{
-//       writer: {
-//           birth:{$gte: ageStartDate, $lte: ageEndDate}
-//       }
-//     // }]
-//   })
-//   .populate('writer')
-//   .then((results) => {
-//     if(results) {
-//       return res.status(200).json(results);
-//     }
-//     return res.status(404).json('not found');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//     return res.status(500).json('internal server error');
-//   });
-// });
 
 module.exports = router;
