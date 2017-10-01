@@ -46,27 +46,6 @@ router.post('/', function(req, res) {
   });
 });
 
-router.get('/:id', function(req, res) {
-  if(req.params.id == null){
-    return res.status(400).json('bad input parameter');
-  }
-
-  Post.findById(req.params.id)
-  .populate('writer')
-  .then((post) => {
-    if (post) {
-      return res.status(200).json(post)
-    }
-    return res.status(400).json('error');
-  })
-  .catch((err) => {
-    if(err.name == 'CastError') {
-      return res.status(404).json('not found');
-    }
-    return res.status(500).json('internal server error');
-  });
-});
-
 router.get('/', function(req, res) {
     var queryList = []
     var writerQuery = {}
@@ -118,6 +97,52 @@ router.get('/', function(req, res) {
       console.log(err);
       return res.status(500).json('internal server error');
     });
+});
+
+router.get('/:id', function(req, res) {
+  if(req.params.id == null){
+    return res.status(400).json('bad input parameter');
+  }
+
+  Post.findById(req.params.id)
+  .populate('writer')
+  .then((post) => {
+    if (post) {
+      return res.status(200).json(post)
+    }
+    return res.status(400).json('error');
+  })
+  .catch((err) => {
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
+    return res.status(500).json('internal server error');
+  });
+});
+
+router.put('/:id', function(req, res) {
+  if(!req.params.id){
+    return res.status(400).json('bad input parameter');
+  }
+  if (!req.body.tripDate.start || !req.body.tripDate.end || req.body.trip.length == 0) {
+    return res.status(400).json('invalid input, object invalid.');
+  }
+
+  Post.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+  .then((post) => {
+    if(post) {
+      return res.status(201).json(post);
+    }else {
+      return res.status(404).json('not found');
+    }
+  })
+  .catch((err) => {
+    console.log(err)
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
+    return res.status(500).json('internal server error');
+  });
 });
 
 module.exports = router;
