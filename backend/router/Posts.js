@@ -246,7 +246,27 @@ router.delete('/:id/apply', function(req, res){
       return res.status(200).json(post)
     }
     return res.status(404).json('not found')
-  })
+  }).catch((err) => {
+    console.log(err)
+    return res.status(500).json('internal server error');
+  });
 })
 
+router.get('/user/:id', function(req, res) {
+  if(!req.params.id){
+    return res.status(400).json('bad input parameter');
+  }
+  Post.find({
+    writer: req.params.id
+  }).populate('writer')
+  .then((posts) => {
+    if(posts.length > 0) {
+      res.status(200).json(posts)
+    }
+    res.status(404).json('not found')
+  }).catch((err) => {
+    console.log(err)
+    return res.status(500).json('internal server error');
+  });
+})
 module.exports = router;
