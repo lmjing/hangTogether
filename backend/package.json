@@ -6,6 +6,7 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.0",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.13",
     "nodemon": "^1.12.1"
   },
