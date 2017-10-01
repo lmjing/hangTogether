@@ -155,6 +155,30 @@ router.put('/:id', function(req, res) {
   });
 });
 
+router.delete('/:id/apply', function(req, res){
+  if(!req.params.id || !req.query.user ){
+    return res.status(400).json('bad input parameter');
+  }
+
+  Post.findByIdAndUpdate(
+    req.params.id,
+    {$pull: {
+      volunteer : { user: req.query.user }
+    }}
+  ).then((post) => {
+    console.log('before')
+    console.log(post)
+    return Post.findById(req.params.id).exec()
+  }).then((post) => {
+    if(post) {
+      console.log('after')
+      console.log(post)
+      return res.status(200).json(post)
+    }
+    return res.status(404).json('not found')
+  })
+})
+
 router.put('/:id/apply', function(req, res) {
   if(!req.params.id){
     return res.status(400).json('bad input parameter');
