@@ -47,9 +47,12 @@ router.post('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
+  if(req.params.id == null){
+    return res.status(400).json('bad input parameter');
+  }
+
   Post.findById(req.params.id)
   .populate('writer')
-  .find({ 'writer.sex': 'male'})
   .then((post) => {
     if (post) {
       return res.status(200).json(post)
@@ -57,10 +60,13 @@ router.get('/:id', function(req, res) {
     return res.status(400).json('error');
   })
   .catch((err) => {
-    console.log(err);
+    if(err.name == 'CastError') {
+      return res.status(404).json('not found');
+    }
     return res.status(500).json('internal server error');
   });
 });
+
 router.get('/', function(req, res) {
     var queryList = []
     var writerQuery = {}
