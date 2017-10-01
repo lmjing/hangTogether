@@ -145,4 +145,44 @@ router.put('/:id', function(req, res) {
   });
 });
 
+router.put('/:id/apply', function(req, res) {
+  if(!req.params.id){
+    return res.status(400).json('bad input parameter');
+  }
+  if (!req.body.volunteer || req.body.dates.length == 0) {
+    return res.status(400).json('invalid input, object invalid.');
+  }
+
+  var setData = {
+    'dates' : req.body.dates
+  }
+  if(req.body.message) {
+    setData['message'] = req.body.message
+  }
+
+  User.findById(req.body.volunteer)
+  .then((user) => {
+    if(user) {
+      setData['user'] = user
+      Post.findByIdAndUpdate(req.params.id, {$push: setData}, {new: false})
+      .then((post) => {
+        if(post) {
+          return res.status(201).json(post);
+        }else {
+          return res.status(404).json('not found');
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        if(err.name == 'CastError') {
+          return res.status(404).json('not found');
+        }
+        return res.status(500).json('internal server error');
+      });
+    }else{
+      return res.status(404).json('not found');
+    }
+  });
+});
+
 module.exports = router;

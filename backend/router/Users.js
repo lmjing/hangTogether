@@ -56,7 +56,17 @@ router.post('/', function(req, res) {
 
   newUser.save()
   .then((user) => {
-    return res.status(201).json(user);
+    // return res.status(201).json(user);
+    User.findOne({ email : req.body.email })
+     .then((user) => {
+       if (user) {
+         return res.status(201).json(user);
+       }
+       return res.status(404).json('not found');
+     })
+     .catch((err) => {
+       return res.status(500).json('internal server error');
+     });
   })
   .catch((err) => {
   console.log(err);
