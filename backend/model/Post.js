@@ -28,13 +28,26 @@ var postSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
+<<<<<<< Updated upstream
     message: String
+=======
+    message: String,
+    date: {
+      type: Date,
+      min: Date.now
+    }
+>>>>>>> Stashed changes
   }],
   guide: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     default: null
   }
+<<<<<<< Updated upstream
+=======
+},{
+    versionKey: false // You should be aware of the outcome after set to false
+>>>>>>> Stashed changes
 });
 
 mongoose.model('Post', postSchema);

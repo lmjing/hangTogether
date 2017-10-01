@@ -4,6 +4,11 @@ var languageSchema = new mongoose.Schema({
     type: String,
     unique: true
   }
+<<<<<<< Updated upstream
+=======
+},{
+    versionKey: false // You should be aware of the outcome after set to false
+>>>>>>> Stashed changes
 });
 
 mongoose.model('Language', languageSchema);

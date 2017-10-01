@@ -22,11 +22,24 @@ app.listen(3000, function() {
   console.log('서버돌아가는 중 ~~');
 });
 
+<<<<<<< Updated upstream
 var promise = mongoose.connect('mongodb://localhost:27017/hangTogether', {
   useMongoClient: true
 });
 
 var db = mongoose.connection;
+=======
+// var promise = mongoose.connect('mongodb://localhost:27017/hangTogether', {
+//   useMongoClient: true
+// });
+
+mongoose.Promise = global.Promise;
+
+// var db = mongoose.connection;
+var db = mongoose.connect('mongodb://localhost:27017/hangTogether', {
+  useMongoClient: true
+});
+>>>>>>> Stashed changes
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('connected successfully');
