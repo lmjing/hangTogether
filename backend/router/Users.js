@@ -76,34 +76,23 @@ router.post('/', function(req, res) {
     }
     return res.status(500).json('internal server error');
   });
-  //만약 언어를 참조? 한다면
-  // Language.findOne({ name: req.body.language }, function(err, language) {
-  //   if (err) {
-  //     console.log("찾는 국가가 없습니다.");
-  //     return res.status(400).send("찾는 국가가 없습니다.");
-  //   }else {
-  //     User.create({
-  //       id: req.body.id,
-  //       password: req.body.password,
-  //       email: req.body.email,
-  //       sex: req.body.sex,
-  //       birth: req.body.birth,
-  //       profileUrl: req.body.profileUrl,
-  //       language: language,
-  //       name: req.body.name,
-  //       introduce: req.body.introduce,
-  //       language: req.body.language
-  //     },function(err, user){
-  //       if (err) {
-  //         console.log("User 생성 실패", err.message);
-  //         return res.status(500).send("User 생성 실패");
-  //       }else {
-  //         console.log("User 생성 성공");
-  //         return res.status(200).send(user);
-  //       }
-  //     });
-  //   }
-  // });
+});
+
+router.post('/login', function(req, res) {
+  if(!req.body.email || !req.body.password) {
+    return res.status(400).json('invalid input, object invalid.');
+  }
+
+  User.findOne({ email: req.body.email, password: req.body.password })
+  .then((user) => {
+    if(user) {
+      return res.status(200).json(user)
+    }
+    return res.status(404).json('not found')
+  })
+  .catch((err) => {
+    return res.status(500).json('internal server error');
+  })
 });
 
 router.get('/', function(req, res) {
