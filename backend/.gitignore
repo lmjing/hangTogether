@@ -60,8 +60,6 @@ typings/
 # dotenv environment variables file
 .env
 
-# Atom
-.ftpconfig
 
 # swagger
 swagger.json
