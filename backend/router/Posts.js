@@ -173,13 +173,9 @@ router.delete('/:id', function(req, res) {
   Post.findByIdAndUpdate(
     req.params.id, {$set: {recruiting : false}}
   ).then((post) => {
-    console.log('before')
-    console.log(post)
     return Post.findById(req.params.id).exec()
   }).then((post) => {
     if(post) {
-      console.log('after')
-      console.log(post)
       return res.status(200).json(post)
     }
     return res.status(404).json('not found')
@@ -209,7 +205,6 @@ router.put('/:id/apply', function(req, res) {
       volunteer : { user: req.body.volunteer }
     }}
   ).then((post) => {
-    console.log(post)
     if(post) {
       return Post.findByIdAndUpdate(
         req.params.id,

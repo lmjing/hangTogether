@@ -38,9 +38,7 @@ var userSchema = new Schema({
     enum: ['korean','foreigner']
   },
   languages: [{
-    language: {
-      type: String
-    }
+    type: String
   }],
   introduce: {
     type: String,

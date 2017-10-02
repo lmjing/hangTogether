@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var languageSchema = new mongoose.Schema({
+  area: String,
+  english: String,
+  code: String,
   language: {
     type: String,
     unique: true
