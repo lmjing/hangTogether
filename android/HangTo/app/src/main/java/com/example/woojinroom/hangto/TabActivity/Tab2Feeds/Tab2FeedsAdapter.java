@@ -68,8 +68,8 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
             ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
             Food food = mDataset.get(position);
 
-            itemViewHolder.authorName.setText(food.author);
-            itemViewHolder.foodName.setText(food.name);
+            //itemViewHolder.authorName.setText(food.author);
+           // itemViewHolder.foodName.setText(food.name);
         }
     }
 
