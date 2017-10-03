@@ -60,9 +60,10 @@ typings/
 # dotenv environment variables file
 .env
 
+# atom
+.ftpconfig
 
 # swagger
 swagger.json
 
 # End of https://www.gitignore.io/api/node
-
