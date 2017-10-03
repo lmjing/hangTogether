@@ -9,3 +9,21 @@
 import Foundation
 import Alamofire
 
+class Networking {
+    static func getLanguages() {
+        Alamofire.request("\(Config.hostURL)/language").responseJSON
+            { response in
+                switch response.result {
+                case .success(let response):
+                    print("Validation Successful")
+                    guard let contents = response as? [String] else { return }
+                    print(contents)
+                case .failure(let error):
+                    print("error")
+                    print(error)
+                }
+        }
+    }
+    
+    
+}
