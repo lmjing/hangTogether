@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		501A26D81F82924E00F24081 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26D71F82924E00F24081 /* Networking.swift */; };
-		501A26DB1F83724900F24081 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 501A26DA1F83724900F24081 /* Config.plist */; };
 		501A26DE1F8374CE00F24081 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26DD1F8374CE00F24081 /* Config.swift */; };
+		501A26E01F83836C00F24081 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 501A26DF1F83836C00F24081 /* Config.plist */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
 		5063D6B01F7D456D009639C5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AF1F7D456D009639C5 /* FirstViewController.swift */; };
 		5063D6B21F7D456D009639C5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6B11F7D456D009639C5 /* SecondViewController.swift */; };
@@ -35,8 +35,8 @@
 /* Begin PBXFileReference section */
 		032EFF2D5B6D7AB28B313856 /* Pods_hangTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hangTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		501A26D71F82924E00F24081 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		501A26DA1F83724900F24081 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		501A26DD1F8374CE00F24081 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		501A26DF1F83836C00F24081 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6AD1F7D456D009639C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5063D6AF1F7D456D009639C5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -109,8 +109,8 @@
 		501A26DC1F8374C200F24081 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				501A26DA1F83724900F24081 /* Config.plist */,
 				501A26DD1F8374CE00F24081 /* Config.swift */,
+				501A26DF1F83836C00F24081 /* Config.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501A26DB1F83724900F24081 /* Config.plist in Resources */,
+				501A26E01F83836C00F24081 /* Config.plist in Resources */,
 				5063D6BA1F7D456D009639C5 /* LaunchScreen.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
 				5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */,
