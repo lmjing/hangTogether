@@ -32,7 +32,7 @@ public class mainPageActivity extends AppCompatActivity {
     void afterBindingView() {
         this.activity = this;
 
-        /*ListView listview;
+        ListView listview;
         listViewAdapter adapter;
 
         // Adapter 생성
@@ -50,7 +50,7 @@ public class mainPageActivity extends AppCompatActivity {
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.test),
                 "lmjing", "content3","2017.09.26 22:45");
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.test),
-                "subin614", "content4","2017.09.26 22:43");*/
+                "subin614", "content4","2017.09.26 22:43");
 //        setSupportActionBar(cs_toolbar);
 //        getSupportActionBar().setTitle("스플래쉬");
 

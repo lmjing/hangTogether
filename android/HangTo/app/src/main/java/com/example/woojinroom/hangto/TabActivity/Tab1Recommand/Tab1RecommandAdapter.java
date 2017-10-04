@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
@@ -18,6 +20,13 @@ import java.util.ArrayList;
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent> {
+
+    ImageView imageView;
+    TextView textId;
+    TextView textContent;
+    TextView textTime;
+    int database = 1;
+
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_HEADER = 1;
 
@@ -52,10 +61,25 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
     @Override
     public ViewHolderParent onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
+            for(int i=0;i<database;i++){
+                //포문은 여러개를 메인페이지에 나열해야해서 돌림
+                //이부분을 배열화해서 디비 대조하고 글이 있는거만 메인페이지에 뿌려주면 될듯
+            imageView =(ImageView)parent.findViewById(R.id.imageView);
+            textId = (TextView)parent.findViewById(R.id.textView);
+            textContent = (TextView)parent.findViewById(R.id.textView2);
+            textTime = (TextView)parent.findViewById(R.id.textView3);
+
+            imageView.setImageResource(R.drawable.test);
+            textId.setText("testID");
+            textContent.setText("testContent");
+            textTime.setText("testTime");
+            }
+
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
+
             return new ViewHolderFood(v);
         } else if (viewType == TYPE_HEADER) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
             return new ViewHolderFoodCategory(v);
         }
         return null;

@@ -53,8 +53,8 @@ public class Tab1RecommandFragment extends TabParentFragment {
         final TabActivity tabActivity = (TabActivity) getActivity();
         this.activity = tabActivity;
 
-        //Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
-        //activity.setSupportActionBar(cs_toolbar);
+        Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
+        activity.setSupportActionBar(cs_toolbar);
         activity.getSupportActionBar().setTitle("LOGO");
 
         if (recyclerView == null) {
@@ -74,15 +74,15 @@ public class Tab1RecommandFragment extends TabParentFragment {
         }
         recyclerView.setAdapter(adapter);
 
-        //indicator = (LinearLayout)view.findViewById(R.id.indicator);
-        //pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
-/*        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        indicator = (LinearLayout)view.findViewById(R.id.indicator);
+        pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(false);
                 refresh();
             }
-        });*/
+        });
 
         connectRecommand();
     }
