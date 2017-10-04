@@ -21,6 +21,18 @@ class MainTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
     }
+    
+    func makeLanguages(languages: [String]) {
+        for language in languages {
+            let label = UILabel()
+            label.backgroundColor = UIColor.black
+            label.textColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 12)
+            label.text = language
+            label.textAlignment = .center
+            languageStackView.addArrangedSubview(label)
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

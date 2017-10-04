@@ -45,6 +45,7 @@ class FirstViewController: UITableViewController {
              cell.profileImageView.af_setImage(withURL: profileURL)
         }
 
+        cell.makeLanguages(languages: ["한국어","English (EEE)","ddddddd"])
         return cell
     }
 
