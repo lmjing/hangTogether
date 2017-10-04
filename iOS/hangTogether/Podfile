@@ -7,6 +7,7 @@ target 'hangTogether' do
 
   # Pods for hangTogether
 
+  pod 'AlamofireImage'
   pod 'Alamofire'
 
 end

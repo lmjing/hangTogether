@@ -17,7 +17,8 @@ class MainTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        profileImageView.radis
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
