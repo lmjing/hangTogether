@@ -12,12 +12,15 @@ class FirstViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.navigationItem.title = "글 목록"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
 
@@ -34,9 +37,10 @@ class FirstViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainTableViewCell
+        cell.titleLabel.text = "제에에에에에에목!"
+        cell.nicknameLabel.text = "mizzo"
+        cell.tripDateLabel.text = "2117/01/02 ~ 2117/01/04"
 
         return cell
     }

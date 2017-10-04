@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mainCell" selectionStyle="default" indentationWidth="10" rowHeight="107" id="k2Y-l9-80A" customClass="MainTableViewCell" customModule="hangTogether" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mainCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="107" id="k2Y-l9-80A" customClass="MainTableViewCell" customModule="hangTogether" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k2Y-l9-80A" id="0aQ-wK-Cux">
