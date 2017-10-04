@@ -23,6 +23,9 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         
         plusFloatingButton.addTarget(self, action: #selector(moveToWrite), for: .touchUpInside)
+        
+//        Networking.getLanguages()
+        Networking.getMainList()
     }
 
     override func didReceiveMemoryWarning() {

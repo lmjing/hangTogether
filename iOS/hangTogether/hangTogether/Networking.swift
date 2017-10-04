@@ -11,9 +11,9 @@ import Alamofire
 
 class Networking {
     static func getLanguages() {
-        Alamofire.request("\(Config.hostURL)/language").responseJSON
-            { response in
-                switch response.result {
+        Alamofire.request("\(Config.hostURL)/language").responseJSON {
+            response in
+            switch response.result {
                 case .success(let response):
                     print("Validation Successful")
                     guard let contents = response as? [String] else { return }
@@ -21,9 +21,20 @@ class Networking {
                 case .failure(let error):
                     print("error")
                     print(error)
-                }
+            }
         }
     }
     
+    static func getMainList() {
+        Alamofire.request("\(Config.hostURL)/post?page=0").responseJSON {
+            response in
+            switch response.result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
 }
