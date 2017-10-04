@@ -24,7 +24,7 @@ class MainTableViewCell: UITableViewCell {
     
     func makeLanguages(languages: [String]) {
         for language in languages {
-            let label = UILabel()
+            let label = paddingLabel()
             label.backgroundColor = UIColor.pointColor
             label.textColor = UIColor.white
             label.font = UIFont.boldSystemFont(ofSize: 12)
@@ -39,5 +39,20 @@ class MainTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+class paddingLabel: UILabel {
+    @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+    
+    override func drawText(in rect: CGRect) {
+        let paddingRect = UIEdgeInsetsInsetRect(rect, padding)
+        super.drawText(in: paddingRect)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.height += padding.top + padding.bottom
+        contentSize.width += padding.left + padding.right
+        return contentSize
+    }
 }
