@@ -25,7 +25,7 @@ class MainTableViewCell: UITableViewCell {
     func makeLanguages(languages: [String]) {
         for language in languages {
             let label = UILabel()
-            label.backgroundColor = UIColor.black
+            label.backgroundColor = UIColor.pointColor
             label.textColor = UIColor.white
             label.font = UIFont.boldSystemFont(ofSize: 12)
             label.text = language
