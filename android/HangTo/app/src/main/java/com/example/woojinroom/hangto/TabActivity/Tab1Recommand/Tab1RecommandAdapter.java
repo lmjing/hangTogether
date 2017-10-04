@@ -5,8 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
@@ -21,12 +19,6 @@ import java.util.ArrayList;
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent> {
-
-    ImageView imageView;
-    TextView textId;
-    TextView textContent;
-    TextView textTime;
-    int database = 1;
 
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_HEADER = 1;
@@ -62,27 +54,7 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
     @Override
     public ViewHolderParent onCreateViewHolder(final ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            for(int i=0;i<database;i++){
-                //포문은 여러개를 메인페이지에 나열해야해서 돌림
-                //이부분을 배열화해서 디비 대조하고 글이 있는거만 메인페이지에 뿌려주면 될듯
-            imageView =(ImageView)parent.findViewById(R.id.imageView);
-            textId = (TextView)parent.findViewById(R.id.textView);
-            textContent = (TextView)parent.findViewById(R.id.textView2);
-            textTime = (TextView)parent.findViewById(R.id.textView3);
-
-            imageView.setImageResource(R.drawable.test);
-            textId.setText("testID");
-            textContent.setText("testContent");
-            textTime.setText("testTime");
-            }
-            textId.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View view){
-                    Toast.makeText(parent.getContext(),"아이디 눌림",Toast.LENGTH_SHORT).show();
-                }
-            });
-
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
-
             return new ViewHolderFood(v);
         } else if (viewType == TYPE_HEADER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
@@ -103,8 +75,24 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
             Food food = mDataset.get(position-1);
 
-//            itemViewHolder.cellFoodHeader.setVisibility(View.GONE);
- //           itemViewHolder.foodName.setText(food.name);
+           // itemViewHolder.list_mainpage.setVisibility(View.GONE);
+            itemViewHolder.imageView.setImageResource(R.drawable.test);
+            itemViewHolder.textId.setText(food.id);
+
+            itemViewHolder.textId.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(view.getContext(),"ID 눌림",Toast.LENGTH_SHORT).show();
+                }
+            });
+            itemViewHolder.textContent.setText(food.content);
+            itemViewHolder.textContent.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(view.getContext(),"Content 눌림",Toast.LENGTH_SHORT).show();
+                }
+            });
+            itemViewHolder.textTime.setText(food.time);
+
+
 
             // LOAD MORE
 //            if (position == mDataset.size()-1 && !fragment.endOfPage)

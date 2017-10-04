@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
@@ -50,7 +51,7 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
     @Override
     public ViewHolderParent onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
             return new ViewHolderFood(v);
         }
         return null;
@@ -68,8 +69,21 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
             ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
             Food food = mDataset.get(position);
 
-            //itemViewHolder.authorName.setText(food.author);
-           // itemViewHolder.foodName.setText(food.name);
+            itemViewHolder.imageView.setImageResource(R.drawable.test);
+            itemViewHolder.textId.setText(food.id);
+
+            itemViewHolder.textId.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(view.getContext(),"ID 눌림",Toast.LENGTH_SHORT).show();
+                }
+            });
+            itemViewHolder.textContent.setText(food.content);
+            itemViewHolder.textContent.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(view.getContext(),"Content 눌림",Toast.LENGTH_SHORT).show();
+                }
+            });
+            itemViewHolder.textTime.setText(food.time);
         }
     }
 

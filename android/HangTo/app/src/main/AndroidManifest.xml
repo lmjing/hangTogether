@@ -24,9 +24,6 @@
         <activity android:name=".joinActivity">
 
     </activity>
-        <activity android:name=".mainPageActivity_">
-
-        </activity>
         <activity android:name=".messageActivity">
 
         </activity>

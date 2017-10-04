@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.woojinroom.hangto.TabActivity.TabActivity_;
+
 public class loginActivity extends AppCompatActivity {
     EditText editText_id;
     EditText editText_pass;
@@ -20,8 +22,6 @@ public class loginActivity extends AppCompatActivity {
         editText_id = (EditText)findViewById(R.id.editText);
         editText_pass = (EditText)findViewById(R.id.editText2);
 
-        String id = "id";
-
         Button button = (Button)findViewById(R.id.button);
 
         //id 와 pw 를 db에 있는거랑 비교해서 존재하면 통과
@@ -29,7 +29,7 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View view){
                 if(editText_id.getText().toString().equals("id")) {
                     if(editText_pass.getText().toString().equals("pw")) {
-                        Intent login_intent = new Intent(getApplicationContext(), mainPageActivity_.class);
+                        Intent login_intent = new Intent(getApplicationContext(), TabActivity_.class);
                         startActivity(login_intent);
                         finish();
                     } else{
