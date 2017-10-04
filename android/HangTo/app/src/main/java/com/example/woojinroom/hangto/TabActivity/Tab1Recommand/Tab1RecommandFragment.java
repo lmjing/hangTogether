@@ -53,9 +53,9 @@ public class Tab1RecommandFragment extends TabParentFragment {
         final TabActivity tabActivity = (TabActivity) getActivity();
         this.activity = tabActivity;
 
-        //Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
-        //activity.setSupportActionBar(cs_toolbar);
-        //activity.getSupportActionBar().setTitle("LOGO");
+        Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
+        activity.setSupportActionBar(cs_toolbar);
+        activity.getSupportActionBar().setTitle("LOGO");
 
         if (recyclerView == null) {
             recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
