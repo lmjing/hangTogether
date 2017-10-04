@@ -10,9 +10,9 @@
 		501A26D81F82924E00F24081 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26D71F82924E00F24081 /* Networking.swift */; };
 		501A26DE1F8374CE00F24081 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26DD1F8374CE00F24081 /* Config.swift */; };
 		501A26E01F83836C00F24081 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 501A26DF1F83836C00F24081 /* Config.plist */; };
-		501A26E61F83AAEF00F24081 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26E51F83AAEF00F24081 /* FirstViewController.swift */; };
 		501A26E91F849C3000F24081 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26E81F849C3000F24081 /* MainTableViewCell.swift */; };
 		501A26EB1F84ADC100F24081 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26EA1F84ADC100F24081 /* Extension.swift */; };
+		502689451F84FA7D00819D3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689441F84FA7D00819D3C /* MainViewController.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
 		5063D6B21F7D456D009639C5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6B11F7D456D009639C5 /* SecondViewController.swift */; };
 		5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B31F7D456D009639C5 /* Main.storyboard */; };
@@ -39,9 +39,9 @@
 		501A26D71F82924E00F24081 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		501A26DD1F8374CE00F24081 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		501A26DF1F83836C00F24081 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		501A26E51F83AAEF00F24081 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		501A26E81F849C3000F24081 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		501A26EA1F84ADC100F24081 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		502689441F84FA7D00819D3C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6AD1F7D456D009639C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5063D6B11F7D456D009639C5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -120,13 +120,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		501A26E71F849C0F00F24081 /* FirstView */ = {
+		501A26E71F849C0F00F24081 /* First_MainView */ = {
 			isa = PBXGroup;
 			children = (
-				501A26E51F83AAEF00F24081 /* FirstViewController.swift */,
 				501A26E81F849C3000F24081 /* MainTableViewCell.swift */,
+				502689441F84FA7D00819D3C /* MainViewController.swift */,
 			);
-			name = FirstView;
+			name = First_MainView;
 			sourceTree = "<group>";
 		};
 		5063D6A11F7D456D009639C5 = {
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				5063D6B31F7D456D009639C5 /* Main.storyboard */,
-				501A26E71F849C0F00F24081 /* FirstView */,
+				501A26E71F849C0F00F24081 /* First_MainView */,
 				5063D6B11F7D456D009639C5 /* SecondViewController.swift */,
 				5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */,
 				5063D6FE1F7D4854009639C5 /* FourthViewController.swift */,
@@ -355,7 +355,7 @@
 				501A26DE1F8374CE00F24081 /* Config.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
 				5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */,
-				501A26E61F83AAEF00F24081 /* FirstViewController.swift in Sources */,
+				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
