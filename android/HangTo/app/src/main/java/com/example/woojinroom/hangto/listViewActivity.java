@@ -10,15 +10,15 @@ import android.widget.TextView;
  */
 
 public class listViewActivity extends AppCompatActivity {
-    ImageView imageView;
+  /*  ImageView imageView;
     TextView textId;
     TextView textContent;
-    TextView textTime;
+    TextView textTime;*/
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview_mainpage);
-        imageView =(ImageView)findViewById(R.id.imageView);
+        /*imageView =(ImageView)findViewById(R.id.imageView);
         textId = (TextView)findViewById(R.id.textView);
         textContent = (TextView)findViewById(R.id.textView2);
         textTime = (TextView)findViewById(R.id.textView3);
@@ -26,7 +26,7 @@ public class listViewActivity extends AppCompatActivity {
         imageView.setImageResource(R.drawable.test);
         textId.setText("testID");
         textContent.setText("testContent");
-        textTime.setText("testTime");
+        textTime.setText("testTime");*/
 
     }
 

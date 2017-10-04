@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
@@ -59,7 +60,7 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
     }
 
     @Override
-    public ViewHolderParent onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolderParent onCreateViewHolder(final ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
             for(int i=0;i<database;i++){
                 //포문은 여러개를 메인페이지에 나열해야해서 돌림
@@ -74,6 +75,11 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             textContent.setText("testContent");
             textTime.setText("testTime");
             }
+            textId.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(parent.getContext(),"아이디 눌림",Toast.LENGTH_SHORT).show();
+                }
+            });
 
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
 
@@ -121,3 +127,4 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
         return mDataset.size()+1;
     }
 }
+
