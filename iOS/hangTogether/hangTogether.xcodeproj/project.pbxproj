@@ -13,6 +13,7 @@
 		501A26E91F849C3000F24081 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26E81F849C3000F24081 /* MainTableViewCell.swift */; };
 		501A26EB1F84ADC100F24081 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26EA1F84ADC100F24081 /* Extension.swift */; };
 		502689451F84FA7D00819D3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689441F84FA7D00819D3C /* MainViewController.swift */; };
+		502689481F8530A200819D3C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689471F8530A200819D3C /* Post.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
 		5063D6B21F7D456D009639C5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6B11F7D456D009639C5 /* SecondViewController.swift */; };
 		5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B31F7D456D009639C5 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		501A26E81F849C3000F24081 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		501A26EA1F84ADC100F24081 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		502689441F84FA7D00819D3C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		502689471F8530A200819D3C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6AD1F7D456D009639C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5063D6B11F7D456D009639C5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 			name = First_MainView;
 			sourceTree = "<group>";
 		};
+		502689461F85309100819D3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				502689471F8530A200819D3C /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		5063D6A11F7D456D009639C5 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 		5063D6AC1F7D456D009639C5 /* hangTogether */ = {
 			isa = PBXGroup;
 			children = (
+				502689461F85309100819D3C /* Model */,
 				501A26DC1F8374C200F24081 /* Resources */,
 				501A26D91F8293B000F24081 /* Util */,
 				5063D6FB1F7D479A009639C5 /* TabView */,
@@ -314,11 +325,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-hangTogether/Pods-hangTogether-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -356,6 +369,7 @@
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
 				5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
+				502689481F8530A200819D3C /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
