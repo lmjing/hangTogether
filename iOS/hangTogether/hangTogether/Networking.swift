@@ -31,19 +31,14 @@ class Networking {
             switch response.result {
             case .success(let response):
                 guard let contents = response as? [[String:Any]] else { return }
+                
+                var mainList:[Post] = []
                 for content in contents {
                     if let post = Post(JSON: content) {
-//                        print(post.id)
-//                        print(post.content!)
-//                        print(post.created)
-//                        print(post.guide)
-//                        print(post.recruiting)
-//                        print(post.trip)
-//                        print(post.tripDate)
-//                        print(post.volunteer)
-                        print(post.writer.type)
+                        mainList.append(post)
                     }
                 }
+                NotificationCenter.default.post(name: Notification.Name.mainList , object: self, userInfo: ["mainList":mainList])
             case .failure(let error):
                 print(error)
             }

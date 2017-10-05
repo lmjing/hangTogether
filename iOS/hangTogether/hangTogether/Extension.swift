@@ -12,3 +12,7 @@ import UIKit
 extension UIColor {
     static let pointColor = UIColor(red: 53/255, green: 186/255, blue: 188/255, alpha: 1)
 }
+
+extension Notification.Name {
+    static let mainList = Notification.Name("getMainList")
+}
