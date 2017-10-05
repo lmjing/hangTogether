@@ -36,9 +36,13 @@ class MainViewController: UIViewController {
     
     func moveToWrite() {
         let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
-//        navigationController?.pushViewController(writePostViewController, animated: true)
-//        navigationController?.setViewControllers([writePostViewController], animated: true)
-        self.present(writePostViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(writePostViewController, animated: true)
+        
+        //전체 화면 차지하나 navigationbar 생기지 않음
+//음       self.present(writePostViewController, animated: true, completion: nil)
+        //같은 navigationbar가 아니라서 backbutton 생기지 않음
+//        let test = UINavigationController(rootViewController: writePostViewController)
+//        self.present(test, animated: true, completion: nil)
     }
 
     func recieve(notification: Notification) {

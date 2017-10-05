@@ -64,10 +64,11 @@
                             <constraint firstItem="86Y-qK-fAo" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" constant="15" id="sQr-uX-dKB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Vb1-xv-zoc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idr-SF-FWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-138.40000000000001" y="-229.83508245877064"/>
+            <point key="canvasLocation" x="540" y="-229.83508245877064"/>
         </scene>
     </scenes>
 </document>
