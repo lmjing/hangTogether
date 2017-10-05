@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
+  title: {
+    type: String,
+    maxlength: 40
+  },
   writer: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -12,6 +16,7 @@ var postSchema = new Schema({
   },
   content: {
     type: String,
+    maxlength: 200
   },
   tripDate: {
     start: {

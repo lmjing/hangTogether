@@ -14,6 +14,7 @@ router.post('/', function(req, res) {
   .then((user) => {
     if(user) {
       var newPost = new Post({
+        title: req.body.title,
         writer: user,
         content: req.body.content,
         tripDate: req.body.tripDate,
