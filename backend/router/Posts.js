@@ -14,6 +14,7 @@ router.post('/', function(req, res) {
   .then((user) => {
     if(user) {
       var newPost = new Post({
+        title: req.body.title,
         writer: user,
         content: req.body.content,
         tripDate: req.body.tripDate,
@@ -144,7 +145,7 @@ router.put('/:id', function(req, res) {
   if(!req.params.id){
     return res.status(400).json('bad input parameter');
   }
-  if (!req.body.tripDate.start || !req.body.tripDate.end || req.body.trip.length == 0) {
+  if (!req.body.tripDate.start || !req.body.tripDate.end || req.body.trip.length == 0 || req.body.title) {
     return res.status(400).json('invalid input, object invalid.');
   }
 
