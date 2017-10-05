@@ -145,7 +145,7 @@ router.put('/:id', function(req, res) {
   if(!req.params.id){
     return res.status(400).json('bad input parameter');
   }
-  if (!req.body.tripDate.start || !req.body.tripDate.end || req.body.trip.length == 0 || !req.body.title) {
+  if (!req.body.tripDate.start || !req.body.tripDate.end || req.body.trip.length == 0 || req.body.title) {
     return res.status(400).json('invalid input, object invalid.');
   }
 
