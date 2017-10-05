@@ -23,6 +23,7 @@
 		5063D6C51F7D456D009639C5 /* hangTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6C41F7D456D009639C5 /* hangTogetherTests.swift */; };
 		5063D6FD1F7D483C009639C5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */; };
 		5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FE1F7D4854009639C5 /* FourthViewController.swift */; };
+		50BDB6AE1F865A080009CF60 /* WritePostView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePostView.storyboard */; };
 		8EEA7B1346138347BD6FB5B4 /* Pods_hangTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032EFF2D5B6D7AB28B313856 /* Pods_hangTogether.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		5063D6C61F7D456D009639C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5063D6FE1F7D4854009639C5 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		50BDB6AD1F865A080009CF60 /* WritePostView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePostView.storyboard; sourceTree = "<group>"; };
 		5855F0BA8128174EF9552CE0 /* Pods_hangTogetherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hangTogetherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61683DE4968E9E472E461C63 /* Pods-hangTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hangTogether.release.xcconfig"; path = "Pods/Target Support Files/Pods-hangTogether/Pods-hangTogether.release.xcconfig"; sourceTree = "<group>"; };
 		7231AF8E83922BAF772719E2 /* Pods-hangTogetherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hangTogetherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hangTogetherTests/Pods-hangTogetherTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				502689461F85309100819D3C /* Model */,
 				501A26DC1F8374C200F24081 /* Resources */,
 				501A26D91F8293B000F24081 /* Util */,
+				50BDB6AB1F86596C0009CF60 /* View */,
 				5063D6FB1F7D479A009639C5 /* TabView */,
 				5063D6AD1F7D456D009639C5 /* AppDelegate.swift */,
 				5063D6B61F7D456D009639C5 /* Assets.xcassets */,
@@ -196,6 +199,22 @@
 				5063D6FE1F7D4854009639C5 /* FourthViewController.swift */,
 			);
 			name = TabView;
+			sourceTree = "<group>";
+		};
+		50BDB6AB1F86596C0009CF60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50BDB6AC1F8659A50009CF60 /* WritePost */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		50BDB6AC1F8659A50009CF60 /* WritePost */ = {
+			isa = PBXGroup;
+			children = (
+				50BDB6AD1F865A080009CF60 /* WritePostView.storyboard */,
+			);
+			name = WritePost;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +305,7 @@
 			files = (
 				501A26E01F83836C00F24081 /* Config.plist in Resources */,
 				5063D6BA1F7D456D009639C5 /* LaunchScreen.storyboard in Resources */,
+				50BDB6AE1F865A080009CF60 /* WritePostView.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
 				5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */,
 			);
