@@ -1,18 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Write Post View Controller-->
         <scene sceneID="7p4-Hc-T7I">
             <objects>
-                <viewController id="IxT-1i-Qht" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="writePost" id="IxT-1i-Qht" customClass="WritePostViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hAf-g5-Bnb"/>
                         <viewControllerLayoutGuide type="bottom" id="tbi-dK-9IV"/>
@@ -20,12 +21,53 @@
                     <view key="view" contentMode="scaleToFill" id="f0f-CV-gIR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ag5-cx-tHS">
+                                <rect key="frame" x="16" y="50" width="343" height="27"/>
+                                <color key="tintColor" red="0.2053697407245636" green="0.73057287931442261" blue="0.73685550689697266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="친구들에게 하고 싶은 말을 남겨주세요 :)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zuo-Ls-Mp1">
+                                <rect key="frame" x="31" y="107" width="313" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="dUJ-rH-jPG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86Y-qK-fAo">
+                                <rect key="frame" x="31" y="225" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Op-6B-w7Y">
+                                <rect key="frame" x="31" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ag5-cx-tHS" firstAttribute="top" secondItem="hAf-g5-Bnb" secondAttribute="bottom" constant="30" id="0rT-cN-KHB"/>
+                            <constraint firstItem="zuo-Ls-Mp1" firstAttribute="top" secondItem="Ag5-cx-tHS" secondAttribute="bottom" constant="30" id="1or-Ql-9dr"/>
+                            <constraint firstItem="Ag5-cx-tHS" firstAttribute="trailing" secondItem="f0f-CV-gIR" secondAttribute="trailingMargin" id="2Ix-j4-6qs"/>
+                            <constraint firstItem="Ag5-cx-tHS" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" id="DYb-KI-Osv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zuo-Ls-Mp1" secondAttribute="trailing" constant="15" id="Mof-ch-bdp"/>
+                            <constraint firstItem="zuo-Ls-Mp1" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" constant="15" id="azs-OC-Qhj"/>
+                            <constraint firstItem="86Y-qK-fAo" firstAttribute="top" secondItem="zuo-Ls-Mp1" secondAttribute="bottom" constant="28" id="bB6-pt-YPN"/>
+                            <constraint firstItem="86Y-qK-fAo" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" constant="15" id="sQr-uX-dKB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idr-SF-FWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-138" y="-229"/>
+            <point key="canvasLocation" x="-138.40000000000001" y="-229.83508245877064"/>
         </scene>
     </scenes>
 </document>

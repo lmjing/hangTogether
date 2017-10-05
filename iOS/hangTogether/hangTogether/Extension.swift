@@ -16,3 +16,7 @@ extension UIColor {
 extension Notification.Name {
     static let mainList = Notification.Name("getMainList")
 }
+
+extension UIStoryboard {
+    static let writePostStoryboard = UIStoryboard(name: "WritePostView", bundle: nil)
+}

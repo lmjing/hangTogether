@@ -35,7 +35,10 @@ class MainViewController: UIViewController {
     }
     
     func moveToWrite() {
-        print("플로팅 버튼 눌림")
+        let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
+//        navigationController?.pushViewController(writePostViewController, animated: true)
+//        navigationController?.setViewControllers([writePostViewController], animated: true)
+        self.present(writePostViewController, animated: true, completion: nil)
     }
 
     func recieve(notification: Notification) {
