@@ -39,9 +39,9 @@ class Networking {
 //                        print(post.guide)
 //                        print(post.recruiting)
 //                        print(post.trip)
-                        print(post.tripDate)
+//                        print(post.tripDate)
 //                        print(post.volunteer)
-//                        print(post.writer)
+                        print(post.writer.type)
                     }
                 }
             case .failure(let error):

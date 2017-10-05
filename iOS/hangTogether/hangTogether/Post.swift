@@ -9,19 +9,46 @@
 import Foundation
 import ObjectMapper
 
+//class Trip: Mappable {
+//    private(set) var date: Date!
+//    private(set) var place: [String:String] = [:]
+//    
+//    required init?(map: Map) {
+//        
+//    }
+//    
+//    func mapping(map: Map) {
+//        date <- (map["date"], DateTransform())
+//        place <- map["place"]
+//    }
+//}
+
+struct Trip: Mappable {
+    private(set) var date: Date!
+    private(set) var place: [String:String] = [:]
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        date <- (map["date"], DateTransform())
+        place <- map["place"]
+    }
+}
+
 class Post: Mappable {
-    var id: String!
+    private(set) var id: String!
     //TODO: User 객체 만들어서 정의하기
-    var writer: [String:Any] = [:]
-    var created: Date!
-    var content: String?
-    //TODO: String -> Date 바꿔서 해보기
-    var tripDate: [String:Date] = [:]
-    //TODO: Struct 정의해서 해보기
-    var trip: [[String:Any]] = []
-    var recruiting: Bool!
-    var guide: [[String:Any]] = []
-    var volunteer: [String:Any] = [:]
+//    private(set) var writer: [String:Any] = [:]
+    private(set) var writer: User!
+    private(set) var created: Date!
+    private(set) var content: String?
+    private(set) var tripDate: [String:Date] = [:]
+    private(set) var trip: [Trip] = []
+    private(set) var recruiting: Bool!
+    private(set) var guide: [[String:Any]] = []
+    private(set) var volunteer: [String:Any] = [:]
     
     required init?(map: Map) {
         
@@ -31,7 +58,6 @@ class Post: Mappable {
         id     <- map["_id"]
         writer  <- map["writer"]
         created     <- (map["created"], DateTransform())
-        
         content  <- map["content"]
         tripDate     <- (map["tripDate"], DateTransform())
         trip  <- map["trip"]
