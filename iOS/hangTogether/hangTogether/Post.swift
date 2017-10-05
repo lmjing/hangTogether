@@ -29,7 +29,8 @@ class Post: Mappable {
     private(set) var created: Date!
     private(set) var title: String!
     private(set) var content: String?
-    private(set) var tripDate: [String:Date] = [:]
+//    private(set) var tripDate: [String:Date] = [:]
+    private(set) var tripDate: String!
     private(set) var trip: [Trip] = []
     private(set) var recruiting: Bool!
     private(set) var guide: [[String:Any]] = []
@@ -45,10 +46,20 @@ class Post: Mappable {
         created     <- (map["created"], DateTransform())
         title       <- map["title"]
         content     <- map["content"]
-        tripDate    <- (map["tripDate"], DateTransform())
+//        tripDate    <- (map["tripDate"], DateTransform())
         trip        <- map["trip"]
         recruiting  <- map["recruiting"]
         guide       <- map["guide"]
         volunteer   <- map["volunteer"]
+        
+        var dateJson:[String:Date] = [:]
+        dateJson <- (map["tripDate"], DateTransform())
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        if let start = dateJson["start"], let end = dateJson["end"] {
+            tripDate = "\(dateFormatter.string(from: start)) ~ \(dateFormatter.string(from: end))"
+        }
+        print(created)
     }
 }

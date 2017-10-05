@@ -73,7 +73,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = post.title
         cell.nicknameLabel.text = post.writer.nickname
         //TODO: date 안됨
-        cell.tripDateLabel.text = "2117/01/02 ~ 2117/01/04"
+        cell.tripDateLabel.text = post.tripDate
         
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
             cell.profileImageView.af_setImage(withURL: profileURL)
