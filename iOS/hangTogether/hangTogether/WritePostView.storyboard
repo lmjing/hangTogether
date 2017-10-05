@@ -6,69 +6,113 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Write Post View Controller-->
-        <scene sceneID="7p4-Hc-T7I">
+        <scene sceneID="ScZ-3J-677">
             <objects>
-                <viewController storyboardIdentifier="writePost" id="IxT-1i-Qht" customClass="WritePostViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="writePost" id="Xid-sY-zG0" customClass="WritePostViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hAf-g5-Bnb"/>
-                        <viewControllerLayoutGuide type="bottom" id="tbi-dK-9IV"/>
+                        <viewControllerLayoutGuide type="top" id="9Fy-RF-Cql"/>
+                        <viewControllerLayoutGuide type="bottom" id="AcE-1c-h0k"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f0f-CV-gIR">
+                    <view key="view" contentMode="scaleToFill" id="RSr-sB-Fdp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ag5-cx-tHS">
-                                <rect key="frame" x="16" y="50" width="343" height="27"/>
-                                <color key="tintColor" red="0.2053697407245636" green="0.73057287931442261" blue="0.73685550689697266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="친구들에게 하고 싶은 말을 남겨주세요 :)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zuo-Ls-Mp1">
-                                <rect key="frame" x="31" y="107" width="313" height="90"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EAd-9R-tyD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-bg-P2o">
+                                        <rect key="frame" x="25" y="102" width="325" height="90"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="6wV-vo-M2p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoS-Nt-VzU">
+                                        <rect key="frame" x="97.5" y="45" width="180.5" height="27"/>
+                                        <color key="tintColor" red="0.2053697407" green="0.73057287930000003" blue="0.73685550690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kX-fX-yhU">
+                                        <rect key="frame" x="25" y="222" width="67" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53V-41-n67">
+                                        <rect key="frame" x="25" y="273.5" width="325" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="날짜 선택" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UV7-Ue-Rm5">
+                                                <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ3-kp-yJV">
+                                                <rect key="frame" x="153" y="12" width="19.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="날짜 선택" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXS-Qk-Ncy">
+                                                <rect key="frame" x="182.5" y="0.0" width="142.5" height="50"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="dJ3-kp-yJV" firstAttribute="centerX" secondItem="53V-41-n67" secondAttribute="centerX" id="GEU-UP-vNv"/>
+                                            <constraint firstItem="UV7-Ue-Rm5" firstAttribute="height" secondItem="53V-41-n67" secondAttribute="height" id="HWh-m3-s7B"/>
+                                            <constraint firstAttribute="height" constant="50" id="ePB-DN-Yqv"/>
+                                            <constraint firstItem="fXS-Qk-Ncy" firstAttribute="height" secondItem="53V-41-n67" secondAttribute="height" id="lc9-8O-NRW"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsO-f0-J6P">
+                                        <rect key="frame" x="25" y="353.5" width="67" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="dUJ-rH-jPG"/>
+                                    <constraint firstAttribute="trailing" secondItem="cBw-bg-P2o" secondAttribute="trailing" constant="25" id="0fM-oi-pxd"/>
+                                    <constraint firstItem="cBw-bg-P2o" firstAttribute="centerX" secondItem="EAd-9R-tyD" secondAttribute="centerX" id="4eH-A4-INA"/>
+                                    <constraint firstAttribute="trailing" secondItem="53V-41-n67" secondAttribute="trailing" constant="25" id="69S-QB-BhB"/>
+                                    <constraint firstItem="cBw-bg-P2o" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="AW0-lV-f0n"/>
+                                    <constraint firstItem="6kX-fX-yhU" firstAttribute="top" secondItem="cBw-bg-P2o" secondAttribute="bottom" constant="30" id="BcI-5k-jkb"/>
+                                    <constraint firstItem="53V-41-n67" firstAttribute="top" secondItem="6kX-fX-yhU" secondAttribute="bottom" constant="30" id="HDu-gU-elu"/>
+                                    <constraint firstItem="qoS-Nt-VzU" firstAttribute="centerX" secondItem="EAd-9R-tyD" secondAttribute="centerX" id="OaS-V8-D3R"/>
+                                    <constraint firstItem="cBw-bg-P2o" firstAttribute="top" secondItem="qoS-Nt-VzU" secondAttribute="bottom" constant="30" id="TOH-vd-8V5"/>
+                                    <constraint firstItem="PsO-f0-J6P" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="UM1-yG-xyR"/>
+                                    <constraint firstItem="53V-41-n67" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="d6f-Qc-1j6"/>
+                                    <constraint firstItem="PsO-f0-J6P" firstAttribute="top" secondItem="53V-41-n67" secondAttribute="bottom" constant="30" id="fYl-US-EIQ"/>
+                                    <constraint firstItem="6kX-fX-yhU" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="lxx-Sk-PY1"/>
+                                    <constraint firstItem="qoS-Nt-VzU" firstAttribute="top" secondItem="EAd-9R-tyD" secondAttribute="top" constant="45" id="meT-I7-0bI"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86Y-qK-fAo">
-                                <rect key="frame" x="31" y="225" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Op-6B-w7Y">
-                                <rect key="frame" x="31" y="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ag5-cx-tHS" firstAttribute="top" secondItem="hAf-g5-Bnb" secondAttribute="bottom" constant="30" id="0rT-cN-KHB"/>
-                            <constraint firstItem="zuo-Ls-Mp1" firstAttribute="top" secondItem="Ag5-cx-tHS" secondAttribute="bottom" constant="30" id="1or-Ql-9dr"/>
-                            <constraint firstItem="Ag5-cx-tHS" firstAttribute="trailing" secondItem="f0f-CV-gIR" secondAttribute="trailingMargin" id="2Ix-j4-6qs"/>
-                            <constraint firstItem="Ag5-cx-tHS" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" id="DYb-KI-Osv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zuo-Ls-Mp1" secondAttribute="trailing" constant="15" id="Mof-ch-bdp"/>
-                            <constraint firstItem="zuo-Ls-Mp1" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" constant="15" id="azs-OC-Qhj"/>
-                            <constraint firstItem="86Y-qK-fAo" firstAttribute="top" secondItem="zuo-Ls-Mp1" secondAttribute="bottom" constant="28" id="bB6-pt-YPN"/>
-                            <constraint firstItem="86Y-qK-fAo" firstAttribute="leading" secondItem="f0f-CV-gIR" secondAttribute="leadingMargin" constant="15" id="sQr-uX-dKB"/>
+                            <constraint firstItem="EAd-9R-tyD" firstAttribute="centerX" secondItem="RSr-sB-Fdp" secondAttribute="centerX" id="7Cg-KL-4Wd"/>
+                            <constraint firstItem="EAd-9R-tyD" firstAttribute="top" secondItem="RSr-sB-Fdp" secondAttribute="top" id="N5F-Kz-nHR"/>
+                            <constraint firstAttribute="trailing" secondItem="EAd-9R-tyD" secondAttribute="trailing" id="RFV-0r-YeU"/>
+                            <constraint firstItem="EAd-9R-tyD" firstAttribute="leading" secondItem="RSr-sB-Fdp" secondAttribute="leading" id="gQH-hM-Trw"/>
+                            <constraint firstItem="EAd-9R-tyD" firstAttribute="centerY" secondItem="RSr-sB-Fdp" secondAttribute="centerY" id="p0q-ba-S6t"/>
+                            <constraint firstAttribute="bottom" secondItem="EAd-9R-tyD" secondAttribute="bottom" id="rtb-Ri-kf0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vb1-xv-zoc"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="idr-SF-FWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0X-w7-6OO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-229.83508245877064"/>
+            <point key="canvasLocation" x="1244" y="-230.73463268365819"/>
         </scene>
     </scenes>
 </document>
