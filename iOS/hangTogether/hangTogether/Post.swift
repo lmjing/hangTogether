@@ -10,14 +10,13 @@ import Foundation
 import ObjectMapper
 
 class Post: Mappable {
-    //TODO: id로 변경해서 해보기
-    var _id: String!
+    var id: String!
     //TODO: User 객체 만들어서 정의하기
     var writer: [String:Any] = [:]
     var created: Date!
     var content: String?
     //TODO: String -> Date 바꿔서 해보기
-    var tripDate: [String:String] = [:]
+    var tripDate: [String:Date] = [:]
     //TODO: Struct 정의해서 해보기
     var trip: [[String:Any]] = []
     var recruiting: Bool!
@@ -29,12 +28,12 @@ class Post: Mappable {
     }
     
     func mapping(map: Map) {
-        _id     <- map["_id"]
+        id     <- map["_id"]
         writer  <- map["writer"]
         created     <- (map["created"], DateTransform())
         
         content  <- map["content"]
-        tripDate     <- map["tripDate"]
+        tripDate     <- (map["tripDate"], DateTransform())
         trip  <- map["trip"]
         recruiting  <- map["recruiting"]
         guide     <- map["guide"]

@@ -33,15 +33,15 @@ class Networking {
                 guard let contents = response as? [[String:Any]] else { return }
                 for content in contents {
                     if let post = Post(JSON: content) {
-                        print(post._id)
-                        print(post.content!)
-                        print(post.created)
-                        print(post.guide)
-                        print(post.recruiting)
-                        print(post.trip)
+//                        print(post.id)
+//                        print(post.content!)
+//                        print(post.created)
+//                        print(post.guide)
+//                        print(post.recruiting)
+//                        print(post.trip)
                         print(post.tripDate)
-                        print(post.volunteer)
-                        print(post.writer)
+//                        print(post.volunteer)
+//                        print(post.writer)
                     }
                 }
             case .failure(let error):
