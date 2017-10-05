@@ -9,20 +9,6 @@
 import Foundation
 import ObjectMapper
 
-//class Trip: Mappable {
-//    private(set) var date: Date!
-//    private(set) var place: [String:String] = [:]
-//    
-//    required init?(map: Map) {
-//        
-//    }
-//    
-//    func mapping(map: Map) {
-//        date <- (map["date"], DateTransform())
-//        place <- map["place"]
-//    }
-//}
-
 struct Trip: Mappable {
     private(set) var date: Date!
     private(set) var place: [String:String] = [:]
@@ -39,10 +25,9 @@ struct Trip: Mappable {
 
 class Post: Mappable {
     private(set) var id: String!
-    //TODO: User 객체 만들어서 정의하기
-//    private(set) var writer: [String:Any] = [:]
     private(set) var writer: User!
     private(set) var created: Date!
+    private(set) var title: String!
     private(set) var content: String?
     private(set) var tripDate: [String:Date] = [:]
     private(set) var trip: [Trip] = []
@@ -55,38 +40,15 @@ class Post: Mappable {
     }
     
     func mapping(map: Map) {
-        id     <- map["_id"]
-        writer  <- map["writer"]
+        id          <- map["_id"]
+        writer      <- map["writer"]
         created     <- (map["created"], DateTransform())
-        content  <- map["content"]
-        tripDate     <- (map["tripDate"], DateTransform())
-        trip  <- map["trip"]
+        title       <- map["title"]
+        content     <- map["content"]
+        tripDate    <- (map["tripDate"], DateTransform())
+        trip        <- map["trip"]
         recruiting  <- map["recruiting"]
-        guide     <- map["guide"]
-        volunteer  <- map["volunteer"]
+        guide       <- map["guide"]
+        volunteer   <- map["volunteer"]
     }
-    
-//    init(map: Map) throws {
-//        _id         = try map.value("_id")
-//        writer      = try map.value("writer")
-//        created     = try map.value("created", using: DateTransform())
-//        content     = try map.value("content")
-//        tripDate    = try map.value("tripDate")
-//        trip        = try map.value("trip")
-//        recruiting  = try map.value("recruiting")
-//        guide       = try map.value("guide")
-//        volunteer   = try map.value("volunteer")
-//    }
-    
-//    mutating func mapping(map: Map) {
-//        _id         >>> map["_id"]
-//        writer      >>> map["writer"]
-//        created     >>> (map["created"], DateTransform())
-//        content     >>> map["content"]
-//        tripDate    >>> map["tripDate"]
-//        trip        >>> map["trip"]
-//        recuriting  >>> map["recuriting"]
-//        guide       >>> map["guide"]
-//        volunteer   >>> map["volunteer"]
-//    }
 }

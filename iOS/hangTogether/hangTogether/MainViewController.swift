@@ -70,7 +70,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 //        
 //        cell.makeLanguages(languages: ["한국어","English (EEE)","ddddddd"])
         let post = mainList[indexPath.row]
-        cell.titleLabel.text = "제목을 안했네"
+        cell.titleLabel.text = post.title
         cell.nicknameLabel.text = post.writer.nickname
         //TODO: date 안됨
         cell.tripDateLabel.text = "2117/01/02 ~ 2117/01/04"
