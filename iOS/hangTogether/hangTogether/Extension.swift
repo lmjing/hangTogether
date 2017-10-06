@@ -21,3 +21,13 @@ extension UIStoryboard {
     static let writePostStoryboard = UIStoryboard(name: "WritePost", bundle: nil)
     static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
 }
+
+extension DateFormatter {
+    static func date() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.timeZone = NSTimeZone.system
+        
+        return formatter
+    }
+}

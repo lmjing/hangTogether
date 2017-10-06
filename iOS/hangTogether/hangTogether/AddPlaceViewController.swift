@@ -13,6 +13,12 @@ class AddPlaceViewController: UIViewController {
     @IBOutlet weak var dateSwitch: UISwitch!
     @IBOutlet weak var placeTextField: UITextField!
     
+    var trip:[String:Any] = {
+        var data:[String:Any] = [:]
+        var place:[String:String] = [:]; data["place"] = place
+        return data
+    }()
+    
     let datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,32 @@ class AddPlaceViewController: UIViewController {
         }
     }
     
+    func done(button: UIBarButtonItem) {
+        if dateSwitch.isOn, let date = dateTextField.text, date != "" {
+            trip["date"] = date
+        }else if !dateSwitch.isOn {
+            trip["date"] = nil
+        }else {
+            //TODO: 날짜를 선택해주세요. Alert 띄워주기
+            print("날짜를 선택해주세요.")
+            return
+        }
+
+        if let place = placeTextField.text, place != "",
+            var data = trip["place"] as? [String:String] {
+            data["name"] = place
+            trip["place"] = data
+        }else {
+            //TODO: 장소를 입력해주세요. Alert 띄워주기
+            print("장소를 입력해주세요.")
+            return
+        }
+
+        navigationController?.popViewController(animated: true)
+        let cv = navigationController?.viewControllers.last as! WritePostViewController
+        cv.tripList.append(trip)
+    }
+    
     func createDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -48,12 +80,7 @@ class AddPlaceViewController: UIViewController {
     }
     
     func pickerDone(button: UIBarButtonItem) {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        formatter.timeZone = NSTimeZone.system
-        let dateString = formatter.string(from: datePicker.date)
-        dateTextField.text = dateString
+        dateTextField.text = DateFormatter.date().string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
@@ -61,18 +88,4 @@ class AddPlaceViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func done(button: UIBarButtonItem) {
-        print("ok button 눌림")
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -60,10 +60,9 @@ class Post: Mappable {
         var dateJson:[String:Date] = [:]
         dateJson <- (map["tripDate"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let formatter = DateFormatter.date()
         if let start = dateJson["start"], let end = dateJson["end"] {
-            tripDate = "\(dateFormatter.string(from: start)) ~ \(dateFormatter.string(from: end))"
+            tripDate = "\(formatter.string(from: start)) ~ \(formatter.string(from: end))"
         }
     }
 }

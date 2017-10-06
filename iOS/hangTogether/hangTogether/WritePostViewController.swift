@@ -8,8 +8,7 @@
 
 import UIKit
 
-class WritePostViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+class WritePostViewController: UIViewController {
     @IBOutlet weak var tripListViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tripListView: UITableView!
     
@@ -43,6 +42,10 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print(tripList)
+    }
+    
     func initView() {
         tripListViewHeight.constant = 0
         navigationItem.title = "글 작성"
@@ -71,12 +74,8 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     }
     
     func pickerDone(button: UIBarButtonItem) {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        formatter.timeZone = NSTimeZone.system
-        let dateString = formatter.string(from: datePicker.date)
-        startDateTextField.text = dateString
+        //TODO: 데이터에 담긴걸로 텍스트 변경
+        startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
@@ -88,7 +87,9 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
         navigationController?.pushViewController(addPlaceViewController, animated: true)
     }
-    
+}
+
+extension WritePostViewController: UITextFieldDelegate, UITextViewDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
