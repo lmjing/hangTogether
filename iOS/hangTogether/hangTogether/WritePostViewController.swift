@@ -8,10 +8,14 @@
 
 import UIKit
 
-class WritePostViewController: UIViewController {
+class WritePostViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tripListViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tripListView: UITableView!
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
@@ -19,6 +23,7 @@ class WritePostViewController: UIViewController {
         tripListView.delegate = self
         tripListView.dataSource = self
         tripListViewHeight.constant = 0
+        initView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -28,6 +33,16 @@ class WritePostViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initView() {
+        titleTextField.delegate = self
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= 21
     }
     /*
     // MARK: - Navigation

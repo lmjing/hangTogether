@@ -252,6 +252,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentTextView" destination="cBw-bg-P2o" id="uLb-nc-ugn"/>
+                        <outlet property="titleTextField" destination="qoS-Nt-VzU" id="auz-7c-pvT"/>
                         <outlet property="tripListView" destination="KVG-qv-OQM" id="JRe-8a-uWV"/>
                         <outlet property="tripListViewHeight" destination="cCc-BQ-Eyz" id="a1n-kh-jdg"/>
                     </connections>
