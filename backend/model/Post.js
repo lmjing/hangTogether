@@ -35,7 +35,10 @@ var postSchema = new Schema({
     },
     place: {
       name: String,
-      address: String
+      address: {
+        type: String,
+        default: null
+      }
     }
   }],
   recruiting: {
