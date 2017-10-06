@@ -29,6 +29,10 @@ class MainViewController: UIViewController {
         Networking.getMainList()
         NotificationCenter.default.addObserver(self, selector: #selector(recieve), name: Notification.Name.mainList, object: nil)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

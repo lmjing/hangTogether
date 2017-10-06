@@ -16,7 +16,7 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     @IBOutlet weak var titleTextField: UITextField!
     //TODO: 논의 후 placehorder 있는 라이브러리 사용하기
     @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var addTripButton: UIButton!
+    @IBOutlet weak var addPlaceButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +29,7 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         tripListView.dataSource = self
         
         initView()
-        addTripButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
+        addPlaceButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +53,8 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     }
     
     func moveAddTripView(button: UIButton) {
-        print("add trip button 눌림")
+        let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
+        navigationController?.pushViewController(addPlaceViewController, animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

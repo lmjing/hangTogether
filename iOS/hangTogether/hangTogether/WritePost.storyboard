@@ -225,7 +225,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addTripButton" destination="6Il-yI-Cso" id="qwt-ID-P2m"/>
+                        <outlet property="addPlaceButton" destination="6Il-yI-Cso" id="QtY-kf-c5P"/>
                         <outlet property="contentTextView" destination="cBw-bg-P2o" id="uLb-nc-ugn"/>
                         <outlet property="titleTextField" destination="qoS-Nt-VzU" id="auz-7c-pvT"/>
                         <outlet property="tripListView" destination="KVG-qv-OQM" id="JRe-8a-uWV"/>

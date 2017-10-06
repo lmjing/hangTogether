@@ -24,7 +24,9 @@
 		5063D6C51F7D456D009639C5 /* hangTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6C41F7D456D009639C5 /* hangTogetherTests.swift */; };
 		5063D6FD1F7D483C009639C5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */; };
 		5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FE1F7D4854009639C5 /* FourthViewController.swift */; };
-		50BDB6AE1F865A080009CF60 /* WritePostView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePostView.storyboard */; };
+		5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */; };
+		50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePost.storyboard */; };
+		50F03CA01F87A47200F3591D /* AddPlace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F03C9F1F87A47200F3591D /* AddPlace.storyboard */; };
 		8EEA7B1346138347BD6FB5B4 /* Pods_hangTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032EFF2D5B6D7AB28B313856 /* Pods_hangTogether.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +63,9 @@
 		5063D6C61F7D456D009639C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5063D6FE1F7D4854009639C5 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
-		50BDB6AD1F865A080009CF60 /* WritePostView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePostView.storyboard; sourceTree = "<group>"; };
+		5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
+		50BDB6AD1F865A080009CF60 /* WritePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePost.storyboard; sourceTree = "<group>"; };
+		50F03C9F1F87A47200F3591D /* AddPlace.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPlace.storyboard; sourceTree = "<group>"; };
 		5855F0BA8128174EF9552CE0 /* Pods_hangTogetherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hangTogetherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61683DE4968E9E472E461C63 /* Pods-hangTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hangTogether.release.xcconfig"; path = "Pods/Target Support Files/Pods-hangTogether/Pods-hangTogether.release.xcconfig"; sourceTree = "<group>"; };
 		7231AF8E83922BAF772719E2 /* Pods-hangTogetherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hangTogetherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hangTogetherTests/Pods-hangTogetherTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		50BDB6AB1F86596C0009CF60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				50F03C9E1F87A41E00F3591D /* addPlace */,
 				50BDB6AC1F8659A50009CF60 /* WritePost */,
 			);
 			name = View;
@@ -214,10 +219,19 @@
 		50BDB6AC1F8659A50009CF60 /* WritePost */ = {
 			isa = PBXGroup;
 			children = (
-				50BDB6AD1F865A080009CF60 /* WritePostView.storyboard */,
+				50BDB6AD1F865A080009CF60 /* WritePost.storyboard */,
 				5037F8991F868DE7006EFB17 /* WritePostViewController.swift */,
 			);
 			name = WritePost;
+			sourceTree = "<group>";
+		};
+		50F03C9E1F87A41E00F3591D /* addPlace */ = {
+			isa = PBXGroup;
+			children = (
+				50F03C9F1F87A47200F3591D /* AddPlace.storyboard */,
+				5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */,
+			);
+			name = addPlace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +322,8 @@
 			files = (
 				501A26E01F83836C00F24081 /* Config.plist in Resources */,
 				5063D6BA1F7D456D009639C5 /* LaunchScreen.storyboard in Resources */,
-				50BDB6AE1F865A080009CF60 /* WritePostView.storyboard in Resources */,
+				50F03CA01F87A47200F3591D /* AddPlace.storyboard in Resources */,
+				50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
 				5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */,
 			);
@@ -387,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */,
+				5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */,
 				501A26EB1F84ADC100F24081 /* Extension.swift in Sources */,
 				5063D6FD1F7D483C009639C5 /* ThirdViewController.swift in Sources */,
 				5063D6B21F7D456D009639C5 /* SecondViewController.swift in Sources */,

@@ -18,5 +18,6 @@ extension Notification.Name {
 }
 
 extension UIStoryboard {
-    static let writePostStoryboard = UIStoryboard(name: "WritePostView", bundle: nil)
+    static let writePostStoryboard = UIStoryboard(name: "WritePost", bundle: nil)
+    static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
 }
