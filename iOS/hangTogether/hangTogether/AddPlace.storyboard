@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜 선택" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oNy-UM-evt">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜 선택" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oNy-UM-evt">
                                 <rect key="frame" x="15" y="35" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TVG-8I-EBM"/>
                                     <constraint firstAttribute="width" constant="100" id="cbx-mH-lgd"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hy8-fL-WTe">
@@ -83,6 +83,7 @@
                         <viewLayoutGuide key="safeArea" id="MPQ-s6-zbN"/>
                     </view>
                     <connections>
+                        <outlet property="dateTextField" destination="oNy-UM-evt" id="Mcl-N3-T1Y"/>
                         <outlet property="searchDisplayController" destination="xW9-f0-KgM" id="UoG-dE-AZY"/>
                     </connections>
                 </viewController>

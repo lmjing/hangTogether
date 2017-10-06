@@ -17,6 +17,10 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     //TODO: 논의 후 placehorder 있는 라이브러리 사용하기
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var addPlaceButton: UIButton!
+    @IBOutlet weak var startDateTextField: UITextField!
+    @IBOutlet weak var endDateTextField: UITextField!
+    
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +45,40 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         tripListViewHeight.constant = 0
         navigationItem.title = "글 작성"
         
-        let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
+        let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(writeDone))
         navigationItem.setRightBarButton(okButton, animated: true)
         
         contentTextView.layer.borderWidth = 1.5
         contentTextView.layer.borderColor = UIColor.pointColor.cgColor
+        
+        createDatePicker(textField: startDateTextField)
+        createDatePicker(textField: endDateTextField)
     }
     
-    func done(button: UIBarButtonItem) {
+    
+    func createDatePicker(textField: UITextField) {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(pickerDone))
+        toolbar.setItems([doneButton], animated: true)
+        
+        textField.inputAccessoryView = toolbar
+        textField.inputView = datePicker
+        datePicker.datePickerMode = .date
+    }
+    
+    func pickerDone(button: UIBarButtonItem) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.timeZone = NSTimeZone.system
+        let dateString = formatter.string(from: datePicker.date)
+        startDateTextField.text = dateString
+        self.view.endEditing(true)
+    }
+    
+    func writeDone(button: UIBarButtonItem) {
         print("ok button 눌림")
     }
     
