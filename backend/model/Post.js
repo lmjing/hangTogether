@@ -16,7 +16,7 @@ var postSchema = new Schema({
   },
   content: {
     type: String,
-    maxlength: 100
+    maxlength: 200
   },
   tripDate: {
     start: {
