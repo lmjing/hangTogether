@@ -31,7 +31,8 @@ var postSchema = new Schema({
   trip: [{
     date: {
       type: Date,
-      min: Date.now
+      min: Date.now,
+      default: null
     },
     place: {
       name: String,
