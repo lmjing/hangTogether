@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WritePostViewController: UIViewController, UITextFieldDelegate {
+class WritePostViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var tripListViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tripListView: UITableView!
@@ -37,12 +37,19 @@ class WritePostViewController: UIViewController, UITextFieldDelegate {
     
     func initView() {
         titleTextField.delegate = self
+        contentTextView.delegate = self
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= 21
+        return newLength <= 20
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let str = textView.text else { return true }
+        let newLength = str.characters.count + text.characters.count - range.length
+        return newLength <= 200
     }
     /*
     // MARK: - Navigation
