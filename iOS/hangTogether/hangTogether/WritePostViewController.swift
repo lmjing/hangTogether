@@ -14,6 +14,7 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     @IBOutlet weak var tripListView: UITableView!
     
     @IBOutlet weak var titleTextField: UITextField!
+    //TODO: 논의 후 placehorder 있는 라이브러리 사용하기
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var addTripButton: UIButton!
     
@@ -46,6 +47,9 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
         navigationItem.setRightBarButton(okButton, animated: true)
+        
+        contentTextView.layer.borderWidth = 1.5
+        contentTextView.layer.borderColor = UIColor.pointColor.cgColor
     }
     
     func done(button: UIBarButtonItem) {
