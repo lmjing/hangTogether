@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var postSchema = new Schema({
   title: {
     type: String,
-    maxlength: 40
+    maxlength: 20
   },
   writer: {
     type: Schema.Types.ObjectId,
@@ -35,7 +35,10 @@ var postSchema = new Schema({
     },
     place: {
       name: String,
-      address: String
+      address: {
+        type: String,
+        default: null
+      }
     }
   }],
   recruiting: {
