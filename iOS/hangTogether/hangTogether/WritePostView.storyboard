@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -177,64 +176,38 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="odG-Ij-Edg">
-                                        <rect key="frame" x="25" y="543" width="325.5" height="22"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="GAY-iA-WFx">
-                                                <rect key="frame" x="0.0" y="2.5" width="17" height="17"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="17" id="24C-4I-NCb"/>
-                                                    <constraint firstAttribute="width" secondItem="GAY-iA-WFx" secondAttribute="height" multiplier="1:1" id="S4n-Fz-URh"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 장소 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-Kp-g6j">
-                                                <rect key="frame" x="27" y="0.0" width="298.5" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="e9v-vi-wIL"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Il-yI-Cso">
+                                        <rect key="frame" x="25" y="548" width="325" height="40"/>
                                         <constraints>
-                                            <constraint firstItem="GAY-iA-WFx" firstAttribute="centerY" secondItem="odG-Ij-Edg" secondAttribute="centerY" id="3jQ-Hf-3Mw"/>
-                                            <constraint firstItem="Pas-Kp-g6j" firstAttribute="top" secondItem="odG-Ij-Edg" secondAttribute="top" id="Cyi-4d-Fnt"/>
-                                            <constraint firstAttribute="bottom" secondItem="Pas-Kp-g6j" secondAttribute="bottom" id="ty6-tz-Dpj"/>
+                                            <constraint firstAttribute="height" constant="40" id="vpj-Ld-Wyg"/>
                                         </constraints>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKl-o0-PZO">
-                                        <rect key="frame" x="25" y="570" width="325.5" height="1"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="FvM-7O-Tcw"/>
-                                        </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="    여행 장소 입력" image="plus" backgroundImage="bottomLine">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="cBw-bg-P2o" secondAttribute="trailing" constant="25" id="0fM-oi-pxd"/>
-                                    <constraint firstAttribute="bottom" secondItem="vKl-o0-PZO" secondAttribute="bottom" constant="30" id="1dy-cq-Ghh"/>
                                     <constraint firstItem="cBw-bg-P2o" firstAttribute="centerX" secondItem="EAd-9R-tyD" secondAttribute="centerX" id="4eH-A4-INA"/>
                                     <constraint firstAttribute="trailing" secondItem="53V-41-n67" secondAttribute="trailing" constant="25" id="69S-QB-BhB"/>
-                                    <constraint firstItem="vKl-o0-PZO" firstAttribute="top" secondItem="odG-Ij-Edg" secondAttribute="bottom" constant="5" id="80P-t0-Hxf"/>
                                     <constraint firstItem="cBw-bg-P2o" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="AW0-lV-f0n"/>
                                     <constraint firstItem="6kX-fX-yhU" firstAttribute="top" secondItem="cBw-bg-P2o" secondAttribute="bottom" constant="30" id="BcI-5k-jkb"/>
+                                    <constraint firstItem="6Il-yI-Cso" firstAttribute="top" secondItem="KVG-qv-OQM" secondAttribute="bottom" constant="15" id="FGG-40-8j4"/>
                                     <constraint firstItem="53V-41-n67" firstAttribute="top" secondItem="6kX-fX-yhU" secondAttribute="bottom" constant="30" id="HDu-gU-elu"/>
-                                    <constraint firstItem="odG-Ij-Edg" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="JXm-6s-Gnl"/>
-                                    <constraint firstItem="vKl-o0-PZO" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="KdO-5Q-xFq"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Il-yI-Cso" secondAttribute="bottom" constant="89" id="Jn7-dz-6Ti"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Il-yI-Cso" secondAttribute="trailing" constant="25" id="NMJ-c1-PS4"/>
                                     <constraint firstItem="qoS-Nt-VzU" firstAttribute="centerX" secondItem="EAd-9R-tyD" secondAttribute="centerX" id="OaS-V8-D3R"/>
                                     <constraint firstItem="cBw-bg-P2o" firstAttribute="top" secondItem="qoS-Nt-VzU" secondAttribute="bottom" constant="30" id="TOH-vd-8V5"/>
                                     <constraint firstItem="PsO-f0-J6P" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="UM1-yG-xyR"/>
-                                    <constraint firstAttribute="trailing" secondItem="vKl-o0-PZO" secondAttribute="trailing" constant="25" id="XBB-OQ-KfF"/>
-                                    <constraint firstItem="odG-Ij-Edg" firstAttribute="top" secondItem="KVG-qv-OQM" secondAttribute="bottom" constant="10" id="Yz0-hT-4ym"/>
                                     <constraint firstItem="53V-41-n67" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="d6f-Qc-1j6"/>
                                     <constraint firstItem="PsO-f0-J6P" firstAttribute="top" secondItem="53V-41-n67" secondAttribute="bottom" constant="30" id="fYl-US-EIQ"/>
                                     <constraint firstItem="6kX-fX-yhU" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="lxx-Sk-PY1"/>
                                     <constraint firstItem="qoS-Nt-VzU" firstAttribute="top" secondItem="EAd-9R-tyD" secondAttribute="top" constant="45" id="meT-I7-0bI"/>
                                     <constraint firstAttribute="trailing" secondItem="qoS-Nt-VzU" secondAttribute="trailing" constant="25" id="mk1-Al-AUP"/>
-                                    <constraint firstAttribute="trailing" secondItem="odG-Ij-Edg" secondAttribute="trailing" constant="25" id="q5f-hI-cbq"/>
                                     <constraint firstItem="qoS-Nt-VzU" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="r2b-aT-cCx"/>
+                                    <constraint firstItem="6Il-yI-Cso" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="u9V-9J-wzR"/>
                                     <constraint firstItem="KVG-qv-OQM" firstAttribute="leading" secondItem="EAd-9R-tyD" secondAttribute="leading" constant="25" id="wFe-ov-Hk7"/>
                                     <constraint firstAttribute="trailing" secondItem="KVG-qv-OQM" secondAttribute="trailing" constant="25" id="wLW-y0-rUB"/>
                                     <constraint firstItem="KVG-qv-OQM" firstAttribute="top" secondItem="PsO-f0-J6P" secondAttribute="bottom" constant="30" id="y79-Oj-ELb"/>
@@ -252,6 +225,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addTripButton" destination="6Il-yI-Cso" id="qwt-ID-P2m"/>
                         <outlet property="contentTextView" destination="cBw-bg-P2o" id="uLb-nc-ugn"/>
                         <outlet property="titleTextField" destination="qoS-Nt-VzU" id="auz-7c-pvT"/>
                         <outlet property="tripListView" destination="KVG-qv-OQM" id="JRe-8a-uWV"/>
@@ -264,6 +238,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bottomLine" width="375" height="40"/>
         <image name="plus" width="17" height="17"/>
     </resources>
 </document>

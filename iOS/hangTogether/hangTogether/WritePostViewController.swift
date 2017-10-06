@@ -15,6 +15,7 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var addTripButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         tripListView.dataSource = self
         
         initView()
+        addTripButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,6 +50,10 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     
     func done(button: UIBarButtonItem) {
         print("ok button 눌림")
+    }
+    
+    func moveAddTripView(button: UIButton) {
+        print("add trip button 눌림")
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
