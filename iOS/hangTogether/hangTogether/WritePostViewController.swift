@@ -21,6 +21,8 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     @IBOutlet weak var endDateTextField: UITextField!
     
     let datePicker = UIDatePicker()
+    var post:[String:Any] = [:]
+    var tripList:[[String:Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,15 +100,6 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         let newLength = str.characters.count + text.characters.count - range.length
         return newLength <= 200
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {

@@ -23,6 +23,10 @@ struct Trip: Mappable {
     }
 }
 
+//class WritePost {
+//    var writer
+//}
+
 class Post: Mappable {
     private(set) var id: String!
     private(set) var writer: User!
