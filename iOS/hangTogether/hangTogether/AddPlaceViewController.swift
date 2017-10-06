@@ -10,6 +10,8 @@ import UIKit
 
 class AddPlaceViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var dateSwitch: UISwitch!
+    @IBOutlet weak var placeTextField: UITextField!
     
     let datePicker = UIDatePicker()
     override func viewDidLoad() {
@@ -19,6 +21,18 @@ class AddPlaceViewController: UIViewController {
         navigationItem.setRightBarButton(okButton, animated: true)
         navigationItem.title = "장소 추가"
         createDatePicker()
+        
+        dateSwitch.addTarget(self, action: #selector(checkDate), for: .valueChanged)
+    }
+    
+    func checkDate() {
+        if !dateSwitch.isOn {
+            dateTextField.text = "무관"
+            dateTextField.isEnabled = false
+        }else {
+            dateTextField.text = nil
+            dateTextField.isEnabled = true
+        }
     }
     
     func createDatePicker() {
