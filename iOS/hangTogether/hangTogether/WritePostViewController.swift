@@ -20,9 +20,12 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
+        titleTextField.delegate = self
+        contentTextView.delegate = self
+        
         tripListView.delegate = self
         tripListView.dataSource = self
-        tripListViewHeight.constant = 0
+        
         initView()
     }
     
@@ -36,8 +39,15 @@ class WritePostViewController: UIViewController, UITextFieldDelegate, UITextView
     }
     
     func initView() {
-        titleTextField.delegate = self
-        contentTextView.delegate = self
+        tripListViewHeight.constant = 0
+        navigationItem.title = "글 작성"
+        
+        let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
+        navigationItem.setRightBarButton(okButton, animated: true)
+    }
+    
+    func done(button: UIBarButtonItem) {
+        print("ok button 눌림")
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
