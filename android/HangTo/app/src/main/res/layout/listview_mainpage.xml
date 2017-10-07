@@ -11,31 +11,34 @@
         android:layout_width="57dp"
         android:layout_height="67dp"
 
-        app:srcCompat="@android:drawable/btn_dialog"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:text="ID"
-        android:layout_marginTop="5dp"/>
+
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:layout_weight="3"
-        android:text="글 제목"
-        android:layout_marginTop="25dp"/>
+
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:layout_weight="1"
-        android:text="시간"
         android:gravity="center"
-        android:layout_marginTop="44dp"/>
+
+        android:visibility="visible" />
 </LinearLayout>

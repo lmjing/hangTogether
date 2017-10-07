@@ -102,7 +102,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
     }
 
     void connectRecommand() {
-        for (int i=0; i<10; i++)
+        for (int i=0; i<5; i++)
             adapter.addData(Food.mockFood(i));
         adapter.notifyDataSetChanged();
     }
