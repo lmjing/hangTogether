@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.woojinroom.hangto.Model.Food;
@@ -17,13 +19,14 @@ import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
 import com.example.woojinroom.hangto.TabActivity.TabActivity_;
+import com.example.woojinroom.hangto.writeActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab1RecommandFragment extends TabParentFragment {
     TabActivity activity;
-
+    ImageButton button;
     public Tab1RecommandAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -85,7 +88,13 @@ public class Tab1RecommandFragment extends TabParentFragment {
                 refresh();
             }
         });
-
+        button=(ImageButton)view.findViewById(R.id.button_write);
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent posting_intent = new Intent(view.getContext(), writeActivity.class);
+                startActivity(posting_intent);
+            }
+        });
         connectRecommand();
     }
 
@@ -104,7 +113,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
     }
 
     void connectRecommand() {
-        for (int i=0; i<5; i++)
+        for (int i=0; i<10; i++)
             adapter.addData(Food.mockFood(i));
         adapter.notifyDataSetChanged();
     }

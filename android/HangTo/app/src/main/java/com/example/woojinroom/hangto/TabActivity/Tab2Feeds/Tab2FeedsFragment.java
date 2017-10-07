@@ -97,7 +97,7 @@ public class Tab2FeedsFragment extends TabParentFragment {
     }
 
     void connectFeed() {
-        for (int i=0; i<5; i++)
+        for (int i=0; i<10; i++)
             adapter.addData(Food.mockFood(i));
         adapter.notifyDataSetChanged();
     }

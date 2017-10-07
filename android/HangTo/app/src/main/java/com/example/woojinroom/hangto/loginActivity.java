@@ -23,6 +23,7 @@ public class loginActivity extends AppCompatActivity {
         editText_pass = (EditText)findViewById(R.id.editText2);
 
         Button button = (Button)findViewById(R.id.button);
+        Button button2 = (Button)findViewById(R.id.button2);
 
         //id 와 pw 를 db에 있는거랑 비교해서 존재하면 통과
         button.setOnClickListener(new View.OnClickListener(){
@@ -40,5 +41,13 @@ public class loginActivity extends AppCompatActivity {
                 }
             }
         });
+        button2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent join_intent = new Intent(getApplicationContext(), joinActivity.class);
+                startActivity(join_intent);
+                finish();
+            }
+        });
+
     }
 }
