@@ -14,6 +14,7 @@ import com.example.woojinroom.hangto.TabActivity.TabActivity_;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFood;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFoodCategory;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
+import com.example.woojinroom.hangto.postingActivity;
 import com.example.woojinroom.hangto.profileActivity;
 
 import java.util.ArrayList;
@@ -96,7 +97,8 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             itemViewHolder.textContent.setText(food.content);
             itemViewHolder.textContent.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
-                    Toast.makeText(view.getContext(),"Content 눌림",Toast.LENGTH_SHORT).show();
+                    Intent posting_intent = new Intent(view.getContext(), postingActivity.class);
+                    fragment.profile(posting_intent);
                 }
             });
             itemViewHolder.textTime.setText(food.time);

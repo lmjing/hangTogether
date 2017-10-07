@@ -23,4 +23,10 @@ public class Food {
         food.time = "Time"+index;
         return food;
     }
+    public static Food alarm(int index) {
+        Food food = new Food();
+        food.id = "ID" + index;
+        food.content = "Content " + index;
+        return food;
+    }
 }

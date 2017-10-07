@@ -79,7 +79,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
         }
         recyclerView.setAdapter(adapter);
 
-        indicator = (LinearLayout)view.findViewById(R.id.indicator);
+       // indicator = (LinearLayout)view.findViewById(R.id.indicator);
         pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
