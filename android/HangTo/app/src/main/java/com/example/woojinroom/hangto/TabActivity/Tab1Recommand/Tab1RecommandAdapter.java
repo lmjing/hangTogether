@@ -1,6 +1,7 @@
 package com.example.woojinroom.hangto.TabActivity.Tab1Recommand;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
+import com.example.woojinroom.hangto.TabActivity.TabActivity_;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFood;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFoodCategory;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
+import com.example.woojinroom.hangto.profileActivity;
 
 import java.util.ArrayList;
 
@@ -77,6 +80,12 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
 
            // itemViewHolder.list_mainpage.setVisibility(View.GONE);
             itemViewHolder.imageView.setImageResource(R.drawable.test);
+            itemViewHolder.imageView.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Intent profile_intent = new Intent(view.getContext(), profileActivity.class);
+                    fragment.profile(profile_intent);
+                }
+            });
             itemViewHolder.textId.setText(food.id);
 
             itemViewHolder.textId.setOnClickListener(new View.OnClickListener(){
