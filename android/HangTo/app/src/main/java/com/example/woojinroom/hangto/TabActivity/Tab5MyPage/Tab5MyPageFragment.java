@@ -22,12 +22,12 @@ public class Tab5MyPageFragment extends TabParentFragment {
     TabActivity activity;
 
     public Tab5MyPageAdapter adapter;
-    private RecyclerView recyclerView;
+    //private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     public LinearLayout indicator;
     public int page = 1;
     public boolean endOfPage = false;
-    SwipeRefreshLayout pullToRefresh;
+    //SwipeRefreshLayout pullToRefresh;
 
     /**
      * Create a new instance of the fragment
@@ -56,12 +56,12 @@ public class Tab5MyPageFragment extends TabParentFragment {
         //activity.setSupportActionBar(cs_toolbar);
        // activity.getSupportActionBar().setTitle("내정보");
 
-        if (recyclerView == null) {
+        /*if (recyclerView == null) {
             recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
             recyclerView.setHasFixedSize(true);
             layoutManager = new LinearLayoutManager(activity);
             recyclerView.setLayoutManager(layoutManager);
-        }
+        }*/
 
         if (adapter == null) {
             adapter = new Tab5MyPageAdapter(new Tab5MyPageAdapter.OnItemClickListener() {
@@ -71,17 +71,17 @@ public class Tab5MyPageFragment extends TabParentFragment {
                 }
             }, activity, this);
         }
-        recyclerView.setAdapter(adapter);
+        //recyclerView.setAdapter(adapter);
 
        // indicator = (LinearLayout)view.findViewById(R.id.indicator);
-        pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
+        /*pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(false);
                 refresh();
             }
-        });
+        });*/
 
         connectTestCall();
     }

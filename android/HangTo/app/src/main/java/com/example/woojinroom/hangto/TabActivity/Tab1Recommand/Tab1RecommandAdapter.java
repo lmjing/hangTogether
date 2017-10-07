@@ -57,7 +57,7 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
             return new ViewHolderFood(v);
         } else if (viewType == TYPE_HEADER) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
             return new ViewHolderFoodCategory(v);
         }
         return null;

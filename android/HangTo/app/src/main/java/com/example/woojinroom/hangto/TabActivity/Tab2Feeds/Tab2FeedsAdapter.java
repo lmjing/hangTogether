@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFood;
+import com.example.woojinroom.hangto.ViewHolder.ViewHolderMessage;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
 
 import java.util.ArrayList;
@@ -51,22 +52,22 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
     @Override
     public ViewHolderParent onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
-            return new ViewHolderFood(v);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_message, parent, false);
+            return new ViewHolderMessage(v);
         }
         return null;
     }
 
     @Override
     public void onBindViewHolder(ViewHolderParent holder, final int position) {
-        if (holder instanceof ViewHolderFood) {
+        if (holder instanceof ViewHolderMessage) {
             holder.container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mOnItemClickListener.onItemClick(v, position);
                 }
             });
-            ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
+            ViewHolderMessage itemViewHolder = (ViewHolderMessage) holder;
             Food food = mDataset.get(position);
 
             itemViewHolder.imageView.setImageResource(R.drawable.test);
@@ -84,6 +85,7 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
                 }
             });
             itemViewHolder.textTime.setText(food.time);
+            itemViewHolder.imageView2.setImageResource(R.drawable.test);
         }
     }
 
