@@ -43,11 +43,12 @@ class WritePostViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(tripList)
+        tripListViewHeight.constant = CGFloat(30 * tripList.count)
+        tripListView.reloadData()
     }
     
     func initView() {
-        tripListViewHeight.constant = 0
+//        tripListViewHeight.constant = 0
         navigationItem.title = "글 작성"
         
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(writeDone))
@@ -105,11 +106,22 @@ extension WritePostViewController: UITextFieldDelegate, UITextViewDelegate {
 
 extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tripList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
         
-        return UITableViewCell()
+        if let date = tripList[indexPath.row]["date"] as? String {
+            cell.dateLabel.text = date.monthDay()
+        }else {
+            cell.dateLabel.text = "무관"
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30.0
     }
 }

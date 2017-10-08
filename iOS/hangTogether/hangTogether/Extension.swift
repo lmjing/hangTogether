@@ -40,3 +40,9 @@ extension UIAlertController {
         return alert
     }
 }
+
+extension String {
+ func monthDay() -> String {
+        return self.substring(from: self.index(self.endIndex, offsetBy: -5))
+    }
+}
