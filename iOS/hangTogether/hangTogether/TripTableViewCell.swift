@@ -18,6 +18,14 @@ class TripTableViewCell: UITableViewCell {
         
         circleView.layer.cornerRadius = circleView.frame.width / 2
         circleView.clipsToBounds = true
+        
+        let line = UIView()
+        contentView.addSubview(line)
+        line.backgroundColor = UIColor.pointColor
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.centerXAnchor.constraint(equalTo: circleView.centerXAnchor).isActive = true
+        line.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
+        line.widthAnchor.constraint(equalToConstant: 1.3).isActive = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
