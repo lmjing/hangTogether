@@ -117,7 +117,9 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         }else {
             cell.dateLabel.text = "무관"
         }
-        
+        if tripList.count > 1 {
+            cell.makeLine(index: indexPath.row, count: tripList.count)
+        }
         return cell
     }
     
