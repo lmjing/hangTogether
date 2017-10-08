@@ -91,7 +91,7 @@
                                             <constraint firstAttribute="height" constant="128" id="cCc-BQ-Eyz"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripDateCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripDateCell" id="4Ml-xm-uUe" customClass="TripTableViewCell" customModule="hangTogether" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="tripDateCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripDateCell" id="4Ml-xm-uUe" customClass="TripTableViewCell" customModule="hangTogether" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="325.5" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ml-xm-uUe" id="in3-RS-ypT">
