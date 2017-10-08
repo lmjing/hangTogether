@@ -50,3 +50,32 @@ extension String {
         return self.substring(from: self.index(self.endIndex, offsetBy: -5))
     }
 }
+
+extension UIToolbar {
+    func datePicker(items: [UIBarButtonItem]) -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = UIColor.lightGray
+        
+        toolbar.setItems(items, animated: true)
+        return toolbar
+    }
+}
+
+extension UIDatePicker {
+    func withTextField(_ textField: UITextField, selector: Selector) {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = UIColor.lightGray
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: selector)
+        doneButton.tintColor = UIColor.pointColor
+        doneButton.tag = textField.tag
+        toolbar.setItems([doneButton], animated: true)
+        
+        textField.inputAccessoryView = toolbar
+        textField.inputView = self
+        self.datePickerMode = .date
+        self.backgroundColor = UIColor.white
+    }
+}

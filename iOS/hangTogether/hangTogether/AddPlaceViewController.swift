@@ -19,14 +19,14 @@ class AddPlaceViewController: UIViewController {
         return data
     }()
     
-    let datePicker = UIDatePicker()
+    var datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
         navigationItem.setRightBarButton(okButton, animated: true)
         navigationItem.title = "장소 추가"
-        createDatePicker()
+        datePicker.withTextField(dateTextField, selector: #selector(pickerDone))
         
         dateSwitch.addTarget(self, action: #selector(checkDate), for: .valueChanged)
     }
@@ -65,21 +65,6 @@ class AddPlaceViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         let cv = navigationController?.viewControllers.last as! WritePostViewController
         cv.tripList.append(trip)
-    }
-    
-    func createDatePicker() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.backgroundColor = UIColor.lightGray
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(pickerDone))
-        doneButton.tintColor = UIColor.pointColor
-        toolbar.setItems([doneButton], animated: true)
-        
-        dateTextField.inputAccessoryView = toolbar
-        dateTextField.inputView = datePicker
-        datePicker.datePickerMode = .date
-        datePicker.backgroundColor = UIColor.white
     }
     
     func pickerDone(button: UIBarButtonItem) {

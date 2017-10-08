@@ -62,22 +62,8 @@ class WritePostViewController: UIViewController {
         contentTextView.layer.borderWidth = 1.5
         contentTextView.layer.borderColor = UIColor.pointColor.cgColor
         
-        createDatePicker(textField: startDateTextField)
-        createDatePicker(textField: endDateTextField)
-    }
-    
-    
-    func createDatePicker(textField: UITextField) {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(pickerDone))
-        doneButton.tag = textField.tag
-        toolbar.setItems([doneButton], animated: true)
-        
-        textField.inputAccessoryView = toolbar
-        textField.inputView = datePicker
-        datePicker.datePickerMode = .date
+        datePicker.withTextField(startDateTextField, selector: #selector(pickerDone))
+        datePicker.withTextField(endDateTextField, selector: #selector(pickerDone))
     }
     
     func pickerDone(button: UIBarButtonItem) {
