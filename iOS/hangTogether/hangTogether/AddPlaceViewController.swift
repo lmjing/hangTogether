@@ -70,13 +70,16 @@ class AddPlaceViewController: UIViewController {
     func createDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        toolbar.backgroundColor = UIColor.lightGray
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(pickerDone))
+        doneButton.tintColor = UIColor.pointColor
         toolbar.setItems([doneButton], animated: true)
         
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
         datePicker.datePickerMode = .date
+        datePicker.backgroundColor = UIColor.white
     }
     
     func pickerDone(button: UIBarButtonItem) {
