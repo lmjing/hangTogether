@@ -31,3 +31,12 @@ extension DateFormatter {
         return formatter
     }
 }
+
+extension UIAlertController {
+    static func okAlert(title: String?, message: String?) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        return alert
+    }
+}

@@ -47,8 +47,8 @@ class AddPlaceViewController: UIViewController {
         }else if !dateSwitch.isOn {
             trip["date"] = nil
         }else {
-            //TODO: 날짜를 선택해주세요. Alert 띄워주기
-            print("날짜를 선택해주세요.")
+            let dialog = UIAlertController.okAlert(title: nil, message: "날짜를 선택해주세요.")
+            self.present(dialog, animated: true, completion: nil)
             return
         }
 
@@ -57,8 +57,8 @@ class AddPlaceViewController: UIViewController {
             data["name"] = place
             trip["place"] = data
         }else {
-            //TODO: 장소를 입력해주세요. Alert 띄워주기
-            print("장소를 입력해주세요.")
+            let dialog = UIAlertController.okAlert(title: nil, message: "장소를 입력해주세요.")
+            self.present(dialog, animated: true, completion: nil)
             return
         }
 
