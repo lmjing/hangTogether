@@ -98,8 +98,15 @@ class WritePostViewController: UIViewController {
     }
     
     func moveAddTripView(button: UIButton) {
-        let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
-        navigationController?.pushViewController(addPlaceViewController, animated: true)
+        if let min = startDateTextField.text, let max = endDateTextField.text, !min.isEmpty && !max.isEmpty {
+            let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
+            addPlaceViewController.datePicker.minimumDate = min.convertDate()
+            addPlaceViewController.datePicker.maximumDate = max.convertDate()
+            navigationController?.pushViewController(addPlaceViewController, animated: true)
+        }else {
+            let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
