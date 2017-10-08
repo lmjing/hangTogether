@@ -43,12 +43,17 @@ class WritePostViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tripList.sort(by: {
+            if let date1 = $0["date"] as? String, let date2 = $1["date"] as? String {
+                return date1 < date2
+            }
+            return false
+        })
         tripListViewHeight.constant = CGFloat(30 * tripList.count)
         tripListView.reloadData()
     }
     
     func initView() {
-//        tripListViewHeight.constant = 0
         navigationItem.title = "글 작성"
         
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(writeDone))
