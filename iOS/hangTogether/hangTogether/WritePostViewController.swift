@@ -72,6 +72,7 @@ class WritePostViewController: UIViewController {
         toolbar.sizeToFit()
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(pickerDone))
+        doneButton.tag = textField.tag
         toolbar.setItems([doneButton], animated: true)
         
         textField.inputAccessoryView = toolbar
@@ -80,8 +81,15 @@ class WritePostViewController: UIViewController {
     }
     
     func pickerDone(button: UIBarButtonItem) {
-        //TODO: 데이터에 담긴걸로 텍스트 변경
-        startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+        switch button.tag {
+        case 1:
+            startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+        case 2:
+            endDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+        default:
+            print("error: datePickerDone")
+            break
+        }
         self.view.endEditing(true)
     }
     
