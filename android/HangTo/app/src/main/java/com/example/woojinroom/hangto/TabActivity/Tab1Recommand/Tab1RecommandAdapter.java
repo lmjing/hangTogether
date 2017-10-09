@@ -10,11 +10,10 @@ import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
-import com.example.woojinroom.hangto.TabActivity.TabActivity_;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFood;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFoodCategory;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
-import com.example.woojinroom.hangto.postingActivity;
+import com.example.woojinroom.hangto.writingActivity;
 import com.example.woojinroom.hangto.profileActivity;
 
 import java.util.ArrayList;
@@ -97,7 +96,7 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             itemViewHolder.textContent.setText(food.content);
             itemViewHolder.textContent.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
-                    Intent posting_intent = new Intent(view.getContext(), postingActivity.class);
+                    Intent posting_intent = new Intent(view.getContext(), writingActivity.class);
                     fragment.profile(posting_intent);
                 }
             });

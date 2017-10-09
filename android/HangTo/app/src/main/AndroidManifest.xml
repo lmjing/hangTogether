@@ -27,13 +27,10 @@
         <activity android:name=".messageActivity">
 
         </activity>
-        <activity android:name=".postingActivity">
+        <activity android:name=".writingActivity">
 
         </activity>
         <activity android:name=".profileActivity">
-
-        </activity>
-        <activity android:name=".requestMessageBoxActivity">
 
         </activity>
         <activity android:name=".searchActivity">
@@ -47,9 +44,18 @@
 
         </activity>
 
-        <activity android:name=".listViewActivity"
-/>
+        <activity android:name=".editActivity">
 
+        </activity>
+        <activity android:name=".historyActivity">
+
+        </activity>
+        <activity android:name=".spotActivity">
+
+        </activity>
+        <activity android:name=".requestActivity">
+
+        </activity>
     </application>
 
 </manifest>

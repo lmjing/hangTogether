@@ -19,6 +19,7 @@ import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
 import com.example.woojinroom.hangto.TabActivity.TabActivity_;
+import com.example.woojinroom.hangto.searchActivity;
 import com.example.woojinroom.hangto.writeActivity;
 
 /**
@@ -27,6 +28,8 @@ import com.example.woojinroom.hangto.writeActivity;
 public class Tab1RecommandFragment extends TabParentFragment {
     TabActivity activity;
     ImageButton button;
+    ImageButton imageButton_search;
+
     public Tab1RecommandAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -93,6 +96,14 @@ public class Tab1RecommandFragment extends TabParentFragment {
             public void onClick(View view){
                 Intent posting_intent = new Intent(view.getContext(), writeActivity.class);
                 startActivity(posting_intent);
+            }
+        });
+
+        imageButton_search=(ImageButton)view.findViewById(R.id.imagebutton_search);
+        imageButton_search.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent search_intent = new Intent(view.getContext(),searchActivity.class);
+                startActivity(search_intent);
             }
         });
         connectRecommand();

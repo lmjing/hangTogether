@@ -1,5 +1,6 @@
 package com.example.woojinroom.hangto.TabActivity.Tab5MyPage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,17 +10,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
+import com.example.woojinroom.hangto.editActivity;
+import com.example.woojinroom.hangto.historyActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab5MyPageFragment extends TabParentFragment {
     TabActivity activity;
+    Button button5;
+    Button button6;
 
     public Tab5MyPageAdapter adapter;
     //private RecyclerView recyclerView;
@@ -82,6 +88,20 @@ public class Tab5MyPageFragment extends TabParentFragment {
                 refresh();
             }
         });*/
+        button5=(Button)view.findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent edit_intent = new Intent(view.getContext(), editActivity.class);
+                startActivity(edit_intent);
+            }
+        });
+        button6=(Button)view.findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent history_intent = new Intent(view.getContext(), historyActivity.class);
+                startActivity(history_intent);
+            }
+        });
 
         connectTestCall();
     }

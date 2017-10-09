@@ -89,11 +89,16 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
             itemViewHolder.textTime.setText(food.time);
             if(Tab2FeedsFragment.status==0) {
                 itemViewHolder.imageView2.setImageResource(R.drawable.test);
+                itemViewHolder.imageView2.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View view){
+                        Toast.makeText(view.getContext(),"메세지함에서 눌림",Toast.LENGTH_SHORT).show();
+                    }
+                });
             } else {
                 itemViewHolder.imageView2.setImageResource(R.drawable.test);
                 itemViewHolder.imageView2.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View view){
-                        Toast.makeText(view.getContext(),"imageView 눌림",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(),"알림함에서 눌림",Toast.LENGTH_SHORT).show();
                     }
                 });     // 두 페이지의 이미지가 동작하는 방법이 다르므로 이부분을 구분해줘야함.
             }
