@@ -43,7 +43,7 @@ public class loginActivity extends AppCompatActivity {
         });
         button2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                Intent join_intent = new Intent(getApplicationContext(), joinActivity.class);
+                Intent join_intent = new Intent(getApplicationContext(), nationActivity.class);
                 startActivity(join_intent);
                 finish();
             }

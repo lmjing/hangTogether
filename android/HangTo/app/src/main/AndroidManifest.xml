@@ -12,14 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
          >
-        <activity android:name=".loginActivity" >
+        <activity android:name=".Splash.SplashActivity_"
+            android:theme="@style/AppTheme"
+            android:label="HangTo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
-                    android:theme="@style/AppTheme"
-                    android:label="HangTo"/>
+                    />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".loginActivity">
+
+        </activity>
+        <activity android:name=".nationActivity">
+
         </activity>
         <activity android:name=".joinActivity">
 

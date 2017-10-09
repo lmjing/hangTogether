@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.woojinroom.hangto.TabActivity.TabActivity_;
-
 /**
  * Created by woojinroom on 2017-10-09.
  */
