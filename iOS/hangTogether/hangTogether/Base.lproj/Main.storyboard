@@ -226,11 +226,14 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Second-->
+        <!--list-->
         <scene sceneID="myv-2S-F2e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Uw-Tf-pT2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="list" image="tab1_main" id="cPa-gy-q4n">
+                        <inset key="landscapeImageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fhn-Vl-gY5">
                         <autoresizingMask key="autoresizingMask"/>
@@ -249,5 +252,6 @@
         <image name="first" width="30" height="30"/>
         <image name="floating" width="60" height="60"/>
         <image name="second" width="30" height="30"/>
+        <image name="tab1_main" width="32" height="32"/>
     </resources>
 </document>
