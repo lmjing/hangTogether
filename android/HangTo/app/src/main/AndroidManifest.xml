@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.woojinroom.hangto">
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label=""
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+         >
+        <activity android:name=".Splash.SplashActivity_"
+            android:theme="@style/AppTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"
+                    />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".loginActivity">
+
+        </activity>
+        <activity android:name=".nationActivity">
+
+        </activity>
+        <activity android:name=".joinActivity">
+
+    </activity>
+        <activity android:name=".messageActivity">
+
+        </activity>
+        <activity android:name=".writingActivity">
+
+        </activity>
+        <activity android:name=".profileActivity">
+
+        </activity>
+        <activity android:name=".searchActivity">
+
+        </activity>
+        <activity android:name=".writeActivity">
+
+    </activity>
+        <activity android:name=".TabActivity.TabActivity_"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".editActivity">
+
+        </activity>
+        <activity android:name=".historyActivity">
+
+        </activity>
+        <activity android:name=".spotActivity">
+
+        </activity>
+        <activity android:name=".requestActivity">
+
+        </activity>
+    </application>
+
+</manifest>
