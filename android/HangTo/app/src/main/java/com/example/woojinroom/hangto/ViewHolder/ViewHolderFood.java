@@ -15,6 +15,11 @@ public class ViewHolderFood extends ViewHolderParent {
     public TextView textId;
     public TextView textContent;
     public TextView textTime;
+    public TextView textday;
+    public TextView ranguage1;
+    public TextView ranguage2;
+    public TextView ranguage3;
+
 
     public ViewHolderFood(View v) {
         super(v);
@@ -22,6 +27,10 @@ public class ViewHolderFood extends ViewHolderParent {
         textId = (TextView)v.findViewById(R.id.textView);
         textContent = (TextView)v.findViewById(R.id.textView2);
         textTime = (TextView)v.findViewById(R.id.textView3);
+        textday = (TextView)v.findViewById(R.id.textView4);
+        ranguage1 =(TextView)v.findViewById(R.id.ranguage1);
+        ranguage2 =(TextView)v.findViewById(R.id.ranguage2);
+        ranguage3 =(TextView)v.findViewById(R.id.ranguage3);
 
     }
 }

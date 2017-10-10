@@ -11,9 +11,12 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay" >
+        android:background="#ffffff"
+        >
 
-        <include layout="@layout/toolbar_default" android:id="@+id/cs_toolbar" />
+
+        <include layout="@layout/toolbar_default" android:id="@+id/cs_toolbar"
+            />
 
     </android.support.design.widget.AppBarLayout>
 

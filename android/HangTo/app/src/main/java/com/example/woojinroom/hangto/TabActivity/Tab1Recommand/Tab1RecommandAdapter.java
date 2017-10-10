@@ -101,6 +101,11 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
                 }
             });
             itemViewHolder.textTime.setText(food.time);
+            itemViewHolder.textday.setText(food.day);
+            itemViewHolder.ranguage1.setText(food.ranguage1);
+            itemViewHolder.ranguage2.setText(food.ranguage2);
+            itemViewHolder.ranguage3.setText(food.ranguage3);
+
 
 
 

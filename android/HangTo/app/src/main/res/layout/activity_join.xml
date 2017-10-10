@@ -14,7 +14,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
         android:text="여자"
         android:textColorHint="#aaaaaa"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -29,7 +28,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
         android:text="남자"
         android:textColorHint="#aaaaaa"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -44,8 +42,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="center"
-
-        android:hint="생일"
         android:inputType="textPersonName"
         android:text="성별"
         android:textColorHint="#aaaaaa"
@@ -61,7 +57,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="right|center_vertical"
-
         android:hint="일"
         android:inputType="textPersonName"
         android:textColorHint="#aaaaaa"
@@ -77,7 +72,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="right|center_vertical"
-
         android:hint="월"
         android:inputType="textPersonName"
         android:textColorHint="#aaaaaa"
@@ -93,8 +87,7 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:hint="비밀번호 확인"
-
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingLeft="5dp"
         android:textColorHint="#aaaaaa"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -109,8 +102,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="center"
-
-        android:hint="생일"
         android:inputType="textPersonName"
         android:text="생일"
         android:textColorHint="#aaaaaa"
@@ -126,7 +117,6 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="center"
-
         android:hint="년도(4자리)"
         android:inputType="textPersonName"
         android:textColorHint="#aaaaaa"
@@ -143,7 +133,7 @@
         android:ems="10"
         android:hint="비밀번호"
 
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingLeft="5dp"
         android:textColorHint="#aaaaaa"
         app:layout_constraintLeft_toLeftOf="parent"
