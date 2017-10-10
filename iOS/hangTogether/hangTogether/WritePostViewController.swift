@@ -128,6 +128,8 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.placeCollectionView.delegate = self
         cell.placeCollectionView.dataSource = self
+        cell.placeCollectionView.tag = indexPath.row
+        cell.placeCollectionView.reloadData()
         
         return cell
     }
@@ -139,13 +141,14 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension WritePostViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return tripList[collectionView.tag].places.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as! PlaceCollectionViewCell
         
-        cell.placeNameLabel.text = "테스트"
+        let place = tripList[collectionView.tag].places[indexPath.row]
+        cell.placeNameLabel.text = place["name"]
         
         return cell
     }
