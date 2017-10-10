@@ -34,13 +34,13 @@ var postSchema = new Schema({
       min: Date.now,
       default: null
     },
-    place: {
+    places: [{
       name: String,
       address: {
         type: String,
         default: null
       }
-    }
+    }]
   }],
   recruiting: {
     type: Boolean,
