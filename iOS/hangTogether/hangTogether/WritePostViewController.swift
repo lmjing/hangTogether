@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+ TODO: 스크롤 뷰 안에 테이블 뷰가 들어있는 안 좋은 형태의 View다. 배민때 처럼 전체를 테이블 뷰로 변경해 새로 시도 할 것
+ why? 테이블 뷰 안에 콜렉션뷰가 있기 때문에 높이가 가변적이며 높이를 정확히 알 수 없어 테이블 뷰의 높이를 다시 재 설정해야하는 문제가 발생한다. -> 즉, 높이 재 설정을 막고 자동으로 측정할 수 있게 한다.
+ */
 class WritePostViewController: UIViewController {
     @IBOutlet weak var tripListViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tripListView: UITableView!
@@ -27,6 +31,7 @@ class WritePostViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
+        tripListViewHeight.constant = 0
         titleTextField.delegate = self
         contentTextView.delegate = self
         
@@ -49,7 +54,6 @@ class WritePostViewController: UIViewController {
             }
             return false
         })
-        tripListViewHeight.constant = CGFloat(30 * tripList.count)
         tripListView.reloadData()
     }
     
@@ -131,12 +135,14 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         cell.placeCollectionView.tag = indexPath.row
         cell.placeCollectionView.reloadData()
         
+        tripListViewHeight.constant += cell.frame.height
+        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30.0
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 44.0
+//    }
 }
 
 extension WritePostViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -153,9 +159,9 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//
-//        return 100
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let count = CGFloat(tripList[collectionView.tag].places.count / 2) + 1
+        return CGSize(width: 100, height: 30.0 * count)
+    }
 }
