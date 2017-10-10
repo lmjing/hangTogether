@@ -41,6 +41,12 @@ extension UIAlertController {
     }
 }
 
+extension Date {
+    func convertString() -> String {
+        return DateFormatter.date().string(from: self)
+    }
+}
+
 extension String {
     func convertDate() -> Date {
         return DateFormatter.date().date(from: self)!

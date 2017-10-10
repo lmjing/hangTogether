@@ -81,26 +81,24 @@ class AddPlaceViewController: UIViewController {
             newPlace["address"] = address
         }
         
-        //TODO: notFound가 필요없는지 확인 후 필요없으면 삭제 할 것!
         var notFound = true
-        print(cv.tripList, "before")
-        cv.tripList = cv.tripList.map { oldtrip -> [String:Any] in
-            if let oldDate = oldtrip["date"] as? String, oldDate == date {
-                if var array = oldtrip["places"] as? [[String:String]] {
-                    array.append(newPlace)
-                    notFound = false
-                }
+
+        cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
+            if oldTrip.date?.convertString() == date {
+                notFound = false
+                var newtrip = oldTrip
+                newtrip.places.append(newPlace)
+                return newtrip
             }
-            return oldtrip
+            return oldTrip
         }
         
         if notFound {
-            var newTrip: [String:Any] = [:]
-            newTrip["date"] = date
-            newTrip["places"] = [newPlace]
+            var newTrip = Trip()
+            newTrip.date = date?.convertDate()
+            newTrip.places = [newPlace]
             cv.tripList.append(newTrip)
         }
-        print(cv.tripList, "after")
     }
     
     func pickerDone(button: UIBarButtonItem) {

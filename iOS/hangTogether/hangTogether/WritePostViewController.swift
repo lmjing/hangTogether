@@ -21,7 +21,7 @@ class WritePostViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     var post:[String:Any] = [:]
-    var tripList:[[String:Any]] = []
+    var tripList:[Trip] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class WritePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tripList.sort(by: {
-            if let date1 = $0["date"] as? String, let date2 = $1["date"] as? String {
+            if let date1 = $0.date?.convertString(), let date2 = $1.date?.convertString() {
                 return date1 < date2
             }
             return false
@@ -118,7 +118,7 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
         
-        if let date = tripList[indexPath.row]["date"] as? String {
+        if let date = tripList[indexPath.row].date?.convertString() {
             cell.dateLabel.text = date.monthDay()
         }else {
             cell.dateLabel.text = "무관"

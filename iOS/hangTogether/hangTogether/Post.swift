@@ -10,16 +10,19 @@ import Foundation
 import ObjectMapper
 
 struct Trip: Mappable {
-    private(set) var date: Date!
-    private(set) var place: [String:String] = [:]
+    var date: Date?
+    var places: [[String:String]] = []
     
     init?(map: Map) {
-        
+        date <- (map["date"], DateTransform())
+        places <- map["place"]
     }
+    
+    init() { }
     
     mutating func mapping(map: Map) {
         date <- (map["date"], DateTransform())
-        place <- map["place"]
+        places <- map["place"]
     }
 }
 
