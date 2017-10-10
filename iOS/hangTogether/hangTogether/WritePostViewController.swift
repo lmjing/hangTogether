@@ -126,10 +126,33 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         if tripList.count > 1 {
             cell.makeLine(index: indexPath.row, count: tripList.count)
         }
+        cell.placeCollectionView.delegate = self
+        cell.placeCollectionView.dataSource = self
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30.0
     }
+}
+
+extension WritePostViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as! PlaceCollectionViewCell
+        
+        cell.placeNameLabel.text = "테스트"
+        
+        return cell
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//
+//        return 100
+//    }
 }
