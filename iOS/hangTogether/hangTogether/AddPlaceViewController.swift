@@ -13,12 +13,6 @@ class AddPlaceViewController: UIViewController {
     @IBOutlet weak var dateSwitch: UISwitch!
     @IBOutlet weak var placeTextField: UITextField!
     
-//    var trip:[String:Any] = {
-//        var data:[String:Any] = [:]
-//        var place:[String:String] = [:]; data["place"] = place
-//        return data
-//    }()
-    
     var datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +38,8 @@ class AddPlaceViewController: UIViewController {
     func done(button: UIBarButtonItem) {
         var tripdate: String?, placeName: String, placeAddress: String?
         if dateSwitch.isOn, let date = dateTextField.text, date != "" {
-//            trip["date"] = date
             tripdate = date
         }else if !dateSwitch.isOn {
-//            trip["date"] = nil
             tripdate = nil
         }else {
             let dialog = UIAlertController.okAlert(title: nil, message: "날짜를 선택해주세요.")
@@ -57,9 +49,6 @@ class AddPlaceViewController: UIViewController {
 
         if let place = placeTextField.text, place != "" {
             placeName = place
-//            var data = trip["place"] as? [String:String] {
-//            data["name"] = place
-//            trip["place"] = data
         }else {
             let dialog = UIAlertController.okAlert(title: nil, message: "장소를 입력해주세요.")
             self.present(dialog, animated: true, completion: nil)
@@ -67,8 +56,6 @@ class AddPlaceViewController: UIViewController {
         }
 
         navigationController?.popViewController(animated: true)
-//        let cv = navigationController?.viewControllers.last as! WritePostViewController
-//        cv.tripList.append(trip)
         appendTripData(date: tripdate, placeName: placeName, placeAddress: placeAddress)
     }
     
