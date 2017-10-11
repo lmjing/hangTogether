@@ -156,7 +156,7 @@
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hg5-5O-OFu">
                                                     <rect key="frame" x="83" y="8" width="225" height="36"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.70754665800000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Qh-Cs-tJO">
                                                         <size key="itemSize" width="105" height="32"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -190,6 +190,7 @@
                                                                     </button>
                                                                 </subviews>
                                                             </view>
+                                                            <color key="backgroundColor" red="1" green="0.81076388888888884" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="ykO-Lc-UOh" firstAttribute="centerY" secondItem="dko-sK-xEC" secondAttribute="centerY" id="9sl-GO-VRP"/>
                                                                 <constraint firstItem="dko-sK-xEC" firstAttribute="top" secondItem="PFa-Pe-Frc" secondAttribute="top" id="D1i-KW-NEY"/>
