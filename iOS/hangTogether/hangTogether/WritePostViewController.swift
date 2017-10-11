@@ -13,8 +13,8 @@ import UIKit
  why? 테이블 뷰 안에 콜렉션뷰가 있기 때문에 높이가 가변적이며 높이를 정확히 알 수 없어 테이블 뷰의 높이를 다시 재 설정해야하는 문제가 발생한다. -> 즉, 높이 재 설정을 막고 자동으로 측정할 수 있게 한다.
  */
 class WritePostViewController: UIViewController {
-    @IBOutlet weak var tripListViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var tripListView: UITableView!
+//    @IBOutlet weak var tripListViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var titleTextField: UITextField!
     //TODO: 논의 후 placehorder 있는 라이브러리 사용하기
@@ -31,12 +31,12 @@ class WritePostViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
-        tripListViewHeight.constant = 0
+//        tripListViewHeight.constant = 0
         titleTextField.delegate = self
         contentTextView.delegate = self
         
-        tripListView.delegate = self
-        tripListView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
         initView()
         addPlaceButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
@@ -54,7 +54,7 @@ class WritePostViewController: UIViewController {
             }
             return false
         })
-        tripListView.reloadData()
+        tableView.reloadData()
     }
     
     func initView() {
@@ -135,7 +135,7 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         cell.placeCollectionView.tag = indexPath.row
         cell.placeCollectionView.reloadData()
         
-        tripListViewHeight.constant += cell.frame.height
+//        tripListViewHeight.constant += cell.frame.height
         
         return cell
     }
