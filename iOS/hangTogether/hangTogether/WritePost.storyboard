@@ -155,8 +155,8 @@
                                                     </constraints>
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hg5-5O-OFu">
-                                                    <rect key="frame" x="83" y="8" width="225" height="36"/>
-                                                    <color key="backgroundColor" red="0.70754665800000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="83" y="8" width="230" height="36"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="36" id="8zM-3h-ScS"/>
                                                     </constraints>
@@ -176,7 +176,6 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="placeName" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dko-sK-xEC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="21"/>
-                                                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -193,7 +192,6 @@
                                                                     </button>
                                                                 </subviews>
                                                             </view>
-                                                            <color key="backgroundColor" red="1" green="0.81076388888888884" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="ykO-Lc-UOh" firstAttribute="centerY" secondItem="dko-sK-xEC" secondAttribute="centerY" id="9sl-GO-VRP"/>
                                                                 <constraint firstItem="dko-sK-xEC" firstAttribute="top" secondItem="PFa-Pe-Frc" secondAttribute="top" id="D1i-KW-NEY"/>
@@ -216,7 +214,7 @@
                                                 <constraint firstItem="hg5-5O-OFu" firstAttribute="leading" secondItem="dbO-US-QsA" secondAttribute="trailing" constant="10" id="Oic-Uo-HjN"/>
                                                 <constraint firstItem="uhZ-jR-8y3" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="ZqG-rz-uqn"/>
                                                 <constraint firstItem="dbO-US-QsA" firstAttribute="centerY" secondItem="uhZ-jR-8y3" secondAttribute="centerY" id="adq-K3-NdM"/>
-                                                <constraint firstAttribute="trailing" secondItem="hg5-5O-OFu" secondAttribute="trailing" constant="5" id="ebo-ot-Wge"/>
+                                                <constraint firstAttribute="trailing" secondItem="hg5-5O-OFu" secondAttribute="trailing" id="ebo-ot-Wge"/>
                                                 <constraint firstItem="dbO-US-QsA" firstAttribute="leading" secondItem="uhZ-jR-8y3" secondAttribute="trailing" constant="10" id="gPa-5F-Bei"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="uhZ-jR-8y3" secondAttribute="bottom" id="sfp-fC-eJG"/>
                                             </constraints>

@@ -155,12 +155,12 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let place = tripList[collectionView.tag].places[indexPath.row]
-        var width = CGFloat(22)
-        if let placeName = place["name"] {
-            width += CGFloat(placeName.characters.count * 15)
+        var width = CGFloat(24)
+        if let placeName = place["name"] as NSString? {
+            width += placeName.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18.0)]).width
         }
         
-        let height = CGFloat(21)
+        let height = CGFloat(32)
         
         return CGSize(width: width, height: height)
     }

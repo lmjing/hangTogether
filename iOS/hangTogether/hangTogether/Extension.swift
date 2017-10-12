@@ -55,6 +55,18 @@ extension String {
     func monthDay() -> String {
         return self.substring(from: self.index(self.endIndex, offsetBy: -5))
     }
+    
+    /* 정규식 확인
+    func check() -> CGFloat {
+        let englishRegex = try! NSRegularExpression(pattern: "[a-zA-Z ]", options: [])
+        let hangleRegex = try! NSRegularExpression(pattern: "[가-힣]", options: [])
+        
+        let englishCount = englishRegex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.utf16.count))
+        let hangleCount = hangleRegex.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.utf16.count))
+        
+        return CGFloat(0 + englishCount + hangleCount)
+    }
+ */
 }
 
 extension UIToolbar {
