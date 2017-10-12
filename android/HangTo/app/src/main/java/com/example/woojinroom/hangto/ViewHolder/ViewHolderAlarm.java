@@ -22,5 +22,6 @@ public class ViewHolderAlarm extends ViewHolderParent {
         textContent = (TextView)v.findViewById(R.id.textView2);
         imageView2 = (ImageView)v.findViewById(R.id.imageView2);
 
+
     }
 }

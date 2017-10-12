@@ -33,8 +33,8 @@ public class Food {
     }
     public static Food alarm(int index) {
         Food food = new Food();
-        food.id = "ID" + index;
-        food.content = "Content " + index;
+        food.id = "jwjpop" + index;
+        food.content = "님이 회원님께 \n 동행을 신청했습니다. " + index;
         return food;
     }
 }

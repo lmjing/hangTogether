@@ -13,8 +13,6 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         >
-
-
         <include layout="@layout/toolbar_default" android:id="@+id/cs_toolbar"
             />
 

@@ -63,7 +63,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
 
         Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
         activity.setSupportActionBar(cs_toolbar);
-       // activity.getSupportActionBar().setTitle("LOGO");
+        activity.getSupportActionBar().setTitle("");
 
         if (recyclerView == null) {
             recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
