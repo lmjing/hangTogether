@@ -12,6 +12,10 @@ import UIKit
  TODO: 스크롤 뷰 안에 테이블 뷰가 들어있는 안 좋은 형태의 View다. 배민때 처럼 전체를 테이블 뷰로 변경해 새로 시도 할 것
  why? 테이블 뷰 안에 콜렉션뷰가 있기 때문에 높이가 가변적이며 높이를 정확히 알 수 없어 테이블 뷰의 높이를 다시 재 설정해야하는 문제가 발생한다. -> 즉, 높이 재 설정을 막고 자동으로 측정할 수 있게 한다.
  */
+/*
+ TODO: 실제 장소명 적용하여 보고 너무 길어 범위를 벗어나는 경우 혹은 애매하게 길어서 왼쪽 정렬이 안되는지 확인하고
+ 너무 길다면 View 모양을 변경해보고 괜찮으면 왼쪽 정렬 시키기
+*/
 class WritePostViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -81,7 +85,26 @@ class WritePostViewController: UIViewController {
     }
     
     func writeDone(button: UIBarButtonItem) {
-        print("ok button 눌림")
+        guard let title = titleTextField.text, !title.isEmpty else {
+            let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
+            self.present(alert, animated: true, completion: nil); return
+        }
+        guard let start = startDateTextField.text, let end = endDateTextField.text, !start.isEmpty, !end.isEmpty else {
+            let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
+            self.present(alert, animated: true, completion: nil); return
+        }
+        if tripList.count < 1 {
+            let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
+            self.present(alert, animated: true, completion: nil); return
+        }
+        var tripDate: [String:String] = [:]
+        tripDate["start"] = start; tripDate["end"] = end
+        post["tripDate"] = tripDate
+        post["title"] = title
+        post["content"] = contentTextView.text
+        post["trip"] = tripList
+        //TODO: writer 변경하기
+        post["writer"] = "59d4f8155bff9515ba6b78df"
     }
     
     func moveAddTripView(button: UIButton) {
