@@ -32,6 +32,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
 
     public Tab1RecommandAdapter adapter;
     private RecyclerView recyclerView;
+
     private RecyclerView.LayoutManager layoutManager;
     public LinearLayout indicator;
     public int page = 1;
@@ -128,6 +129,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
             adapter.addData(Food.mockFood(i));
         adapter.notifyDataSetChanged();
     }
+
     public void profile(Intent intent){
         startActivity(intent);
     }

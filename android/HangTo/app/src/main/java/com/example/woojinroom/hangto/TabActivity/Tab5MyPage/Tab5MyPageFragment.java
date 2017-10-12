@@ -3,10 +3,7 @@ package com.example.woojinroom.hangto.TabActivity.Tab5MyPage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +14,7 @@ import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
 import com.example.woojinroom.hangto.editActivity;
-import com.example.woojinroom.hangto.historyActivity;
+import com.example.woojinroom.hangto.History.historyActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..

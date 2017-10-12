@@ -2,15 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
 
-        <LinearLayout
-            android:id="@+id/layout_mapscreen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map"
@@ -18,16 +10,5 @@
         android:layout_height="match_parent"
         android:name="com.google.android.gms.maps.MapFragment"
         />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_mapscreen_search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <!-- search bar -->
-        </LinearLayout>
-    </FrameLayout>
 
 </LinearLayout>

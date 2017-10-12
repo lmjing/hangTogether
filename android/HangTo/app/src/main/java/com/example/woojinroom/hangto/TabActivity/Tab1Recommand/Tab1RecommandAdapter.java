@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent> {
 
     private static final int TYPE_ITEM = 0;
-    private static final int TYPE_HEADER = 1;
 
     public Context context;
     public Tab1RecommandFragment fragment;
@@ -59,9 +58,6 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
         if (viewType == TYPE_ITEM) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
             return new ViewHolderFood(v);
-        } else if (viewType == TYPE_HEADER) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
-            return new ViewHolderFoodCategory(v);
         }
         return null;
     }
@@ -76,7 +72,7 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
                 }
             });
             ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
-            Food food = mDataset.get(position-1);
+            Food food = mDataset.get(position);
 
            // itemViewHolder.list_mainpage.setVisibility(View.GONE);
             itemViewHolder.imageView.setImageResource(R.drawable.test);
@@ -113,21 +109,18 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
 //            if (position == mDataset.size()-1 && !fragment.endOfPage)
 //                fragment.connectRecommand();
 
-        } else if (holder instanceof ViewHolderFoodCategory) {
-
         }
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0)
-            return TYPE_HEADER;
+
         return TYPE_ITEM;
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size()+1;
+        return mDataset.size();
     }
 }
 

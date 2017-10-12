@@ -54,7 +54,7 @@
         <activity android:name=".editActivity">
 
         </activity>
-        <activity android:name=".historyActivity">
+        <activity android:name=".History.historyActivity">
 
         </activity>
         <activity android:name=".spotActivity">
