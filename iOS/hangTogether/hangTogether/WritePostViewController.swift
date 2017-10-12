@@ -118,15 +118,15 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
-        
+        if tripList.count > 1 {
+            cell.makeLine(index: indexPath.row, count: tripList.count)
+        }
         if let date = tripList[indexPath.row].date?.convertString() {
             cell.dateLabel.text = date.monthDay()
         }else {
             cell.dateLabel.text = "무관"
         }
-        if tripList.count > 1 {
-            cell.makeLine(index: indexPath.row, count: tripList.count)
-        }
+        
         cell.placeCollectionView.delegate = self
         cell.placeCollectionView.dataSource = self
         cell.placeCollectionView.tag = indexPath.row
@@ -155,9 +155,9 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let place = tripList[collectionView.tag].places[indexPath.row]
-        var width = CGFloat(24)
+        var width = CGFloat(22)
         if let placeName = place["name"] as NSString? {
-            width += placeName.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18.0)]).width
+            width += placeName.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 20.0)]).width
         }
         
         let height = CGFloat(32)
@@ -166,6 +166,13 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("touch")
+        let tableViewRow = collectionView.tag
+        tripList[tableViewRow].places.remove(at: indexPath.row)
+        if tripList[tableViewRow].places.count == 0 {
+            tripList.remove(at: tableViewRow)
+            tableView.deleteRows(at: [IndexPath(row: tableViewRow, section: 0)], with: .automatic)
+        }else {
+            tableView.reloadRows(at: [IndexPath(row: tableViewRow, section: 0)], with: .automatic)
+        }
     }
 }
