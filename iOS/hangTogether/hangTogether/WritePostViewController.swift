@@ -164,4 +164,9 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let place = tripList[collectionView.tag].places[indexPath.row]
+        print("touch")
+    }
 }

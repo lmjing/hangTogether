@@ -22,8 +22,9 @@ class TripTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: false)
+        super.setSelected(false, animated: false)
 
+        print("table touch")
     }
 
     func makeLine(index: Int, count: Int) {
