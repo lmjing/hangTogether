@@ -2,6 +2,10 @@ package com.example.woojinroom.hangto;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -22,9 +26,16 @@ public class spotActivity extends AppCompatActivity {
     TextView textView;
     Button button_spot;
     ToggleButton button_toggle;
+    ViewPager pager;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
+
+        pager = (ViewPager)findViewById(R.id.pager);
+        pager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+        pager.setCurrentItem(0);
+
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         textView = (TextView) toolbar.findViewById(R.id.title);
         textView.setText("장소 추가");
@@ -61,4 +72,24 @@ public class spotActivity extends AppCompatActivity {
             }
         });
     }
+    private class pagerAdapter extends FragmentStatePagerAdapter
+    {
+        public pagerAdapter(FragmentManager fm )
+        {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return new googleMapFragment();
+
+        }
+
+        @Override
+        public int getCount() {
+            // total page count
+            return 1;
+        }
+    }
+
 }
