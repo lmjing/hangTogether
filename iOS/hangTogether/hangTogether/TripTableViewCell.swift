@@ -12,6 +12,7 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var placeCollectionView: UICollectionView!
+    let line = UIView()
     
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     override func awakeFromNib() {
@@ -28,7 +29,6 @@ class TripTableViewCell: UITableViewCell {
     }
 
     func makeLine(index: Int, count: Int) {
-        let line = UIView()
         contentView.addSubview(line)
         line.backgroundColor = UIColor.pointColor
         line.translatesAutoresizingMaskIntoConstraints = false

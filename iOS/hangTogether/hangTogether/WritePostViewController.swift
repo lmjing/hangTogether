@@ -49,7 +49,7 @@ class WritePostViewController: UIViewController {
             if let date1 = $0.date?.convertString(), let date2 = $1.date?.convertString() {
                 return date1 < date2
             }
-            return false
+            return true
         })
         tableView.reloadData()
     }
@@ -120,6 +120,8 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
         if tripList.count > 1 {
             cell.makeLine(index: indexPath.row, count: tripList.count)
+        }else {
+            cell.line.removeFromSuperview()
         }
         if let date = tripList[indexPath.row].date?.convertString() {
             cell.dateLabel.text = date.monthDay()
@@ -170,9 +172,11 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
         tripList[tableViewRow].places.remove(at: indexPath.row)
         if tripList[tableViewRow].places.count == 0 {
             tripList.remove(at: tableViewRow)
-            tableView.deleteRows(at: [IndexPath(row: tableViewRow, section: 0)], with: .automatic)
-        }else {
-            tableView.reloadRows(at: [IndexPath(row: tableViewRow, section: 0)], with: .automatic)
         }
+        /* NOTE:
+         reloadRows & deleteRows 안 쓴 이유
+         : row값과 기존 tag값이 다르고 다른 cell의 선 유무를 판단해야 하기 때문에.
+         */
+        tableView.reloadData()
     }
 }
