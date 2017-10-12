@@ -133,6 +133,9 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         cell.placeCollectionView.tag = indexPath.row
         cell.placeCollectionView.reloadData()
         
+        cell.collectionViewHeight.constant = cell.placeCollectionView.collectionViewLayout.collectionViewContentSize.height
+        cell.contentView.setNeedsLayout()
+        
         return cell
     }
     

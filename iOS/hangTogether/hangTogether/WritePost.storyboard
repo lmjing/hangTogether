@@ -157,6 +157,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hg5-5O-OFu">
                                                     <rect key="frame" x="83" y="8" width="225" height="36"/>
                                                     <color key="backgroundColor" red="0.70754665800000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="36" id="8zM-3h-ScS"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Qh-Cs-tJO">
                                                         <size key="itemSize" width="105" height="32"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -220,6 +223,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="circleView" destination="dbO-US-QsA" id="97i-bz-eIj"/>
+                                            <outlet property="collectionViewHeight" destination="8zM-3h-ScS" id="hlp-0A-8ED"/>
                                             <outlet property="dateLabel" destination="uhZ-jR-8y3" id="oAT-XQ-8Ns"/>
                                             <outlet property="placeCollectionView" destination="hg5-5O-OFu" id="NcW-eT-Xw3"/>
                                         </connections>

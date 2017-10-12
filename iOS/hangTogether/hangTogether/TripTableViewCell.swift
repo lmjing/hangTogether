@@ -13,6 +13,7 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var placeCollectionView: UICollectionView!
     
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         
