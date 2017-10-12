@@ -14,7 +14,6 @@ import UIKit
  */
 class WritePostViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var titleTextField: UITextField!
     //TODO: 논의 후 placehorder 있는 라이브러리 사용하기
     @IBOutlet weak var contentTextView: UITextView!
@@ -138,10 +137,6 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100.0
-//    }
 }
 
 extension WritePostViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -158,9 +153,15 @@ extension WritePostViewController: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let count = CGFloat(tripList[collectionView.tag].places.count / 2) + 1
-//        return CGSize(width: 100, height: 30.0 * count)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let place = tripList[collectionView.tag].places[indexPath.row]
+        var width = CGFloat(22)
+        if let placeName = place["name"] {
+            width += CGFloat(placeName.characters.count * 15)
+        }
+        
+        let height = CGFloat(21)
+        
+        return CGSize(width: width, height: height)
+    }
 }
