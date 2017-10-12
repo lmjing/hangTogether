@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Profile View Controller-->
         <scene sceneID="ULy-gn-yaF">
             <objects>
-                <viewController id="ZyO-KR-vO7" sceneMemberID="viewController">
+                <viewController id="ZyO-KR-vO7" customClass="UserProfileViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rrD-TS-1cr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,6 +75,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oa9-AT-2cz"/>
                     </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="ZpA-QK-emx" id="U2v-fR-ZrU"/>
+                        <outlet property="introduceLabel" destination="aGA-MA-rKj" id="7Po-y7-Ct4"/>
+                        <outlet property="languageLabel" destination="Y6r-9J-csz" id="klX-aW-uMg"/>
+                        <outlet property="nicknameLabel" destination="Hdk-Wt-Alr" id="9uc-1b-Xlu"/>
+                        <outlet property="profileImageView" destination="eP0-KZ-ReT" id="YDW-n3-WFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emc-UP-1Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
