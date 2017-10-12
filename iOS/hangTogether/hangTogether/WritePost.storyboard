@@ -130,10 +130,10 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="tripDateCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripDateCell" id="6b5-Sp-WJv" customClass="TripTableViewCell" customModule="hangTogether" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripDateCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripDateCell" id="6b5-Sp-WJv" customClass="TripTableViewCell" customModule="hangTogether" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="381" width="313" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6b5-Sp-WJv" id="Jov-Ge-9rv">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6b5-Sp-WJv" id="Jov-Ge-9rv">
                                             <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
