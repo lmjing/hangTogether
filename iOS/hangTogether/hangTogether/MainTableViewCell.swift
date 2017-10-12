@@ -14,7 +14,8 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var tripDateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var languageStackView: UIStackView!
-
+    @IBOutlet weak var userProfileStackView: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,6 +38,7 @@ class MainTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        self.selectionStyle = UITableViewCellSelectionStyle.none
         // Configure the view for the selected state
     }
 }

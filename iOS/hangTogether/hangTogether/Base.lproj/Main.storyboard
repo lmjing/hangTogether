@@ -111,6 +111,7 @@
                                             <outlet property="profileImageView" destination="R6V-RZ-Db9" id="fqL-ut-JFU"/>
                                             <outlet property="titleLabel" destination="c3l-aU-4Tp" id="loV-Yk-qBq"/>
                                             <outlet property="tripDateLabel" destination="Odl-9Y-yN0" id="XMx-T5-772"/>
+                                            <outlet property="userProfileStackView" destination="D0f-5e-6tb" id="w0d-cS-gZE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
