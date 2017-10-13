@@ -71,7 +71,7 @@ class AddPlaceViewController: UIViewController {
         var notFound = true
 
         cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
-            if oldTrip.date?.convertString() == date {
+            if oldTrip.date?.string == date {
                 notFound = false
                 var newtrip = oldTrip
                 newtrip.places.append(newPlace)
@@ -82,7 +82,7 @@ class AddPlaceViewController: UIViewController {
         
         if notFound {
             var newTrip = Trip()
-            newTrip.date = date?.convertDate()
+            newTrip.date = date?.date
             newTrip.places = [newPlace]
             cv.tripList.append(newTrip)
         }

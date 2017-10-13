@@ -42,14 +42,18 @@ extension UIAlertController {
 }
 
 extension Date {
-    func convertString() -> String {
-        return DateFormatter.date().string(from: self)
+    var string: String {
+        get {
+            return DateFormatter.date().string(from: self)
+        }
     }
 }
 
 extension String {
-    func convertDate() -> Date {
-        return DateFormatter.date().date(from: self)!
+    var date: Date {
+        get {
+            return DateFormatter.date().date(from: self)!
+        }
     }
     
     func monthDay() -> String {
@@ -95,5 +99,14 @@ extension UIDatePicker {
         textField.inputView = self
         self.datePickerMode = .date
         self.backgroundColor = UIColor.white
+    }
+}
+
+extension IndexPath {
+    func equalTo(_ indexPath: IndexPath) -> Bool {
+        if self.row == indexPath.row && self.section == indexPath.section {
+            return true
+        }
+        return false
     }
 }

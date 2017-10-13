@@ -50,7 +50,7 @@ class WritePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tripList.sort(by: {
-            if let date1 = $0.date?.convertString(), let date2 = $1.date?.convertString() {
+            if let date1 = $0.date?.string, let date2 = $1.date?.string {
                 return date1 < date2
             }
             return true
@@ -110,8 +110,8 @@ class WritePostViewController: UIViewController {
     func moveAddTripView(button: UIButton) {
         if let min = startDateTextField.text, let max = endDateTextField.text, !min.isEmpty && !max.isEmpty {
             let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
-            addPlaceViewController.datePicker.minimumDate = min.convertDate()
-            addPlaceViewController.datePicker.maximumDate = max.convertDate()
+            addPlaceViewController.datePicker.minimumDate = min.date
+            addPlaceViewController.datePicker.maximumDate = max.date
             navigationController?.pushViewController(addPlaceViewController, animated: true)
         }else {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
@@ -135,23 +135,29 @@ extension WritePostViewController: UITextFieldDelegate, UITextViewDelegate {
 }
 
 extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tripList.count
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripList.count
+        return tripList[section].places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
-        if tripList.count > 1 {
-            cell.makeLine(index: indexPath.row, count: tripList.count)
-        }else {
-            cell.line.removeFromSuperview()
+        
+        // 첫번째일 경우 날짜 라벨 생성
+        if indexPath.row == 0 {
+            if let date = tripList[indexPath.row].date?.string { 
+                cell.makeDateLabel(date: date)
+            }else {
+                cell.makeDateLabel(date: "무관")
+            }
         }
-        if let date = tripList[indexPath.row].date?.convertString() {
-            cell.dateLabel.text = date.monthDay()
-        }else {
-            cell.dateLabel.text = "무관"
-        }
+        let lastSection = tableView.numberOfSections - 1
+        let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
+        cell.makeLine(index: indexPath, count: lastIndexPath)
+        cell.placeLabel.text = tripList[indexPath.section].places[indexPath.row]["name"]
         
         return cell
     }

@@ -17,7 +17,6 @@
 		5026894A1F86220900819D3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689491F86220900819D3C /* User.swift */; };
 		5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037F8991F868DE7006EFB17 /* WritePostViewController.swift */; };
 		505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */; };
-		505BFCB81F8C9D3400F3BB0C /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB71F8C9D3400F3BB0C /* PlaceCollectionViewCell.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
 		5063D6B21F7D456D009639C5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6B11F7D456D009639C5 /* SecondViewController.swift */; };
 		5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B31F7D456D009639C5 /* Main.storyboard */; };
@@ -54,7 +53,6 @@
 		502689491F86220900819D3C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5037F8991F868DE7006EFB17 /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
-		505BFCB71F8C9D3400F3BB0C /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6AD1F7D456D009639C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5063D6B11F7D456D009639C5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				50BDB6AD1F865A080009CF60 /* WritePost.storyboard */,
 				5037F8991F868DE7006EFB17 /* WritePostViewController.swift */,
 				505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */,
-				505BFCB71F8C9D3400F3BB0C /* PlaceCollectionViewCell.swift */,
 			);
 			name = WritePost;
 			sourceTree = "<group>";
@@ -418,7 +415,6 @@
 				505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
 				5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */,
-				505BFCB81F8C9D3400F3BB0C /* PlaceCollectionViewCell.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
 				5026894A1F86220900819D3C /* User.swift in Sources */,

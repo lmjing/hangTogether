@@ -137,15 +137,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhZ-jR-8y3">
-                                                    <rect key="frame" x="8" y="8" width="50" height="28"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="BPX-UT-aNz"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbO-US-QsA">
                                                     <rect key="frame" x="68" y="19.5" width="5" height="5"/>
                                                     <color key="backgroundColor" red="0.2053697407" green="0.73057287930000003" blue="0.73685550690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,19 +154,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="a1n-4m-fz4" secondAttribute="bottom" id="0hN-RC-1OU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="uhZ-jR-8y3" secondAttribute="bottom" id="CwE-PN-HX2"/>
-                                                <constraint firstItem="uhZ-jR-8y3" firstAttribute="leading" secondItem="Jov-Ge-9rv" secondAttribute="leadingMargin" id="GSl-5d-5aH"/>
                                                 <constraint firstItem="a1n-4m-fz4" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="NZh-Ub-ZB5"/>
-                                                <constraint firstItem="uhZ-jR-8y3" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="Us7-7s-EeD"/>
                                                 <constraint firstItem="a1n-4m-fz4" firstAttribute="leading" secondItem="dbO-US-QsA" secondAttribute="trailing" constant="10" id="Wvo-BV-n4f"/>
                                                 <constraint firstItem="dbO-US-QsA" firstAttribute="centerY" secondItem="Jov-Ge-9rv" secondAttribute="centerY" id="aIl-E9-Hn9"/>
-                                                <constraint firstItem="dbO-US-QsA" firstAttribute="leading" secondItem="uhZ-jR-8y3" secondAttribute="trailing" constant="10" id="qFB-T8-BFZ"/>
+                                                <constraint firstItem="dbO-US-QsA" firstAttribute="leading" secondItem="Jov-Ge-9rv" secondAttribute="leadingMargin" constant="60" id="cgd-4D-k2o"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="a1n-4m-fz4" secondAttribute="trailing" id="vgH-Uy-Imj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="circleView" destination="dbO-US-QsA" id="97i-bz-eIj"/>
-                                            <outlet property="dateLabel" destination="uhZ-jR-8y3" id="oAT-XQ-8Ns"/>
+                                            <outlet property="placeLabel" destination="a1n-4m-fz4" id="Ssn-LL-6Db"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
