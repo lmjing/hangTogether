@@ -135,6 +135,7 @@ extension WritePostViewController: UITextFieldDelegate, UITextViewDelegate {
 }
 
 extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tripList.count
     }
@@ -152,54 +153,6 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.text = "무관"
         }
         
-        cell.placeCollectionView.delegate = self
-        cell.placeCollectionView.dataSource = self
-        cell.placeCollectionView.tag = indexPath.row
-        cell.placeCollectionView.reloadData()
-        
-        cell.collectionViewHeight.constant = cell.placeCollectionView.collectionViewLayout.collectionViewContentSize.height
-        cell.contentView.setNeedsLayout()
-        
         return cell
-    }
-}
-
-extension WritePostViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tripList[collectionView.tag].places.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as! PlaceCollectionViewCell
-        
-        let place = tripList[collectionView.tag].places[indexPath.row]
-        cell.placeNameLabel.text = place["name"]
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let place = tripList[collectionView.tag].places[indexPath.row]
-        var width = CGFloat(22)
-        if let placeName = place["name"] as NSString? {
-            width += placeName.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 20.0)]).width
-        }
-        
-        let height = CGFloat(32)
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let tableViewRow = collectionView.tag
-        tripList[tableViewRow].places.remove(at: indexPath.row)
-        if tripList[tableViewRow].places.count == 0 {
-            tripList.remove(at: tableViewRow)
-        }
-        /* NOTE:
-         reloadRows & deleteRows 안 쓴 이유
-         : row값과 기존 tag값이 다르고 다른 cell의 선 유무를 판단해야 하기 때문에.
-         */
-        tableView.reloadData()
     }
 }

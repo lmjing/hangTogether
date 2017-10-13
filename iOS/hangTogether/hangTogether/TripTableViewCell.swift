@@ -11,10 +11,8 @@ import UIKit
 class TripTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
-    @IBOutlet weak var placeCollectionView: UICollectionView!
     let line = UIView()
     
-    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         
