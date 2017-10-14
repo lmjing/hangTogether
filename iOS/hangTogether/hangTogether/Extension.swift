@@ -99,7 +99,7 @@ extension UIDatePicker {
     func withTextField(_ textField: UITextField, selector: Selector) {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        toolbar.backgroundColor = UIColor.lightGray
+        toolbar.backgroundColor = UIColor.white
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: selector)
         doneButton.tintColor = UIColor.pointColor

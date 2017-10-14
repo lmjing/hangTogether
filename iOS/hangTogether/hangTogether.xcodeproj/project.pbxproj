@@ -26,7 +26,6 @@
 		5063D6FD1F7D483C009639C5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */; };
 		5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FE1F7D4854009639C5 /* FourthViewController.swift */; };
 		5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */; };
-		507ECD311F9211D500E75D45 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507ECD301F9211D500E75D45 /* TestViewController.swift */; };
 		50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePost.storyboard */; };
 		50F03CA01F87A47200F3591D /* AddPlace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F03C9F1F87A47200F3591D /* AddPlace.storyboard */; };
 		8EEA7B1346138347BD6FB5B4 /* Pods_hangTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032EFF2D5B6D7AB28B313856 /* Pods_hangTogether.framework */; };
@@ -67,7 +66,6 @@
 		5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5063D6FE1F7D4854009639C5 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
-		507ECD301F9211D500E75D45 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		50BDB6AD1F865A080009CF60 /* WritePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePost.storyboard; sourceTree = "<group>"; };
 		50F03C9F1F87A47200F3591D /* AddPlace.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPlace.storyboard; sourceTree = "<group>"; };
 		5855F0BA8128174EF9552CE0 /* Pods_hangTogetherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hangTogetherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,7 +233,6 @@
 			children = (
 				50F03C9F1F87A47200F3591D /* AddPlace.storyboard */,
 				5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */,
-				507ECD301F9211D500E75D45 /* TestViewController.swift */,
 			);
 			name = addPlace;
 			sourceTree = "<group>";
@@ -421,7 +418,6 @@
 				501A26DE1F8374CE00F24081 /* Config.swift in Sources */,
 				505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
-				507ECD311F9211D500E75D45 /* TestViewController.swift in Sources */,
 				5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
