@@ -12,7 +12,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="ULy-gn-yaF">
             <objects>
-                <viewController id="ZyO-KR-vO7" customClass="UserProfileViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userProfile" id="ZyO-KR-vO7" customClass="UserProfileViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rrD-TS-1cr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emc-UP-1Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.80000000000001" y="-209.14542728635683"/>
+            <point key="canvasLocation" x="-2153" y="-428"/>
         </scene>
     </scenes>
 </document>

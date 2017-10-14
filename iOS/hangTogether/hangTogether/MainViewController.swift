@@ -88,4 +88,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userProfileViewController = UIStoryboard.userProfileStoryboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfileViewController
+        userProfileViewController.user = mainList[indexPath.row].writer
+        navigationController?.pushViewController(userProfileViewController, animated: true)
+    }
 }

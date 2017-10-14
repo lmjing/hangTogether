@@ -20,6 +20,7 @@ extension Notification.Name {
 extension UIStoryboard {
     static let writePostStoryboard = UIStoryboard(name: "WritePost", bundle: nil)
     static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
+    static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
 }
 
 extension DateFormatter {
@@ -44,6 +45,14 @@ extension UIAlertController {
 extension Date {
     func convertString() -> String {
         return DateFormatter.date().string(from: self)
+    }
+    
+    var age: String {
+        get {
+            var diff = -(self.timeIntervalSinceNow / 60 / 60 / 24 / 365)
+            let age = Int(diff / 10) * 10
+            return "\(age)대"
+        }
     }
 }
 
@@ -95,5 +104,13 @@ extension UIDatePicker {
         textField.inputView = self
         self.datePickerMode = .date
         self.backgroundColor = UIColor.white
+    }
+}
+
+extension UIImageView {
+    
+    func drawCircle() {
+        self.layer.cornerRadius = self.frame.width / 2
+        self.clipsToBounds = true
     }
 }

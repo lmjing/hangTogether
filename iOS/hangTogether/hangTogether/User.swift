@@ -32,6 +32,8 @@ class User: Mappable {
     required init?(map: Map) {
         
     }
+    
+    init() {}
 
     func mapping(map: Map) {
         id          <- map["_id"]
