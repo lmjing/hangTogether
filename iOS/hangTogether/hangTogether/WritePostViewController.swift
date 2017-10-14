@@ -56,7 +56,6 @@ class WritePostViewController: UIViewController {
                 return $0.date == nil ? false : true
             }
         })
-        print(tripList)
         tableView.reloadData()
     }
     

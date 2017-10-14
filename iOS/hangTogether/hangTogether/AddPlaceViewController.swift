@@ -7,22 +7,30 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class AddPlaceViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var dateSwitch: UISwitch!
     @IBOutlet weak var placeTextField: UITextField!
+    @IBOutlet weak var mapView: GMSMapView!
     
     var datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        drawMap()
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
         navigationItem.setRightBarButton(okButton, animated: true)
         navigationItem.title = "장소 추가"
         datePicker.withTextField(dateTextField, selector: #selector(pickerDone))
         
         dateSwitch.addTarget(self, action: #selector(checkDate), for: .valueChanged)
+    }
+    
+    func drawMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        mapView.camera = camera
     }
     
     func checkDate() {
@@ -98,3 +106,4 @@ class AddPlaceViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+

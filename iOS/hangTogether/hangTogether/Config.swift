@@ -18,4 +18,8 @@ class Config {
     static public let hostURL: String = {
         return plist?["hostURL"]! as! String
     }()
+    
+    static public let googleAPIKey: String = {
+        return plist?["googleAPIKey"]! as! String
+    }()
 }

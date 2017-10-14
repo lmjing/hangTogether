@@ -107,11 +107,11 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="zqk-a0-fl0">
-                                    <rect key="frame" x="0.0" y="425" width="313" height="85"/>
+                                    <rect key="frame" x="0.0" y="425" width="313" height="86"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oB8-0S-Yp2">
-                                            <rect key="frame" x="0.0" y="20" width="313" height="40"/>
+                                            <rect key="frame" x="0.0" y="10" width="313" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="pJm-HU-9gt"/>
                                             </constraints>
@@ -123,10 +123,10 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="oB8-0S-Yp2" secondAttribute="bottom" constant="36" id="RHd-eg-sFB"/>
                                         <constraint firstItem="oB8-0S-Yp2" firstAttribute="leading" secondItem="zqk-a0-fl0" secondAttribute="leading" id="Vbh-g6-Lw1"/>
-                                        <constraint firstAttribute="bottom" secondItem="oB8-0S-Yp2" secondAttribute="bottom" constant="25" id="hNA-6b-oXv"/>
                                         <constraint firstAttribute="trailing" secondItem="oB8-0S-Yp2" secondAttribute="trailing" id="mxX-vK-H92"/>
-                                        <constraint firstItem="oB8-0S-Yp2" firstAttribute="top" secondItem="zqk-a0-fl0" secondAttribute="top" constant="20" id="nyi-Bo-aRw"/>
+                                        <constraint firstItem="oB8-0S-Yp2" firstAttribute="top" secondItem="zqk-a0-fl0" secondAttribute="top" constant="10" id="nyi-Bo-aRw"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
