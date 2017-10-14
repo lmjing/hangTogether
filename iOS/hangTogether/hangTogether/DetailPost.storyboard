@@ -191,9 +191,11 @@
                     <connections>
                         <outlet property="contentLabel" destination="6dr-te-yPO" id="rsn-vv-2sW"/>
                         <outlet property="endDateLabel" destination="PQa-fG-l1M" id="bQS-y2-oTW"/>
+                        <outlet property="firstButton" destination="1Dn-MM-dqB" id="67g-Iu-LSe"/>
                         <outlet property="languagesLabel" destination="5W7-wA-gkA" id="gPC-Dj-wsN"/>
                         <outlet property="nicknameLabel" destination="AbE-j5-O48" id="t6K-3C-W0A"/>
                         <outlet property="profileImageView" destination="6Zd-yH-eUX" id="WFo-xf-e4z"/>
+                        <outlet property="secondButton" destination="AyJ-WY-2hG" id="F3P-g4-cV8"/>
                         <outlet property="startDateLabel" destination="C3q-IO-SvT" id="u8g-Pf-KVQ"/>
                         <outlet property="userInfoLabel" destination="Vim-hr-zZN" id="WQh-I6-Hpw"/>
                         <outlet property="userProfileView" destination="uGv-L6-c7o" id="t67-dO-jZp"/>

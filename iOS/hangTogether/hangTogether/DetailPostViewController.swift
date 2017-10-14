@@ -19,6 +19,9 @@ class DetailPostViewController: UIViewController {
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
