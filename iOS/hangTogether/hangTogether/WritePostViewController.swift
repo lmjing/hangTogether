@@ -65,6 +65,13 @@ class WritePostViewController: UIViewController {
         
         datePicker.withTextField(startDateTextField, selector: #selector(pickerDone))
         datePicker.withTextField(endDateTextField, selector: #selector(pickerDone))
+        
+        let button = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissView))
+        navigationItem.leftBarButtonItem = button
+    }
+    
+    func dismissView() {
+        dismiss(animated: true, completion: nil)
     }
     
     func pickerDone(button: UIBarButtonItem) {

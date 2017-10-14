@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main View Controller-->
+        <!--Item-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="MainViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,6 +135,7 @@
                             <constraint firstItem="xUW-pq-0bs" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="kF0-d0-UhB"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="K44-QI-vRO"/>
                     <navigationItem key="navigationItem" id="6VG-dk-pto"/>
                     <connections>
                         <outlet property="plusFloatingButton" destination="Vsg-X6-GGX" id="edd-sf-Qzk"/>
@@ -220,39 +221,17 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6Uw-Tf-pT2" kind="relationship" relationship="viewControllers" id="T56-h4-kcQ"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="p2z-Zy-yRY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--list-->
-        <scene sceneID="myv-2S-F2e">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Uw-Tf-pT2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="list" image="tab1_main" id="cPa-gy-q4n">
-                        <inset key="landscapeImageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fhn-Vl-gY5">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="ESc-XH-6WT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pcx-5J-Smb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1400.8" y="-431.33433283358323"/>
-        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="floating" width="60" height="60"/>
         <image name="second" width="30" height="30"/>
-        <image name="tab1_main" width="32" height="32"/>
     </resources>
 </document>

@@ -40,7 +40,8 @@ class MainViewController: UIViewController {
     
     func moveToWrite() {
         let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
-        navigationController?.pushViewController(writePostViewController, animated: true)
+        let navigationViewController: UINavigationController = UINavigationController(rootViewController: writePostViewController)
+        present(navigationViewController, animated: true, completion: nil)
         
         //전체 화면 차지하나 navigationbar 생기지 않음
 //음       self.present(writePostViewController, animated: true, completion: nil)
