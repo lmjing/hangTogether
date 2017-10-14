@@ -1,50 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/listview_mainpage"
     >
 
+    <TextView
+        android:id="@+id/text_document"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/rectangle_big"
+        android:textColor="#FFFFFF"
+        android:visibility="visible"
+        android:text="신청서"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="13dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="215dp"
+        android:layout_height="57dp"
+        android:text="jwjpop"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="70dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="1일"
+        android:textSize="10dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="315dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="57dp"
         android:layout_height="67dp"
-
+        android:background="@drawable/test"
         android:layout_weight="1"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp" />
+<LinearLayout
+    android:id="@+id/linear_message1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_weight="4"
+    android:layout_alignParentTop="true"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="0dp"
+    android:layout_marginLeft="66dp"
+    app:layout_constraintLeft_toLeftOf="parent">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
-        android:layout_weight="1"
-
+        android:text="jwjpop"
+        android:textColor="#000000"
+        android:textSize="20dp"
         android:visibility="visible" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_weight="3"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#000000"
+        android:text="언제 시간되니?"
 
         android:visibility="visible" />
+</LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:id="@+id/linear_message2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="5dp"
+        app:layout_constraintRight_toRightOf="parent">
 
         <TextView
-            android:id="@+id/imageView2"
-            android:layout_width="50dp"
-            android:layout_height="20dp"
+            android:id="@+id/text_new"
+            android:layout_width="35dp"
+            android:layout_height="25dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textColor="#FFFFFF"
+            android:background="@drawable/rectangle_new"
             android:visibility="visible" />
 
         <TextView
@@ -52,10 +119,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
+            android:text="오후 13시 49분"
+            android:textSize="10dp"
             android:layout_gravity="center"
 
             android:visibility="visible" />
 
     </LinearLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -6,8 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.woojinroom.hangto.TabActivity.TabActivity_;
+
+import static android.view.View.GONE;
 
 /**
  * Created by woojinroom on 2017-09-25.
@@ -19,17 +23,21 @@ public class searchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Button button_search = (Button)findViewById(R.id.button7);
-        button_search.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent main_intent = new Intent(getApplicationContext(), TabActivity_.class);
-                startActivity(main_intent);
+        ImageButton button_left =(ImageButton)findViewById(R.id.imagebutton_left);
+        button_left.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
                 finish();
-                // 글쓰고 메인으로 돌아오는 로직인데 startActivity가 맞나?? 이미 Tab 액티비티가 생성되어 있는데 추가생성인지, 다시불러온건지 확인필요.
-                // 확인결과 새창 띄우는거 같음. 기존 창을 제거하고 띄우거나 기존창으로 가는 알고리즘 필요
-                // 검색결과로 재 출력
             }
         });
+        ImageButton button_right =(ImageButton)findViewById(R.id.imagebutton_right);
+        button_right.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                finish();
+                //검색한 결과 보여줌
+            }
+        });
+        TextView textView = (TextView)findViewById(R.id.title);
+        textView.setText("조건 검색");
 
     }
 }

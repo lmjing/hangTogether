@@ -17,6 +17,7 @@ public class Food {
     public String ranguage1;
     public String ranguage2;
     public String ranguage3;
+    public String messageTime;
 
     // DO NOT USE GET / SET METHOD
 
@@ -33,8 +34,14 @@ public class Food {
     }
     public static Food alarm(int index) {
         Food food = new Food();
-        food.id = "jwjpop" + index;
-        food.content = "님이 회원님께 \n 동행을 신청했습니다. " + index;
+        food.id = "jwjpop 님이 회원님께\n동행을 신청했습니다." + index;
+        food.messageTime = index+"일";
+        return food;
+    }
+    public static Food alarm_req(int index) {
+        Food food = new Food();
+        food.id = "subin614 님이 회원님의\n동행을 수락했습니다." + index;
+        food.time = "오후 2:1"+index;
         return food;
     }
 }

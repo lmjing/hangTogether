@@ -4,6 +4,7 @@
 
     <string name="str_prompt">언어선택</string>
     <string-array name="nation">
+        <item>선택</item>
         <item>한국어</item>
         <item>영어</item>
         <item>일본어</item>

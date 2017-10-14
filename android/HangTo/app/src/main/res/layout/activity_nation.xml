@@ -8,38 +8,38 @@
     <include layout="@layout/toolbar_green" android:id="@+id/toolbar"
         />
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/rang3"
         android:layout_width="140dp"
         android:layout_height="22dp"
 
         android:layout_marginLeft="40dp"
         android:layout_marginTop="331dp"
         android:gravity="center"
-        android:hint="선택"
+        android:text="선택"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/rang2"
         android:layout_width="140dp"
         android:layout_height="22dp"
 
         android:layout_marginLeft="40dp"
         android:layout_marginTop="298dp"
         android:gravity="center"
-        android:hint="선택"
+        android:text="선택"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/rang1"
         android:layout_width="140dp"
         android:layout_height="22dp"
-        android:hint="선택"
+        android:text="선택"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="263dp"
         android:gravity="center"

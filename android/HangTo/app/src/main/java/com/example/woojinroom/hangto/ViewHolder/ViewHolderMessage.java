@@ -15,7 +15,10 @@ public class ViewHolderMessage extends ViewHolderParent {
     public TextView textId;
     public TextView textContent;
     public TextView textTime;
-    public TextView imageView2;
+    public TextView textNew;
+    public TextView textDocument;
+    public TextView textMessageID;
+    public TextView textMessageTime;
 
     public ViewHolderMessage(View v) {
         super(v);
@@ -23,7 +26,10 @@ public class ViewHolderMessage extends ViewHolderParent {
         textId = (TextView)v.findViewById(R.id.textView);
         textContent = (TextView)v.findViewById(R.id.textView2);
         textTime = (TextView)v.findViewById(R.id.textView3);
-        imageView2 = (TextView) v.findViewById(R.id.imageView2);
+        textNew = (TextView) v.findViewById(R.id.text_new);
+        textDocument = (TextView)v.findViewById(R.id.text_document);
+        textMessageID = (TextView)v.findViewById(R.id.textView34);
+        textMessageTime = (TextView)v.findViewById(R.id.textView58);
 
     }
 }

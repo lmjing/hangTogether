@@ -7,104 +7,51 @@
 
     <include layout="@layout/toolbar_green" android:id="@+id/toolbar"
         />
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="79dp"
-        android:layout_marginTop="323dp"
-        android:text="대화"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="256dp"
-        android:layout_marginTop="247dp"
-        android:text="대화"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="308dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
-        android:layout_marginRight="297dp"
-        android:layout_marginTop="232dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
 
     <EditText
         android:id="@+id/editText5"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
         android:ems="10"
         android:hint="내용 입력"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.989"
-        tools:layout_editor_absoluteX="55dp" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:id="@+id/button16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginRight="0dp"
+        android:id="@+id/button_submit"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
         android:text="전송"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        android:background="@drawable/rectangle_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/textView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="103dp"
-        android:text="대화"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="256dp"
-        android:layout_marginTop="179dp"
-        android:text="대화"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginRight="79dp"
+        android:layout_marginTop="69dp"
+        android:background="#a0e9ea"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:gravity="top|center_horizontal"
+        android:text="텍스트 박스는 일러로 따야겠다"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="86dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="47dp"
         android:layout_height="47dp"
-        android:layout_marginRight="297dp"
-        android:layout_marginTop="157dp"
+        android:layout_marginRight="310dp"
+        android:layout_marginTop="69dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_dialog" />

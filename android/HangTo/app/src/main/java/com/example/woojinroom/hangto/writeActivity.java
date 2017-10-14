@@ -50,6 +50,8 @@ public class writeActivity extends AppCompatActivity {
             }
         });
 
+        TextView title=(TextView)findViewById(R.id.title);
+        title.setText("글 작성");
         button_start =(Button) findViewById(R.id.time_start);
         button_start.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -85,6 +87,7 @@ public class writeActivity extends AppCompatActivity {
                                 , // 사용자가 날짜설정 후 다이얼로그 빠져나올때
                                 //    호출할 리스너 등록
                                 2017, 9, 12); // 기본값 연월일
+
                 return dpd_start;
             case 2 :
                 DatePickerDialog dpd_end = new DatePickerDialog

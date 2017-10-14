@@ -85,14 +85,14 @@ public class Tab2FeedsFragment extends TabParentFragment {
             }
         });
 
-     button_messagebox = (Button)view.findViewById(R.id.button_message);
+     button_messagebox = (Button)view.findViewById(R.id.button_message);    //메세지함 0
         button_messagebox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 status =0;
                 refresh();
             }
         });
-        button_alarmbox = (Button)view.findViewById(R.id.button_alarm);
+        button_alarmbox = (Button)view.findViewById(R.id.button_alarm); // 메세지가 갖는 status에 따라 작성자가 받는 것인지 신청자가 받는 것인지 구별해서 프린트 해줘야함
         button_alarmbox.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 status =1;
@@ -121,10 +121,19 @@ public class Tab2FeedsFragment extends TabParentFragment {
             for (int i = 0; i < 10; i++)
                 adapter.addData(Food.mockFood(i));
             adapter.notifyDataSetChanged();
-        } else {
+        } else if(status==1){
             for (int i = 0; i < 10; i++)
                 adapter.addData(Food.alarm(i));
             adapter.notifyDataSetChanged();
+        }  else {
+            for (int i = 0; i < 10; i++)
+                adapter.addData(Food.alarm_req(i));
+            adapter.notifyDataSetChanged();
         }
+
     }
+    public void startIntent(Intent intent){
+        startActivity(intent);
+    }
+
 }
