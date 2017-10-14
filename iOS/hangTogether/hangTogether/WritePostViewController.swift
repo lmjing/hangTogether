@@ -52,9 +52,11 @@ class WritePostViewController: UIViewController {
         tripList.sort(by: {
             if let date1 = $0.date, let date2 = $1.date {
                 return date1 < date2
+            }else {
+                return $0.date == nil ? false : true
             }
-            return true
         })
+        print(tripList)
         tableView.reloadData()
     }
     
