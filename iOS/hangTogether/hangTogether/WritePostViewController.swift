@@ -164,4 +164,22 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 35.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.selectionStyle = UITableViewCellSelectionStyle.none
+        tripList[indexPath.section].places.remove(at: indexPath.row)
+        if tripList[indexPath.section].places.count == 0 {
+            tripList.remove(at: indexPath.section)
+        }
+//        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
+    }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            print("Deleted")
+//
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//    }
 }
