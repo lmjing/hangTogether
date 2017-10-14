@@ -12,6 +12,10 @@ import UIKit
  TODO: 스크롤 뷰 안에 테이블 뷰가 들어있는 안 좋은 형태의 View다. 배민때 처럼 전체를 테이블 뷰로 변경해 새로 시도 할 것
  why? 테이블 뷰 안에 콜렉션뷰가 있기 때문에 높이가 가변적이며 높이를 정확히 알 수 없어 테이블 뷰의 높이를 다시 재 설정해야하는 문제가 발생한다. -> 즉, 높이 재 설정을 막고 자동으로 측정할 수 있게 한다.
  */
+/*
+ TODO: 실제 장소명 적용하여 보고 너무 길어 범위를 벗어나는 경우 혹은 애매하게 길어서 왼쪽 정렬이 안되는지 확인하고
+ 너무 길다면 View 모양을 변경해보고 괜찮으면 왼쪽 정렬 시키기
+*/
 class WritePostViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -46,10 +50,11 @@ class WritePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tripList.sort(by: {
-            if let date1 = $0.date?.convertString(), let date2 = $1.date?.convertString() {
+            if let date1 = $0.date, let date2 = $1.date {
                 return date1 < date2
+            }else {
+                return $0.date == nil ? false : true
             }
-            return false
         })
         tableView.reloadData()
     }
@@ -88,14 +93,33 @@ class WritePostViewController: UIViewController {
     }
     
     func writeDone(button: UIBarButtonItem) {
-        print("ok button 눌림")
+        guard let title = titleTextField.text, !title.isEmpty else {
+            let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
+            self.present(alert, animated: true, completion: nil); return
+        }
+        guard let start = startDateTextField.text, let end = endDateTextField.text, !start.isEmpty, !end.isEmpty else {
+            let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
+            self.present(alert, animated: true, completion: nil); return
+        }
+        if tripList.count < 1 {
+            let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
+            self.present(alert, animated: true, completion: nil); return
+        }
+        var tripDate: [String:String] = [:]
+        tripDate["start"] = start; tripDate["end"] = end
+        post["tripDate"] = tripDate
+        post["title"] = title
+        post["content"] = contentTextView.text
+        post["trip"] = tripList
+        //TODO: writer 변경하기
+        post["writer"] = "59d4f8155bff9515ba6b78df"
     }
     
     func moveAddTripView(button: UIButton) {
         if let min = startDateTextField.text, let max = endDateTextField.text, !min.isEmpty && !max.isEmpty {
             let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
-            addPlaceViewController.datePicker.minimumDate = min.convertDate()
-            addPlaceViewController.datePicker.maximumDate = max.convertDate()
+            addPlaceViewController.datePicker.minimumDate = min.date
+            addPlaceViewController.datePicker.maximumDate = max.date
             navigationController?.pushViewController(addPlaceViewController, animated: true)
         }else {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
@@ -119,61 +143,43 @@ extension WritePostViewController: UITextFieldDelegate, UITextViewDelegate {
 }
 
 extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return tripList.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tripList[section].places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
         
-        if let date = tripList[indexPath.row].date?.convertString() {
-            cell.dateLabel.text = date.monthDay()
-        }else {
-            cell.dateLabel.text = "무관"
+        // 첫번째일 경우 날짜 라벨 생성
+        if indexPath.row == 0 {
+            cell.makeFirstView(date: tripList[indexPath.section].date?.string)
         }
-        if tripList.count > 1 {
-            cell.makeLine(index: indexPath.row, count: tripList.count)
-        }
-        cell.placeCollectionView.delegate = self
-        cell.placeCollectionView.dataSource = self
-        cell.placeCollectionView.tag = indexPath.row
-        cell.placeCollectionView.reloadData()
         
-        cell.collectionViewHeight.constant = cell.placeCollectionView.collectionViewLayout.collectionViewContentSize.height
-        cell.contentView.setNeedsLayout()
-        
-        return cell
-    }
-}
-
-extension WritePostViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tripList[collectionView.tag].places.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as! PlaceCollectionViewCell
-        
-        let place = tripList[collectionView.tag].places[indexPath.row]
-        cell.placeNameLabel.text = place["name"]
+        let lastSection = tableView.numberOfSections - 1
+        let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
+        cell.makeLine(index: indexPath, count: lastIndexPath)
+        cell.placeLabel.text = tripList[indexPath.section].places[indexPath.row]["name"]
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let place = tripList[collectionView.tag].places[indexPath.row]
-        var width = CGFloat(24)
-        if let placeName = place["name"] as NSString? {
-            width += placeName.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18.0)]).width
-        }
-        
-        let height = CGFloat(32)
-        
-        return CGSize(width: width, height: height)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35.0
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let place = tripList[collectionView.tag].places[indexPath.row]
-        print("touch")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let place = tripList[indexPath.section].places[indexPath.row]["name"] else { return }
+        let dialog = UIAlertController.cancleOkAlert(title: place, message: "일정에서 삭제하시겠습니까?") { _ in
+            self.tripList[indexPath.section].places.remove(at: indexPath.row)
+            if self.tripList[indexPath.section].places.count == 0 {
+                self.tripList.remove(at: indexPath.section)
+            }
+            tableView.reloadData()
+        }
+        self.present(dialog, animated: true, completion: nil)
     }
 }

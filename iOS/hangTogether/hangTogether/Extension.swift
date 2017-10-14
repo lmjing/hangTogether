@@ -40,11 +40,22 @@ extension UIAlertController {
         alert.addAction(action)
         return alert
     }
+    
+    static func cancleOkAlert(title: String?, message: String?, action: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default, handler: action)
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancle)
+        return alert
+    }
 }
 
 extension Date {
-    func convertString() -> String {
-        return DateFormatter.date().string(from: self)
+    var string: String {
+        get {
+            return DateFormatter.date().string(from: self)
+        }
     }
     
     var age: String {
@@ -57,12 +68,16 @@ extension Date {
 }
 
 extension String {
-    func convertDate() -> Date {
-        return DateFormatter.date().date(from: self)!
+    var date: Date {
+        get {
+            return DateFormatter.date().date(from: self)!
+        }
     }
     
-    func monthDay() -> String {
-        return self.substring(from: self.index(self.endIndex, offsetBy: -5))
+    var monthDay: String {
+        get {
+            return self.substring(from: self.index(self.endIndex, offsetBy: -5))
+        }
     }
     
     /* 정규식 확인
@@ -93,7 +108,7 @@ extension UIDatePicker {
     func withTextField(_ textField: UITextField, selector: Selector) {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        toolbar.backgroundColor = UIColor.lightGray
+        toolbar.backgroundColor = UIColor.white
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: selector)
         doneButton.tintColor = UIColor.pointColor
@@ -111,5 +126,14 @@ extension UIImageView {
     func drawCircle() {
         self.layer.cornerRadius = self.frame.width / 2
         self.clipsToBounds = true
+    }
+}
+
+extension IndexPath {
+    func equalTo(_ indexPath: IndexPath) -> Bool {
+        if self.row == indexPath.row && self.section == indexPath.section {
+            return true
+        }
+        return false
     }
 }

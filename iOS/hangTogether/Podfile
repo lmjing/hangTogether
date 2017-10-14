@@ -10,4 +10,6 @@ target 'hangTogether' do
   pod 'AlamofireImage'
   pod 'Alamofire'
   pod 'ObjectMapper'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

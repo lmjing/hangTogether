@@ -7,22 +7,36 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class AddPlaceViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var dateSwitch: UISwitch!
     @IBOutlet weak var placeTextField: UITextField!
+    @IBOutlet weak var mapView: GMSMapView!
     
     var datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        drawMap()
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
         navigationItem.setRightBarButton(okButton, animated: true)
         navigationItem.title = "장소 추가"
         datePicker.withTextField(dateTextField, selector: #selector(pickerDone))
         
         dateSwitch.addTarget(self, action: #selector(checkDate), for: .valueChanged)
+    }
+    
+    func drawMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        mapView.camera = camera
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = mapView
     }
     
     func checkDate() {
@@ -71,7 +85,7 @@ class AddPlaceViewController: UIViewController {
         var notFound = true
 
         cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
-            if oldTrip.date?.convertString() == date {
+            if oldTrip.date?.string == date {
                 notFound = false
                 var newtrip = oldTrip
                 newtrip.places.append(newPlace)
@@ -82,7 +96,7 @@ class AddPlaceViewController: UIViewController {
         
         if notFound {
             var newTrip = Trip()
-            newTrip.date = date?.convertDate()
+            newTrip.date = date?.date
             newTrip.places = [newPlace]
             cv.tripList.append(newTrip)
         }
@@ -98,3 +112,4 @@ class AddPlaceViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+
