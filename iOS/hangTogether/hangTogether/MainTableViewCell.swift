@@ -19,8 +19,7 @@ class MainTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        profileImageView.clipsToBounds = true
+        profileImageView.drawCircle()
     }
     
     func makeLanguages(languages: [String]) {

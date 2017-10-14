@@ -28,8 +28,6 @@ class UserProfileViewController: UIViewController {
         languageLabel.text = user.languages.joined(separator: ",")
         infoLabel.text = "\(user.birth.age) \(user.sex.rawValue)"
         introduceLabel.text = user.introduce
-        
-        print(user.birth.timeIntervalSinceNow / 60 / 60 / 24 / 365)
     }
 
     override func didReceiveMemoryWarning() {

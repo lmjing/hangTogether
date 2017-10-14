@@ -108,7 +108,6 @@ extension UIDatePicker {
 }
 
 extension UIImageView {
-    
     func drawCircle() {
         self.layer.cornerRadius = self.frame.width / 2
         self.clipsToBounds = true
