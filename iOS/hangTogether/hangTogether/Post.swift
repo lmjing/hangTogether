@@ -48,6 +48,8 @@ class Post: Mappable {
         
     }
     
+    init() {}
+    
     func mapping(map: Map) {
         id          <- map["_id"]
         writer      <- map["writer"]

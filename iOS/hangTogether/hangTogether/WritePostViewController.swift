@@ -38,6 +38,8 @@ class WritePostViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        contentTextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        
         initView()
         addPlaceButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
     }
@@ -64,8 +66,7 @@ class WritePostViewController: UIViewController {
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(writeDone))
         navigationItem.setRightBarButton(okButton, animated: true)
         
-        contentTextView.layer.borderWidth = 1.5
-        contentTextView.layer.borderColor = UIColor.pointColor.cgColor
+        contentTextView.drawLine()
         
         datePicker.withTextField(startDateTextField, selector: #selector(pickerDone))
         datePicker.withTextField(endDateTextField, selector: #selector(pickerDone))

@@ -11,6 +11,7 @@ import UIKit
 
 extension UIColor {
     static let pointColor = UIColor(red: 53/255, green: 186/255, blue: 188/255, alpha: 1)
+    static let buttonBackgroundColor = UIColor(red: 248, green: 248, blue: 248, alpha: 1)
 }
 
 extension Notification.Name {
@@ -21,6 +22,7 @@ extension UIStoryboard {
     static let writePostStoryboard = UIStoryboard(name: "WritePost", bundle: nil)
     static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
     static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+    static let detailPostStoryboard = UIStoryboard(name: "DetailPost", bundle: nil)
 }
 
 extension DateFormatter {
@@ -122,6 +124,15 @@ extension UIDatePicker {
     }
 }
 
+extension IndexPath {
+    func equalTo(_ indexPath: IndexPath) -> Bool {
+        if self.row == indexPath.row && self.section == indexPath.section {
+            return true
+        }
+        return false
+    }
+}
+
 extension UIImageView {
     func drawCircle() {
         self.layer.cornerRadius = self.frame.width / 2
@@ -129,11 +140,9 @@ extension UIImageView {
     }
 }
 
-extension IndexPath {
-    func equalTo(_ indexPath: IndexPath) -> Bool {
-        if self.row == indexPath.row && self.section == indexPath.section {
-            return true
-        }
-        return false
+extension UIView {
+    func drawLine() {
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 1
     }
 }
