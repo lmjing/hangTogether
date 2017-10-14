@@ -56,8 +56,10 @@ extension String {
         }
     }
     
-    func monthDay() -> String {
-        return self.substring(from: self.index(self.endIndex, offsetBy: -5))
+    var monthDay: String {
+        get {
+            return self.substring(from: self.index(self.endIndex, offsetBy: -5))
+        }
     }
     
     /* 정규식 확인

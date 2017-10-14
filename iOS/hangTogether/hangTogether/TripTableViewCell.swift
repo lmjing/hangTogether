@@ -9,18 +9,22 @@
 import UIKit
 
 class TripTableViewCell: UITableViewCell {
-    let dateLabel = UILabel()
-    @IBOutlet weak var circleView: UIView!
-    
     @IBOutlet weak var topLineView: UIView!
-    
     @IBOutlet weak var bottomLineView: UIView!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        circleView.layer.cornerRadius = circleView.frame.width / 2
-//        circleView.clipsToBounds = true
+        circleView.alpha = 0
+        dateLabel.alpha = 0
+    }
+    
+    override func prepareForReuse() {
+        circleView.alpha = 0
+        dateLabel.alpha = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,18 +33,18 @@ class TripTableViewCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
-    func makeDateLabel(date: String) {
-        dateLabel.removeFromSuperview()
-        contentView.addSubview(dateLabel)
-        dateLabel.text = date
+    func makeFirstView(date: String?) {
+        dateLabel.alpha = 1
+        if let dateStr = date?.monthDay {
+            dateLabel.text = dateStr
+        }else {
+            dateLabel.text = "무관"
+        }
         dateLabel.textAlignment = .right
         
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        let marginGuide = contentView.layoutMarginsGuide
-        dateLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        dateLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-        dateLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-        dateLabel.trailingAnchor.constraint(equalTo: placeLabel.leadingAnchor, constant: -21.5).isActive = true
+        circleView.alpha = 1
+        circleView.layer.cornerRadius = circleView.frame.width / 2
+        circleView.clipsToBounds = true
     }
 
     func makeLine(index: IndexPath, count: IndexPath) {

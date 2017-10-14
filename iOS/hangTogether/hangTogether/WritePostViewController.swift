@@ -50,7 +50,7 @@ class WritePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tripList.sort(by: {
-            if let date1 = $0.date?.string, let date2 = $1.date?.string {
+            if let date1 = $0.date, let date2 = $1.date {
                 return date1 < date2
             }
             return true
@@ -148,12 +148,9 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 첫번째일 경우 날짜 라벨 생성
         if indexPath.row == 0 {
-            if let date = tripList[indexPath.row].date?.string { 
-                cell.makeDateLabel(date: date)
-            }else {
-                cell.makeDateLabel(date: "무관")
-            }
+            cell.makeFirstView(date: tripList[indexPath.section].date?.string)
         }
+        
         let lastSection = tableView.numberOfSections - 1
         let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
         cell.makeLine(index: indexPath, count: lastIndexPath)
