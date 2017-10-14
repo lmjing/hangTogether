@@ -35,13 +35,14 @@ class MainViewController: UIViewController {
     }
     
     func moveToWrite() {
-        print("플로팅 버튼 눌림")
+        let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
+        let navigationViewController: UINavigationController = UINavigationController(rootViewController: writePostViewController)
+        present(navigationViewController, animated: true, completion: nil)
     }
 
     func recieve(notification: Notification) {
         if let data = notification.userInfo?["mainList"] as? [Post] {
             mainList = data
-//            print(mainList)
             tableView.reloadData()
         }
     }
@@ -49,26 +50,18 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return mainList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainTableViewCell
-//        cell.titleLabel.text = "제에에에에에에목!"
-//        cell.nicknameLabel.text = "mizzo"
-//        cell.tripDateLabel.text = "2117/01/02 ~ 2117/01/04"
-//        
 //        if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
 //            cell.profileImageView.af_setImage(withURL: profileURL)
 //        }
-//        
-//        cell.makeLanguages(languages: ["한국어","English (EEE)","ddddddd"])
         let post = mainList[indexPath.row]
         cell.titleLabel.text = post.title
         cell.nicknameLabel.text = post.writer.nickname
@@ -85,5 +78,11 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userProfileViewController = UIStoryboard.userProfileStoryboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfileViewController
+        userProfileViewController.user = mainList[indexPath.row].writer
+        navigationController?.pushViewController(userProfileViewController, animated: true)
     }
 }

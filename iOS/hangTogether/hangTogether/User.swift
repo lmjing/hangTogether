@@ -32,13 +32,15 @@ class User: Mappable {
     required init?(map: Map) {
         
     }
+    
+    init() {}
 
     func mapping(map: Map) {
         id          <- map["_id"]
         email       <- map["email"]
         nickname    <- map["nickname"]
         sex         <- map["sex"]
-        birth       <- map["birth"]
+        birth       <- (map["birth"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
         type        <- map["type"]
         introduce   <- map["introduce"]
         languages   <- map["languages"]
