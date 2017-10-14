@@ -39,6 +39,15 @@ extension UIAlertController {
         alert.addAction(action)
         return alert
     }
+    
+    static func cancleOkAlert(title: String?, message: String?, action: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default, handler: action)
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancle)
+        return alert
+    }
 }
 
 extension Date {

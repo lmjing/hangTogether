@@ -27,11 +27,11 @@ class TripTableViewCell: UITableViewCell {
         dateLabel.alpha = 0
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: false)
-//
-//        self.selectionStyle = UITableViewCellSelectionStyle.none
-//    }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: false)
+
+        self.selectionStyle = UITableViewCellSelectionStyle.none
+    }
     
     func makeFirstView(date: String?) {
         dateLabel.alpha = 1

@@ -166,20 +166,14 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.selectionStyle = UITableViewCellSelectionStyle.none
-        tripList[indexPath.section].places.remove(at: indexPath.row)
-        if tripList[indexPath.section].places.count == 0 {
-            tripList.remove(at: indexPath.section)
+        guard let place = tripList[indexPath.section].places[indexPath.row]["name"] else { return }
+        let dialog = UIAlertController.cancleOkAlert(title: place, message: "일정에서 삭제하시겠습니까?") { _ in
+            self.tripList[indexPath.section].places.remove(at: indexPath.row)
+            if self.tripList[indexPath.section].places.count == 0 {
+                self.tripList.remove(at: indexPath.section)
+            }
+            tableView.reloadData()
         }
-//        tableView.deleteRows(at: [indexPath], with: .automatic)
-        tableView.reloadData()
+        self.present(dialog, animated: true, completion: nil)
     }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            print("Deleted")
-//
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//    }
 }
