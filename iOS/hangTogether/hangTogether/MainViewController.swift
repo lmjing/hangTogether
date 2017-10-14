@@ -29,10 +29,6 @@ class MainViewController: UIViewController {
         Networking.getMainList()
         NotificationCenter.default.addObserver(self, selector: #selector(recieve), name: Notification.Name.mainList, object: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,12 +38,6 @@ class MainViewController: UIViewController {
         let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
         let navigationViewController: UINavigationController = UINavigationController(rootViewController: writePostViewController)
         present(navigationViewController, animated: true, completion: nil)
-        
-        //전체 화면 차지하나 navigationbar 생기지 않음
-//음       self.present(writePostViewController, animated: true, completion: nil)
-        //같은 navigationbar가 아니라서 backbutton 생기지 않음
-//        let test = UINavigationController(rootViewController: writePostViewController)
-//        self.present(test, animated: true, completion: nil)
     }
 
     func recieve(notification: Notification) {

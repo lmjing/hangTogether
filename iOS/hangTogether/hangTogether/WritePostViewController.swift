@@ -31,7 +31,6 @@ class WritePostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
         
         titleTextField.delegate = self
         contentTextView.delegate = self
