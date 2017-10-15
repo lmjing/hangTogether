@@ -59,7 +59,7 @@
                                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 날짜" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jnD-YE-K4i">
                                                     <rect key="frame" x="0.0" y="0.0" width="131.5" height="50"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgR-zi-Yhj">
@@ -74,7 +74,7 @@
                                                 <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료일" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-aF-wsV">
                                                     <rect key="frame" x="181.5" y="0.0" width="131.5" height="50"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>

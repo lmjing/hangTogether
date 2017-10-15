@@ -83,10 +83,10 @@ class WritePostViewController: UIViewController {
     func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
         case 1:
-            startDateTextField.text = DateFormatter.korDate().string(from: datePicker.date)
+            startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
             tripDate["start"] = datePicker.date
         case 2:
-            endDateTextField.text = DateFormatter.korDate().string(from: datePicker.date)
+            endDateTextField.text = DateFormatter.date().string(from: datePicker.date)
             tripDate["end"] = datePicker.date
         default:
             print("error: datePickerDone")
