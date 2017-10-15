@@ -74,6 +74,7 @@
         android:background="#e1e1e1"
         android:ems="10"
         android:gravity="right|center_vertical"
+
         android:hint="월"
         android:inputType="textPersonName"
         android:textColorHint="#aaaaaa"
@@ -81,7 +82,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/editText_password2"
         android:layout_width="305dp"
         android:layout_height="30dp"
         android:layout_marginLeft="28dp"

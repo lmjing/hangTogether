@@ -44,6 +44,7 @@ public class googleMapFragment extends Fragment
         return layout;
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -66,6 +67,7 @@ public class googleMapFragment extends Fragment
     public void onResume() {
         super.onResume();
         mapView.onResume();
+
     }
 
     @Override

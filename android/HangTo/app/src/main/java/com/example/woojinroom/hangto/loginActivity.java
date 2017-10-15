@@ -28,17 +28,17 @@ public class loginActivity extends AppCompatActivity {
         //id 와 pw 를 db에 있는거랑 비교해서 존재하면 통과
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if(editText_id.getText().toString().equals("id")) {
-                    if(editText_pass.getText().toString().equals("pw")) {
+                /*if(editText_id.getText().toString().equals("id")) {
+                    if(editText_pass.getText().toString().equals("pw")) {*/
                         Intent login_intent = new Intent(getApplicationContext(), TabActivity_.class);
                         startActivity(login_intent);
                         finish();
-                    } else{
+                    /*} else{
                         Toast.makeText(getApplicationContext(),"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
                     }
                 } else{
                     Toast.makeText(getApplicationContext(),"아이디를 확인해주세요",Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
         button2.setOnClickListener(new View.OnClickListener(){

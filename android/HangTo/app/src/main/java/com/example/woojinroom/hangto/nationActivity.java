@@ -38,6 +38,7 @@ public class nationActivity extends AppCompatActivity {
                     rang2.getText().toString();
                     rang3.getText().toString();
                 }
+                //intent 에 자료실어보내기
                 //if 문으로 회원가입 완료되는지 확인 후 메인페이지로 넘어감
                 Intent join_intent = new Intent(getApplicationContext(), joinActivity.class);
                 startActivity(join_intent);
