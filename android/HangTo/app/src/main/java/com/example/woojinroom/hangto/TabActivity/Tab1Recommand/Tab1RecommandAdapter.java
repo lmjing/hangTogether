@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFood;
-import com.example.woojinroom.hangto.ViewHolder.ViewHolderFoodCategory;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
 import com.example.woojinroom.hangto.writingActivity;
 import com.example.woojinroom.hangto.profileActivity;

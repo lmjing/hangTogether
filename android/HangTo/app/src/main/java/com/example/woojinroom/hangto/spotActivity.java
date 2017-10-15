@@ -9,8 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -39,6 +41,17 @@ public class spotActivity extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         textView = (TextView) toolbar.findViewById(R.id.title);
         textView.setText("장소 추가");
+
+        String[] day_list = {"10.10 ", "10.11", "10.12", "10.13", "10.14"};
+
+        Spinner day_select = (Spinner)findViewById(R.id.day_select);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                R.layout.custom_simple_dropdown_item_1line,
+                day_list);
+        day_select.setAdapter(adapter);
+        day_select.setSelection(0);
+
         ImageButton button_left =(ImageButton)findViewById(R.id.imagebutton_left);
         button_left.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {

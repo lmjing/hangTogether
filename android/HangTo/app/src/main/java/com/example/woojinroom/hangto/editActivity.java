@@ -24,6 +24,7 @@ Toolbar toolbar;
         setContentView(R.layout.activity_edit);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         textView = (TextView)toolbar.findViewById(R.id.title);
+        textView.setText("회원 정보 수정");
 
         imageButtonLeft = (ImageButton)toolbar.findViewById(R.id.imagebutton_left);
         imageButtonLeft.setImageResource(R.drawable.left_arrow);

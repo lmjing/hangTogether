@@ -12,6 +12,7 @@ import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderMessage;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
+import com.example.woojinroom.hangto.messageActivity;
 import com.example.woojinroom.hangto.requestDocumentActivity;
 
 import java.util.ArrayList;
@@ -85,13 +86,15 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
 
             itemViewHolder.textId.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
-                    Toast.makeText(view.getContext(),"ID 눌림",Toast.LENGTH_SHORT).show();
+                    Intent message_intent = new Intent(view.getContext(), messageActivity.class);
+                    fragment.startIntent(message_intent);
                 }
             });
             itemViewHolder.textContent.setText(food.content);
             itemViewHolder.textContent.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
-                    Toast.makeText(view.getContext(),"Content 눌림",Toast.LENGTH_SHORT).show();
+                    Intent message_intent = new Intent(view.getContext(), messageActivity.class);
+                    fragment.startIntent(message_intent);
                 }
             });
             itemViewHolder.textTime.setText(food.time);

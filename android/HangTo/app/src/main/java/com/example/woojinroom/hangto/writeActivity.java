@@ -31,6 +31,8 @@ public class writeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
+        int str_year,str_month,str_day;
+        int end_year,end_month,end_day;
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         textView = (TextView)toolbar.findViewById(R.id.title);
 

@@ -14,8 +14,7 @@
         android:orientation="horizontal"
         >
         <Spinner
-            android:id="@+id/nation_select"
-            android:prompt="@string/str_prompt"
+            android:id="@+id/day_select"
             android:entries="@array/day"
             android:layout_width="120dp"
             android:layout_height="20dp"
@@ -23,7 +22,6 @@
             android:layout_gravity="center"
             />
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="날짜별 입력"
@@ -39,6 +37,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/toggle_right"
+
             android:textOff=""
             android:textOn=""/>
 
