@@ -33,6 +33,8 @@ class DetailPostViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tabBarController?.tabBar.isHidden = true
+        
         initView()
     }
     

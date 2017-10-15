@@ -34,6 +34,10 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func moveToWrite() {
         let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
         let navigationViewController: UINavigationController = UINavigationController(rootViewController: writePostViewController)
