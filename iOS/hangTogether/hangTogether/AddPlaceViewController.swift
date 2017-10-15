@@ -8,16 +8,27 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
-class AddPlaceViewController: UIViewController {
+protocol SelectPlaceDelegate {
+    func redrawMap(position: CLLocationCoordinate2D)
+}
+
+class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var dateSwitch: UISwitch!
     @IBOutlet weak var placeTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var mapView: GMSMapView!
     
+    var selectPlaceDelegate: SelectPlaceDelegate?
     var datePicker = UIDatePicker()
+    var newPlace: [String:String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectPlaceDelegate = self
 
         drawMap()
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(done))
@@ -26,17 +37,31 @@ class AddPlaceViewController: UIViewController {
         datePicker.withTextField(dateTextField, selector: #selector(pickerDone))
         
         dateSwitch.addTarget(self, action: #selector(checkDate), for: .valueChanged)
+        searchButton.addTarget(self, action: #selector(moveAutoComplete), for: .touchUpInside)
+    }
+    
+    func redrawMap(position: CLLocationCoordinate2D) {
+        let camera = GMSCameraPosition.camera(withLatitude: position.latitude, longitude: position.longitude, zoom: 15.0)
+        mapView.camera = camera
+        
+        guard let title = newPlace["name"], let address = newPlace["address"] else { return }
+        
+        let marker = GMSMarker()
+        marker.position = position
+        marker.title = title
+        marker.snippet = address
+        marker.map = mapView
     }
     
     func drawMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 37.5547823, longitude: 126.9681966, zoom: 15.0)
         mapView.camera = camera
-        
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: 37.5547823, longitude: 126.9681966)
-//        marker.title = "서울역"
-//        marker.snippet = "서울특별시 용산구 남영동 청파로 378"
-//        marker.map = mapView
+    }
+    
+    func moveAutoComplete() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
     }
     
     func checkDate() {
@@ -76,7 +101,6 @@ class AddPlaceViewController: UIViewController {
     func appendTripData(date: String?, placeName: String, placeAddress: String?) {
         let cv = navigationController?.viewControllers.last as! WritePostViewController
         
-        var newPlace: [String:String] = [:]
         newPlace["name"] = placeName
         if let address = placeAddress {
             newPlace["address"] = address
@@ -113,3 +137,33 @@ class AddPlaceViewController: UIViewController {
     }
 }
 
+extension AddPlaceViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        placeTextField.text = place.name
+        newPlace["name"] = place.name
+        newPlace["address"] = place.formattedAddress
+        selectPlaceDelegate?.redrawMap(position: place.coordinate)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}

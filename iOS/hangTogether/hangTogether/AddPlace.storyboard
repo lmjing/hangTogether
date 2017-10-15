@@ -95,6 +95,7 @@
                         <outlet property="dateTextField" destination="oNy-UM-evt" id="Mcl-N3-T1Y"/>
                         <outlet property="mapView" destination="SXg-c6-SNy" id="GET-nB-gMH"/>
                         <outlet property="placeTextField" destination="I76-iY-v2n" id="z0R-NF-wdJ"/>
+                        <outlet property="searchButton" destination="ORz-FY-wQX" id="9Lc-cr-dSn"/>
                         <outlet property="searchDisplayController" destination="xW9-f0-KgM" id="UoG-dE-AZY"/>
                     </connections>
                 </viewController>
