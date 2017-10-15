@@ -28,6 +28,7 @@ class WritePostViewController: UIViewController {
     let datePicker = UIDatePicker()
     var post:[String:Any] = [:]
     var tripList:[Trip] = []
+    var tripDate: [String:Date] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +83,11 @@ class WritePostViewController: UIViewController {
     func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
         case 1:
-            startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+            startDateTextField.text = DateFormatter.korDate().string(from: datePicker.date)
+            tripDate["start"] = datePicker.date
         case 2:
-            endDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+            endDateTextField.text = DateFormatter.korDate().string(from: datePicker.date)
+            tripDate["end"] = datePicker.date
         default:
             print("error: datePickerDone")
             break
@@ -97,7 +100,7 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        guard let start = startDateTextField.text, let end = endDateTextField.text, !start.isEmpty, !end.isEmpty else {
+        if tripDate["start"] == nil || tripDate["end"] == nil {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
@@ -105,8 +108,6 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        var tripDate: [String:String] = [:]
-        tripDate["start"] = start; tripDate["end"] = end
         post["tripDate"] = tripDate
         post["title"] = title
         post["content"] = contentTextView.text
@@ -116,10 +117,10 @@ class WritePostViewController: UIViewController {
     }
     
     func moveAddTripView(button: UIButton) {
-        if let min = startDateTextField.text, let max = endDateTextField.text, !min.isEmpty && !max.isEmpty {
+        if let min = tripDate["start"], let max = tripDate["end"] {
             let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
-            addPlaceViewController.datePicker.minimumDate = min.date
-            addPlaceViewController.datePicker.maximumDate = max.date
+            addPlaceViewController.datePicker.minimumDate = min
+            addPlaceViewController.datePicker.maximumDate = max
             navigationController?.pushViewController(addPlaceViewController, animated: true)
         }else {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
