@@ -11,8 +11,7 @@ import Alamofire
 
 class Networking {
     static func getLanguages() {
-        Alamofire.request("\(Config.hostURL)/language").responseJSON {
-            response in
+        Alamofire.request("\(Config.hostURL)/language").responseJSON { response in
             switch response.result {
                 case .success(let response):
                     print("Validation Successful")
@@ -26,8 +25,7 @@ class Networking {
     }
     
     static func getMainList() {
-        Alamofire.request("\(Config.hostURL)/post?page=0").responseJSON {
-            response in
+        Alamofire.request("\(Config.hostURL)/post?page=0").responseJSON { response in
             switch response.result {
             case .success(let response):
                 guard let contents = response as? [[String:Any]] else { return }
@@ -45,4 +43,15 @@ class Networking {
         }
     }
     
+    static func uploadPost(_ parameters: [String:Any]) {
+        Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let response):
+                print(response)
+                NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: nil)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

@@ -16,6 +16,7 @@ extension UIColor {
 
 extension Notification.Name {
     static let mainList = Notification.Name("getMainList")
+    static let uploadPost = Notification.Name("uploadPost")
 }
 
 extension UIStoryboard {
