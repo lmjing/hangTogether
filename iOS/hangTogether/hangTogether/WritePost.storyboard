@@ -193,6 +193,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="a1n-4m-fz4" secondAttribute="bottom" id="0hN-RC-1OU"/>
                                                 <constraint firstItem="Z8b-6A-3MZ" firstAttribute="centerX" secondItem="jVP-Cr-0iY" secondAttribute="centerX" id="ATT-gI-TBd"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="aOk-MT-luV" secondAttribute="trailing" constant="25" id="Ist-zb-gCT"/>
                                                 <constraint firstItem="CA2-pm-rmd" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="LLY-dH-QwF"/>
                                                 <constraint firstAttribute="bottom" secondItem="jVP-Cr-0iY" secondAttribute="bottom" id="NLa-9M-Ssz"/>
                                                 <constraint firstItem="a1n-4m-fz4" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="NZh-Ub-ZB5"/>
@@ -208,6 +209,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bottomLineView" destination="tle-1E-LLz" id="tmG-5A-FQo"/>
+                                            <outlet property="cancleButton" destination="aOk-MT-luV" id="UIR-aM-HNN"/>
                                             <outlet property="circleView" destination="Z8b-6A-3MZ" id="ix3-0u-vpj"/>
                                             <outlet property="dateLabel" destination="CA2-pm-rmd" id="ZHa-pj-83k"/>
                                             <outlet property="placeLabel" destination="a1n-4m-fz4" id="Ssn-LL-6Db"/>

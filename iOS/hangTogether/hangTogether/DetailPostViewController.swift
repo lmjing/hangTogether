@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailPostViewController: UIViewController {
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var userInfoLabel: UILabel!
@@ -22,15 +23,21 @@ class DetailPostViewController: UIViewController {
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var post = Post()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         initView()
     }
     
     func initView() {
+        titleLabel.text = post.title
         guard let writer = post.writer else { print("no writer"); return }
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
             profileImageView.af_setImage(withURL: profileURL)
@@ -61,5 +68,38 @@ class DetailPostViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension DetailPostViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return post.trip.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return post.trip[section].places.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
+        
+        let trip = post.trip[indexPath.section]
+
+        // 첫번째일 경우 날짜 라벨 생성
+        if indexPath.row == 0 {
+            cell.makeFirstView(date: trip.date?.string)
+        }
+
+        let lastSection = tableView.numberOfSections - 1
+        let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
+        cell.makeLine(index: indexPath, count: lastIndexPath)
+        cell.placeLabel.text = trip.places[indexPath.row]["name"]
+        cell.deleteCancleButton()
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 35.0
     }
 }

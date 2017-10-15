@@ -217,19 +217,19 @@
 			name = TabView;
 			sourceTree = "<group>";
 		};
-		507ECD321F92728C00E75D45 /* New Group */ = {
+		507ECD321F92728C00E75D45 /* detailPost */ = {
 			isa = PBXGroup;
 			children = (
 				507ECD331F9272D100E75D45 /* DetailPost.storyboard */,
 				507ECD351F9279F600E75D45 /* DetailPostViewController.swift */,
 			);
-			name = "New Group";
+			name = detailPost;
 			sourceTree = "<group>";
 		};
 		50BDB6AB1F86596C0009CF60 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				507ECD321F92728C00E75D45 /* New Group */,
+				507ECD321F92728C00E75D45 /* detailPost */,
 				50E1DF711F8FCA9300552721 /* userProfile */,
 				50F03C9E1F87A41E00F3591D /* addPlace */,
 				50BDB6AC1F8659A50009CF60 /* WritePost */,

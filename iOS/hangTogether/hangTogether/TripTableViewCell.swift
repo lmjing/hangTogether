@@ -14,6 +14,7 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var cancleButton: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,10 @@ class TripTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: false)
 
         self.selectionStyle = UITableViewCellSelectionStyle.none
+    }
+    
+    func deleteCancleButton() {
+        cancleButton.alpha = 0
     }
     
     func makeFirstView(date: String?) {

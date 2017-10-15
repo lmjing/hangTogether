@@ -14,15 +14,15 @@ struct Trip: Mappable {
     var places: [[String:String]] = []
     
     init?(map: Map) {
-        date <- (map["date"], DateTransform())
-        places <- map["place"]
+        date <- (map["date"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
+        places <- map["places"]
     }
     
     init() { }
     
     mutating func mapping(map: Map) {
-        date <- (map["date"], DateTransform())
-        places <- map["place"]
+        date <- (map["date"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
+        places <- map["places"]
     }
 }
 
