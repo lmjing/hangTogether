@@ -56,7 +56,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sis-wc-2eG">
                                             <rect key="frame" x="0.0" y="243.5" width="313" height="50"/>
                                             <subviews>
-                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 날짜" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnD-YE-K4i">
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 날짜" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jnD-YE-K4i">
                                                     <rect key="frame" x="0.0" y="0.0" width="131.5" height="50"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
@@ -71,7 +71,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-aF-wsV">
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료일" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-aF-wsV">
                                                     <rect key="frame" x="181.5" y="0.0" width="131.5" height="50"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>

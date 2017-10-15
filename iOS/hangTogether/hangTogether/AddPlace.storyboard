@@ -63,11 +63,8 @@
                                 <state key="normal" image="search"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXg-c6-SNy" customClass="GMSMapView">
-                                <rect key="frame" x="15" y="352" width="345" height="300"/>
+                                <rect key="frame" x="15" y="144" width="345" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="GZb-47-zlt"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,6 +85,7 @@
                             <constraint firstItem="oNy-UM-evt" firstAttribute="top" secondItem="MPQ-s6-zbN" secondAttribute="top" constant="15" id="lWZ-2W-61s"/>
                             <constraint firstItem="boO-Jj-JOg" firstAttribute="top" secondItem="Hy8-fL-WTe" secondAttribute="bottom" constant="7.5" id="u9W-Dd-sKh"/>
                             <constraint firstItem="SXg-c6-SNy" firstAttribute="leading" secondItem="MPQ-s6-zbN" secondAttribute="leading" constant="15" id="v1v-dz-DD4"/>
+                            <constraint firstItem="SXg-c6-SNy" firstAttribute="top" secondItem="I76-iY-v2n" secondAttribute="bottom" constant="20" id="wjP-4J-ifU"/>
                             <constraint firstItem="boO-Jj-JOg" firstAttribute="leading" secondItem="MPQ-s6-zbN" secondAttribute="leading" constant="15" id="wzi-ha-Zzy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MPQ-s6-zbN"/>

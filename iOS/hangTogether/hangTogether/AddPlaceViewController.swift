@@ -29,14 +29,14 @@ class AddPlaceViewController: UIViewController {
     }
     
     func drawMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 37.5547823, longitude: 126.9681966, zoom: 15.0)
         mapView.camera = camera
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: 37.5547823, longitude: 126.9681966)
+//        marker.title = "서울역"
+//        marker.snippet = "서울특별시 용산구 남영동 청파로 378"
+//        marker.map = mapView
     }
     
     func checkDate() {
