@@ -61,6 +61,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     func moveAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
+        autocompleteController.searchDisplayController?.searchBar.text = placeTextField.text
         present(autocompleteController, animated: true, completion: nil)
     }
     
@@ -75,7 +76,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     }
     
     func done(button: UIBarButtonItem) {
-        var tripdate: String?, placeName: String, placeAddress: String?
+        var tripdate: String?
         if dateSwitch.isOn, let date = dateTextField.text, date != "" {
             tripdate = date
         }else if !dateSwitch.isOn {
@@ -85,26 +86,24 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
             self.present(dialog, animated: true, completion: nil)
             return
         }
-
-        if let place = placeTextField.text, place != "" {
-            placeName = place
-        }else {
-            let dialog = UIAlertController.okAlert(title: nil, message: "장소를 입력해주세요.")
-            self.present(dialog, animated: true, completion: nil)
-            return
+        
+        if newPlace["name"] == nil || newPlace["address"] == nil {
+            if let inputPlaceName = placeTextField.text, inputPlaceName != "" {
+                newPlace["name"] = inputPlaceName
+                newPlace["address"] = nil
+            }else {
+                let dialog = UIAlertController.okAlert(title: nil, message: "장소를 입력해주세요.")
+                self.present(dialog, animated: true, completion: nil)
+                return
+            }
         }
 
+        appendTripData(date: tripdate)
         navigationController?.popViewController(animated: true)
-        appendTripData(date: tripdate, placeName: placeName, placeAddress: placeAddress)
     }
     
-    func appendTripData(date: String?, placeName: String, placeAddress: String?) {
-        let cv = navigationController?.viewControllers.last as! WritePostViewController
-        
-        newPlace["name"] = placeName
-        if let address = placeAddress {
-            newPlace["address"] = address
-        }
+    func appendTripData(date: String?) {
+        let cv = navigationController?.viewControllers.first as! WritePostViewController
         
         var notFound = true
 
@@ -139,7 +138,6 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
 
 extension AddPlaceViewController: GMSAutocompleteViewControllerDelegate {
     
-    // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         placeTextField.text = place.name
         newPlace["name"] = place.name
@@ -149,16 +147,13 @@ extension AddPlaceViewController: GMSAutocompleteViewControllerDelegate {
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
     
-    // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
     }
     
-    // Turn the network activity indicator on and off again.
     func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
