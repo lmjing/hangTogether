@@ -69,7 +69,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="uGG-dh-LyG">
                                                     <rect key="frame" x="93" y="16.5" width="277" height="74"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="2017/05/20 ~ 2017/05/20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odl-9Y-yN0">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="2017/00/00 ~ 2017/00/00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odl-9Y-yN0">
                                                             <rect key="frame" x="0.0" y="0.0" width="277" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -109,6 +109,7 @@
                                             <outlet property="languageStackView" destination="Fvz-Xx-eZo" id="P3r-MK-sZF"/>
                                             <outlet property="nicknameLabel" destination="7Xl-1I-HSj" id="5sV-6h-nzp"/>
                                             <outlet property="profileImageView" destination="R6V-RZ-Db9" id="fqL-ut-JFU"/>
+                                            <outlet property="timeLabel" destination="54V-9U-Hun" id="LMm-78-XQ5"/>
                                             <outlet property="titleLabel" destination="c3l-aU-4Tp" id="loV-Yk-qBq"/>
                                             <outlet property="tripDateLabel" destination="Odl-9Y-yN0" id="XMx-T5-772"/>
                                             <outlet property="userProfileStackView" destination="D0f-5e-6tb" id="w0d-cS-gZE"/>

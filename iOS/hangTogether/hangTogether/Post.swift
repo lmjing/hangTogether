@@ -26,9 +26,19 @@ struct Trip: Mappable {
     }
 }
 
-//class WritePost {
-//    var writer
-//}
+class TripDate: Mappable {
+    private(set) var start: Date!
+    private(set) var end: Date!
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        start   <- (map["start"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
+        end     <- (map["end"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
+    }
+}
 
 class Post: Mappable {
     private(set) var id: String!
@@ -38,7 +48,7 @@ class Post: Mappable {
     private(set) var content: String?
     //MARK: 프론트엔드단에서 시작일, 종료일 필요하다면 Date형식으로 다시 바꿀 것
 //    private(set) var tripDate: [String:Date] = [:]
-    private(set) var tripDate: String!
+    private(set) var tripDate: TripDate!
     private(set) var trip: [Trip] = []
     private(set) var recruiting: Bool!
     private(set) var guide: [[String:Any]] = []
@@ -61,13 +71,14 @@ class Post: Mappable {
         recruiting  <- map["recruiting"]
         guide       <- map["guide"]
         volunteer   <- map["volunteer"]
+        tripDate    <- map["tripDate"]
         
         var dateJson:[String:Date] = [:]
         dateJson <- (map["tripDate"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
         
-        let formatter = DateFormatter.date()
-        if let start = dateJson["start"], let end = dateJson["end"] {
-            tripDate = "\(formatter.string(from: start)) ~ \(formatter.string(from: end))"
-        }
+//        let formatter = DateFormatter.date()
+//        if let start = dateJson["start"], let end = dateJson["end"] {
+//            tripDate = "\(formatter.string(from: start)) ~ \(formatter.string(from: end))"
+//        }
     }
 }

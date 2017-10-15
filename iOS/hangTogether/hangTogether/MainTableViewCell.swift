@@ -14,6 +14,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var tripDateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var languageStackView: UIStackView!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var userProfileStackView: UIStackView!
     
     override func awakeFromNib() {

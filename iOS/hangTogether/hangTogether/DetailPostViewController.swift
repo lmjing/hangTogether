@@ -15,8 +15,8 @@ class DetailPostViewController: UIViewController {
     @IBOutlet weak var userInfoLabel: UILabel!
     @IBOutlet weak var languagesLabel: UILabel!
     @IBOutlet weak var userProfileView: UIView!
-    
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     
@@ -45,15 +45,16 @@ class DetailPostViewController: UIViewController {
         nicknameLabel.text = writer.nickname
         userInfoLabel.text = "\(writer.birth.age) \(writer.sex.rawValue)"
         languagesLabel.text = writer.languages.joined(separator: ",")
+        startDateLabel.text = post.tripDate.start.korStr
+        endDateLabel.text = post.tripDate.end.korStr
         
-        contentTextView.text = post.content
+        contentLabel.text = post.content
         designView()
     }
     
     func designView() {
         profileImageView.drawCircle()
-        contentTextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
-        contentTextView.drawLine()
+        contentView.drawLine()
         firstButton.drawLine()
         secondButton.drawLine()
     }
