@@ -13,7 +13,7 @@ class DetailPostViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var userInfoLabel: UILabel!
-    @IBOutlet weak var languagesLabel: UILabel!
+    @IBOutlet weak var languageStackView: UIStackView!
     @IBOutlet weak var userProfileView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var contentLabel: UILabel!
@@ -44,12 +44,23 @@ class DetailPostViewController: UIViewController {
         }
         nicknameLabel.text = writer.nickname
         userInfoLabel.text = "\(writer.birth.age) \(writer.sex.rawValue)"
-        languagesLabel.text = writer.languages.joined(separator: ",")
         startDateLabel.text = post.tripDate.start.korStr
         endDateLabel.text = post.tripDate.end.korStr
-        
         contentLabel.text = post.content
+        makeLanguages(post.writer.languages)
         designView()
+    }
+    
+    func makeLanguages(_ languages: [String]) {
+        for language in languages {
+            let label = paddingLabel()
+            label.backgroundColor = UIColor.pointColor
+            label.textColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 12)
+            label.text = language
+            label.textAlignment = .center
+            languageStackView.addArrangedSubview(label)
+        }
     }
     
     func designView() {

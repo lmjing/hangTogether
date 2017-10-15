@@ -46,7 +46,7 @@ extension DateFormatter {
     
     static func korDate() -> DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년\nMM월dd일"
+        formatter.dateFormat = "yyyy년 MM월 dd일"
         formatter.timeZone = NSTimeZone.system
         
         return formatter
@@ -174,5 +174,21 @@ extension UIView {
     func drawLine() {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
+    }
+}
+
+class paddingLabel: UILabel {
+    @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+    
+    override func drawText(in rect: CGRect) {
+        let paddingRect = UIEdgeInsetsInsetRect(rect, padding)
+        super.drawText(in: paddingRect)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.height += padding.top + padding.bottom
+        contentSize.width += padding.left + padding.right
+        return contentSize
     }
 }
