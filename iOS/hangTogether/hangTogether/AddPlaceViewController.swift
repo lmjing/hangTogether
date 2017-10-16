@@ -24,6 +24,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     var selectPlaceDelegate: SelectPlaceDelegate?
     var datePicker = UIDatePicker()
     var newPlace: [String:String] = [:]
+    var pickDate: Date? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +77,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     }
     
     func done(button: UIBarButtonItem) {
-        var tripdate: String?
-        if dateSwitch.isOn, let date = dateTextField.text, date != "" {
-            tripdate = date
-        }else if !dateSwitch.isOn {
-            tripdate = nil
-        }else {
+        if dateSwitch.isOn && pickDate == nil {
             let dialog = UIAlertController.okAlert(title: nil, message: "날짜를 선택해주세요.")
             self.present(dialog, animated: true, completion: nil)
             return
@@ -98,17 +94,17 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
             }
         }
 
-        appendTripData(date: tripdate)
+        appendTripData()
         navigationController?.popViewController(animated: true)
     }
     
-    func appendTripData(date: String?) {
+    func appendTripData() {
         let cv = navigationController?.viewControllers.first as! WritePostViewController
         
         var notFound = true
 
         cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
-            if oldTrip.date?.string == date {
+            if oldTrip.date?.string == pickDate?.string {
                 notFound = false
                 var newtrip = oldTrip
                 newtrip.places.append(newPlace)
@@ -119,14 +115,15 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         
         if notFound {
             var newTrip = Trip()
-            newTrip.date = date?.date
+            newTrip.date = pickDate
             newTrip.places = [newPlace]
             cv.tripList.append(newTrip)
         }
     }
     
     func pickerDone(button: UIBarButtonItem) {
-        dateTextField.text = DateFormatter.date().string(from: datePicker.date)
+        dateTextField.text = datePicker.date.string
+        pickDate = datePicker.date
         self.view.endEditing(true)
     }
     

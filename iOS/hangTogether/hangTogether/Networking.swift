@@ -14,9 +14,7 @@ class Networking {
         Alamofire.request("\(Config.hostURL)/language").responseJSON { response in
             switch response.result {
                 case .success(let response):
-                    print("Validation Successful")
                     guard let contents = response as? [String] else { return }
-                    print(contents)
                 case .failure(let error):
                     print("error")
                     print(error)
@@ -44,10 +42,12 @@ class Networking {
     }
     
     static func uploadPost(_ parameters: [String:Any]) {
+        if let trip = parameters["trip"] as? [[String:Any]], let places = trip[0]["places"] as? [[String:String]] {
+            print(places)
+        }
         Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let response):
-                print(response)
                 NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"success"])
             case .failure(let error):
                 print(error)

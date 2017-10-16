@@ -126,6 +126,7 @@ class WritePostViewController: UIViewController {
         post["title"] = title
         post["content"] = contentTextView.text
         post["trip"] = tripList.toJSON()
+        print(tripList.toJSON().count)
         //TODO: writer 변경하기
         post["writer"] = "59d4f8155bff9515ba6b78df"
         Networking.uploadPost(post)
