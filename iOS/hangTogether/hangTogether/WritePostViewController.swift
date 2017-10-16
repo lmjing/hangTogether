@@ -162,7 +162,7 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let places = tripList[section]["places"] as? [[String:String]] else { return 0 }
+        guard let places = tripList[section]["places"] as? [[String:Any]] else { return 0 }
         return places.count
     }
     
@@ -177,8 +177,8 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         let lastSection = tableView.numberOfSections - 1
         let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
         cell.makeLine(index: indexPath, count: lastIndexPath)
-        if let places = trip["places"] as? [[String:String]] {
-            cell.placeLabel.text = places[indexPath.row]["name"]
+        if let places = trip["places"] as? [[String:Any]], let name = places[indexPath.row]["name"] as? String {
+            cell.placeLabel.text = name
         }
         
         return cell
@@ -189,8 +189,9 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard var places = tripList[indexPath.section]["places"] as? [[String:String]] else { return }
-        let dialog = UIAlertController.cancleOkAlert(title: places[indexPath.row]["name"], message: "일정에서 삭제하시겠습니까?") { _ in
+        guard var places = tripList[indexPath.section]["places"] as? [[String:Any]],
+        let name = places[indexPath.row]["name"] as? String else { return }
+        let dialog = UIAlertController.cancleOkAlert(title: name, message: "일정에서 삭제하시겠습니까?") { _ in
             places.remove(at: indexPath.row)
             self.tripList[indexPath.section]["places"] = places
             if places.isEmpty {

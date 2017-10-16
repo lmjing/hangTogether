@@ -23,7 +23,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     
     var selectPlaceDelegate: SelectPlaceDelegate?
     var datePicker = UIDatePicker()
-    var newPlace: [String:String] = [:]
+    var newPlace: [String:Any] = [:]
     var pickDate: String? = nil
     
     override func viewDidLoad() {
@@ -45,10 +45,11 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: position.latitude, longitude: position.longitude, zoom: 15.0)
         mapView.camera = camera
         
-        guard let title = newPlace["name"], let address = newPlace["address"] else { return }
+        guard let title = newPlace["name"] as? String, let address = newPlace["address"] as? String,
+        let lat = newPlace["lat"] as? Double, let lng = newPlace["lng"] as? Double else { return }
         
         let marker = GMSMarker()
-        marker.position = position
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         marker.title = title
         marker.snippet = address
         marker.map = mapView
@@ -62,7 +63,6 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     func moveAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
-        autocompleteController.searchDisplayController?.searchBar.text = placeTextField.text
         present(autocompleteController, animated: true, completion: nil)
     }
     
@@ -110,7 +110,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
             if oldDate == pickDate {
                 notFound = false
                 var newTrip = oldTrip
-                guard var places = newTrip["places"] as? [[String:String]] else { return nil }
+                guard var places = newTrip["places"] as? [[String:Any]] else { return nil }
                 places.append(newPlace)
                 newTrip["places"] = places
                 return newTrip
@@ -146,6 +146,8 @@ extension AddPlaceViewController: GMSAutocompleteViewControllerDelegate {
         placeTextField.text = place.name
         newPlace["name"] = place.name
         newPlace["address"] = place.formattedAddress
+        newPlace["lat"] = place.coordinate.latitude
+        newPlace["lng"] = place.coordinate.longitude
         selectPlaceDelegate?.redrawMap(position: place.coordinate)
         dismiss(animated: true, completion: nil)
     }
