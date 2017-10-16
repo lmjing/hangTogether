@@ -19,27 +19,24 @@ var postSchema = new Schema({
     maxlength: 200
   },
   tripDate: {
-    start: {
-      type: Date,
-      min: Date.now
-    },
-    end: {
-      type: Date,
-      min: Date.now
-    }
+    start: Date,
+    end: Date
   },
   trip: [{
     date: {
       type: Date,
-      min: Date.now
+      min: Date.now,
+      default: null
     },
-    place: {
+    places: [{
       name: String,
       address: {
         type: String,
         default: null
-      }
-    }
+      },
+      lat: Number,
+      lng: Number
+    }]
   }],
   recruiting: {
     type: Boolean,
