@@ -11,7 +11,7 @@ import ObjectMapper
 
 struct Trip: Mappable {
     var date: Date?
-    var places: [[String:String]] = []
+    var places: [[String:Any]] = []
     
     init?(map: Map) {
         date <- (map["date"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss.SSSZ"))
