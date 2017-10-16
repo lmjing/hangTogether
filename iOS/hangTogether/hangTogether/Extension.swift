@@ -30,8 +30,8 @@ extension DateFormatter {
     static func time() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "a hh:mm"
-        formatter.amSymbol = "오전"
-        formatter.pmSymbol = "오후"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
         formatter.timeZone = NSTimeZone.system
         
         return formatter
@@ -40,14 +40,6 @@ extension DateFormatter {
     static func date() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
-        formatter.timeZone = NSTimeZone.system
-        
-        return formatter
-    }
-    
-    static func korDate() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일"
         formatter.timeZone = NSTimeZone.system
         
         return formatter
@@ -76,12 +68,6 @@ extension Date {
     var string: String {
         get {
             return DateFormatter.date().string(from: self)
-        }
-    }
-    
-    var korStr: String {
-        get {
-            return DateFormatter.korDate().string(from: self)
         }
     }
     
