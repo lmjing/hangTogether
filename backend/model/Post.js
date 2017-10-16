@@ -25,7 +25,6 @@ var postSchema = new Schema({
   trip: [{
     date: {
       type: Date,
-      min: Date.now,
       default: null
     },
     places: [{
@@ -34,8 +33,14 @@ var postSchema = new Schema({
         type: String,
         default: null
       },
-      lat: Number,
-      lng: Number
+      lat: { 
+	type: Number,
+	default: null
+      },
+      lng: {
+	type: Number,
+	default: null
+      }
     }]
   }],
   recruiting: {

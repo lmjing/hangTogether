@@ -14,7 +14,6 @@
     }
   },
   "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/lmjing/hangTogether/1.0.0",
   "tags" : [ {
     "name" : "user",
     "description" : "foreigner & korean 유저 정보"
@@ -910,6 +909,5 @@
       },
       "description" : "장소는 필수"
     }
-  },"schemes":["http"],
-  "host":"ec2-13-124-183-2.ap-northeast-2.compute.amazonaws.com:3000"
-}
+  },"schemes":["http"],"host":"ec2-13-124-183-2.ap-northeast-2.compute.amazonaws.com:3000"}
+
