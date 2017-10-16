@@ -33,7 +33,9 @@ var postSchema = new Schema({
       address: {
         type: String,
         default: null
-      }
+      },
+      lat: Number,
+      lng: Number
     }]
   }],
   recruiting: {
