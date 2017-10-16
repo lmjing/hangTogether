@@ -9,7 +9,7 @@ router.post('/', function(req, res) {
   if (req.body.tripDate.start > req.body.tripDate.end){
     return res.status(400).json('invalid input, parameter invalid.');
   }
-
+  console.log(req.body)
   User.findById(req.body.writer)
   .then((user) => {
     if(user) {

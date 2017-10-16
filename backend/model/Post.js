@@ -19,14 +19,8 @@ var postSchema = new Schema({
     maxlength: 200
   },
   tripDate: {
-    start: {
-      type: Date,
-      min: Date.now
-    },
-    end: {
-      type: Date,
-      min: Date.now
-    }
+    start: Date,
+    end: Date
   },
   trip: [{
     date: {
