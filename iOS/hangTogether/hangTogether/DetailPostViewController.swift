@@ -46,8 +46,8 @@ class DetailPostViewController: UIViewController {
         }
         nicknameLabel.text = writer.nickname
         userInfoLabel.text = "\(writer.birth.age) \(writer.sex.rawValue)"
-        startDateLabel.text = post.tripDate.start.korStr
-        endDateLabel.text = post.tripDate.end.korStr
+        startDateLabel.text = post.tripDate.start.string
+        endDateLabel.text = post.tripDate.end.string
         contentLabel.text = post.content
         makeLanguages(post.writer.languages)
         designView()

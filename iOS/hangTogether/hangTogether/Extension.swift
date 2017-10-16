@@ -93,7 +93,7 @@ extension Date {
     
     var age: String {
         get {
-            var diff = -(self.timeIntervalSinceNow / 60 / 60 / 24 / 365)
+            let diff = -(self.timeIntervalSinceNow / 60 / 60 / 24 / 365)
             let age = Int(diff / 10) * 10
             return "\(age)대"
         }
