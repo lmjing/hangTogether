@@ -102,11 +102,9 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         let cv = navigationController?.viewControllers.first as! WritePostViewController
         
         var notFound = true
-        
-        print(1, newPlace)
 
         // 기존에 현재와 같은 값이 있는 경우 append 해준다.
-        cv.tripList2 = cv.tripList2.flatMap { (oldTrip: [String:Any]) -> [String:Any]? in
+        cv.tripList = cv.tripList.flatMap { (oldTrip: [String:Any]) -> [String:Any]? in
             let oldDate = oldTrip["date"] as? String
             let newDate = pickDate == nil ? nil : pickDate?.string
             
@@ -121,30 +119,14 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
             return oldTrip
         }
         
+        // 값이 없을 경우 새로 추가한다.
         if notFound {
             var newTrip: [String:Any] = [:]
-            newTrip["date"] = pickDate
+            newTrip["date"] = pickDate?.string
             newTrip["places"] = [newPlace]
             print(3, newTrip)
-            cv.tripList2.append(newTrip)
+            cv.tripList.append(newTrip)
         }
-        
-//        cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
-//            if oldTrip.date?.string == pickDate?.string {
-//                notFound = false
-//                var newtrip = oldTrip
-//                newtrip.places.append(newPlace)
-//                return newtrip
-//            }
-//            return oldTrip
-//        }
-        
-//        if notFound {
-//            var newTrip = Trip()
-//            newTrip.date = pickDate
-//            newTrip.places = [newPlace]
-//            cv.tripList.append(newTrip)
-//        }
     }
     
     func pickerDone(button: UIBarButtonItem) {

@@ -27,8 +27,7 @@ class WritePostViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     var post:[String:Any] = [:]
-    var tripList:[Trip] = []
-    var tripList2:[[String:Any]] = []
+    var tripList:[[String:Any]] = []
     var tripDate: [String:Date] = [:]
     var tripDate2: [String:String] = [:]
     
@@ -55,10 +54,10 @@ class WritePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tripList.sort(by: {
-            if let date1 = $0.date, let date2 = $1.date {
+            if let date1 = $0["date"] as? String, let date2 = $1["date"] as? String {
                 return date1 < date2
             }else {
-                return $0.date == nil ? false : true
+                return $0["date"] == nil ? false : true
             }
         })
         tableView.reloadData()
@@ -92,7 +91,6 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: "글 작성 실패", message: "문제가 생겨 글 작성에 실패했습니다.")
             present(alert, animated: true, completion: { self.dismiss(animated: true, completion: nil) })
         default:
-            print(userInfo["result"])
             return
         }
     }
@@ -122,14 +120,14 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        if tripList2.count < 1 {
+        if tripList.count < 1 {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
         post["tripDate"] = tripDate2
         post["title"] = title
         post["content"] = contentTextView.text
-        post["trip"] = tripList2
+        post["trip"] = tripList
 //        print(tripList.toJSON().count)
         //TODO: writer 변경하기
         post["writer"] = "59d4f8155bff9515ba6b78df"
@@ -169,21 +167,24 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripList[section].places.count
+        guard let places = tripList[section]["places"] as? [[String:String]] else { return 0 }
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
-        
+        let trip = tripList[indexPath.section]
         // 첫번째일 경우 날짜 라벨 생성
-        if indexPath.row == 0 {
-            cell.makeFirstView(date: tripList[indexPath.section].date?.string)
+        if indexPath.row == 0, let date = trip["date"] as? String {
+            cell.makeFirstView(date: date)
         }
         
         let lastSection = tableView.numberOfSections - 1
         let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
         cell.makeLine(index: indexPath, count: lastIndexPath)
-        cell.placeLabel.text = tripList[indexPath.section].places[indexPath.row]["name"]
+        if let places = trip["places"] as? [[String:String]] {
+            cell.placeLabel.text = places[indexPath.row]["name"]
+        }
         
         return cell
     }
@@ -193,10 +194,10 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let place = tripList[indexPath.section].places[indexPath.row]["name"] else { return }
-        let dialog = UIAlertController.cancleOkAlert(title: place, message: "일정에서 삭제하시겠습니까?") { _ in
-            self.tripList[indexPath.section].places.remove(at: indexPath.row)
-            if self.tripList[indexPath.section].places.count == 0 {
+        guard var places = tripList[indexPath.section]["places"] as? [[String:String]] else { return }
+        let dialog = UIAlertController.cancleOkAlert(title: places[indexPath.row]["name"], message: "일정에서 삭제하시겠습니까?") { _ in
+            places.remove(at: indexPath.row)
+            if places.isEmpty {
                 self.tripList.remove(at: indexPath.section)
             }
             tableView.reloadData()
