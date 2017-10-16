@@ -43,6 +43,7 @@ class WritePostViewController: UIViewController {
         
         initView()
         addPlaceButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishUpload), name: Notification.Name.uploadPost, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,6 +81,19 @@ class WritePostViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func finishUpload(notification: Notification) {
+        guard let userInfo =  notification.userInfo as? [String:String] else { return }
+        switch userInfo["result"] as String! {
+        case "success":
+            dismiss(animated: true, completion: nil)
+        case "error":
+            let alert = UIAlertController.okAlert(title: "글 작성 실패", message: "문제가 생겨 글 작성에 실패했습니다.")
+            present(alert, animated: true, completion: { self.dismiss(animated: true, completion: nil) })
+        default:
+            print(userInfo["result"])
+            return
+        }
+    }
     func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
         case 1:
@@ -111,9 +125,10 @@ class WritePostViewController: UIViewController {
         post["tripDate"] = tripDate
         post["title"] = title
         post["content"] = contentTextView.text
-        post["trip"] = tripList
+        post["trip"] = tripList.toJSON()
         //TODO: writer 변경하기
         post["writer"] = "59d4f8155bff9515ba6b78df"
+        Networking.uploadPost(post)
     }
     
     func moveAddTripView(button: UIButton) {

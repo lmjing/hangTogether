@@ -44,13 +44,14 @@ class Networking {
     }
     
     static func uploadPost(_ parameters: [String:Any]) {
-        Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let response):
                 print(response)
-                NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: nil)
+                NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"success"])
             case .failure(let error):
                 print(error)
+                NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"error"])
             }
         }
     }
