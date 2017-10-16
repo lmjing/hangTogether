@@ -14,6 +14,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var tripDateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var languageStackView: UIStackView!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var userProfileStackView: UIStackView!
     
     override func awakeFromNib() {
@@ -39,21 +40,5 @@ class MainTableViewCell: UITableViewCell {
 
         self.selectionStyle = UITableViewCellSelectionStyle.none
         // Configure the view for the selected state
-    }
-}
-
-class paddingLabel: UILabel {
-    @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
-    
-    override func drawText(in rect: CGRect) {
-        let paddingRect = UIEdgeInsetsInsetRect(rect, padding)
-        super.drawText(in: paddingRect)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        var contentSize = super.intrinsicContentSize
-        contentSize.height += padding.top + padding.bottom
-        contentSize.width += padding.left + padding.right
-        return contentSize
     }
 }

@@ -27,7 +27,8 @@ class WritePostViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     var post:[String:Any] = [:]
-    var tripList:[Trip] = []
+    var tripList:[[String:Any]] = []
+    var tripDate: [String:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,11 @@ class WritePostViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        contentTextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        
         initView()
         addPlaceButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishUpload), name: Notification.Name.uploadPost, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,10 +53,10 @@ class WritePostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tripList.sort(by: {
-            if let date1 = $0.date, let date2 = $1.date {
+            if let date1 = $0["date"] as? String, let date2 = $1["date"] as? String {
                 return date1 < date2
             }else {
-                return $0.date == nil ? false : true
+                return $0["date"] == nil ? false : true
             }
         })
         tableView.reloadData()
@@ -64,8 +68,7 @@ class WritePostViewController: UIViewController {
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(writeDone))
         navigationItem.setRightBarButton(okButton, animated: true)
         
-        contentTextView.layer.borderWidth = 1.5
-        contentTextView.layer.borderColor = UIColor.pointColor.cgColor
+        contentTextView.drawLine()
         
         datePicker.withTextField(startDateTextField, selector: #selector(pickerDone))
         datePicker.withTextField(endDateTextField, selector: #selector(pickerDone))
@@ -78,12 +81,26 @@ class WritePostViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func finishUpload(notification: Notification) {
+        guard let userInfo =  notification.userInfo as? [String:String] else { return }
+        switch userInfo["result"] as String! {
+        case "success":
+            dismiss(animated: true, completion: nil)
+        case "error":
+            let alert = UIAlertController.okAlert(title: "글 작성 실패", message: "문제가 생겨 글 작성에 실패했습니다.")
+            present(alert, animated: true, completion: { self.dismiss(animated: true, completion: nil) })
+        default:
+            return
+        }
+    }
     func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
         case 1:
-            startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+            startDateTextField.text = datePicker.date.string
+            tripDate["start"] = datePicker.date.string
         case 2:
-            endDateTextField.text = DateFormatter.date().string(from: datePicker.date)
+            endDateTextField.text = datePicker.date.string
+            tripDate["end"] = datePicker.date.string
         default:
             print("error: datePickerDone")
             break
@@ -96,7 +113,7 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        guard let start = startDateTextField.text, let end = endDateTextField.text, !start.isEmpty, !end.isEmpty else {
+        if tripDate["start"] == nil || tripDate["end"] == nil {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
@@ -104,18 +121,16 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        var tripDate: [String:String] = [:]
-        tripDate["start"] = start; tripDate["end"] = end
         post["tripDate"] = tripDate
         post["title"] = title
         post["content"] = contentTextView.text
         post["trip"] = tripList
-        //TODO: writer 변경하기
         post["writer"] = "59d4f8155bff9515ba6b78df"
+        Networking.uploadPost(post)
     }
     
     func moveAddTripView(button: UIButton) {
-        if let min = startDateTextField.text, let max = endDateTextField.text, !min.isEmpty && !max.isEmpty {
+        if let min = tripDate["start"], let max = tripDate["end"] {
             let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
             addPlaceViewController.datePicker.minimumDate = min.date
             addPlaceViewController.datePicker.maximumDate = max.date
@@ -147,21 +162,24 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tripList[section].places.count
+        guard let places = tripList[section]["places"] as? [[String:Any]] else { return 0 }
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
-        
+        let trip = tripList[indexPath.section]
         // 첫번째일 경우 날짜 라벨 생성
         if indexPath.row == 0 {
-            cell.makeFirstView(date: tripList[indexPath.section].date?.string)
+            cell.makeFirstView(date: trip["date"] as? String)
         }
         
         let lastSection = tableView.numberOfSections - 1
         let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
         cell.makeLine(index: indexPath, count: lastIndexPath)
-        cell.placeLabel.text = tripList[indexPath.section].places[indexPath.row]["name"]
+        if let places = trip["places"] as? [[String:Any]], let name = places[indexPath.row]["name"] as? String {
+            cell.placeLabel.text = name
+        }
         
         return cell
     }
@@ -171,10 +189,12 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let place = tripList[indexPath.section].places[indexPath.row]["name"] else { return }
-        let dialog = UIAlertController.cancleOkAlert(title: place, message: "일정에서 삭제하시겠습니까?") { _ in
-            self.tripList[indexPath.section].places.remove(at: indexPath.row)
-            if self.tripList[indexPath.section].places.count == 0 {
+        guard var places = tripList[indexPath.section]["places"] as? [[String:Any]],
+        let name = places[indexPath.row]["name"] as? String else { return }
+        let dialog = UIAlertController.cancleOkAlert(title: name, message: "일정에서 삭제하시겠습니까?") { _ in
+            places.remove(at: indexPath.row)
+            self.tripList[indexPath.section]["places"] = places
+            if places.isEmpty {
                 self.tripList.remove(at: indexPath.section)
             }
             tableView.reloadData()

@@ -11,13 +11,10 @@ import Alamofire
 
 class Networking {
     static func getLanguages() {
-        Alamofire.request("\(Config.hostURL)/language").responseJSON {
-            response in
+        Alamofire.request("\(Config.hostURL)/language").responseJSON { response in
             switch response.result {
                 case .success(let response):
-                    print("Validation Successful")
                     guard let contents = response as? [String] else { return }
-                    print(contents)
                 case .failure(let error):
                     print("error")
                     print(error)
@@ -26,8 +23,7 @@ class Networking {
     }
     
     static func getMainList() {
-        Alamofire.request("\(Config.hostURL)/post?page=0").responseJSON {
-            response in
+        Alamofire.request("\(Config.hostURL)/post?page=0").responseJSON { response in
             switch response.result {
             case .success(let response):
                 guard let contents = response as? [[String:Any]] else { return }
@@ -45,4 +41,17 @@ class Networking {
         }
     }
     
+    static func uploadPost(_ parameters: [String:Any]) {
+        
+        print(parameters)
+        Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let response):
+                NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"success"])
+            case .failure(let error):
+                print(error)
+                NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"error"])
+            }
+        }
+    }
 }

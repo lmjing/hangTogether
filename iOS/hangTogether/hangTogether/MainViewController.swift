@@ -34,6 +34,10 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func moveToWrite() {
         let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
         let navigationViewController: UINavigationController = UINavigationController(rootViewController: writePostViewController)
@@ -59,14 +63,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! MainTableViewCell
-//        if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
-//            cell.profileImageView.af_setImage(withURL: profileURL)
-//        }
+
         let post = mainList[indexPath.row]
         cell.titleLabel.text = post.title
         cell.nicknameLabel.text = post.writer.nickname
-        //TODO: date 안됨
-        cell.tripDateLabel.text = post.tripDate
+        cell.tripDateLabel.text = "\(post.tripDate.start.string) ~ \(post.tripDate.end.string)"
+        cell.timeLabel.text = post.created.time
         
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
             cell.profileImageView.af_setImage(withURL: profileURL)
@@ -81,8 +83,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let userProfileViewController = UIStoryboard.userProfileStoryboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfileViewController
-        userProfileViewController.user = mainList[indexPath.row].writer
-        navigationController?.pushViewController(userProfileViewController, animated: true)
+        let detailPostViewController = UIStoryboard.detailPostStoryboard.instantiateViewController(withIdentifier: "detailPost") as! DetailPostViewController
+        detailPostViewController.post = mainList[indexPath.row]
+        navigationController?.pushViewController(detailPostViewController, animated: true)
     }
 }

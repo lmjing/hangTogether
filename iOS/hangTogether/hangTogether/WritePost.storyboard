@@ -25,7 +25,7 @@
                                 <rect key="frame" x="31" y="64" width="313" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xgx-Iu-R05">
-                                    <rect key="frame" x="0.0" y="0.0" width="313" height="353"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="378"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="S22-ho-K1L">
@@ -35,7 +35,7 @@
                                                 <constraint firstAttribute="height" constant="27" id="06e-ku-f4A"/>
                                             </constraints>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BR1-1A-6uU">
@@ -49,29 +49,32 @@
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRN-hx-h7V">
                                             <rect key="frame" x="0.0" y="207" width="67" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sis-wc-2eG">
-                                            <rect key="frame" x="0.0" y="248.5" width="313" height="50"/>
+                                            <rect key="frame" x="0.0" y="243.5" width="313" height="50"/>
                                             <subviews>
-                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnD-YE-K4i">
-                                                    <rect key="frame" x="0.0" y="0.0" width="137.5" height="50"/>
+                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 날짜" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jnD-YE-K4i">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131.5" height="50"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgR-zi-Yhj">
-                                                    <rect key="frame" x="147.5" y="12" width="19.5" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    <rect key="frame" x="141.5" y="1" width="30" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="bjF-lr-Sot"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료일" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-aF-wsV">
-                                                    <rect key="frame" x="177" y="0.0" width="136" height="50"/>
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="종료일" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-aF-wsV">
+                                                    <rect key="frame" x="181.5" y="0.0" width="131.5" height="50"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -83,17 +86,26 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행 장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlU-98-jEr">
-                                            <rect key="frame" x="0.0" y="328.5" width="67" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <rect key="frame" x="0.0" y="323.5" width="67" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가이드를 원하는 일정과 장소를 추가해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeI-Ie-EgD">
+                                            <rect key="frame" x="0.0" y="350" width="313" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="HeI-Ie-EgD" firstAttribute="leading" secondItem="xgx-Iu-R05" secondAttribute="leading" id="58a-YR-0iL"/>
+                                        <constraint firstAttribute="trailing" secondItem="HeI-Ie-EgD" secondAttribute="trailing" id="5d0-qi-haJ"/>
                                         <constraint firstItem="BR1-1A-6uU" firstAttribute="top" secondItem="S22-ho-K1L" secondAttribute="bottom" constant="20" id="5wY-Qg-9gi"/>
                                         <constraint firstItem="hlU-98-jEr" firstAttribute="leading" secondItem="xgx-Iu-R05" secondAttribute="leading" id="FLx-l0-uYw"/>
                                         <constraint firstItem="S22-ho-K1L" firstAttribute="leading" secondItem="xgx-Iu-R05" secondAttribute="leading" id="SQU-ZD-oFZ"/>
+                                        <constraint firstItem="HeI-Ie-EgD" firstAttribute="top" secondItem="hlU-98-jEr" secondAttribute="bottom" constant="5" id="SZi-oZ-tXt"/>
                                         <constraint firstAttribute="trailing" secondItem="BR1-1A-6uU" secondAttribute="trailing" id="Ts3-QS-NNy"/>
                                         <constraint firstItem="hlU-98-jEr" firstAttribute="top" secondItem="Sis-wc-2eG" secondAttribute="bottom" constant="30" id="V2a-iH-5d2"/>
                                         <constraint firstItem="BR1-1A-6uU" firstAttribute="leading" secondItem="xgx-Iu-R05" secondAttribute="leading" id="agu-Hj-S2p"/>
@@ -101,13 +113,14 @@
                                         <constraint firstAttribute="trailing" secondItem="S22-ho-K1L" secondAttribute="trailing" id="feH-Oj-kJ8"/>
                                         <constraint firstAttribute="trailing" secondItem="Sis-wc-2eG" secondAttribute="trailing" id="pL3-HJ-bb9"/>
                                         <constraint firstItem="Sis-wc-2eG" firstAttribute="leading" secondItem="xgx-Iu-R05" secondAttribute="leading" id="pjB-7c-eJa"/>
-                                        <constraint firstItem="Sis-wc-2eG" firstAttribute="top" secondItem="RRN-hx-h7V" secondAttribute="bottom" constant="20" id="sQE-RR-8BC"/>
+                                        <constraint firstItem="Sis-wc-2eG" firstAttribute="top" secondItem="RRN-hx-h7V" secondAttribute="bottom" constant="15" id="sQE-RR-8BC"/>
+                                        <constraint firstAttribute="bottom" secondItem="HeI-Ie-EgD" secondAttribute="bottom" constant="11" id="wLt-be-ULb"/>
                                         <constraint firstItem="RRN-hx-h7V" firstAttribute="top" secondItem="BR1-1A-6uU" secondAttribute="bottom" constant="30" id="y81-oO-JCY"/>
                                         <constraint firstItem="S22-ho-K1L" firstAttribute="top" secondItem="xgx-Iu-R05" secondAttribute="top" constant="30" id="zAp-bA-6zk"/>
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="zqk-a0-fl0">
-                                    <rect key="frame" x="0.0" y="425" width="313" height="86"/>
+                                    <rect key="frame" x="0.0" y="450" width="313" height="86"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oB8-0S-Yp2">
@@ -115,7 +128,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="pJm-HU-9gt"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="    여행 장소 추가" image="plus" backgroundImage="bottomLine">
                                                 <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -131,7 +144,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripDateCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripDateCell" id="6b5-Sp-WJv" customClass="TripTableViewCell" customModule="hangTogether" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="381" width="313" height="44"/>
+                                        <rect key="frame" x="0.0" y="406" width="313" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6b5-Sp-WJv" id="Jov-Ge-9rv">
                                             <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
@@ -193,6 +206,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="a1n-4m-fz4" secondAttribute="bottom" id="0hN-RC-1OU"/>
                                                 <constraint firstItem="Z8b-6A-3MZ" firstAttribute="centerX" secondItem="jVP-Cr-0iY" secondAttribute="centerX" id="ATT-gI-TBd"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="aOk-MT-luV" secondAttribute="trailing" constant="25" id="Ist-zb-gCT"/>
                                                 <constraint firstItem="CA2-pm-rmd" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="LLY-dH-QwF"/>
                                                 <constraint firstAttribute="bottom" secondItem="jVP-Cr-0iY" secondAttribute="bottom" id="NLa-9M-Ssz"/>
                                                 <constraint firstItem="a1n-4m-fz4" firstAttribute="top" secondItem="Jov-Ge-9rv" secondAttribute="topMargin" id="NZh-Ub-ZB5"/>
@@ -208,6 +222,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bottomLineView" destination="tle-1E-LLz" id="tmG-5A-FQo"/>
+                                            <outlet property="cancleButton" destination="aOk-MT-luV" id="UIR-aM-HNN"/>
                                             <outlet property="circleView" destination="Z8b-6A-3MZ" id="ix3-0u-vpj"/>
                                             <outlet property="dateLabel" destination="CA2-pm-rmd" id="ZHa-pj-83k"/>
                                             <outlet property="placeLabel" destination="a1n-4m-fz4" id="Ssn-LL-6Db"/>

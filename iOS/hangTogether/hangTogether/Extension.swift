@@ -11,22 +11,43 @@ import UIKit
 
 extension UIColor {
     static let pointColor = UIColor(red: 53/255, green: 186/255, blue: 188/255, alpha: 1)
+    static let buttonBackgroundColor = UIColor(red: 248, green: 248, blue: 248, alpha: 1)
 }
 
 extension Notification.Name {
     static let mainList = Notification.Name("getMainList")
+    static let uploadPost = Notification.Name("uploadPost")
 }
 
 extension UIStoryboard {
     static let writePostStoryboard = UIStoryboard(name: "WritePost", bundle: nil)
     static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
     static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+    static let detailPostStoryboard = UIStoryboard(name: "DetailPost", bundle: nil)
 }
 
 extension DateFormatter {
+    static func time() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "a hh:mm"
+        formatter.amSymbol = "오전"
+        formatter.pmSymbol = "오후"
+        formatter.timeZone = NSTimeZone.system
+        
+        return formatter
+    }
+    
     static func date() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
+        formatter.timeZone = NSTimeZone.system
+        
+        return formatter
+    }
+    
+    static func korDate() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월 dd일"
         formatter.timeZone = NSTimeZone.system
         
         return formatter
@@ -55,6 +76,18 @@ extension Date {
     var string: String {
         get {
             return DateFormatter.date().string(from: self)
+        }
+    }
+    
+    var korStr: String {
+        get {
+            return DateFormatter.korDate().string(from: self)
+        }
+    }
+    
+    var time: String {
+        get {
+            return DateFormatter.time().string(from: self)
         }
     }
     
@@ -122,6 +155,15 @@ extension UIDatePicker {
     }
 }
 
+extension IndexPath {
+    func equalTo(_ indexPath: IndexPath) -> Bool {
+        if self.row == indexPath.row && self.section == indexPath.section {
+            return true
+        }
+        return false
+    }
+}
+
 extension UIImageView {
     func drawCircle() {
         self.layer.cornerRadius = self.frame.width / 2
@@ -129,11 +171,25 @@ extension UIImageView {
     }
 }
 
-extension IndexPath {
-    func equalTo(_ indexPath: IndexPath) -> Bool {
-        if self.row == indexPath.row && self.section == indexPath.section {
-            return true
-        }
-        return false
+extension UIView {
+    func drawLine() {
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 1
+    }
+}
+
+class paddingLabel: UILabel {
+    @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+    
+    override func drawText(in rect: CGRect) {
+        let paddingRect = UIEdgeInsetsInsetRect(rect, padding)
+        super.drawText(in: paddingRect)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.height += padding.top + padding.bottom
+        contentSize.width += padding.left + padding.right
+        return contentSize
     }
 }
