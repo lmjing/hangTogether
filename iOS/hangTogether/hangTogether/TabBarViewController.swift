@@ -27,15 +27,18 @@ class TabBarViewController: UITabBarController {
         tabButton1.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
         tabButton2.frame = CGRect(x: buttonWidth, y: 0, width: buttonWidth, height: buttonHeight)
         
-        tabButton1.setTitle("메세지함", for: UIControlState.normal)
-        tabButton2.setTitle("알림함", for: UIControlState.normal)
+        initButton(button: tabButton1, title: "메세지함", tag: 0)
+        initButton(button: tabButton2, title: "알림함", tag: 1)
         
-        tabButton1.tag = 0
-        tabButton2.tag = 1
-        
+        self.view.addSubview(customTabBarView)
     }
     
-    func setAttributeTabBarButton(button: UIButton) {
+    func initButton(button: UIButton, title: String, tag: Int) {
+        button.setTitle(title, for: UIControlState.normal)
+        button.setTitleShadowColor(UIColor.black, for: UIControlState.normal)
+        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        button.setTitleColor(UIColor.black, for: UIControlState.selected)
+        button.tag = tag
         button.addTarget(self, action: #selector(clickTab), for: UIControlEvents.touchUpInside)
         self.customTabBarView.addSubview(button)
     }
