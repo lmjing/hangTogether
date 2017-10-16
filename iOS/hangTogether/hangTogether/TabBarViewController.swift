@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
         
         self.tabBar.isHidden = true
 
-        customTabBarView.frame = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 50)
+        customTabBarView.frame = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 70)
         customTabBarView.backgroundColor = UIColor.white
         
         let buttonWidth = self.tabBar.frame.width/2
@@ -38,6 +38,9 @@ class TabBarViewController: UITabBarController {
         button.setTitleShadowColor(UIColor.black, for: UIControlState.normal)
         button.setTitleColor(UIColor.black, for: UIControlState.normal)
         button.setTitleColor(UIColor.black, for: UIControlState.selected)
+        button.setBackgroundImage(#imageLiteral(resourceName: "tabUnselect"), for: UIControlState.normal)
+        button.setBackgroundImage(#imageLiteral(resourceName: "tabSelect"), for: UIControlState.selected)
+        
         button.tag = tag
         button.addTarget(self, action: #selector(clickTab), for: UIControlEvents.touchUpInside)
         self.customTabBarView.addSubview(button)
