@@ -8,11 +8,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -146,38 +141,6 @@
             </objects>
             <point key="canvasLocation" x="2534" y="-1175"/>
         </scene>
-        <!--Fourth-->
-        <scene sceneID="4iu-oZ-bfa">
-            <objects>
-                <viewController id="3AM-Mt-EuJ" userLabel="Fourth" customClass="FourthViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sMI-Iy-Av4"/>
-                        <viewControllerLayoutGuide type="bottom" id="xft-t4-rny"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0P9-C7-Vcl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Fourth View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9WJ-kb-kLd">
-                                <rect key="frame" x="91" y="312" width="191.5" height="42"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="9WJ-kb-kLd" firstAttribute="centerY" secondItem="0P9-C7-Vcl" secondAttribute="centerY" id="X4B-7T-VCu"/>
-                            <constraint firstItem="9WJ-kb-kLd" firstAttribute="centerX" secondItem="0P9-C7-Vcl" secondAttribute="centerX" id="xen-rh-fr4"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="second" id="IUc-Jf-g2s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fbf-0Q-6hR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1401" y="974"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -190,7 +153,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="PfA-Oi-5wz" kind="relationship" relationship="viewControllers" id="p2z-Zy-yRY"/>
-                        <segue destination="3bL-fz-a9l" kind="relationship" relationship="viewControllers" id="6ue-b9-uUg"/>
+                        <segue destination="bTi-fW-zTw" kind="relationship" relationship="viewControllers" id="UHL-uS-tiR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -201,7 +164,7 @@
         <scene sceneID="86L-tc-NpE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PfA-Oi-5wz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="K44-QI-vRO"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="first" id="K44-QI-vRO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cX8-4A-NyN">
                         <autoresizingMask key="autoresizingMask"/>
@@ -218,13 +181,13 @@
         <!--Trip Place Table View Controller-->
         <scene sceneID="33L-bI-FLI">
             <objects>
-                <tableViewController storyboardIdentifier="tripPlace" id="8id-aQ-E8b" customClass="TripPlaceTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="8id-aQ-E8b" customClass="TripPlaceTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lef-DS-MyT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripPlaceCell" selectionStyle="default" indentationWidth="10" rowHeight="250" id="ITe-jF-NwV" customClass="TripPlaceTableViewCell" customModule="hangTogether" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripPlaceCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripPlaceCell" rowHeight="250" id="ITe-jF-NwV" customClass="TripPlaceTableViewCell" customModule="hangTogether" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ITe-jF-NwV" id="3YT-mL-p80">
@@ -235,9 +198,8 @@
                                             <rect key="frame" x="18" y="18" width="339" height="213.5"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NW-tR-1Pr">
-                                            <rect key="frame" x="156.5" y="110" width="62.5" height="29"/>
+                                            <rect key="frame" x="156.5" y="110.5" width="62.5" height="29"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -265,28 +227,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sba-Z1-TAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533.5999999999999" y="-476.31184407796104"/>
+            <point key="canvasLocation" x="2534" y="-476"/>
         </scene>
         <!--Item-->
-        <scene sceneID="act-vU-K31">
+        <scene sceneID="c3L-ct-qVl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3bL-fz-a9l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nqn-fh-jua"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bTi-fW-zTw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="second" id="Tw1-dq-Es0"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QHJ-MQ-h16">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g6R-ST-lNF">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8id-aQ-E8b" kind="relationship" relationship="rootViewController" id="T5d-hf-trG"/>
+                        <segue destination="8id-aQ-E8b" kind="relationship" relationship="rootViewController" id="kFl-6X-Sho"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="33S-w6-dKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7d-bn-d24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1401" y="-476"/>
         </scene>
     </scenes>
     <resources>
+        <image name="first" width="30" height="30"/>
         <image name="floating" width="60" height="60"/>
         <image name="second" width="30" height="30"/>
     </resources>

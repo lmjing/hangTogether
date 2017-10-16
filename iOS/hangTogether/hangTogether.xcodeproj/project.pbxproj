@@ -24,8 +24,6 @@
 		5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B61F7D456D009639C5 /* Assets.xcassets */; };
 		5063D6BA1F7D456D009639C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B81F7D456D009639C5 /* LaunchScreen.storyboard */; };
 		5063D6C51F7D456D009639C5 /* hangTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6C41F7D456D009639C5 /* hangTogetherTests.swift */; };
-		5063D6FD1F7D483C009639C5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */; };
-		5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6FE1F7D4854009639C5 /* FourthViewController.swift */; };
 		5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */; };
 		507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507ECD331F9272D100E75D45 /* DetailPost.storyboard */; };
 		507ECD361F9279F600E75D45 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507ECD351F9279F600E75D45 /* DetailPostViewController.swift */; };
@@ -69,8 +67,6 @@
 		5063D6C01F7D456D009639C5 /* hangTogetherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hangTogetherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6C41F7D456D009639C5 /* hangTogetherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hangTogetherTests.swift; sourceTree = "<group>"; };
 		5063D6C61F7D456D009639C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		5063D6FE1F7D4854009639C5 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		507ECD331F9272D100E75D45 /* DetailPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPost.storyboard; sourceTree = "<group>"; };
 		507ECD351F9279F600E75D45 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
@@ -222,8 +218,6 @@
 				5063D6B31F7D456D009639C5 /* Main.storyboard */,
 				501A26E71F849C0F00F24081 /* First_MainView */,
 				50278ADE1F94E326005AAB94 /* Second_TripPlace */,
-				5063D6FC1F7D483C009639C5 /* ThirdViewController.swift */,
-				5063D6FE1F7D4854009639C5 /* FourthViewController.swift */,
 			);
 			name = TabView;
 			sourceTree = "<group>";
@@ -453,7 +447,6 @@
 				507ECD361F9279F600E75D45 /* DetailPostViewController.swift in Sources */,
 				5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */,
 				501A26EB1F84ADC100F24081 /* Extension.swift in Sources */,
-				5063D6FD1F7D483C009639C5 /* ThirdViewController.swift in Sources */,
 				501A26E91F849C3000F24081 /* MainTableViewCell.swift in Sources */,
 				5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */,
 				501A26DE1F8374CE00F24081 /* Config.swift in Sources */,
@@ -462,7 +455,6 @@
 				50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
 				50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */,
-				5063D6FF1F7D4854009639C5 /* FourthViewController.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
 				5026894A1F86220900819D3C /* User.swift in Sources */,
