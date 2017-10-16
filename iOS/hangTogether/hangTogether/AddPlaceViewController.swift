@@ -24,7 +24,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     var selectPlaceDelegate: SelectPlaceDelegate?
     var datePicker = UIDatePicker()
     var newPlace: [String:String] = [:]
-    var pickDate: Date? = nil
+    var pickDate: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,9 +106,8 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         // 기존에 현재와 같은 값이 있는 경우 append 해준다.
         cv.tripList = cv.tripList.flatMap { (oldTrip: [String:Any]) -> [String:Any]? in
             let oldDate = oldTrip["date"] as? String
-            let newDate = pickDate == nil ? nil : pickDate?.string
             
-            if oldDate == newDate {
+            if oldDate == pickDate {
                 notFound = false
                 var newTrip = oldTrip
                 guard var places = newTrip["places"] as? [[String:String]] else { return nil }
@@ -122,7 +121,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         // 값이 없을 경우 새로 추가한다.
         if notFound {
             var newTrip: [String:Any] = [:]
-            newTrip["date"] = pickDate?.string
+            newTrip["date"] = pickDate
             newTrip["places"] = [newPlace]
             print(3, newTrip)
             cv.tripList.append(newTrip)
@@ -131,7 +130,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
     
     func pickerDone(button: UIBarButtonItem) {
         dateTextField.text = datePicker.date.string
-        pickDate = datePicker.date
+        pickDate = datePicker.date.string
         self.view.endEditing(true)
     }
     

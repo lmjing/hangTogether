@@ -28,8 +28,7 @@ class WritePostViewController: UIViewController {
     let datePicker = UIDatePicker()
     var post:[String:Any] = [:]
     var tripList:[[String:Any]] = []
-    var tripDate: [String:Date] = [:]
-    var tripDate2: [String:String] = [:]
+    var tripDate: [String:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,13 +96,11 @@ class WritePostViewController: UIViewController {
     func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
         case 1:
-            startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
-            tripDate["start"] = datePicker.date
-            tripDate2["start"] = datePicker.date.string
+            startDateTextField.text = datePicker.date.string
+            tripDate["start"] = datePicker.date.string
         case 2:
-            endDateTextField.text = DateFormatter.date().string(from: datePicker.date)
-            tripDate["end"] = datePicker.date
-            tripDate2["end"] = datePicker.date.string
+            endDateTextField.text = datePicker.date.string
+            tripDate["end"] = datePicker.date.string
         default:
             print("error: datePickerDone")
             break
@@ -116,7 +113,7 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        if tripDate2["start"] == nil || tripDate2["end"] == nil {
+        if tripDate["start"] == nil || tripDate["end"] == nil {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
@@ -124,12 +121,10 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        post["tripDate"] = tripDate2
+        post["tripDate"] = tripDate
         post["title"] = title
         post["content"] = contentTextView.text
         post["trip"] = tripList
-//        print(tripList.toJSON().count)
-        //TODO: writer 변경하기
         post["writer"] = "59d4f8155bff9515ba6b78df"
         Networking.uploadPost(post)
     }
@@ -137,8 +132,8 @@ class WritePostViewController: UIViewController {
     func moveAddTripView(button: UIButton) {
         if let min = tripDate["start"], let max = tripDate["end"] {
             let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
-            addPlaceViewController.datePicker.minimumDate = min
-            addPlaceViewController.datePicker.maximumDate = max
+            addPlaceViewController.datePicker.minimumDate = min.date
+            addPlaceViewController.datePicker.maximumDate = max.date
             navigationController?.pushViewController(addPlaceViewController, animated: true)
         }else {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
@@ -175,8 +170,8 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
         let trip = tripList[indexPath.section]
         // 첫번째일 경우 날짜 라벨 생성
-        if indexPath.row == 0, let date = trip["date"] as? String {
-            cell.makeFirstView(date: date)
+        if indexPath.row == 0 {
+            cell.makeFirstView(date: trip["date"] as? String)
         }
         
         let lastSection = tableView.numberOfSections - 1
@@ -197,6 +192,7 @@ extension WritePostViewController: UITableViewDelegate, UITableViewDataSource {
         guard var places = tripList[indexPath.section]["places"] as? [[String:String]] else { return }
         let dialog = UIAlertController.cancleOkAlert(title: places[indexPath.row]["name"], message: "일정에서 삭제하시겠습니까?") { _ in
             places.remove(at: indexPath.row)
+            self.tripList[indexPath.section]["places"] = places
             if places.isEmpty {
                 self.tripList.remove(at: indexPath.section)
             }
