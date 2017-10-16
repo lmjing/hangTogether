@@ -28,7 +28,9 @@ class WritePostViewController: UIViewController {
     let datePicker = UIDatePicker()
     var post:[String:Any] = [:]
     var tripList:[Trip] = []
+    var tripList2:[[String:Any]] = []
     var tripDate: [String:Date] = [:]
+    var tripDate2: [String:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,9 +101,11 @@ class WritePostViewController: UIViewController {
         case 1:
             startDateTextField.text = DateFormatter.date().string(from: datePicker.date)
             tripDate["start"] = datePicker.date
+            tripDate2["start"] = datePicker.date.string
         case 2:
             endDateTextField.text = DateFormatter.date().string(from: datePicker.date)
             tripDate["end"] = datePicker.date
+            tripDate2["end"] = datePicker.date.string
         default:
             print("error: datePickerDone")
             break
@@ -114,19 +118,19 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        if tripDate["start"] == nil || tripDate["end"] == nil {
+        if tripDate2["start"] == nil || tripDate2["end"] == nil {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 기간을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        if tripList.count < 1 {
+        if tripList2.count < 1 {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        post["tripDate"] = tripDate
+        post["tripDate"] = tripDate2
         post["title"] = title
         post["content"] = contentTextView.text
-        post["trip"] = tripList.toJSON()
-        print(tripList.toJSON().count)
+        post["trip"] = tripList2
+//        print(tripList.toJSON().count)
         //TODO: writer 변경하기
         post["writer"] = "59d4f8155bff9515ba6b78df"
         Networking.uploadPost(post)

@@ -42,10 +42,9 @@ class Networking {
     }
     
     static func uploadPost(_ parameters: [String:Any]) {
-        if let trip = parameters["trip"] as? [[String:Any]], let places = trip[0]["places"] as? [[String:String]] {
-            print(places)
-        }
-        Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters).responseJSON { response in
+        
+        print(parameters)
+        Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let response):
                 NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"success"])

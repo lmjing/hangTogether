@@ -102,23 +102,49 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         let cv = navigationController?.viewControllers.first as! WritePostViewController
         
         var notFound = true
+        
+        print(1, newPlace)
 
-        cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
-            if oldTrip.date?.string == pickDate?.string {
+        // 기존에 현재와 같은 값이 있는 경우 append 해준다.
+        cv.tripList2 = cv.tripList2.flatMap { (oldTrip: [String:Any]) -> [String:Any]? in
+            let oldDate = oldTrip["date"] as? String
+            let newDate = pickDate == nil ? nil : pickDate?.string
+            
+            if oldDate == newDate {
                 notFound = false
-                var newtrip = oldTrip
-                newtrip.places.append(newPlace)
-                return newtrip
+                var newTrip = oldTrip
+                guard var places = newTrip["places"] as? [[String:String]] else { return nil }
+                places.append(newPlace)
+                newTrip["places"] = places
+                return newTrip
             }
             return oldTrip
         }
         
         if notFound {
-            var newTrip = Trip()
-            newTrip.date = pickDate
-            newTrip.places = [newPlace]
-            cv.tripList.append(newTrip)
+            var newTrip: [String:Any] = [:]
+            newTrip["date"] = pickDate
+            newTrip["places"] = [newPlace]
+            print(3, newTrip)
+            cv.tripList2.append(newTrip)
         }
+        
+//        cv.tripList = cv.tripList.flatMap { (oldTrip: Trip) -> Trip? in
+//            if oldTrip.date?.string == pickDate?.string {
+//                notFound = false
+//                var newtrip = oldTrip
+//                newtrip.places.append(newPlace)
+//                return newtrip
+//            }
+//            return oldTrip
+//        }
+        
+//        if notFound {
+//            var newTrip = Trip()
+//            newTrip.date = pickDate
+//            newTrip.places = [newPlace]
+//            cv.tripList.append(newTrip)
+//        }
     }
     
     func pickerDone(button: UIBarButtonItem) {
