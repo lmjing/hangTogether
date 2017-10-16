@@ -22,6 +22,7 @@ public class googleMapFragment extends Fragment
         implements OnMapReadyCallback
 {
     private MapView mapView = null;
+    static GoogleMap googleMap2;
 
     public googleMapFragment()
     {
@@ -110,6 +111,18 @@ public class googleMapFragment extends Fragment
         googleMap.addMarker(markerOptions);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+        googleMap2=googleMap;
+
     }
 
+    public static void reMark(LatLng spot,String title){ //이전 마커가 남아있음
+        LatLng reMark = new LatLng(spot.latitude,spot.longitude);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(reMark);
+        markerOptions.title(title);
+        markerOptions.snippet("내가 선택한 위치");
+        googleMap2.addMarker(markerOptions);
+        googleMap2.moveCamera(CameraUpdateFactory.newLatLng(reMark));
+        googleMap2.animateCamera(CameraUpdateFactory.zoomTo(13));
+    }
 }

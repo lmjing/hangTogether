@@ -23,12 +23,17 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by woojinroom on 2017-10-09.
  */
 
 public class spotActivity extends AppCompatActivity {
+
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     Toolbar toolbar;
     TextView textView;
@@ -129,8 +134,8 @@ public class spotActivity extends AppCompatActivity {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
-
-                Toast.makeText(getApplicationContext(),"Place: " + place.getName()+place.getLatLng(),Toast.LENGTH_SHORT).show();
+                googleMapFragment.reMark( place.getLatLng(),place.getName().toString());
+                Toast.makeText(getApplicationContext(),"Place: " + place.getName()+place.getLatLng().latitude+"\n"+place.getLatLng().longitude,Toast.LENGTH_SHORT).show();
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 // TODO: Handle the error.
