@@ -45,10 +45,28 @@ class Networking {
         Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let response):
+                //TODO: 400같은 에러 오는거 처리하기!
                 NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"success"])
             case .failure(let error):
                 print(error)
                 NotificationCenter.default.post(name: Notification.Name.uploadPost , object: self, userInfo: ["result":"error"])
+            }
+        }
+    }
+    
+    static func login(_ parameters: [String:Any]) {
+        Alamofire.request("\(Config.hostURL)/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let response):
+                if let user = response as? User {
+                    NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"success","user":user])
+                }else {
+                    print("login실패: response타입이 user가 아니다")
+                    NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"error"])
+                }
+            case .failure(let error):
+                print("login실패",error)
+                NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"error"])
             }
         }
     }
