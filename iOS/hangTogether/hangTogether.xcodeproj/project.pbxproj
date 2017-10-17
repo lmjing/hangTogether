@@ -32,6 +32,7 @@
 		507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507ECD331F9272D100E75D45 /* DetailPost.storyboard */; };
 		507ECD361F9279F600E75D45 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507ECD351F9279F600E75D45 /* DetailPostViewController.swift */; };
 		50AE6A9B1F95E2D700CF924C /* NotiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE6A9A1F95E2D700CF924C /* NotiTableViewCell.swift */; };
+		50AE6A9E1F95E8D600CF924C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */; };
 		50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePost.storyboard */; };
 		50E1DF731F8FCAC900552721 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E1DF721F8FCAC900552721 /* UserProfile.storyboard */; };
 		50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1DF741F8FCFE000552721 /* UserProfileViewController.swift */; };
@@ -80,6 +81,7 @@
 		507ECD331F9272D100E75D45 /* DetailPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPost.storyboard; sourceTree = "<group>"; };
 		507ECD351F9279F600E75D45 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		50AE6A9A1F95E2D700CF924C /* NotiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTableViewCell.swift; sourceTree = "<group>"; };
+		50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		50BDB6AD1F865A080009CF60 /* WritePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePost.storyboard; sourceTree = "<group>"; };
 		50E1DF721F8FCAC900552721 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		50E1DF741F8FCFE000552721 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				501A26E71F849C0F00F24081 /* First_MainView */,
 				50278ADE1F94E326005AAB94 /* Second_TripPlace */,
 				50278AE31F94EDD1005AAB94 /* Third_MessageList */,
+				50AE6A9C1F95E89500CF924C /* Fourth_MyPage */,
 			);
 			name = TabView;
 			sourceTree = "<group>";
@@ -268,6 +271,14 @@
 				507ECD351F9279F600E75D45 /* DetailPostViewController.swift */,
 			);
 			name = detailPost;
+			sourceTree = "<group>";
+		};
+		50AE6A9C1F95E89500CF924C /* Fourth_MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */,
+			);
+			name = Fourth_MyPage;
 			sourceTree = "<group>";
 		};
 		50BDB6AB1F86596C0009CF60 /* View */ = {
@@ -498,6 +509,7 @@
 				50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
 				50278AEB1F95D8D3005AAB94 /* NotiTableViewController.swift in Sources */,
+				50AE6A9E1F95E8D600CF924C /* MyPageViewController.swift in Sources */,
 				50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
