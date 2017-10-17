@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="trB-eL-3XW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -142,37 +142,35 @@
             <point key="canvasLocation" x="2534" y="-1175"/>
         </scene>
         <!--Main Tab View Controller-->
-        <scene sceneID="yl2-sM-qoP">
+        <scene sceneID="W2J-LP-omP">
             <objects>
-                <tabBarController hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" customClass="MainTabViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabBackgroud" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="tintColor" red="0.2053697407" green="0.73057287930000003" blue="0.73685550690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.2053697407" green="0.73057287930000003" blue="0.73685550690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <tabBarController id="trB-eL-3XW" customClass="MainTabViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dST-XL-M6g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PfA-Oi-5wz" kind="relationship" relationship="viewControllers" id="p2z-Zy-yRY"/>
-                        <segue destination="bTi-fW-zTw" kind="relationship" relationship="viewControllers" id="UHL-uS-tiR"/>
-                        <segue destination="77z-ox-t6c" kind="relationship" relationship="viewControllers" id="Ocu-PU-ywd"/>
-                        <segue destination="rBU-vY-TBh" kind="relationship" relationship="viewControllers" id="kWN-PZ-82G"/>
+                        <segue destination="PfA-Oi-5wz" kind="relationship" relationship="viewControllers" id="xRi-2m-I0b"/>
+                        <segue destination="bTi-fW-zTw" kind="relationship" relationship="viewControllers" id="CMj-Bb-0xy"/>
+                        <segue destination="77z-ox-t6c" kind="relationship" relationship="viewControllers" id="oKr-A8-g65"/>
+                        <segue destination="rBU-vY-TBh" kind="relationship" relationship="viewControllers" id="jjb-6d-7A0"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hO-E9-QoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-241" y="-169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="86L-tc-NpE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PfA-Oi-5wz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab1Main" id="K44-QI-vRO">
+                    <tabBarItem key="tabBarItem" title="" id="K44-QI-vRO">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cX8-4A-NyN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -346,9 +344,8 @@
         <scene sceneID="i9s-nW-yAP">
             <objects>
                 <tabBarController id="77z-ox-t6c" customClass="TabBarViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab3Message" id="Yzy-Cg-Cje">
+                    <tabBarItem key="tabBarItem" title="" id="Yzy-Cg-Cje">
                         <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-8"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v8G-4a-jpC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -583,12 +580,12 @@
         <scene sceneID="c3L-ct-qVl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bTi-fW-zTw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab2Travel" id="Tw1-dq-Es0">
+                    <tabBarItem key="tabBarItem" tag="1" title="" id="Tw1-dq-Es0">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g6R-ST-lNF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -604,12 +601,12 @@
         <scene sceneID="1zL-MZ-6al">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rBU-vY-TBh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab4Mypage" id="xNo-QK-Xbj">
+                    <tabBarItem key="tabBarItem" title="" id="xNo-QK-Xbj">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nr7-fP-jf0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -629,10 +626,5 @@
         <image name="new" width="30" height="22"/>
         <image name="rightQuote" width="11" height="8"/>
         <image name="roundRect" width="55" height="31"/>
-        <image name="tab1Main" width="25" height="25"/>
-        <image name="tab2Travel" width="25" height="25"/>
-        <image name="tab3Message" width="27" height="20"/>
-        <image name="tab4Mypage" width="29" height="25"/>
-        <image name="tabBackgroud" width="375" height="50"/>
     </resources>
 </document>

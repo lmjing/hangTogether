@@ -62,6 +62,17 @@ extension UIAlertController {
         alert.addAction(cancle)
         return alert
     }
+    
+    static func loginAlert(title: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: "로그인 후 이용할 수 있습니다.\n로그인 하시겠습니까?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) { _ in
+            print("여기에 로그인 화면으로 이동하는 코드 넣기!")
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancle)
+        return alert
+    }
 }
 
 extension Date {
