@@ -177,19 +177,3 @@ extension UIView {
         self.layer.borderWidth = 1
     }
 }
-
-class paddingLabel: UILabel {
-    @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
-    
-    override func drawText(in rect: CGRect) {
-        let paddingRect = UIEdgeInsetsInsetRect(rect, padding)
-        super.drawText(in: paddingRect)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        var contentSize = super.intrinsicContentSize
-        contentSize.height += padding.top + padding.bottom
-        contentSize.width += padding.left + padding.right
-        return contentSize
-    }
-}

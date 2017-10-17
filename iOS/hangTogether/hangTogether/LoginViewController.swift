@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,5 +29,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func closeButtonAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
