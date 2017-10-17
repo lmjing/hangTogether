@@ -36,4 +36,21 @@ class MyPageViewController: UIViewController {
     
     @IBAction func historyButtonAction(_ sender: Any) {
     }
+    
+    @IBAction func logoutButtonAction(_ sender: Any) {
+        if UserDefaults.standard.dictionary(forKey: "user") != nil {
+            let alert = UIAlertController.cancleOkAlert(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", action: { _ in
+                UserDefaults.standard.removeObject(forKey: "user")
+                
+                guard let mainTabBarController = self.tabBarController as? MainTabViewController else {
+                    print("logout error: 탭 컨트롤러가 이상합니다."); return
+                }
+//                self.tabBarController?.selectedIndex = 0
+                mainTabBarController.logout()
+            })
+            present(alert, animated: true, completion: nil)
+        }else {
+            print("logout error: 유저 정보가 없음")
+        }
+    }
 }

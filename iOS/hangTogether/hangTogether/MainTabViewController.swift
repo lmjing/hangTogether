@@ -87,6 +87,12 @@ class MainTabViewController: UITabBarController {
         button.isSelected = true
         self.selectedIndex = tag
     }
+    
+    func logout() {
+        self.selectedIndex = 0
+        tabButtonArray[0].isSelected = true
+        tabButtonArray[3].isSelected = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

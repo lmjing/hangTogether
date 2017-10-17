@@ -306,6 +306,29 @@
                                     <constraint firstAttribute="height" constant="1" id="8qt-rA-CYn"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-v6-Cic">
+                                <rect key="frame" x="0.0" y="374" width="375" height="60"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PYY-sS-bj1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="로그아웃">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="historyButtonAction:" destination="vTg-GS-hVw" eventType="touchUpInside" id="35v-nP-TNX"/>
+                                    <action selector="logoutButtonAction:" destination="vTg-GS-hVw" eventType="touchUpInside" id="dTd-te-cKz"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3M-g1-5ED">
+                                <rect key="frame" x="0.0" y="434" width="375" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ThI-pg-N4h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -321,13 +344,19 @@
                             <constraint firstItem="Rc0-rz-hOf" firstAttribute="centerX" secondItem="Z25-U4-jkg" secondAttribute="centerX" id="Gpv-Ws-NHn"/>
                             <constraint firstItem="Uc9-bw-62R" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="HCO-J5-7zl"/>
                             <constraint firstItem="e62-c5-87r" firstAttribute="top" secondItem="Ycy-6P-kfb" secondAttribute="bottom" id="HSC-ek-T7W"/>
+                            <constraint firstItem="Fb4-v6-Cic" firstAttribute="top" secondItem="Uc9-bw-62R" secondAttribute="bottom" id="LWh-Qc-l5v"/>
+                            <constraint firstItem="Fb4-v6-Cic" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="T3V-56-eAd"/>
                             <constraint firstAttribute="trailing" secondItem="Uc9-bw-62R" secondAttribute="trailing" id="YFc-QP-27z"/>
+                            <constraint firstItem="e3M-g1-5ED" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="bSe-AU-WNz"/>
                             <constraint firstItem="ldx-rv-VMA" firstAttribute="trailing" secondItem="Rc0-rz-hOf" secondAttribute="trailing" constant="5" id="bjS-Hf-AM1"/>
                             <constraint firstItem="e62-c5-87r" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="cwb-ft-lUj"/>
                             <constraint firstAttribute="trailing" secondItem="Ycy-6P-kfb" secondAttribute="trailing" id="ekd-9d-0um"/>
                             <constraint firstItem="Uc9-bw-62R" firstAttribute="top" secondItem="wNl-RQ-WeA" secondAttribute="bottom" id="fzU-M4-YXn"/>
                             <constraint firstItem="0ek-XP-4QJ" firstAttribute="top" secondItem="Rc0-rz-hOf" secondAttribute="bottom" constant="25" id="hZr-ux-ywq"/>
+                            <constraint firstItem="e3M-g1-5ED" firstAttribute="top" secondItem="Fb4-v6-Cic" secondAttribute="bottom" id="i4H-aK-Urt"/>
                             <constraint firstItem="Rc0-rz-hOf" firstAttribute="top" secondItem="eat-Nz-aRx" secondAttribute="bottom" constant="42" id="rOw-PL-qXR"/>
+                            <constraint firstAttribute="trailing" secondItem="e3M-g1-5ED" secondAttribute="trailing" id="taH-3a-w0c"/>
+                            <constraint firstAttribute="trailing" secondItem="Fb4-v6-Cic" secondAttribute="trailing" id="vH7-GE-9Hs"/>
                             <constraint firstItem="ldx-rv-VMA" firstAttribute="bottom" secondItem="Rc0-rz-hOf" secondAttribute="bottom" constant="-5" id="y3P-mU-h1C"/>
                         </constraints>
                     </view>
