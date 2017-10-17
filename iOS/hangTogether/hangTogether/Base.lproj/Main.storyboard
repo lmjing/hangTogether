@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="2534" y="-1175"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" customClass="MainTabViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabBackgroud" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -346,7 +346,7 @@
         <scene sceneID="i9s-nW-yAP">
             <objects>
                 <tabBarController id="77z-ox-t6c" customClass="TabBarViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab3Message" id="Yzy-Cg-Cje">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="tab3Message" id="Yzy-Cg-Cje">
                         <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-8"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -583,7 +583,7 @@
         <scene sceneID="c3L-ct-qVl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bTi-fW-zTw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab2Travel" id="Tw1-dq-Es0">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="tab2Travel" id="Tw1-dq-Es0">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -604,7 +604,7 @@
         <scene sceneID="1zL-MZ-6al">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rBU-vY-TBh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab4Mypage" id="xNo-QK-Xbj">
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="tab4Mypage" id="xNo-QK-Xbj">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>

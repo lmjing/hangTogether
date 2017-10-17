@@ -23,6 +23,7 @@
 		50278AED1F95D94A005AAB94 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */; };
 		5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037F8991F868DE7006EFB17 /* WritePostViewController.swift */; };
 		505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */; };
+		505BFD941F95F9190013B804 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFD931F95F9190013B804 /* MainTabViewController.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
 		5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B31F7D456D009639C5 /* Main.storyboard */; };
 		5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B61F7D456D009639C5 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		5037F8991F868DE7006EFB17 /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
+		505BFD931F95F9190013B804 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6AD1F7D456D009639C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5063D6B41F7D456D009639C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				5063D6B31F7D456D009639C5 /* Main.storyboard */,
+				505BFD931F95F9190013B804 /* MainTabViewController.swift */,
 				501A26E71F849C0F00F24081 /* First_MainView */,
 				50278ADE1F94E326005AAB94 /* Second_TripPlace */,
 				50278AE31F94EDD1005AAB94 /* Third_MessageList */,
@@ -510,6 +513,7 @@
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
 				50278AEB1F95D8D3005AAB94 /* NotiTableViewController.swift in Sources */,
 				50AE6A9E1F95E8D600CF924C /* MyPageViewController.swift in Sources */,
+				505BFD941F95F9190013B804 /* MainTabViewController.swift in Sources */,
 				50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
