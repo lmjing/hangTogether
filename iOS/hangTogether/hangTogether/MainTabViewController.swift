@@ -9,6 +9,11 @@
 import UIKit
 
 class MainTabViewController: UITabBarController {
+    /*
+     NOTE: 커스텀하게 만든 이유 : 기존의 방법을 사용하면 didSelect만 되어 로그인이 안 되있을 경우 이전 페이지로 돌아가는 코드를 짤 수 없다.
+     하지만 이렇게 작성하면 페이지 이동 전에 예외처리를 할 수 있음
+     그리고 이미지도 센터에 제대로 놓을 수 있다.
+     */
     enum TabType: Int {
         case Tab1 = 0, Tab2, Tab3, Tab4
         struct Attribute {
@@ -19,13 +24,13 @@ class MainTabViewController: UITabBarController {
         var attribute: Attribute? {
             switch self {
             case .Tab1:
-                return Attribute(selectedImage: #imageLiteral(resourceName: "tab1Main"), normalImage: #imageLiteral(resourceName: "tab1Main"))
+                return Attribute(selectedImage: #imageLiteral(resourceName: "tab1MainSelect"), normalImage: #imageLiteral(resourceName: "tab1Main"))
             case .Tab2:
-                return Attribute(selectedImage: #imageLiteral(resourceName: "tab2Travel"), normalImage: #imageLiteral(resourceName: "tab2Travel"))
+                return Attribute(selectedImage: #imageLiteral(resourceName: "tab2TravelSelect"), normalImage: #imageLiteral(resourceName: "tab2Travel"))
             case .Tab3:
-                return Attribute(selectedImage: #imageLiteral(resourceName: "tab3Message"), normalImage: #imageLiteral(resourceName: "tab3Message"))
+                return Attribute(selectedImage: #imageLiteral(resourceName: "tab3MessageSelect"), normalImage: #imageLiteral(resourceName: "tab3Message"))
             case .Tab4:
-                return Attribute(selectedImage: #imageLiteral(resourceName: "tab4Mypage"), normalImage: #imageLiteral(resourceName: "tab4Mypage"))
+                return Attribute(selectedImage: #imageLiteral(resourceName: "tab4MypageSelect"), normalImage: #imageLiteral(resourceName: "tab4Mypage"))
             default:
                 return nil
             }
