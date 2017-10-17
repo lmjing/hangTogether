@@ -75,7 +75,7 @@ class MainTabViewController: UITabBarController {
         if tag == 2 || tag == 3 {
             if UserDefaults.standard.object(forKey: "userId") == nil {
                 let title = tag == 2 ? "메세지 함" : "마이 페이지"
-                let alert = UIAlertController.loginAlert(title: title)
+                let alert = UIAlertController.loginAlert(vc: self, title: title)
                 present(alert, animated: true, completion: nil)
                 return
             }

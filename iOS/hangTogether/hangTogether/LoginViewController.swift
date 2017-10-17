@@ -23,8 +23,12 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func loginButtonAction(sender: AnyObject) {
+    @IBAction func loginButtonAction(_ sender: Any) {
     }
-    @IBAction func joinButtonAction(sender: AnyObject) {
+    
+    @IBAction func joinButtonAction(_ sender: Any) {
+    }
+    
+    @IBAction func closeButtonAction(_ sender: Any) {
     }
 }

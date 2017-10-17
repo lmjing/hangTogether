@@ -33,6 +33,7 @@
 		507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 507ECD331F9272D100E75D45 /* DetailPost.storyboard */; };
 		507ECD361F9279F600E75D45 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507ECD351F9279F600E75D45 /* DetailPostViewController.swift */; };
 		5095D4141F96501F00C14B85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5095D4131F96501F00C14B85 /* LoginViewController.swift */; };
+		5095D4181F96545400C14B85 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5095D4171F96545400C14B85 /* Login.storyboard */; };
 		50AE6A9B1F95E2D700CF924C /* NotiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE6A9A1F95E2D700CF924C /* NotiTableViewCell.swift */; };
 		50AE6A9E1F95E8D600CF924C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */; };
 		50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePost.storyboard */; };
@@ -83,8 +84,8 @@
 		5066877A1F87B7780048FBEF /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		507ECD331F9272D100E75D45 /* DetailPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPost.storyboard; sourceTree = "<group>"; };
 		507ECD351F9279F600E75D45 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
-		5095D4121F964F8600C14B85 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		5095D4131F96501F00C14B85 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5095D4171F96545400C14B85 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		50AE6A9A1F95E2D700CF924C /* NotiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTableViewCell.swift; sourceTree = "<group>"; };
 		50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		50BDB6AD1F865A080009CF60 /* WritePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePost.storyboard; sourceTree = "<group>"; };
@@ -282,7 +283,7 @@
 		5095D4101F964F6B00C14B85 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				5095D4121F964F8600C14B85 /* Login.storyboard */,
+				5095D4171F96545400C14B85 /* Login.storyboard */,
 				5095D4131F96501F00C14B85 /* LoginViewController.swift */,
 			);
 			name = Login;
@@ -430,6 +431,7 @@
 				507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
 				5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */,
+				5095D4181F96545400C14B85 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

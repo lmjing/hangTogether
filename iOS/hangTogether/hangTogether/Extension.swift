@@ -24,6 +24,7 @@ extension UIStoryboard {
     static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
     static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
     static let detailPostStoryboard = UIStoryboard(name: "DetailPost", bundle: nil)
+    static let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
 }
 
 extension DateFormatter {
@@ -63,10 +64,12 @@ extension UIAlertController {
         return alert
     }
     
-    static func loginAlert(title: String) -> UIAlertController {
+    static func loginAlert(vc: UIViewController, title: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: "로그인 후 이용할 수 있습니다.\n로그인 하시겠습니까?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default) { _ in
             print("여기에 로그인 화면으로 이동하는 코드 넣기!")
+            let loginVC = UIStoryboard.loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+            vc.present(loginVC, animated: true, completion: nil)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         alert.addAction(ok)
