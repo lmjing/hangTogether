@@ -17,6 +17,7 @@ extension UIColor {
 extension Notification.Name {
     static let mainList = Notification.Name("getMainList")
     static let uploadPost = Notification.Name("uploadPost")
+    static let login = Notification.Name("login")
 }
 
 extension UIStoryboard {
@@ -24,14 +25,15 @@ extension UIStoryboard {
     static let addPlaceStoryboard = UIStoryboard(name: "AddPlace", bundle: nil)
     static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
     static let detailPostStoryboard = UIStoryboard(name: "DetailPost", bundle: nil)
+    static let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
 }
 
 extension DateFormatter {
     static func time() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "a hh:mm"
-        formatter.amSymbol = "오전"
-        formatter.pmSymbol = "오후"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
         formatter.timeZone = NSTimeZone.system
         
         return formatter
@@ -40,14 +42,6 @@ extension DateFormatter {
     static func date() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
-        formatter.timeZone = NSTimeZone.system
-        
-        return formatter
-    }
-    
-    static func korDate() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일"
         formatter.timeZone = NSTimeZone.system
         
         return formatter
@@ -70,18 +64,27 @@ extension UIAlertController {
         alert.addAction(cancle)
         return alert
     }
+    
+    static func loginAlert(title: String, vc: UIViewController, moveTab: Int) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: "로그인 후 이용할 수 있습니다.\n로그인 하시겠습니까?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) { _ in
+            print("여기에 로그인 화면으로 이동하는 코드 넣기!")
+            let loginVC = UIStoryboard.loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+            loginVC.wantedPage = moveTab
+            loginVC.delegate = vc as! focusToTabDelegate
+            vc.present(loginVC, animated: true, completion: nil)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        alert.addAction(cancle)
+        return alert
+    }
 }
 
 extension Date {
     var string: String {
         get {
             return DateFormatter.date().string(from: self)
-        }
-    }
-    
-    var korStr: String {
-        get {
-            return DateFormatter.korDate().string(from: self)
         }
     }
     
@@ -93,7 +96,7 @@ extension Date {
     
     var age: String {
         get {
-            var diff = -(self.timeIntervalSinceNow / 60 / 60 / 24 / 365)
+            let diff = -(self.timeIntervalSinceNow / 60 / 60 / 24 / 365)
             let age = Int(diff / 10) * 10
             return "\(age)대"
         }
@@ -175,21 +178,5 @@ extension UIView {
     func drawLine() {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
-    }
-}
-
-class paddingLabel: UILabel {
-    @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
-    
-    override func drawText(in rect: CGRect) {
-        let paddingRect = UIEdgeInsetsInsetRect(rect, padding)
-        super.drawText(in: paddingRect)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        var contentSize = super.intrinsicContentSize
-        contentSize.height += padding.top + padding.bottom
-        contentSize.width += padding.left + padding.right
-        return contentSize
     }
 }

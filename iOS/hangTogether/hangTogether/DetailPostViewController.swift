@@ -46,8 +46,8 @@ class DetailPostViewController: UIViewController {
         }
         nicknameLabel.text = writer.nickname
         userInfoLabel.text = "\(writer.birth.age) \(writer.sex.rawValue)"
-        startDateLabel.text = post.tripDate.start.korStr
-        endDateLabel.text = post.tripDate.end.korStr
+        startDateLabel.text = post.tripDate.start.string
+        endDateLabel.text = post.tripDate.end.string
         contentLabel.text = post.content
         makeLanguages(post.writer.languages)
         designView()
@@ -98,6 +98,7 @@ extension DetailPostViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripDateCell", for: indexPath) as! TripTableViewCell
         
         let trip = post.trip[indexPath.section]
+        let place = trip.places[indexPath.row]
 
         // 첫번째일 경우 날짜 라벨 생성
         if indexPath.row == 0 {
@@ -107,7 +108,9 @@ extension DetailPostViewController: UITableViewDataSource, UITableViewDelegate {
         let lastSection = tableView.numberOfSections - 1
         let lastIndexPath = IndexPath(row: tableView.numberOfRows(inSection: lastSection) - 1, section: lastSection)
         cell.makeLine(index: indexPath, count: lastIndexPath)
-        cell.placeLabel.text = trip.places[indexPath.row]["name"]
+        if let name = place["name"] as? String {
+            cell.placeLabel.text = name
+        }
         cell.deleteCancleButton()
         
         return cell
