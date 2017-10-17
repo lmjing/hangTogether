@@ -42,8 +42,6 @@ class Networking {
     }
     
     static func uploadPost(_ parameters: [String:Any]) {
-        
-        print(parameters)
         Alamofire.request("\(Config.hostURL)/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let response):

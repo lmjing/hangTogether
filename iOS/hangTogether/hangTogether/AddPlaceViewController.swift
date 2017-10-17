@@ -123,7 +123,6 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
             var newTrip: [String:Any] = [:]
             newTrip["date"] = pickDate
             newTrip["places"] = [newPlace]
-            print(3, newTrip)
             cv.tripList.append(newTrip)
         }
     }
