@@ -65,11 +65,13 @@ extension UIAlertController {
         return alert
     }
     
-    static func loginAlert(vc: UIViewController, title: String) -> UIAlertController {
+    static func loginAlert(title: String, vc: UIViewController, moveTab: Int) -> UIAlertController {
         let alert = UIAlertController(title: title, message: "로그인 후 이용할 수 있습니다.\n로그인 하시겠습니까?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default) { _ in
             print("여기에 로그인 화면으로 이동하는 코드 넣기!")
             let loginVC = UIStoryboard.loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+            loginVC.wantedPage = moveTab
+            loginVC.delegate = vc as! focusToTabDelegate
             vc.present(loginVC, animated: true, completion: nil)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)

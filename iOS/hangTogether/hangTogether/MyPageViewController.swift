@@ -12,9 +12,12 @@ import AlamofireImage
 class MyPageViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     
+    var delegate: focusToTabDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        delegate = self.tabBarController as! focusToTabDelegate
         self.navigationItem.title = "마이 페이지"
         initProfileImageView()
     }
@@ -42,11 +45,7 @@ class MyPageViewController: UIViewController {
             let alert = UIAlertController.cancleOkAlert(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", action: { _ in
                 UserDefaults.standard.removeObject(forKey: "user")
                 
-                guard let mainTabBarController = self.tabBarController as? MainTabViewController else {
-                    print("logout error: 탭 컨트롤러가 이상합니다."); return
-                }
-//                self.tabBarController?.selectedIndex = 0
-                mainTabBarController.logout()
+                self.delegate?.focusOn(0)
             })
             present(alert, animated: true, completion: nil)
         }else {

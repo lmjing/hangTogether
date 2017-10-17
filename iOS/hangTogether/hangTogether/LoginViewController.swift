@@ -12,6 +12,9 @@ class LoginViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    var wantedPage: Int = 0
+    var delegate: focusToTabDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +32,7 @@ class LoginViewController: UIViewController {
         case "success":
             guard let user = notification.userInfo!["user"] as? [String:Any] else { print("로그인 실패: User 타입이 아님"); return }
             UserDefaults.standard.set(user, forKey: "user")
+            self.delegate?.focusOn(self.wantedPage)
             dismiss(animated: true, completion: nil)
         case "fail":
             let alert = UIAlertController.okAlert(title: "로그인 실패", message: "아이디와 패스워드를 다시 확인해주세요.")

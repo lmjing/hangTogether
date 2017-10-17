@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MainTabViewController: UITabBarController {
+protocol focusToTabDelegate {
+    func focusOn(_ tab: Int)
+}
+
+class MainTabViewController: UITabBarController, focusToTabDelegate {
     /*
      NOTE: 커스텀하게 만든 이유 : 기존의 방법을 사용하면 didSelect만 되어 로그인이 안 되있을 경우 이전 페이지로 돌아가는 코드를 짤 수 없다.
      하지만 이렇게 작성하면 페이지 이동 전에 예외처리를 할 수 있음
@@ -75,23 +79,21 @@ class MainTabViewController: UITabBarController {
         if tag == 2 || tag == 3 {
             if UserDefaults.standard.object(forKey: "user") == nil {
                 let title = tag == 2 ? "메세지 함" : "마이 페이지"
-                let alert = UIAlertController.loginAlert(vc: self, title: title)
+                let alert = UIAlertController.loginAlert(title: title, vc: self, moveTab: tag)
                 present(alert, animated: true, completion: nil)
                 return
             }
         }
-        
+        focusOn(tag)
+    }
+    
+    func focusOn(_ tab: Int) {
         for btn in tabButtonArray {
             btn.isSelected = false
         }
-        button.isSelected = true
-        self.selectedIndex = tag
-    }
-    
-    func logout() {
-        self.selectedIndex = 0
-        tabButtonArray[0].isSelected = true
-        tabButtonArray[3].isSelected = false
+        tabButtonArray[tab].isSelected = true
+        
+        self.selectedIndex = tab
     }
 
     override func didReceiveMemoryWarning() {
