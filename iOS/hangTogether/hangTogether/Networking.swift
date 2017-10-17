@@ -58,11 +58,10 @@ class Networking {
         Alamofire.request("\(Config.hostURL)/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let response):
-                if let user = response as? User {
+                if let user = response as? [String:Any] {
                     NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"success","user":user])
                 }else {
-                    print("login실패: response타입이 user가 아니다")
-                    NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"error"])
+                    NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"fail"])
                 }
             case .failure(let error):
                 print("login실패",error)
