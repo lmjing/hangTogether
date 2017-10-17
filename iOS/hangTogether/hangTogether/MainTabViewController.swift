@@ -73,7 +73,7 @@ class MainTabViewController: UITabBarController {
     func clickTab(button: UIButton) {
         let tag = button.tag
         if tag == 2 || tag == 3 {
-            if UserDefaults.standard.object(forKey: "userId") == nil {
+            if UserDefaults.standard.object(forKey: "user") == nil {
                 let title = tag == 2 ? "메세지 함" : "마이 페이지"
                 let alert = UIAlertController.loginAlert(vc: self, title: title)
                 present(alert, animated: true, completion: nil)
