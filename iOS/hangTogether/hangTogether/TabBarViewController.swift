@@ -31,6 +31,7 @@ class TabBarViewController: UITabBarController {
         initButton(button: tabButton2, title: "알림함", tag: 1)
         
         self.view.addSubview(customTabBarView)
+        tabButton1.isSelected = true
     }
     
     func initButton(button: UIButton, title: String, tag: Int) {

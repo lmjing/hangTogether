@@ -18,6 +18,9 @@
 		50278AE01F94E372005AAB94 /* TripPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278ADF1F94E372005AAB94 /* TripPlaceTableViewController.swift */; };
 		50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE11F94E3F7005AAB94 /* TripPlaceTableViewCell.swift */; };
 		50278AE51F94F2A5005AAB94 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */; };
+		50278AE91F95D8C3005AAB94 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE81F95D8C3005AAB94 /* MessageTableViewController.swift */; };
+		50278AEB1F95D8D3005AAB94 /* NotiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AEA1F95D8D3005AAB94 /* NotiTableViewController.swift */; };
+		50278AED1F95D94A005AAB94 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */; };
 		5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037F8991F868DE7006EFB17 /* WritePostViewController.swift */; };
 		505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
@@ -58,6 +61,9 @@
 		50278ADF1F94E372005AAB94 /* TripPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceTableViewController.swift; sourceTree = "<group>"; };
 		50278AE11F94E3F7005AAB94 /* TripPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		50278AE81F95D8C3005AAB94 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		50278AEA1F95D8D3005AAB94 /* NotiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTableViewController.swift; sourceTree = "<group>"; };
+		50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		5037F8991F868DE7006EFB17 /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,12 +176,31 @@
 			name = Second_TripPlace;
 			sourceTree = "<group>";
 		};
-		50278AE31F94EDD1005AAB94 /* Third_Message */ = {
+		50278AE31F94EDD1005AAB94 /* Third_MessageList */ = {
 			isa = PBXGroup;
 			children = (
 				50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */,
+				50278AE61F95D374005AAB94 /* Tab1_Message */,
+				50278AE71F95D388005AAB94 /* Tab2_Noti */,
 			);
-			name = Third_Message;
+			name = Third_MessageList;
+			sourceTree = "<group>";
+		};
+		50278AE61F95D374005AAB94 /* Tab1_Message */ = {
+			isa = PBXGroup;
+			children = (
+				50278AE81F95D8C3005AAB94 /* MessageTableViewController.swift */,
+				50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */,
+			);
+			name = Tab1_Message;
+			sourceTree = "<group>";
+		};
+		50278AE71F95D388005AAB94 /* Tab2_Noti */ = {
+			isa = PBXGroup;
+			children = (
+				50278AEA1F95D8D3005AAB94 /* NotiTableViewController.swift */,
+			);
+			name = Tab2_Noti;
 			sourceTree = "<group>";
 		};
 		5063D6A11F7D456D009639C5 = {
@@ -228,7 +253,7 @@
 				5063D6B31F7D456D009639C5 /* Main.storyboard */,
 				501A26E71F849C0F00F24081 /* First_MainView */,
 				50278ADE1F94E326005AAB94 /* Second_TripPlace */,
-				50278AE31F94EDD1005AAB94 /* Third_Message */,
+				50278AE31F94EDD1005AAB94 /* Third_MessageList */,
 			);
 			name = TabView;
 			sourceTree = "<group>";
@@ -458,14 +483,17 @@
 				5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */,
 				507ECD361F9279F600E75D45 /* DetailPostViewController.swift in Sources */,
 				5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */,
+				50278AED1F95D94A005AAB94 /* MessageTableViewCell.swift in Sources */,
 				501A26EB1F84ADC100F24081 /* Extension.swift in Sources */,
 				501A26E91F849C3000F24081 /* MainTableViewCell.swift in Sources */,
 				5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */,
 				501A26DE1F8374CE00F24081 /* Config.swift in Sources */,
 				50278AE01F94E372005AAB94 /* TripPlaceTableViewController.swift in Sources */,
+				50278AE91F95D8C3005AAB94 /* MessageTableViewController.swift in Sources */,
 				505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */,
 				50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
+				50278AEB1F95D8D3005AAB94 /* NotiTableViewController.swift in Sources */,
 				50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */,
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
