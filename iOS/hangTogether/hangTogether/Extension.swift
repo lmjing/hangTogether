@@ -26,6 +26,7 @@ extension UIStoryboard {
     static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
     static let detailPostStoryboard = UIStoryboard(name: "DetailPost", bundle: nil)
     static let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+    static let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
 }
 
 extension DateFormatter {
