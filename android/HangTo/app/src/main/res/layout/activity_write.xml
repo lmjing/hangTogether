@@ -4,6 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView_plus2"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="368dp"
+        android:gravity="right|center_vertical"
+        android:text="+"
+        android:textColor="#35babc"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spot2"
+        android:layout_width="125dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="368dp"
+        android:ems="10"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:hint="여행 장소 입력"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <include layout="@layout/toolbar_green" android:id="@+id/toolbar"
         />
 
@@ -24,7 +53,7 @@
         android:id="@+id/spot1"
         android:layout_width="125dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="323dp"
         android:ems="10"
         android:textSize="20dp"
@@ -70,11 +99,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView40"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView_plus1"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="47dp"
-        android:layout_marginTop="327dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="323dp"
+        android:gravity="right|center_vertical"
         android:text="+"
         android:textColor="#35babc"
         android:textSize="30dp"

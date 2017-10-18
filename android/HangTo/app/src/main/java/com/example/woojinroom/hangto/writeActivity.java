@@ -21,10 +21,10 @@ import com.example.woojinroom.hangto.TabActivity.TabActivity_;
  */
 
 public class writeActivity extends AppCompatActivity {
-
+    int SPOT_REQUEST_CODE =1;
     Button button_start,button_end;
     Toolbar toolbar;
-    TextView textView,spot1;
+    TextView textView,textplus,textspot,textplus2,textspot2;
     ImageButton imageButtonLeft;
     ImageButton imageButtonRight;
 
@@ -35,6 +35,7 @@ public class writeActivity extends AppCompatActivity {
         int end_year,end_month,end_day;
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         textView = (TextView)toolbar.findViewById(R.id.title);
+
 
         imageButtonLeft = (ImageButton)toolbar.findViewById(R.id.imagebutton_left);
         imageButtonLeft.setImageResource(R.drawable.left_arrow);
@@ -66,13 +67,15 @@ public class writeActivity extends AppCompatActivity {
                 showDialog(2);
             }
         });
-        spot1 =(TextView)findViewById(R.id.spot1);
-        spot1.setOnClickListener(new View.OnClickListener(){
+        textspot =(TextView)findViewById(R.id.spot1);
+        textspot.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+
                 Intent spot_intent = new Intent(getApplicationContext(), spotActivity.class);
-                startActivity(spot_intent);
+                startActivityForResult(spot_intent,SPOT_REQUEST_CODE);
             }
         });
+
     }
 
     protected Dialog onCreateDialog(int id) {
@@ -109,5 +112,21 @@ public class writeActivity extends AppCompatActivity {
         return super.onCreateDialog(id);
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SPOT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                String day = data.getExtras().getString("day");
+                String spot = data.getExtras().getString("spot");
+                textplus = (TextView) findViewById(R.id.textView_plus1);
+                textplus.setText(day);
+                textspot = (TextView) findViewById(R.id.spot1);
+                textspot.setText(spot);
+                textplus2 = (TextView) findViewById(R.id.textView_plus2);
+                textplus2.setVisibility(View.VISIBLE);
+                textspot2 = (TextView) findViewById(R.id.spot2);
+                textspot2.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 }

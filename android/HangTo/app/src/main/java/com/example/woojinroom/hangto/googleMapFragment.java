@@ -103,6 +103,7 @@ public class googleMapFragment extends Fragment
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        googleMap2=googleMap;
         LatLng SEOUL = new LatLng(37.56, 126.97);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(SEOUL);
@@ -111,7 +112,7 @@ public class googleMapFragment extends Fragment
         googleMap.addMarker(markerOptions);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
-        googleMap2=googleMap;
+
 
     }
 
