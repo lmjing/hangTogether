@@ -65,6 +65,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func joinButtonAction(_ sender: Any) {
+        let joinViewcontroller = UIStoryboard.joinStoryboard.instantiateViewController(withIdentifier: "join") as! JoinViewController
+        let navigationController = UINavigationController(rootViewController: joinViewcontroller)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func closeButtonAction(_ sender: Any) {
