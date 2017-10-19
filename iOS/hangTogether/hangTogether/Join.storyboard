@@ -131,7 +131,15 @@
                         <viewLayoutGuide key="safeArea" id="QNc-qs-gUF"/>
                     </view>
                     <connections>
+                        <outlet property="birthTextField" destination="OOM-Hg-wCh" id="48v-sb-ejm"/>
+                        <outlet property="emailCheckButton" destination="rqo-uC-vYa" id="roP-GV-HwS"/>
+                        <outlet property="emailTextField" destination="e4P-E9-ttC" id="kna-LY-axv"/>
+                        <outlet property="nicknameCheckButton" destination="nzl-5a-fHm" id="8KH-iQ-o89"/>
+                        <outlet property="nicknameTextField" destination="tVX-Lo-AXV" id="tzS-PV-PwE"/>
+                        <outlet property="passwordCheckTextField" destination="UmO-gz-zm2" id="edH-7M-VI3"/>
+                        <outlet property="passwordTextField" destination="SDP-WY-HHU" id="aRO-aR-fLK"/>
                         <outlet property="profileImageView" destination="5tG-oL-BIl" id="HMB-S0-UCb"/>
+                        <outlet property="sexSegmentControl" destination="Odk-vs-ycs" id="TUr-LW-YJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAG-Rl-Nzi" userLabel="First Responder" sceneMemberID="firstResponder"/>

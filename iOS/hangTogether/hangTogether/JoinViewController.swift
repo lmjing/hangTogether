@@ -10,6 +10,14 @@ import UIKit
 
 class JoinViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var emailTextField: paddingTextField!
+    @IBOutlet weak var emailCheckButton: UIButton!
+    @IBOutlet weak var nicknameTextField: paddingTextField!
+    @IBOutlet weak var nicknameCheckButton: UIButton!
+    @IBOutlet weak var passwordTextField: paddingTextField!
+    @IBOutlet weak var passwordCheckTextField: paddingTextField!
+    @IBOutlet weak var birthTextField: paddingTextField!
+    @IBOutlet weak var sexSegmentControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
