@@ -29,6 +29,9 @@ class JoinViewController: UIViewController {
         emailCheckButton.addTarget(self, action: #selector(duplicationCheck), for: .touchUpInside)
         NotificationCenter.default.addObserver(self, selector: #selector(getCheckResult), name: Notification.Name.joinCheck, object: nil)
         
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
         // navigation 설정
         let cancleButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissView))
         let joinButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(joinUser))
@@ -41,6 +44,10 @@ class JoinViewController: UIViewController {
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
             profileImageView.af_setImage(withURL: profileURL)
         }
+    }
+    
+    func textFieldDidChange(textfield: UITextField) {
+        userCheck[textfield.tag] = false
     }
     
     func getCheckResult(notification: Notification) {
@@ -65,14 +72,14 @@ class JoinViewController: UIViewController {
     
     func duplicationCheck(button: UIButton) {
         switch button.tag {
-        case 1: // email check
+        case 0: // email check
             if let email = emailTextField.text, email != "" {
                 Networking.checkUserInfo(email: email, nickname: nil)
             }else {
                 let alert = UIAlertController.okAlert(title: nil, message: "email을 입력해주세요.")
                 present(alert, animated: true, completion: nil); return
             }
-        case 2: // nickname check
+        case 1: // nickname check
             if let nickname = nicknameTextField.text, nickname != "" {
                 Networking.checkUserInfo(email: nil, nickname: nickname)
             }else {
@@ -88,11 +95,11 @@ class JoinViewController: UIViewController {
     }
     
     func joinUser(button: UIBarButtonItem) {
-        guard let email = emailTextField.text, email != "", userCheck[1] else  {
+        guard let email = emailTextField.text, email != "", userCheck[0] else  {
             let alert = UIAlertController.okAlert(title: nil, message: "email을 입력해주세요.")
             present(alert, animated: true, completion: nil); return
         }
-        guard let nickname = nicknameTextField.text, nickname != "", userCheck[0] else {
+        guard let nickname = nicknameTextField.text, nickname != "", userCheck[1] else {
             let alert = UIAlertController.okAlert(title: nil, message: "nickname 중복체크를 해주세요.")
             present(alert, animated: true, completion: nil); return
         }
