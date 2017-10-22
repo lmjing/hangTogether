@@ -71,6 +71,22 @@ class Networking {
         }
     }
     
+    static func join(_ parameters: [String:Any]) {
+        Alamofire.request("\(Config.hostURL)/user", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let response):
+                if let user = response as? [String:Any] {
+                    NotificationCenter.default.post(name: Notification.Name.join , object: self, userInfo: ["result":"success","user":user])
+                }else {
+                    NotificationCenter.default.post(name: Notification.Name.join , object: self, userInfo: ["result":"fail"])
+                }
+            case .failure(let error):
+                print("login실패",error)
+                NotificationCenter.default.post(name: Notification.Name.join , object: self, userInfo: ["result":"error"])
+            }
+        }
+    }
+    
     static func checkUserInfo(email: String?, nickname: String?) {
         var type = 0
         var curl = "\(Config.hostURL)/user/check?"

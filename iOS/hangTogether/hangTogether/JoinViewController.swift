@@ -19,7 +19,7 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var birthTextField: paddingTextField!
     @IBOutlet weak var sexSegmentControl: UISegmentedControl!
     
-    //TODO: TextField delegate로 텍스트 입력 받거나 데이터 변경된 경우 nicknameCheck = false로 바꾸기
+    var datePicker = UIDatePicker()
     var userCheck: [Bool] = [false, false] // 0 : email, 1 : nickname
     
     override func viewDidLoad() {
@@ -28,6 +28,7 @@ class JoinViewController: UIViewController {
         nicknameCheckButton.addTarget(self, action: #selector(duplicationCheck), for: .touchUpInside)
         emailCheckButton.addTarget(self, action: #selector(duplicationCheck), for: .touchUpInside)
         NotificationCenter.default.addObserver(self, selector: #selector(getCheckResult), name: Notification.Name.joinCheck, object: nil)
+        datePicker.withTextField(birthTextField, selector: #selector(pickerDone))
         
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -44,6 +45,11 @@ class JoinViewController: UIViewController {
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
             profileImageView.af_setImage(withURL: profileURL)
         }
+    }
+    
+    func pickerDone(button: UIBarButtonItem) {
+        birthTextField.text = datePicker.date.string
+        self.view.endEditing(true)
     }
     
     func textFieldDidChange(textfield: UITextField) {
@@ -112,6 +118,21 @@ class JoinViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "생년월일을 입력해주세요.")
             present(alert, animated: true, completion: nil); return
         }
+        
+        let param: [String:Any] = [
+            "email": email,
+            "password": password,
+            "nickname": nickname,
+            "sex": "male",
+            "birth": birth,
+            "profileUrl": "/resource/lmjing.png",
+            "type": "korean",
+            "languages": [
+            "Korean"
+            ]
+        ]
+        
+        Networking.join(param)
     }
 
     override func didReceiveMemoryWarning() {
