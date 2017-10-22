@@ -54,6 +54,7 @@ class Networking {
         }
     }
     
+    //NOTE : USER
     static func login(_ parameters: [String:Any]) {
         Alamofire.request("\(Config.hostURL)/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
@@ -66,6 +67,29 @@ class Networking {
             case .failure(let error):
                 print("login실패",error)
                 NotificationCenter.default.post(name: Notification.Name.login , object: self, userInfo: ["result":"error"])
+            }
+        }
+    }
+    
+    static func checkUserInfo(email: String?, nickname: String?) {
+        var curl = "\(Config.hostURL)/user/check?"
+        if let emailQuery = email, nickname == nil {
+            curl += "email=\(emailQuery)"
+        }else if let nicknameQuery = nickname, email == nil {
+            curl += "nickname=\(nicknameQuery)"
+        }else {
+            print("중복체크는 이메일/닉네임 중 하나만 할 수 있습니다.")
+            return
+        }
+        
+        Alamofire.request(curl).responseJSON { response in
+            switch response.result {
+            case .success(let response):
+                guard let result = response as? String else { return }
+                // True or False로 바꿀 것!..
+            case .failure(let error):
+                print("error")
+                print(error)
             }
         }
     }
