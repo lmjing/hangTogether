@@ -72,11 +72,13 @@ class Networking {
     }
     
     static func checkUserInfo(email: String?, nickname: String?) {
+        var type = 0
         var curl = "\(Config.hostURL)/user/check?"
         if let emailQuery = email, nickname == nil {
             curl += "email=\(emailQuery)"
         }else if let nicknameQuery = nickname, email == nil {
             curl += "nickname=\(nicknameQuery)"
+            type = 1
         }else {
             print("중복체크는 이메일/닉네임 중 하나만 할 수 있습니다.")
             return
@@ -84,11 +86,11 @@ class Networking {
         
         Alamofire.request(curl).responseJSON { response in
             switch response.result {
-            case .success(let response):
-                guard let result = response as? String else { return }
-                // True or False로 바꿀 것!..
+            case .success(let data):
+                let status = response.response!.statusCode == 200 ? true : false
+                guard let message = data as? String else { return }
+                NotificationCenter.default.post(name: Notification.Name.joinCheck, object: self, userInfo: ["type": type,"status": status, "message": message])
             case .failure(let error):
-                print("error")
                 print(error)
             }
         }

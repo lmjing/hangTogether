@@ -18,6 +18,7 @@ extension Notification.Name {
     static let mainList = Notification.Name("getMainList")
     static let uploadPost = Notification.Name("uploadPost")
     static let login = Notification.Name("login")
+    static let joinCheck = Notification.Name("joinCheck")
 }
 
 extension UIStoryboard {
