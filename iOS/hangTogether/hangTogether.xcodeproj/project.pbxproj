@@ -15,6 +15,7 @@
 		502689451F84FA7D00819D3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689441F84FA7D00819D3C /* MainViewController.swift */; };
 		502689481F8530A200819D3C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689471F8530A200819D3C /* Post.swift */; };
 		5026894A1F86220900819D3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689491F86220900819D3C /* User.swift */; };
+		502725D11F9C883900746BF6 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502725D01F9C883900746BF6 /* CountryViewController.swift */; };
 		50278AE01F94E372005AAB94 /* TripPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278ADF1F94E372005AAB94 /* TripPlaceTableViewController.swift */; };
 		50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE11F94E3F7005AAB94 /* TripPlaceTableViewCell.swift */; };
 		50278AE51F94F2A5005AAB94 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */; };
@@ -66,6 +67,7 @@
 		502689441F84FA7D00819D3C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		502689471F8530A200819D3C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		502689491F86220900819D3C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		502725D01F9C883900746BF6 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		50278ADF1F94E372005AAB94 /* TripPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceTableViewController.swift; sourceTree = "<group>"; };
 		50278AE11F94E3F7005AAB94 /* TripPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			children = (
 				50B39BE71F97927B006A9DE2 /* Join.storyboard */,
 				50B39BE91F979867006A9DE2 /* JoinViewController.swift */,
+				502725D01F9C883900746BF6 /* CountryViewController.swift */,
 			);
 			name = Join;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
 				5026894A1F86220900819D3C /* User.swift in Sources */,
+				502725D11F9C883900746BF6 /* CountryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
