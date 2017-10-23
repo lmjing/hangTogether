@@ -28,11 +28,14 @@ class JoinViewController: UIViewController {
         
         nicknameCheckButton.addTarget(self, action: #selector(duplicationCheck), for: .touchUpInside)
         emailCheckButton.addTarget(self, action: #selector(duplicationCheck), for: .touchUpInside)
-        NotificationCenter.default.addObserver(self, selector: #selector(getCheckResult), name: Notification.Name.joinCheck, object: nil)
         datePicker.withTextField(birthTextField, selector: #selector(pickerDone))
         
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getCheckResult), name: Notification.Name.joinCheck, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getJoinResult), name: Notification.Name.join, object: nil)
         
         // navigation 설정
         let cancleButton = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(dismissView))
@@ -75,6 +78,22 @@ class JoinViewController: UIViewController {
         
         let alert = UIAlertController.okAlert(title: nil, message: message)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func getJoinResult(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String:Any] else { return }
+        guard let result = userInfo["result"] as? String else { return }
+        
+        switch result {
+        case "success":
+            guard let user = userInfo["user"] as? [String:Any] else { return }
+            print(user)
+            UserDefaults.standard.set(user, forKey: "user")
+            dismiss(animated: true, completion: nil)
+        default:
+            let alert = UIAlertController.okAlert(title: "회원가입 실패", message: "죄송합니다. 문제가 발생하였습니다.")
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func duplicationCheck(button: UIButton) {
@@ -120,20 +139,14 @@ class JoinViewController: UIViewController {
             present(alert, animated: true, completion: nil); return
         }
         
-        let param: [String:Any] = [
-            "email": email,
-            "password": password,
-            "nickname": nickname,
-            "sex": "male",
-            "birth": birth,
-            "profileUrl": "/resource/lmjing.png",
-            "type": "korean",
-            "languages": [
-            "Korean"
-            ]
-        ]
+        newUser["email"] = email
+        newUser["password"] = password
+        newUser["nickname"] = nickname
+        newUser["sex"] = sexSegmentControl.selectedSegmentIndex == 0 ? "male" : "female"
+        newUser["birth"] = birth
+        newUser["profileUrl"] = "/resource/lmjing.png"
         
-        Networking.join(param)
+        Networking.join(newUser)
     }
 
     override func didReceiveMemoryWarning() {
