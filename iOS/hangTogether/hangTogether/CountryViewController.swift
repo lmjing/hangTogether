@@ -65,15 +65,19 @@ class CountryViewController: UIViewController {
     func deleteLanguage(_ sender: AnyObject) {
         let tag = sender.view!.tag
         if selectedLanguages.count >= tag + 1 {
-            selectedLanguages.remove(at: tag)
-            
-            let count = selectedLanguages.count
-            for i in 0..<count {
-                selectedLanguagesLabel[i].language(text: selectedLanguages[i])
-            }
-            for i in (count)..<3 {
-                selectedLanguagesLabel[i].notSelect()
-            }
+            let language = selectedLanguages[tag]
+            let alert = UIAlertController.cancleOkAlert(title: language, message: "삭제하시겠습니까?", action: { _ in
+                self.selectedLanguages.remove(at: tag)
+                
+                let count = self.selectedLanguages.count
+                for i in 0..<count {
+                    self.selectedLanguagesLabel[i].language(text: self.selectedLanguages[i])
+                }
+                for i in (count)..<3 {
+                    self.selectedLanguagesLabel[i].notSelect()
+                }
+            })
+            present(alert, animated: true, completion: nil)
         }
     }
     
