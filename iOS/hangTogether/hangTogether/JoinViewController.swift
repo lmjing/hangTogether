@@ -34,7 +34,7 @@ class JoinViewController: UIViewController {
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         // navigation 설정
-        let cancleButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissView))
+        let cancleButton = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(dismissView))
         let joinButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(joinUser))
         
         navigationItem.leftBarButtonItem = cancleButton
@@ -97,7 +97,7 @@ class JoinViewController: UIViewController {
     }
     
     func dismissView(button: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func joinUser(button: UIBarButtonItem) {
