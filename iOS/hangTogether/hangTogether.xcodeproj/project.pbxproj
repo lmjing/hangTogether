@@ -310,8 +310,8 @@
 			isa = PBXGroup;
 			children = (
 				50B39BE71F97927B006A9DE2 /* Join.storyboard */,
-				50B39BE91F979867006A9DE2 /* JoinViewController.swift */,
 				502725D01F9C883900746BF6 /* CountryViewController.swift */,
+				50B39BE91F979867006A9DE2 /* JoinViewController.swift */,
 			);
 			name = Join;
 			sourceTree = "<group>";
