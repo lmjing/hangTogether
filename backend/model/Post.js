@@ -33,7 +33,7 @@ var postSchema = new Schema({
         type: String,
         default: null
       },
-      lat: { 
+      lat: {
 	type: Number,
 	default: null
       },

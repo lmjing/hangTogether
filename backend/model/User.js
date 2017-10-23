@@ -31,7 +31,7 @@ var userSchema = new Schema({
   },
   profileUrl: {
     type: String,
-    default: null
+    default: ""
   },
   type: {
     type: String,
@@ -42,7 +42,7 @@ var userSchema = new Schema({
   }],
   introduce: {
     type: String,
-    default: null,
+    default: "",
     maxlength: 100
   }
 },{
