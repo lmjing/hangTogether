@@ -51,6 +51,30 @@ class CountryViewController: UIViewController {
         languagePicker.delegate = self
         languagePicker.dataSource = self
         languagePickerView.isHidden = true
+        initLanguageLabel()
+    }
+    
+    func initLanguageLabel() {
+        for i in 0..<3 {
+            let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(deleteLanguage(_:)))
+            selectedLanguagesLabel[i].isUserInteractionEnabled = true
+            selectedLanguagesLabel[i].addGestureRecognizer(tap)
+        }
+    }
+    
+    func deleteLanguage(_ sender: AnyObject) {
+        let tag = sender.view!.tag
+        if selectedLanguages.count >= tag + 1 {
+            selectedLanguages.remove(at: tag)
+            
+            let count = selectedLanguages.count
+            for i in 0..<count {
+                selectedLanguagesLabel[i].language(text: selectedLanguages[i])
+            }
+            for i in (count)..<3 {
+                selectedLanguagesLabel[i].notSelect()
+            }
+        }
     }
     
     func getLanguages(notification: Notification) {
