@@ -26,6 +26,12 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.dictionary(forKey: "user") != nil {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func finishLogin(notification: Notification) {
         guard let result = notification.userInfo!["result"] as? String else { print("로그인 실패"); return }
         switch result {
@@ -65,6 +71,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func joinButtonAction(_ sender: Any) {
+        let joinViewcontroller = UIStoryboard.joinStoryboard.instantiateViewController(withIdentifier: "country") as! CountryViewController
+        let navigationController = UINavigationController(rootViewController: joinViewcontroller)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func closeButtonAction(_ sender: Any) {

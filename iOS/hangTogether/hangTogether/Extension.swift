@@ -18,6 +18,9 @@ extension Notification.Name {
     static let mainList = Notification.Name("getMainList")
     static let uploadPost = Notification.Name("uploadPost")
     static let login = Notification.Name("login")
+    static let joinCheck = Notification.Name("joinCheck")
+    static let join = Notification.Name("join")
+    static let getLanguages = Notification.Name("getLanguages")
 }
 
 extension UIStoryboard {
@@ -26,6 +29,7 @@ extension UIStoryboard {
     static let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
     static let detailPostStoryboard = UIStoryboard(name: "DetailPost", bundle: nil)
     static let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+    static let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
 }
 
 extension DateFormatter {
@@ -71,7 +75,7 @@ extension UIAlertController {
             print("여기에 로그인 화면으로 이동하는 코드 넣기!")
             let loginVC = UIStoryboard.loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
             loginVC.wantedPage = moveTab
-            loginVC.delegate = vc as! focusToTabDelegate
+            loginVC.delegate = vc as? focusToTabDelegate
             vc.present(loginVC, animated: true, completion: nil)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -178,5 +182,24 @@ extension UIView {
     func drawLine() {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
+    }
+}
+
+extension PaddingLabel {
+    
+    func notSelect() {
+        self.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        self.font = UIFont.boldSystemFont(ofSize: 12)
+        self.text = "not select"
+        self.textColor = UIColor.black
+        self.textAlignment = .center
+    }
+    
+    func language(text: String) {
+        self.backgroundColor = UIColor.pointColor
+        self.textColor = UIColor.white
+        self.font = UIFont.boldSystemFont(ofSize: 12)
+        self.text = text
+        self.textAlignment = .center
     }
 }

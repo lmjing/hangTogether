@@ -15,6 +15,7 @@
 		502689451F84FA7D00819D3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689441F84FA7D00819D3C /* MainViewController.swift */; };
 		502689481F8530A200819D3C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689471F8530A200819D3C /* Post.swift */; };
 		5026894A1F86220900819D3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502689491F86220900819D3C /* User.swift */; };
+		502725D11F9C883900746BF6 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502725D01F9C883900746BF6 /* CountryViewController.swift */; };
 		50278AE01F94E372005AAB94 /* TripPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278ADF1F94E372005AAB94 /* TripPlaceTableViewController.swift */; };
 		50278AE21F94E3F7005AAB94 /* TripPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE11F94E3F7005AAB94 /* TripPlaceTableViewCell.swift */; };
 		50278AE51F94F2A5005AAB94 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */; };
@@ -37,6 +38,8 @@
 		5095D41A1F96573F00C14B85 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5095D4191F96573F00C14B85 /* ShareView.swift */; };
 		50AE6A9B1F95E2D700CF924C /* NotiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE6A9A1F95E2D700CF924C /* NotiTableViewCell.swift */; };
 		50AE6A9E1F95E8D600CF924C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */; };
+		50B39BE81F97927B006A9DE2 /* Join.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B39BE71F97927B006A9DE2 /* Join.storyboard */; };
+		50B39BEA1F979867006A9DE2 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B39BE91F979867006A9DE2 /* JoinViewController.swift */; };
 		50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDB6AD1F865A080009CF60 /* WritePost.storyboard */; };
 		50E1DF731F8FCAC900552721 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50E1DF721F8FCAC900552721 /* UserProfile.storyboard */; };
 		50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1DF741F8FCFE000552721 /* UserProfileViewController.swift */; };
@@ -64,6 +67,7 @@
 		502689441F84FA7D00819D3C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		502689471F8530A200819D3C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		502689491F86220900819D3C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		502725D01F9C883900746BF6 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		50278ADF1F94E372005AAB94 /* TripPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceTableViewController.swift; sourceTree = "<group>"; };
 		50278AE11F94E3F7005AAB94 /* TripPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		50278AE41F94F2A5005AAB94 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		5095D4191F96573F00C14B85 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		50AE6A9A1F95E2D700CF924C /* NotiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTableViewCell.swift; sourceTree = "<group>"; };
 		50AE6A9D1F95E8D600CF924C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		50B39BE71F97927B006A9DE2 /* Join.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Join.storyboard; sourceTree = "<group>"; };
+		50B39BE91F979867006A9DE2 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		50BDB6AD1F865A080009CF60 /* WritePost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WritePost.storyboard; sourceTree = "<group>"; };
 		50E1DF721F8FCAC900552721 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		50E1DF741F8FCFE000552721 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -300,9 +306,20 @@
 			name = Fourth_MyPage;
 			sourceTree = "<group>";
 		};
+		50B39BE61F979266006A9DE2 /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				50B39BE71F97927B006A9DE2 /* Join.storyboard */,
+				502725D01F9C883900746BF6 /* CountryViewController.swift */,
+				50B39BE91F979867006A9DE2 /* JoinViewController.swift */,
+			);
+			name = Join;
+			sourceTree = "<group>";
+		};
 		50BDB6AB1F86596C0009CF60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				50B39BE61F979266006A9DE2 /* Join */,
 				5095D4101F964F6B00C14B85 /* Login */,
 				507ECD321F92728C00E75D45 /* DetailPost */,
 				50E1DF711F8FCA9300552721 /* UserProfile */,
@@ -430,6 +447,7 @@
 				501A26E01F83836C00F24081 /* Config.plist in Resources */,
 				5063D6BA1F7D456D009639C5 /* LaunchScreen.storyboard in Resources */,
 				50F03CA01F87A47200F3591D /* AddPlace.storyboard in Resources */,
+				50B39BE81F97927B006A9DE2 /* Join.storyboard in Resources */,
 				50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */,
 				507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
@@ -527,6 +545,7 @@
 				501A26DE1F8374CE00F24081 /* Config.swift in Sources */,
 				50278AE01F94E372005AAB94 /* TripPlaceTableViewController.swift in Sources */,
 				50278AE91F95D8C3005AAB94 /* MessageTableViewController.swift in Sources */,
+				50B39BEA1F979867006A9DE2 /* JoinViewController.swift in Sources */,
 				50AE6A9B1F95E2D700CF924C /* NotiTableViewCell.swift in Sources */,
 				505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */,
 				50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */,
@@ -538,6 +557,7 @@
 				502689451F84FA7D00819D3C /* MainViewController.swift in Sources */,
 				502689481F8530A200819D3C /* Post.swift in Sources */,
 				5026894A1F86220900819D3C /* User.swift in Sources */,
+				502725D11F9C883900746BF6 /* CountryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

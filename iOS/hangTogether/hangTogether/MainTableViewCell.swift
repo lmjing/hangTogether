@@ -25,12 +25,8 @@ class MainTableViewCell: UITableViewCell {
     
     func makeLanguages(languages: [String]) {
         for language in languages {
-            let label = paddingLabel()
-            label.backgroundColor = UIColor.pointColor
-            label.textColor = UIColor.white
-            label.font = UIFont.boldSystemFont(ofSize: 12)
-            label.text = language
-            label.textAlignment = .center
+            let label = PaddingLabel()
+            label.language(text: language)
             languageStackView.addArrangedSubview(label)
         }
     }
