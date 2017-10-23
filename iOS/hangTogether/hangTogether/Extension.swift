@@ -75,7 +75,7 @@ extension UIAlertController {
             print("여기에 로그인 화면으로 이동하는 코드 넣기!")
             let loginVC = UIStoryboard.loginStoryboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
             loginVC.wantedPage = moveTab
-            loginVC.delegate = vc as! focusToTabDelegate
+            loginVC.delegate = vc as? focusToTabDelegate
             vc.present(loginVC, animated: true, completion: nil)
         }
         let cancle = UIAlertAction(title: "취소", style: .cancel, handler: nil)

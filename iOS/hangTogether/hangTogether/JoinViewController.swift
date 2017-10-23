@@ -87,7 +87,6 @@ class JoinViewController: UIViewController {
         switch result {
         case "success":
             guard let user = userInfo["user"] as? [String:Any] else { return }
-            print(user)
             UserDefaults.standard.set(user, forKey: "user")
             dismiss(animated: true, completion: nil)
         default:

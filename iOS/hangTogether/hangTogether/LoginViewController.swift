@@ -26,12 +26,17 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.dictionary(forKey: "user") != nil {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func finishLogin(notification: Notification) {
         guard let result = notification.userInfo!["result"] as? String else { print("로그인 실패"); return }
         switch result {
         case "success":
             guard let user = notification.userInfo!["user"] as? [String:Any] else { print("로그인 실패: User 타입이 아님"); return }
-            print(user)
             UserDefaults.standard.set(user, forKey: "user")
             self.delegate?.focusOn(self.wantedPage)
             dismiss(animated: true, completion: nil)
