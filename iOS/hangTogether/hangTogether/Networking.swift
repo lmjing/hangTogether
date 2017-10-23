@@ -15,6 +15,7 @@ class Networking {
             switch response.result {
                 case .success(let response):
                     guard let contents = response as? [String] else { return }
+                    NotificationCenter.default.post(name: Notification.Name.getLanguages, object: self, userInfo: ["languages": contents])
                 case .failure(let error):
                     print("error")
                     print(error)

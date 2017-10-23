@@ -61,6 +61,9 @@
                                 <state key="normal" title="    주 사용 언어 추가" image="plus" backgroundImage="bottomLine">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="showLanguagePickerView:" destination="WQY-Df-Dmf" eventType="touchUpInside" id="CFC-B1-2Ve"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="g1V-No-s3V">
                                 <rect key="frame" x="42.5" y="133.5" width="290" height="120"/>
@@ -83,25 +86,66 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGr-aR-rnc">
+                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I89-S2-qxa">
+                                        <rect key="frame" x="0.0" y="84" width="375" height="216"/>
+                                    </pickerView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="tSg-QK-jUm">
+                                        <rect key="frame" x="0.0" y="90" width="375" height="44"/>
+                                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                        <items>
+                                            <barButtonItem systemItem="cancel" id="oVk-Kx-reF">
+                                                <color key="tintColor" red="0.2053697407" green="0.73057287930000003" blue="0.73685550690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="pickerCancle:" destination="WQY-Df-Dmf" id="fIx-gT-BrG"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem width="283" style="plain" systemItem="fixedSpace" id="3ix-ZL-zTX"/>
+                                            <barButtonItem systemItem="add" id="ipo-Mb-Qol">
+                                                <color key="tintColor" red="0.2053697407" green="0.73057287930000003" blue="0.73685550690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="pickerAdd:" destination="WQY-Df-Dmf" id="KYx-LW-GEH"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="K65-jM-oTp"/>
+                                    <constraint firstItem="I89-S2-qxa" firstAttribute="top" secondItem="tSg-QK-jUm" secondAttribute="bottom" id="bN9-bP-6GH"/>
+                                    <constraint firstAttribute="bottom" secondItem="I89-S2-qxa" secondAttribute="bottom" id="efd-Xs-90D"/>
+                                    <constraint firstItem="I89-S2-qxa" firstAttribute="leading" secondItem="CGr-aR-rnc" secondAttribute="leading" id="lXN-yi-bvu"/>
+                                    <constraint firstAttribute="trailing" secondItem="tSg-QK-jUm" secondAttribute="trailing" id="ueG-d5-zjo"/>
+                                    <constraint firstAttribute="trailing" secondItem="I89-S2-qxa" secondAttribute="trailing" id="wgD-wI-Wpz"/>
+                                    <constraint firstItem="tSg-QK-jUm" firstAttribute="leading" secondItem="CGr-aR-rnc" secondAttribute="leading" id="zhU-yD-Ng2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QlE-Rh-xts" firstAttribute="centerY" secondItem="syc-Y6-pU8" secondAttribute="centerY" id="EbV-3I-A9U"/>
                             <constraint firstItem="syc-Y6-pU8" firstAttribute="trailing" secondItem="dCu-Ux-GOJ" secondAttribute="trailing" constant="35" id="Iph-IY-TN8"/>
                             <constraint firstItem="4pk-Xe-7Yr" firstAttribute="leading" secondItem="syc-Y6-pU8" secondAttribute="leading" constant="35" id="O1o-Cx-jkr"/>
+                            <constraint firstItem="syc-Y6-pU8" firstAttribute="bottom" secondItem="CGr-aR-rnc" secondAttribute="bottom" id="QRB-Xe-5bW"/>
                             <constraint firstItem="g1V-No-s3V" firstAttribute="centerX" secondItem="syc-Y6-pU8" secondAttribute="centerX" id="RAz-X8-rk1"/>
+                            <constraint firstItem="syc-Y6-pU8" firstAttribute="trailing" secondItem="CGr-aR-rnc" secondAttribute="trailing" id="SXV-iY-GJG"/>
                             <constraint firstItem="dCu-Ux-GOJ" firstAttribute="leading" secondItem="syc-Y6-pU8" secondAttribute="leading" constant="35" id="SpW-Oc-xvR"/>
                             <constraint firstItem="dCu-Ux-GOJ" firstAttribute="top" secondItem="QlE-Rh-xts" secondAttribute="bottom" constant="40" id="Xyq-Rf-GXG"/>
                             <constraint firstItem="4pk-Xe-7Yr" firstAttribute="top" secondItem="dCu-Ux-GOJ" secondAttribute="bottom" constant="15" id="cDI-U0-ohr"/>
                             <constraint firstItem="QlE-Rh-xts" firstAttribute="leading" secondItem="syc-Y6-pU8" secondAttribute="leading" constant="35" id="cMd-Vg-sDS"/>
                             <constraint firstItem="g1V-No-s3V" firstAttribute="centerY" secondItem="syc-Y6-pU8" secondAttribute="centerY" constant="-150" id="eR2-ZA-H7F"/>
                             <constraint firstAttribute="trailing" secondItem="4pk-Xe-7Yr" secondAttribute="trailing" constant="35" id="h3h-re-eGg"/>
+                            <constraint firstItem="CGr-aR-rnc" firstAttribute="leading" secondItem="syc-Y6-pU8" secondAttribute="leading" id="kuI-Zk-kJk"/>
                             <constraint firstAttribute="trailing" secondItem="QlE-Rh-xts" secondAttribute="trailing" constant="35" id="m8T-By-fgu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="syc-Y6-pU8"/>
                     </view>
                     <connections>
-                        <outlet property="languageSelectButton" destination="4pk-Xe-7Yr" id="VYi-C7-KAR"/>
+                        <outlet property="languagePicker" destination="I89-S2-qxa" id="6Sl-DL-95P"/>
+                        <outlet property="languagePickerView" destination="CGr-aR-rnc" id="Bdi-At-HLS"/>
                         <outletCollection property="languageLabel" destination="mAd-eD-V8v" collectionClass="NSMutableArray" id="9ma-DL-P6K"/>
                         <outletCollection property="languageLabel" destination="o8c-in-KWd" collectionClass="NSMutableArray" id="Xpf-Yt-hUU"/>
                         <outletCollection property="languageLabel" destination="1vT-14-nUT" collectionClass="NSMutableArray" id="H8Q-ez-Xcr"/>

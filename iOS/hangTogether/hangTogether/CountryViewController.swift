@@ -11,7 +11,9 @@ import UIKit
 class CountryViewController: UIViewController {
     @IBOutlet var countryButton: [UIButton]!
     @IBOutlet var languageLabel: [paddingLabel]!
-    @IBOutlet weak var languageSelectButton: UIButton!
+    
+    @IBOutlet weak var languagePickerView: UIView!
+    @IBOutlet weak var languagePicker: UIPickerView!
     
     enum Country: Int {
         case Foreigner = 0, Korean
@@ -32,8 +34,13 @@ class CountryViewController: UIViewController {
         }
     }
     
+    var languages: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Networking.getLanguages();
+        NotificationCenter.default.addObserver(self, selector: #selector(getLanguages), name: Notification.Name.getLanguages, object: nil)
 
         // navigation 설정
         let cancleButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissView))
@@ -43,10 +50,21 @@ class CountryViewController: UIViewController {
         navigationItem.rightBarButtonItem = joinButton
         navigationItem.title = "회원가입"
         
-        initButton()
+        languagePicker.delegate = self
+        languagePicker.dataSource = self
+        languagePickerView.isHidden = true
+        initCountryButton()
     }
     
-    func initButton() {
+    func getLanguages(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String:[String]] else { return }
+        if let data = userInfo["languages"] {
+            languages = data
+            languagePicker.reloadAllComponents()
+        }
+    }
+    
+    func initCountryButton() {
         countryButton[0].addTarget(self, action: #selector(selectCountry), for: .touchUpInside)
         countryButton[1].addTarget(self, action: #selector(selectCountry), for: .touchUpInside)
         
@@ -75,5 +93,29 @@ class CountryViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func showLanguagePickerView(_ sender: Any) {
+        languagePickerView.isHidden = false
+    }
+    
+    @IBAction func pickerCancle(_ sender: Any) {
+        languagePickerView.isHidden = true
+    }
+    
+    @IBAction func pickerAdd(_ sender: Any) {
+    }
+}
+
+extension CountryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languages.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languages[row]
     }
 }

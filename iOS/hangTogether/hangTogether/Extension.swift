@@ -20,6 +20,7 @@ extension Notification.Name {
     static let login = Notification.Name("login")
     static let joinCheck = Notification.Name("joinCheck")
     static let join = Notification.Name("join")
+    static let getLanguages = Notification.Name("getLanguages")
 }
 
 extension UIStoryboard {
