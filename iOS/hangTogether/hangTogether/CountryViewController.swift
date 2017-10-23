@@ -33,6 +33,7 @@ class CountryViewController: UIViewController {
     
     var languages: [String] = []
     var selectedLanguages: [String] = []
+    var newUser: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class CountryViewController: UIViewController {
         languagePicker.dataSource = self
         languagePickerView.isHidden = true
         initLanguageLabel()
+        initCountryButton()
     }
     
     func initLanguageLabel() {
@@ -106,12 +108,23 @@ class CountryViewController: UIViewController {
     
     func selectCountry(button: UIButton) {
         let tag = button.tag
+        newUser["type"] = tag == 0 ? "foreigner" : "korean"
         countryButton[tag].isSelected = true
         countryButton[1 - tag].isSelected = false
     }
     
     func moveNext(button: UIBarButtonItem) {
+        if newUser["type"] == nil {
+            let alert = UIAlertController.okAlert(title: nil, message: "국적을 선택해주세요.")
+            present(alert, animated: true, completion: nil); return
+        }else if selectedLanguages.count == 0 {
+            let alert = UIAlertController.okAlert(title: nil, message: "언어를 한개 이상 골라주세요.")
+            present(alert, animated: true, completion: nil); return
+        }
+        
         let joinViewController = UIStoryboard.joinStoryboard.instantiateViewController(withIdentifier: "join") as! JoinViewController
+        newUser["languages"] = selectedLanguages
+        joinViewController.newUser = newUser
         navigationController?.pushViewController(joinViewController, animated: true)
     }
     

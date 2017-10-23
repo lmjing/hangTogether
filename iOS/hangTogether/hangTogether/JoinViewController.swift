@@ -21,6 +21,7 @@ class JoinViewController: UIViewController {
     
     var datePicker = UIDatePicker()
     var userCheck: [Bool] = [false, false] // 0 : email, 1 : nickname
+    var newUser: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
