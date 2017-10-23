@@ -184,3 +184,21 @@ extension UIView {
         self.layer.borderWidth = 1
     }
 }
+
+extension PaddingLabel {
+    
+ func notSelect() {
+        self.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+        self.font = UIFont.boldSystemFont(ofSize: 12)
+        self.text = "not select"
+        self.textAlignment = .center
+    }
+    
+    func language(text: String) {
+        self.backgroundColor = UIColor.pointColor
+        self.textColor = UIColor.white
+        self.font = UIFont.boldSystemFont(ofSize: 12)
+        self.text = text
+        self.textAlignment = .center
+    }
+}

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class paddingLabel: UILabel {
+class PaddingLabel: UILabel {
     @IBInspectable var padding: UIEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
     
     override func drawText(in rect: CGRect) {

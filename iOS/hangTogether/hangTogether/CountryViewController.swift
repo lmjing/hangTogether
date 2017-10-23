@@ -10,10 +10,9 @@ import UIKit
 
 class CountryViewController: UIViewController {
     @IBOutlet var countryButton: [UIButton]!
-    @IBOutlet var languageLabel: [paddingLabel]!
-    
     @IBOutlet weak var languagePickerView: UIView!
     @IBOutlet weak var languagePicker: UIPickerView!
+    @IBOutlet var selectedLanguagesLabel: [PaddingLabel]!
     
     enum Country: Int {
         case Foreigner = 0, Korean
@@ -28,13 +27,12 @@ class CountryViewController: UIViewController {
                 return Attribute(selectedImage: #imageLiteral(resourceName: "foreignerSelect"), normalImage: #imageLiteral(resourceName: "foreignerUnselect"))
             case .Korean:
                 return Attribute(selectedImage: #imageLiteral(resourceName: "koreanSelect"), normalImage: #imageLiteral(resourceName: "koreanUnselect"))
-            default:
-                return nil
             }
         }
     }
     
     var languages: [String] = []
+    var selectedLanguages: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +51,6 @@ class CountryViewController: UIViewController {
         languagePicker.delegate = self
         languagePicker.dataSource = self
         languagePickerView.isHidden = true
-        initCountryButton()
     }
     
     func getLanguages(notification: Notification) {
@@ -95,14 +92,27 @@ class CountryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func showLanguagePickerView(_ sender: Any) {
-        languagePickerView.isHidden = false
+        if selectedLanguages.count >= 3 {
+            let alert = UIAlertController.okAlert(title: nil, message: "최대 3개가지 설정 가능합니다.")
+            present(alert, animated: true, completion: nil)
+        }else {
+            languagePickerView.isHidden = false
+        }
     }
     
     @IBAction func pickerCancle(_ sender: Any) {
+        languagePicker.selectRow(0, inComponent: 0, animated: false)
         languagePickerView.isHidden = true
     }
     
     @IBAction func pickerAdd(_ sender: Any) {
+        let selected = languagePicker.selectedRow(inComponent: 0)
+        let language = languages[selected]
+        selectedLanguages.append(language)
+        selectedLanguagesLabel[selectedLanguages.count - 1].language(text: language)
+        
+        languagePicker.selectRow(0, inComponent: 0, animated: false)
+        languagePickerView.isHidden = true
     }
 }
 
