@@ -108,11 +108,16 @@ class CountryViewController: UIViewController {
     @IBAction func pickerAdd(_ sender: Any) {
         let selected = languagePicker.selectedRow(inComponent: 0)
         let language = languages[selected]
-        selectedLanguages.append(language)
-        selectedLanguagesLabel[selectedLanguages.count - 1].language(text: language)
-        
-        languagePicker.selectRow(0, inComponent: 0, animated: false)
-        languagePickerView.isHidden = true
+        if !selectedLanguages.contains(language) {
+            selectedLanguages.append(language)
+            selectedLanguagesLabel[selectedLanguages.count - 1].language(text: language)
+            
+            languagePicker.selectRow(0, inComponent: 0, animated: false)
+            languagePickerView.isHidden = true
+        }else {
+            let alert = UIAlertController.okAlert(title: nil, message: "이미 선택한 언어입니다.")
+            present(alert, animated: true, completion: nil)
+        }
     }
 }
 
