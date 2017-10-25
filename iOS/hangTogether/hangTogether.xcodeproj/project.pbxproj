@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5010C8571FA0B76B00286AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5010C8561FA0B76B00286AF2 /* GoogleService-Info.plist */; };
 		501A26D81F82924E00F24081 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26D71F82924E00F24081 /* Networking.swift */; };
 		501A26DE1F8374CE00F24081 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A26DD1F8374CE00F24081 /* Config.swift */; };
 		501A26E01F83836C00F24081 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 501A26DF1F83836C00F24081 /* Config.plist */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		032EFF2D5B6D7AB28B313856 /* Pods_hangTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hangTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5010C8561FA0B76B00286AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		501A26D71F82924E00F24081 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		501A26DD1F8374CE00F24081 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		501A26DF1F83836C00F24081 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		501A26DC1F8374C200F24081 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5010C8561FA0B76B00286AF2 /* GoogleService-Info.plist */,
 				5063D6B61F7D456D009639C5 /* Assets.xcassets */,
 				501A26DD1F8374CE00F24081 /* Config.swift */,
 				501A26DF1F83836C00F24081 /* Config.plist */,
@@ -451,6 +454,7 @@
 				50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */,
 				507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
+				5010C8571FA0B76B00286AF2 /* GoogleService-Info.plist in Resources */,
 				5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */,
 				5095D4181F96545400C14B85 /* Login.storyboard in Resources */,
 			);
@@ -493,13 +497,19 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-hangTogether/Pods-hangTogether-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

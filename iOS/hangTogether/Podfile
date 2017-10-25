@@ -12,4 +12,5 @@ target 'hangTogether' do
   pod 'ObjectMapper'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Firebase/Database'
 end
