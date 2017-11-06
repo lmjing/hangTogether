@@ -36,6 +36,8 @@ class UserEditViewController: UIViewController {
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(editUser))
         navigationItem.setRightBarButton(okButton, animated: true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getNicknameCheck), name: Notification.Name.duplicationCheck, object: nil)
     }
     
     func initUserInfo() {
@@ -45,6 +47,29 @@ class UserEditViewController: UIViewController {
     
     func textFieldDidChange(textField: UITextField) {
         nicknameChecked = false
+    }
+    
+    func getNicknameCheck(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String:Any] else { return }
+        guard let type = userInfo["type"] as? Int else { return }
+        guard let status = userInfo["status"] as? Bool else { return }
+        guard var message = userInfo["message"] as? String else { return }
+        if type == 1 {
+            if status {
+                nicknameChecked = true
+            }else {
+                if let input = nicknameTextField.text, input == user.nickname {
+                    nicknameChecked = true
+                    message = "현재 사용 중인 닉네임입니다.\n계속 사용하실 수 있습니다."
+                }else {
+                    nicknameChecked = false
+                    nicknameTextField.text = nil
+                }
+            }
+        }
+        
+        let alert = UIAlertController.okAlert(title: nil, message: message)
+        present(alert, animated: true, completion: nil)
     }
     
     func editUser(button: UIBarButtonItem) {
@@ -93,7 +118,16 @@ class UserEditViewController: UIViewController {
         
         print("성공")
     }
-
+    
+    @IBAction func checkNickname(_ sender: Any) {
+        if let nickname = nicknameTextField.text, !nickname.isEmpty {
+            Networking.checkUserInfo(email: nil, nickname: nickname)
+        }else {
+            let alert = UIAlertController.okAlert(title: nil, message: "닉네임을 입력해주세요.")
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

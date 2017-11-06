@@ -106,7 +106,7 @@ class Networking {
             case .success(let data):
                 let status = response.response!.statusCode == 200 ? true : false
                 guard let message = data as? String else { return }
-                NotificationCenter.default.post(name: Notification.Name.joinCheck, object: self, userInfo: ["type": type,"status": status, "message": message])
+                NotificationCenter.default.post(name: Notification.Name.duplicationCheck, object: self, userInfo: ["type": type,"status": status, "message": message])
             case .failure(let error):
                 print(error)
             }

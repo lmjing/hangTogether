@@ -34,7 +34,7 @@ class JoinViewController: UIViewController {
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(getCheckResult), name: Notification.Name.joinCheck, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getCheckResult), name: Notification.Name.duplicationCheck, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(getJoinResult), name: Notification.Name.join, object: nil)
         
         // navigation 설정
