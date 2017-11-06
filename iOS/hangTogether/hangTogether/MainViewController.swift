@@ -36,6 +36,12 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
+        
+        if UserDefaults.standard.object(forKey: "user") == nil {
+            plusFloatingButton.isHidden = true
+        }else {
+            plusFloatingButton.isHidden = false
+        }
     }
     
     func moveToWrite() {

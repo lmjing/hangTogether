@@ -39,8 +39,6 @@ class WritePostViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        contentTextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
-        
         initView()
         addPlaceButton.addTarget(self, action: #selector(moveAddTripView), for: .touchUpInside)
         NotificationCenter.default.addObserver(self, selector: #selector(finishUpload), name: Notification.Name.uploadPost, object: nil)
@@ -68,6 +66,7 @@ class WritePostViewController: UIViewController {
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(writeDone))
         navigationItem.setRightBarButton(okButton, animated: true)
         
+        contentTextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
         contentTextView.drawLine()
         
         datePicker.withTextField(startDateTextField, selector: #selector(pickerDone))

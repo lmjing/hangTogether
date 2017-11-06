@@ -11,6 +11,7 @@ import AlamofireImage
 
 class MyPageViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nicknameLabel: UILabel!
     
     var delegate: focusToTabDelegate?
     
@@ -19,13 +20,18 @@ class MyPageViewController: UIViewController {
 
         delegate = self.tabBarController as! focusToTabDelegate
         self.navigationItem.title = "마이 페이지"
-        initProfileImageView()
+        initUserInfo()
+        
     }
     
-    func initProfileImageView() {
+    func initUserInfo() {
         profileImageView.drawCircle()
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
             profileImageView.af_setImage(withURL: profileURL)
+        }
+        
+        if let user = UserDefaults.standard.object(forKey: "user") as? [String:Any] {
+            nicknameLabel.text = user["nickname"] as! String
         }
     }
 
@@ -35,6 +41,8 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func userInfoEditButtonAction(_ sender: Any) {
+        let userEditViewController = UIStoryboard.userEditStoryboard.instantiateViewController(withIdentifier: "userEdit") as! UserEditViewController
+        navigationController?.pushViewController(userEditViewController, animated: true)
     }
     
     @IBAction func historyButtonAction(_ sender: Any) {

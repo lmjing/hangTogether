@@ -23,6 +23,8 @@
 		50278AEB1F95D8D3005AAB94 /* NotiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AEA1F95D8D3005AAB94 /* NotiTableViewController.swift */; };
 		50278AED1F95D94A005AAB94 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */; };
 		5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037F8991F868DE7006EFB17 /* WritePostViewController.swift */; };
+		503A62F21FB0487300D1C88E /* UserEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503A62F11FB0487300D1C88E /* UserEdit.storyboard */; };
+		503A62F41FB04AD000D1C88E /* UserEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A62F31FB04AD000D1C88E /* UserEditViewController.swift */; };
 		505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */; };
 		505BFD941F95F9190013B804 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFD931F95F9190013B804 /* MainTabViewController.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
@@ -75,6 +77,8 @@
 		50278AEA1F95D8D3005AAB94 /* NotiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTableViewController.swift; sourceTree = "<group>"; };
 		50278AEC1F95D94A005AAB94 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		5037F8991F868DE7006EFB17 /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
+		503A62F11FB0487300D1C88E /* UserEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserEdit.storyboard; sourceTree = "<group>"; };
+		503A62F31FB04AD000D1C88E /* UserEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditViewController.swift; sourceTree = "<group>"; };
 		505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		505BFD931F95F9190013B804 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +227,15 @@
 			name = Tab2_Noti;
 			sourceTree = "<group>";
 		};
+		503A62F01FB0485000D1C88E /* UserEdit */ = {
+			isa = PBXGroup;
+			children = (
+				503A62F11FB0487300D1C88E /* UserEdit.storyboard */,
+				503A62F31FB04AD000D1C88E /* UserEditViewController.swift */,
+			);
+			name = UserEdit;
+			sourceTree = "<group>";
+		};
 		5063D6A11F7D456D009639C5 = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +332,7 @@
 		50BDB6AB1F86596C0009CF60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				503A62F01FB0485000D1C88E /* UserEdit */,
 				50B39BE61F979266006A9DE2 /* Join */,
 				5095D4101F964F6B00C14B85 /* Login */,
 				507ECD321F92728C00E75D45 /* DetailPost */,
@@ -448,6 +462,7 @@
 				5063D6BA1F7D456D009639C5 /* LaunchScreen.storyboard in Resources */,
 				50F03CA01F87A47200F3591D /* AddPlace.storyboard in Resources */,
 				50B39BE81F97927B006A9DE2 /* Join.storyboard in Resources */,
+				503A62F21FB0487300D1C88E /* UserEdit.storyboard in Resources */,
 				50BDB6AE1F865A080009CF60 /* WritePost.storyboard in Resources */,
 				507ECD341F9272D100E75D45 /* DetailPost.storyboard in Resources */,
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
@@ -550,6 +565,7 @@
 				505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */,
 				50E1DF751F8FCFE000552721 /* UserProfileViewController.swift in Sources */,
 				501A26D81F82924E00F24081 /* Networking.swift in Sources */,
+				503A62F41FB04AD000D1C88E /* UserEditViewController.swift in Sources */,
 				50278AEB1F95D8D3005AAB94 /* NotiTableViewController.swift in Sources */,
 				50AE6A9E1F95E8D600CF924C /* MyPageViewController.swift in Sources */,
 				505BFD941F95F9190013B804 /* MainTabViewController.swift in Sources */,

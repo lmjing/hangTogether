@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--userEdit-->
+        <scene sceneID="XGU-3U-96q">
+            <objects>
+                <viewController storyboardIdentifier="userEdit" title="userEdit" id="z4O-0z-EWM" customClass="UserEditViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sBL-Cg-j6X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 수정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCy-DM-5on">
+                                <rect key="frame" x="20" y="144.5" width="87.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-sV-1Sm">
+                                <rect key="frame" x="20" y="40" width="42" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자기소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ael-va-1bq">
+                                <rect key="frame" x="20" y="339" width="55.5" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  현재 비밀번호" textAlignment="natural" minimumFontSize="17" background="bottomLine" translatesAutoresizingMaskIntoConstraints="NO" id="EsF-k7-kUs">
+                                <rect key="frame" x="20" y="174" width="335" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Tpr-cF-GhI"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  새 비밀번호" textAlignment="natural" minimumFontSize="17" background="bottomLine" translatesAutoresizingMaskIntoConstraints="NO" id="snG-6M-vZo">
+                                <rect key="frame" x="20" y="219" width="335" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="14Y-sD-NkG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  새 비밀번호 확인" textAlignment="natural" minimumFontSize="17" background="bottomLine" translatesAutoresizingMaskIntoConstraints="NO" id="wSl-RQ-ZSV">
+                                <rect key="frame" x="20" y="264" width="335" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Ver-Km-WZa"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-OY-r8a">
+                                <rect key="frame" x="20" y="379" width="335" height="258"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  현재 비밀번호" textAlignment="natural" minimumFontSize="17" background="bottomLine" translatesAutoresizingMaskIntoConstraints="NO" id="mX6-WU-aQ7">
+                                <rect key="frame" x="20" y="69.5" width="335" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dCz-5x-FW5"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aCy-DM-5on" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="2xm-iC-Fsc"/>
+                            <constraint firstItem="aCy-DM-5on" firstAttribute="top" secondItem="mX6-WU-aQ7" secondAttribute="bottom" constant="40" id="4O9-vW-UhD"/>
+                            <constraint firstItem="wSl-RQ-ZSV" firstAttribute="top" secondItem="snG-6M-vZo" secondAttribute="bottom" constant="10" id="6dn-HI-cWR"/>
+                            <constraint firstItem="ael-va-1bq" firstAttribute="top" secondItem="wSl-RQ-ZSV" secondAttribute="bottom" constant="40" id="NsF-Bt-yy4"/>
+                            <constraint firstItem="EsF-k7-kUs" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="QMt-Wk-FRI"/>
+                            <constraint firstItem="VVi-1Y-KMF" firstAttribute="bottom" secondItem="aAL-OY-r8a" secondAttribute="bottom" constant="30" id="RTx-GT-fPa"/>
+                            <constraint firstItem="snG-6M-vZo" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="RZ7-D3-YKN"/>
+                            <constraint firstItem="mX6-WU-aQ7" firstAttribute="top" secondItem="3eZ-sV-1Sm" secondAttribute="bottom" constant="10" id="Rft-ga-XMi"/>
+                            <constraint firstItem="3eZ-sV-1Sm" firstAttribute="top" secondItem="VVi-1Y-KMF" secondAttribute="top" constant="20" id="Top-WC-B6k"/>
+                            <constraint firstItem="ael-va-1bq" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="XD4-rr-CdG"/>
+                            <constraint firstItem="VVi-1Y-KMF" firstAttribute="trailing" secondItem="snG-6M-vZo" secondAttribute="trailing" constant="20" id="Y9p-R1-uuw"/>
+                            <constraint firstItem="aAL-OY-r8a" firstAttribute="top" secondItem="ael-va-1bq" secondAttribute="bottom" constant="20" id="ZP7-zm-Xh5"/>
+                            <constraint firstItem="EsF-k7-kUs" firstAttribute="top" secondItem="aCy-DM-5on" secondAttribute="bottom" constant="10" id="eF3-f4-YFJ"/>
+                            <constraint firstItem="snG-6M-vZo" firstAttribute="top" secondItem="EsF-k7-kUs" secondAttribute="bottom" constant="10" id="es8-ya-zgk"/>
+                            <constraint firstItem="aAL-OY-r8a" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="kG5-OK-afB"/>
+                            <constraint firstItem="mX6-WU-aQ7" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="kkt-Bc-J0o"/>
+                            <constraint firstItem="VVi-1Y-KMF" firstAttribute="trailing" secondItem="EsF-k7-kUs" secondAttribute="trailing" constant="20" id="tHj-9i-OtI"/>
+                            <constraint firstItem="3eZ-sV-1Sm" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="vQR-dj-WSw"/>
+                            <constraint firstItem="VVi-1Y-KMF" firstAttribute="trailing" secondItem="wSl-RQ-ZSV" secondAttribute="trailing" constant="20" id="w2d-6B-lBW"/>
+                            <constraint firstItem="VVi-1Y-KMF" firstAttribute="trailing" secondItem="mX6-WU-aQ7" secondAttribute="trailing" constant="20" id="w7z-Ef-wNZ"/>
+                            <constraint firstItem="wSl-RQ-ZSV" firstAttribute="leading" secondItem="VVi-1Y-KMF" secondAttribute="leading" constant="20" id="wKs-ic-U62"/>
+                            <constraint firstItem="VVi-1Y-KMF" firstAttribute="trailing" secondItem="aAL-OY-r8a" secondAttribute="trailing" constant="20" id="zd8-U4-KDM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VVi-1Y-KMF"/>
+                    </view>
+                    <connections>
+                        <outlet property="currentPWTextField" destination="EsF-k7-kUs" id="rZK-UI-mSx"/>
+                        <outlet property="introduceTextView" destination="aAL-OY-r8a" id="6F5-QL-JNr"/>
+                        <outlet property="newPWCheckTextField" destination="wSl-RQ-ZSV" id="e0o-c0-abn"/>
+                        <outlet property="newPWTextField" destination="snG-6M-vZo" id="9M1-m7-NL6"/>
+                        <outlet property="nicknameTextField" destination="mX6-WU-aQ7" id="1az-B7-i2V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbB-Fm-4IO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-198" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bottomLine" width="375" height="40"/>
+    </resources>
+</document>

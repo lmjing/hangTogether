@@ -256,14 +256,14 @@
                                 <rect key="frame" x="220" y="189" width="32" height="32"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ek-XP-4QJ">
-                                <rect key="frame" x="0.0" y="251" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="287" width="375" height="1"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="IRI-EM-6B5"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycy-6P-kfb">
-                                <rect key="frame" x="0.0" y="252" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="288" width="375" height="60"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ruz-Uq-VWE"/>
@@ -278,14 +278,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e62-c5-87r">
-                                <rect key="frame" x="0.0" y="312" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="348" width="375" height="1"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="jaM-1p-FCp"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNl-RQ-WeA">
-                                <rect key="frame" x="0.0" y="313" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="349" width="375" height="60"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xa2-ar-OFB"/>
@@ -300,14 +300,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uc9-bw-62R">
-                                <rect key="frame" x="0.0" y="373" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="409" width="375" height="1"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="8qt-rA-CYn"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-v6-Cic">
-                                <rect key="frame" x="0.0" y="374" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="410" width="375" height="60"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="PYY-sS-bj1"/>
@@ -323,15 +323,22 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3M-g1-5ED">
-                                <rect key="frame" x="0.0" y="434" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="470" width="375" height="1"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ThI-pg-N4h"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRf-90-kQ8">
+                                <rect key="frame" x="166" y="236" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HRf-90-kQ8" firstAttribute="top" secondItem="Rc0-rz-hOf" secondAttribute="bottom" constant="10" id="00e-Sa-Ypi"/>
                             <constraint firstAttribute="trailing" secondItem="e62-c5-87r" secondAttribute="trailing" id="1nG-JG-LQ1"/>
                             <constraint firstItem="Ycy-6P-kfb" firstAttribute="top" secondItem="0ek-XP-4QJ" secondAttribute="bottom" id="3nB-0h-4nH"/>
                             <constraint firstItem="wNl-RQ-WeA" firstAttribute="top" secondItem="e62-c5-87r" secondAttribute="bottom" id="3sy-q9-hcA"/>
@@ -346,13 +353,14 @@
                             <constraint firstItem="e62-c5-87r" firstAttribute="top" secondItem="Ycy-6P-kfb" secondAttribute="bottom" id="HSC-ek-T7W"/>
                             <constraint firstItem="Fb4-v6-Cic" firstAttribute="top" secondItem="Uc9-bw-62R" secondAttribute="bottom" id="LWh-Qc-l5v"/>
                             <constraint firstItem="Fb4-v6-Cic" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="T3V-56-eAd"/>
+                            <constraint firstItem="HRf-90-kQ8" firstAttribute="centerX" secondItem="Z25-U4-jkg" secondAttribute="centerX" id="UPW-Rj-wcG"/>
                             <constraint firstAttribute="trailing" secondItem="Uc9-bw-62R" secondAttribute="trailing" id="YFc-QP-27z"/>
+                            <constraint firstItem="0ek-XP-4QJ" firstAttribute="top" secondItem="HRf-90-kQ8" secondAttribute="bottom" constant="30" id="ZOg-DC-Ufr"/>
                             <constraint firstItem="e3M-g1-5ED" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="bSe-AU-WNz"/>
                             <constraint firstItem="ldx-rv-VMA" firstAttribute="trailing" secondItem="Rc0-rz-hOf" secondAttribute="trailing" constant="5" id="bjS-Hf-AM1"/>
                             <constraint firstItem="e62-c5-87r" firstAttribute="leading" secondItem="Z25-U4-jkg" secondAttribute="leading" id="cwb-ft-lUj"/>
                             <constraint firstAttribute="trailing" secondItem="Ycy-6P-kfb" secondAttribute="trailing" id="ekd-9d-0um"/>
                             <constraint firstItem="Uc9-bw-62R" firstAttribute="top" secondItem="wNl-RQ-WeA" secondAttribute="bottom" id="fzU-M4-YXn"/>
-                            <constraint firstItem="0ek-XP-4QJ" firstAttribute="top" secondItem="Rc0-rz-hOf" secondAttribute="bottom" constant="25" id="hZr-ux-ywq"/>
                             <constraint firstItem="e3M-g1-5ED" firstAttribute="top" secondItem="Fb4-v6-Cic" secondAttribute="bottom" id="i4H-aK-Urt"/>
                             <constraint firstItem="Rc0-rz-hOf" firstAttribute="top" secondItem="eat-Nz-aRx" secondAttribute="bottom" constant="42" id="rOw-PL-qXR"/>
                             <constraint firstAttribute="trailing" secondItem="e3M-g1-5ED" secondAttribute="trailing" id="taH-3a-w0c"/>
@@ -362,6 +370,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4uw-vC-qkn"/>
                     <connections>
+                        <outlet property="nicknameLabel" destination="HRf-90-kQ8" id="egz-Jo-ZE9"/>
                         <outlet property="profileImageView" destination="Rc0-rz-hOf" id="8OX-gU-tOd"/>
                     </connections>
                 </viewController>
