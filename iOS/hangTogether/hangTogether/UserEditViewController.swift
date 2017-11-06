@@ -76,16 +76,16 @@ class UserEditViewController: UIViewController {
     func getUserEditResult(notificatoin: Notification) {
         guard let userInfo = notificatoin.userInfo as? [String:Any] else { return }
         guard let result = userInfo["result"] as? String else { return }
+        var alert = UIAlertController.okAlert(title: "수정 실패", message: "문제가 생겨 회원 정보 수정에 실패하였습니다.")
         if result == "success" {
             guard let user = userInfo["user"] as? [String:Any] else { return }
             UserDefaults.standard.set(user, forKey: "user")
-            self.navigationController?.popViewController(animated: true)
-            let alert = UIAlertController.okAlert(title: "수정 완료", message: "성공적으로 회원 정보가 수정되었습니다.")
-            navigationController?.topViewController?.present(alert, animated: true, completion: nil)
-        }else {
-            let alert = UIAlertController.okAlert(title: "수정 실패", message: "문제가 생겨 회원 정보 수정에 실패하였습니다.")
-            present(alert, animated: true, completion: nil)
+            
+            alert = UIAlertController.okAlert(title: "수정 완료", message: "성공적으로 회원 정보가 수정되었습니다.", action: { _ in
+                self.navigationController?.popViewController(animated: true)
+            })
         }
+        present(alert, animated: true, completion: nil)
     }
     
     func editUser(button: UIBarButtonItem) {
