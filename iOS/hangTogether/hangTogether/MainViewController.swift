@@ -37,10 +37,11 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
         
-        if UserDefaults.standard.object(forKey: "user") == nil {
-            plusFloatingButton.isHidden = true
-        }else {
+        if let user = UserDefaults.standard.object(forKey: "user") as? [String:Any],
+            let type = user["type"] as? String, type == "foreigner" {
             plusFloatingButton.isHidden = false
+        }else {
+            plusFloatingButton.isHidden = true
         }
     }
     
