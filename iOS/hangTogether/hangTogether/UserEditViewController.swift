@@ -48,6 +48,11 @@ class UserEditViewController: UIViewController {
             "introduce": user.introduce
         ]
         if let currentPW = currentPWTextField.text, let newPW = newPWTextField.text, let newPWCheck = newPWCheckTextField.text {
+            if currentPW.isEmpty || newPW.isEmpty || newPWCheck.isEmpty {
+                let alert = UIAlertController.okAlert(title: nil, message: "미 입력된 사항이 존재합니다.")
+                present(alert, animated: true, completion: nil); return
+            }
+            
             guard user.password == currentPW else {
                 // 현재 비밀번호 일치하지 않는 경우
                 let alert = UIAlertController.okAlert(title: nil, message: "입력하신 비밀번호가 현재 비밀번호와 일치하지 않습니다.")
@@ -63,11 +68,8 @@ class UserEditViewController: UIViewController {
                     self.newPWCheckTextField.text = nil
                 }); return
             }
-            
+            newInput["password"] = newPW
         }
-        
-        let alert = UIAlertController.okAlert(title: nil, message: "미 입력된 비밀번호 칸이 존재합니다.")
-        present(alert, animated: true, completion: nil); return
     }
 
     override func didReceiveMemoryWarning() {
