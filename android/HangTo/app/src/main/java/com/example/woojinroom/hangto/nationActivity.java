@@ -29,7 +29,13 @@ public class nationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nation);
-
+        ImageButton button_left = (ImageButton) findViewById(R.id.imagebutton_left);
+        button_left.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                //if 문으로 회원가입 완료되는지 확인 후 메인페이지로 넘어감
+                finish();
+            }
+        });
         ImageButton button_right = (ImageButton) findViewById(R.id.imagebutton_right);
         button_right.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -42,7 +48,6 @@ public class nationActivity extends AppCompatActivity {
                 //if 문으로 회원가입 완료되는지 확인 후 메인페이지로 넘어감
                 Intent join_intent = new Intent(getApplicationContext(), joinActivity.class);
                 startActivity(join_intent);
-                finish();
             }
         });
         final TextView textView = (TextView)findViewById(R.id.textView18);

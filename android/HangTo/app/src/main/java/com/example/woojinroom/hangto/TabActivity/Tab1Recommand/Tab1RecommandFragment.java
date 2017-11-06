@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -18,9 +17,8 @@ import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
-import com.example.woojinroom.hangto.TabActivity.TabActivity_;
 import com.example.woojinroom.hangto.searchActivity;
-import com.example.woojinroom.hangto.writeActivity;
+import com.example.woojinroom.hangto.Write.writeActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..

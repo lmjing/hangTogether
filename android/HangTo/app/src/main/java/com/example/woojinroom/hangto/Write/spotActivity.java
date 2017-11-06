@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto;
+package com.example.woojinroom.hangto.Write;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.woojinroom.hangto.R;
+import com.example.woojinroom.hangto.googleMapFragment;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
@@ -38,7 +40,10 @@ public class spotActivity extends AppCompatActivity {
     ToggleButton button_toggle;
     EditText editText;
     ViewPager pager;
-
+    String[] day_list;
+    Spinner day_select;
+    Intent data;
+    ArrayAdapter<String> adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +58,36 @@ public class spotActivity extends AppCompatActivity {
         textView.setText("장소 추가");
         textView2 = (TextView)findViewById(R.id.textView_day);
 
-        final String[] day_list = {"10.10", "10.11", "10.12", "10.13", "10.14"};
+        day_select = (Spinner)findViewById(R.id.day_select);
+        data = getIntent();
 
-        final Spinner day_select = (Spinner)findViewById(R.id.day_select);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        day_list= new String[data.getIntExtra("counted_day",1)+1];
+
+        int month= data.getIntExtra("first_month",1);
+        int day = data.getIntExtra("first_day",1);
+Toast.makeText(getApplicationContext(),String.valueOf(data.getIntExtra("counted_day",1)),Toast.LENGTH_SHORT).show();
+        for(int i=0;i<= data.getIntExtra("counted_day",1);i++){
+
+            if(month==1 || month==3 || month==5 || month==7 || month==8 ||month==10 ||month==12){
+                if(day==32){
+                    month++;
+                    day-=31;
+                }
+            }
+            else if(month==2)
+            {
+
+            }
+            else{
+
+            }
+            day_list[i]=(month+"."+(day++));
+        }
+       /* if(day_list[0].equals("0.0")){
+            day_list[0]="무관";
+        }*/
+
+         adapter = new ArrayAdapter<String>(
                 this,
                 R.layout.custom_simple_dropdown_item_1line,
                 day_list);
@@ -64,7 +95,12 @@ public class spotActivity extends AppCompatActivity {
         day_select.setSelection(0);
 
         editText =(EditText)findViewById(R.id.editText_spot);
-
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spot();
+            }
+        });
         ImageButton button_left =(ImageButton)findViewById(R.id.imagebutton_left);
         button_left.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
@@ -75,27 +111,38 @@ public class spotActivity extends AppCompatActivity {
         button_right.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Intent data = new Intent();
-                data.putExtra("day",day_list[0]);
+                data.putExtra("day",day_select.getSelectedItem().toString());
                 data.putExtra("spot",editText.getText().toString());
                 setResult(RESULT_OK,data);
                 finish();
             }
         });
         button_toggle=(ToggleButton) findViewById(R.id.button_toggle);
-        button_toggle.setOnClickListener(new View.OnClickListener() {
+       /* button_toggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(button_toggle.isChecked()) {
                     button_toggle.setBackgroundResource(R.drawable.toggle_left);
+                    day_list[0]="무관";
+                    day_select.setAdapter(adapter);
                     day_select.setEnabled(false);
                     textView2.setTextColor(Color.rgb(170,170,170));
+
                 }else{
                     button_toggle.setBackgroundResource(R.drawable.toggle_right);
+                    for(int i=0;i<= data.getIntExtra("counted_day",1);i++){
+                        day_list[i]=data.getIntExtra("first_month",1)+"."+(data.getIntExtra("first_day",1)+i);
+                    }
+                    if(day_list[0].equals("0.0")){
+                        day_list[0]="무관";
+                    }
+                    day_select.setAdapter(adapter);
                     day_select.setEnabled(true);
                     textView2.setTextColor(Color.rgb(0,0,0));
+
                 }
             }
-        });
+        });*/
         button_spot=(Button)findViewById(R.id.button_spot);
 
         button_spot.setOnClickListener(new View.OnClickListener() {
@@ -149,11 +196,8 @@ public class spotActivity extends AppCompatActivity {
                 Status status = PlaceAutocomplete.getStatus(this, data);
                 // TODO: Handle the error.
 
-                Toast.makeText(getApplicationContext(),status.getStatusMessage(),Toast.LENGTH_SHORT).show();
 
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(getApplicationContext(),"개망",Toast.LENGTH_SHORT).show();
-                // The user canceled operation.
             }
         }
     }

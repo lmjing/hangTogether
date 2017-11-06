@@ -32,7 +32,6 @@ public class loginActivity extends AppCompatActivity {
                     if(editText_pass.getText().toString().equals("pw")) {*/
                         Intent login_intent = new Intent(getApplicationContext(), TabActivity_.class);
                         startActivity(login_intent);
-                        finish();
                     /*} else{
                         Toast.makeText(getApplicationContext(),"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();
                     }
@@ -45,7 +44,6 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent join_intent = new Intent(getApplicationContext(), nationActivity.class);
                 startActivity(join_intent);
-                finish();
             }
         });
 

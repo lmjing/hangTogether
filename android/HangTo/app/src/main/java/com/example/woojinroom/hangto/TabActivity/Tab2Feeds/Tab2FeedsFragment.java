@@ -16,7 +16,6 @@ import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
-import com.example.woojinroom.hangto.writeActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..

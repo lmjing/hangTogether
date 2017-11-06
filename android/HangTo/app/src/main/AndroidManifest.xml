@@ -43,7 +43,7 @@
         <activity android:name=".searchActivity">
 
         </activity>
-        <activity android:name=".writeActivity">
+        <activity android:name=".Write.writeActivity">
 
     </activity>
         <activity android:name=".TabActivity.TabActivity_"
@@ -57,7 +57,7 @@
         <activity android:name=".History.historyActivity">
 
         </activity>
-        <activity android:name=".spotActivity">
+        <activity android:name=".Write.spotActivity">
 
         </activity>
         <activity android:name=".requestActivity">
