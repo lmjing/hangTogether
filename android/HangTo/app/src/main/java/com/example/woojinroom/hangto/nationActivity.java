@@ -22,8 +22,8 @@ import org.w3c.dom.Text;
  */
 
 public class nationActivity extends AppCompatActivity {
-    Spinner spinner;
-    TextView rang1, rang2, rang3;
+    Spinner spinner,spinner2,spinner3;
+    String rang1,rang2,rang3;
     boolean user;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,6 @@ public class nationActivity extends AppCompatActivity {
         ImageButton button_left = (ImageButton) findViewById(R.id.imagebutton_left);
         button_left.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                //if 문으로 회원가입 완료되는지 확인 후 메인페이지로 넘어감
                 finish();
             }
         });
@@ -40,11 +39,10 @@ public class nationActivity extends AppCompatActivity {
         button_right.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(user){
-                    rang1.getText().toString();
-                    rang2.getText().toString();
-                    rang3.getText().toString();
+                    rang1=spinner.getSelectedItem().toString();
+                    rang2=spinner2.getSelectedItem().toString();
+                    rang3=spinner3.getSelectedItem().toString();
                 }
-                //intent 에 자료실어보내기
                 //if 문으로 회원가입 완료되는지 확인 후 메인페이지로 넘어감
                 Intent join_intent = new Intent(getApplicationContext(), joinActivity.class);
                 startActivity(join_intent);
@@ -52,9 +50,7 @@ public class nationActivity extends AppCompatActivity {
         });
         final TextView textView = (TextView)findViewById(R.id.textView18);
         spinner = (Spinner) findViewById(R.id.nation_select);
-        rang1 = (TextView) findViewById(R.id.rang1);
-        rang2 = (TextView) findViewById(R.id.rang2);
-        rang3 = (TextView) findViewById(R.id.rang3);
+
         spinner.setOnItemSelectedListener(mOnItemSelectedListener);
         ImageView imageView_foreigner =(ImageView)findViewById(R.id.imageView5);
         imageView_foreigner.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +59,9 @@ public class nationActivity extends AppCompatActivity {
                 user = true;
                 textView.setTextColor(Color.rgb(0,0,0));
                 spinner.setEnabled(true);
-                rang1.setTextColor(Color.rgb(0,0,0));
-                rang2.setTextColor(Color.rgb(0,0,0));
-                rang3.setTextColor(Color.rgb(0,0,0));
+                spinner2.setEnabled(true);
+                spinner3.setEnabled(true);
+
             }
         });
         ImageView imageView_korean =(ImageView)findViewById(R.id.imageView6);
@@ -75,9 +71,9 @@ public class nationActivity extends AppCompatActivity {
                 user =false;
                 textView.setTextColor(Color.rgb(170,170,170));
                 spinner.setEnabled(false);
-                rang1.setTextColor(Color.rgb(170,170,170));
-                rang2.setTextColor(Color.rgb(170,170,170));
-                rang3.setTextColor(Color.rgb(170,170,170));
+                spinner2.setEnabled(false);
+                spinner3.setEnabled(false);
+
             }
         });
 
@@ -86,12 +82,7 @@ public class nationActivity extends AppCompatActivity {
     private AdapterView.OnItemSelectedListener mOnItemSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            if(rang1.getText().equals("선택"))
-            rang1.setText(spinner.getSelectedItem().toString());
-            else if(rang2.getText().equals("선택"))
-            rang2.setText(spinner.getSelectedItem().toString());
-            else if(rang3.getText().equals("선택"))
-                rang3.setText(spinner.getSelectedItem().toString());
+
         }
 
         @Override

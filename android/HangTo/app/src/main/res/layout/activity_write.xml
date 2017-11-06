@@ -140,10 +140,13 @@
 
     <ListView
         android:id="@+id/listview_spot"
+        android:background="#d91a1a"
         android:descendantFocusability="blocksDescendants"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
         android:layout_marginTop="323dp"
         android:scrollbars="none"
         app:layout_constraintLeft_toLeftOf="parent"

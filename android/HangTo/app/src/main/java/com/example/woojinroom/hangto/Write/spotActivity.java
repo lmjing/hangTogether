@@ -74,12 +74,18 @@ Toast.makeText(getApplicationContext(),String.valueOf(data.getIntExtra("counted_
                     day-=31;
                 }
             }
-            else if(month==2)
+            else if(month==2) //윤달 계산 안했음
             {
-
+                if(day==29){
+                    month++;
+                    day-=28;
+                }
             }
             else{
-
+                if(day==31){
+                    month++;
+                    day-=30;
+                }
             }
             day_list[i]=(month+"."+(day++));
         }
@@ -118,7 +124,7 @@ Toast.makeText(getApplicationContext(),String.valueOf(data.getIntExtra("counted_
             }
         });
         button_toggle=(ToggleButton) findViewById(R.id.button_toggle);
-       /* button_toggle.setOnClickListener(new View.OnClickListener() {
+        button_toggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(button_toggle.isChecked()) {
@@ -142,7 +148,7 @@ Toast.makeText(getApplicationContext(),String.valueOf(data.getIntExtra("counted_
 
                 }
             }
-        });*/
+        });
         button_spot=(Button)findViewById(R.id.button_spot);
 
         button_spot.setOnClickListener(new View.OnClickListener() {

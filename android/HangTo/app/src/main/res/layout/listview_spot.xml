@@ -3,7 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/textView_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="0dp"
+        android:text="│"
+        android:textColor="#35babc"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@+id/textView_plus"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="27dp"
+        android:text="│"
+        android:textColor="#35babc"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@+id/textView_plus"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_spot"
@@ -47,10 +76,9 @@
         android:id="@+id/imageButton_cancle"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="14dp"
-        app:layout_constraintLeft_toRightOf="@+id/textView_spot"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/camera" />
+        app:srcCompat="@drawable/camera"
+        tools:layout_editor_absoluteX="193dp" />
 
 </android.support.constraint.ConstraintLayout>

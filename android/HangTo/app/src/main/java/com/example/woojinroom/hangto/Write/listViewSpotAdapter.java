@@ -125,6 +125,7 @@ public class listViewSpotAdapter extends BaseAdapter {
         item.setPlus(plus);
 
         listViewItemList.add(item);
+
     }
 
     public void clear() {

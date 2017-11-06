@@ -92,6 +92,8 @@ public class writeActivity extends AppCompatActivity {
 
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) findViewById(R.id.listview_spot);
+        listview.setDivider(null);
+        listview.setDividerHeight(0);
         listview.setAdapter(adapter);
 
         textspot = (TextView) findViewById(R.id.spot1);
@@ -190,14 +192,33 @@ public class writeActivity extends AppCompatActivity {
     public void counttday() {
         try {
             String FirstDate = button_start.getText().toString();
-
-            //0삽입해주는 부분을 더 세분화 해야함
-            if(FirstDate.length()==9){
-                FirstDate=FirstDate.substring(0,8)+"0"+FirstDate.substring(8,9);
-            }
             String SecondDate = button_end.getText().toString();
+
+            //2017-9-5 같은 경우
+            if(FirstDate.length()==8){
+                FirstDate=FirstDate.substring(0,5)+"0"+FirstDate.substring(5,7)+"0"+FirstDate.substring(7,8); //일과 월에 모두 0 삽입
+            }
+            if(SecondDate.length()==8){
+                SecondDate=SecondDate.substring(0,5)+"0"+SecondDate.substring(5,7)+"0"+SecondDate.substring(7,8);
+            }
+
+            if(FirstDate.length()==9){
+                if(FirstDate.substring(6,7).equals("-"))//2017-9-13 같은 경우
+                {
+                    FirstDate=FirstDate.substring(0,5)+"0"+FirstDate.substring(5,9);
+                }else {
+                    //2017-10-9 같은 경우
+                    FirstDate = FirstDate.substring(0, 8) + "0" + FirstDate.substring(8, 9); //일 부분에 0삽입
+                }
+            }
             if(SecondDate.length()==9){
-                SecondDate=SecondDate.substring(0,8)+"0"+SecondDate.substring(8,9);
+                if(SecondDate.substring(6,7).equals("-"))//2017-9-13 같은 경우
+                {
+                    SecondDate=SecondDate.substring(0,5)+"0"+SecondDate.substring(5,9);
+                }else {
+                    //2017-10-9 같은 경우
+                    SecondDate = SecondDate.substring(0, 8) + "0" + SecondDate.substring(8, 9);
+                }
             }
 
             Calendar FirstDayCal = Calendar.getInstance(); //오늘날자 가져오기
@@ -211,6 +232,28 @@ public class writeActivity extends AppCompatActivity {
             long secondDay = SecondDayCal.getTimeInMillis()/86400000;
             long count = secondDay - firstDay;
             count = Math.abs(count);
+            if(!FirstDate.substring(5,7).equals(SecondDate.substring(5,7))) {
+                if (FirstDate.substring(5, 7).equals("01") || FirstDate.substring(5, 7).equals("03") || FirstDate.substring(5, 7).equals("05") || FirstDate.substring(5, 7).equals("07") || FirstDate.substring(5, 7).equals("08")
+                        || FirstDate.substring(5, 7).equals("10") || FirstDate.substring(5, 7).equals("12")) { //31일
+                    count += 1;
+                } else if (FirstDate.substring(5, 7).equals("02")) { //28일
+                    count -= 3;
+                } else { //30일
+                    count -= 1;
+                }
+
+                if(Integer.parseInt(FirstDate.substring(5,7))%2==1){ //홀수 월이면
+                    if(FirstDate.substring(5,7).equals("01") && SecondDate.substring(5,7).equals("02")){
+                        count-=2;
+                    }else if(Integer.parseInt(SecondDate.substring(5,7))%2==1){
+                        count-=1;
+                    }
+                } else{
+                    if(Integer.parseInt(SecondDate.substring(5,7))%2==0) {
+                        count += 1;
+                    }
+                }
+            }
             counted_day = (int) count;
         } catch (Exception e) {
         }
