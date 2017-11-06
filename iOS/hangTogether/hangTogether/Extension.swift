@@ -62,6 +62,13 @@ extension UIAlertController {
         return alert
     }
     
+    static func okAlert(title: String?, message: String?, action: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: action)
+        alert.addAction(action)
+        return alert
+    }
+    
     static func cancleOkAlert(title: String?, message: String?, action: @escaping (UIAlertAction) -> Void) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default, handler: action)

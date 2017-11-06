@@ -82,15 +82,16 @@ class WritePostViewController: UIViewController {
     
     func finishUpload(notification: Notification) {
         guard let userInfo =  notification.userInfo as? [String:String] else { return }
-        switch userInfo["result"] as String! {
-        case "success":
-            dismiss(animated: true, completion: nil)
-        case "error":
-            let alert = UIAlertController.okAlert(title: "글 작성 실패", message: "문제가 생겨 글 작성에 실패했습니다.")
-            present(alert, animated: true, completion: { self.dismiss(animated: true, completion: nil) })
-        default:
-            return
+        var title = "글 등록 실패"
+        var message = "문제가 생겨 글 작성에 실패했습니다."
+        if userInfo["result"] == "success" {
+            title = "글 등록 성공"
+            message = "작성하신 글이 성공적으로 등록되었습니다."
         }
+        let alert = UIAlertController.okAlert(title: title, message: message) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        self.present(alert, animated: true, completion: nil)
     }
     func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
