@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
         if let data = notification.userInfo?["mainList"] as? [Post] {
             mainList = data
             tableView.reloadData()
+            tableView.scrollsToTop = true
         }
     }
 }
