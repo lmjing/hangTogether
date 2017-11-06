@@ -21,6 +21,7 @@ extension Notification.Name {
     static let duplicationCheck = Notification.Name("duplicaitonCheck")
     static let join = Notification.Name("join")
     static let getLanguages = Notification.Name("getLanguages")
+    static let userEdit = Notification.Name("getUserEdit")
 }
 
 extension UIStoryboard {

@@ -38,6 +38,7 @@ class UserEditViewController: UIViewController {
         navigationItem.setRightBarButton(okButton, animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(getNicknameCheck), name: Notification.Name.duplicationCheck, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getUserEditResult), name: Notification.Name.userEdit, object: nil)
     }
     
     func initUserInfo() {
@@ -70,6 +71,21 @@ class UserEditViewController: UIViewController {
         
         let alert = UIAlertController.okAlert(title: nil, message: message)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func getUserEditResult(notificatoin: Notification) {
+        guard let userInfo = notificatoin.userInfo as? [String:Any] else { return }
+        guard let result = userInfo["result"] as? String else { return }
+        if result == "success" {
+            guard let user = userInfo["user"] as? [String:Any] else { return }
+            UserDefaults.standard.set(user, forKey: "user")
+            self.navigationController?.popViewController(animated: true)
+            let alert = UIAlertController.okAlert(title: "수정 완료", message: "성공적으로 회원 정보가 수정되었습니다.")
+            navigationController?.topViewController?.present(alert, animated: true, completion: nil)
+        }else {
+            let alert = UIAlertController.okAlert(title: "수정 실패", message: "문제가 생겨 회원 정보 수정에 실패하였습니다.")
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func editUser(button: UIBarButtonItem) {
@@ -116,7 +132,11 @@ class UserEditViewController: UIViewController {
         
         newInput["introduce"] = introduceTextView.text
         
-        print("성공")
+        if newInput.count == 3 {
+            Networking.editUser(id: user.id, param: newInput)
+        }else {
+            print("error: input 3개 아님")
+        }
     }
     
     @IBAction func checkNickname(_ sender: Any) {
