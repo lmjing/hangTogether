@@ -20,8 +20,10 @@ class MyPageViewController: UIViewController {
 
         delegate = self.tabBarController as! focusToTabDelegate
         self.navigationItem.title = "마이 페이지"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         initUserInfo()
-        
     }
     
     func initUserInfo() {
