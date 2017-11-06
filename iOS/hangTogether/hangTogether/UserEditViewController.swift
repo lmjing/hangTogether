@@ -23,6 +23,7 @@ class UserEditViewController: UIViewController {
         }
         return User()
     }()
+    var nicknameChecked = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +31,20 @@ class UserEditViewController: UIViewController {
         introduceTextView.contentInset = UIEdgeInsetsMake(10, 10, 10, 10)
         introduceTextView.drawLine()
         
+        initUserInfo()
+        
+        nicknameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         let okButton = UIBarButtonItem(image: #imageLiteral(resourceName: "check"), style: .done, target: self, action: #selector(editUser))
         navigationItem.setRightBarButton(okButton, animated: true)
-        
-        initUserInfo()
     }
     
     func initUserInfo() {
         nicknameTextField.text = user.nickname
         introduceTextView.text = user.introduce
+    }
+    
+    func textFieldDidChange(textField: UITextField) {
+        nicknameChecked = false
     }
     
     func editUser(button: UIBarButtonItem) {
@@ -47,8 +53,9 @@ class UserEditViewController: UIViewController {
             "nickname": user.nickname,
             "introduce": user.introduce
         ]
-        if let currentPW = currentPWTextField.text, let newPW = newPWTextField.text, let newPWCheck = newPWCheckTextField.text {
-            if currentPW.isEmpty || newPW.isEmpty || newPWCheck.isEmpty {
+        if let currentPW = currentPWTextField.text, let newPW = newPWTextField.text, let newPWCheck = newPWCheckTextField.text, !(currentPW.isEmpty && newPW.isEmpty && newPWCheck.isEmpty) {
+
+            if (currentPW.isEmpty || newPW.isEmpty || newPWCheck.isEmpty) {
                 let alert = UIAlertController.okAlert(title: nil, message: "미 입력된 사항이 존재합니다.")
                 present(alert, animated: true, completion: nil); return
             }
@@ -56,9 +63,9 @@ class UserEditViewController: UIViewController {
             guard user.password == currentPW else {
                 // 현재 비밀번호 일치하지 않는 경우
                 let alert = UIAlertController.okAlert(title: nil, message: "입력하신 비밀번호가 현재 비밀번호와 일치하지 않습니다.")
-                    present(alert, animated: true, completion: {
-                        self.currentPWTextField.text = nil
-                    }); return
+                present(alert, animated: true, completion: {
+                    self.currentPWTextField.text = nil
+                }); return
             }
             guard newPW == newPWCheck else {
                 // 새로운 비밀번호 서로 일치하지 않을 경우
@@ -70,6 +77,21 @@ class UserEditViewController: UIViewController {
             }
             newInput["password"] = newPW
         }
+       
+        if nicknameChecked {
+            if let nickname = nicknameTextField.text, !nickname.isEmpty {
+                newInput["nickname"] = nickname
+            }
+        }else {
+            let alert = UIAlertController.okAlert(title: nil, message: "닉네임 중복체크를 해주세요.")
+            present(alert, animated: true, completion: {
+                self.currentPWTextField.text = nil
+            }); return
+        }
+        
+        newInput["introduce"] = introduceTextView.text
+        
+        print("성공")
     }
 
     override func didReceiveMemoryWarning() {
