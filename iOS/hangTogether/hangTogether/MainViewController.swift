@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
         
         plusFloatingButton.addTarget(self, action: #selector(moveToWrite), for: .touchUpInside)
         
-        Networking.getMainList()
         NotificationCenter.default.addObserver(self, selector: #selector(recieve), name: Notification.Name.mainList, object: nil)
     }
 
@@ -35,6 +34,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        Networking.getMainList()
         tabBarController?.tabBar.isHidden = false
         
         if let user = UserDefaults.standard.object(forKey: "user") as? [String:Any],
