@@ -20,12 +20,12 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.woojinroom.hangto.R;
-import com.example.woojinroom.hangto.googleMapFragment;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.example.woojinroom.hangto.Write.listViewSpotAdapter;
 
 /**
  * Created by woojinroom on 2017-10-09.
@@ -44,7 +44,7 @@ public class spotActivity extends AppCompatActivity {
     Spinner day_select;
     Intent data;
     ArrayAdapter<String> adapter;
-
+    Place place;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
@@ -117,8 +117,11 @@ Toast.makeText(getApplicationContext(),String.valueOf(data.getIntExtra("counted_
         button_right.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 Intent data = new Intent();
-                data.putExtra("day",day_select.getSelectedItem().toString());
-                data.putExtra("spot",editText.getText().toString());
+                data.putExtra("date",day_select.getSelectedItem().toString());
+                data.putExtra("name",editText.getText().toString());
+                data.putExtra("address",place.getAddress().toString());
+                data.getDoubleExtra("lat",place.getLatLng().latitude);
+                data.getDoubleExtra("lng",place.getLatLng().longitude);
                 setResult(RESULT_OK,data);
                 finish();
             }
@@ -193,10 +196,10 @@ Toast.makeText(getApplicationContext(),String.valueOf(data.getIntExtra("counted_
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                Place place = PlaceAutocomplete.getPlace(this, data);
-                googleMapFragment.reMark( place.getLatLng(),place.getName().toString());
-                editText.setText(place.getName().toString());
+                 place = PlaceAutocomplete.getPlace(this, data);
+                googleMapFragment.reMark(place.getLatLng(),place.getName().toString(),place.getAddress().toString());
 
+                editText.setText(place.getName().toString());
 
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);

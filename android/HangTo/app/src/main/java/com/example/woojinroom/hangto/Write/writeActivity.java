@@ -41,8 +41,9 @@ public class writeActivity extends AppCompatActivity {
     ImageButton imageButtonRight;
     int first_year, first_month, first_day, counted_day;
     ListView listview;
-    listViewSpotAdapter adapter;
-    String day, spot;
+    public listViewSpotAdapter adapter;
+    String date, spot,address;
+    double lat,lng;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,34 +158,21 @@ public class writeActivity extends AppCompatActivity {
         if (requestCode == SPOT_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
 
-                day = data.getExtras().getString("day");
-                spot = data.getExtras().getString("spot");
+                date = data.getExtras().getString("date");
+                spot = data.getExtras().getString("name");
+                address = data.getExtras().getString("address");
+                lat = data.getExtras().getDouble("lat");
+                lng = data.getExtras().getDouble("lng");
 
-                adapter.addItem(spot, day);
+                adapter.addItem2(date,spot,address,lat,lng);
+
                 if (adapter.getCount() >= 2) {
-                    Collections.sort(adapter.listViewItemList,cmpAsc);
+                    Collections.sort(adapter.tripDates,cmpAsc); //오름차순 정렬
                 }
                 adapter.notifyDataSetChanged();
                 setListViewHeightBasedOnChildren(listview);
 
             }
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public void countday() {
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
-
-            Date FirstDate = simpleDateFormat.parse(button_start.getText().toString());
-            Date SecondDate = simpleDateFormat.parse(button_end.getText().toString());
-
-            long calDate = SecondDate.getTime() - FirstDate.getTime();
-            long calDateDays = calDate/ (24 * 60 * 60 * 1000);
-
-            calDateDays = Math.abs(calDateDays);
-            counted_day = (int) calDateDays;
-        } catch (Exception e) {
         }
     }
 
@@ -282,11 +270,11 @@ public class writeActivity extends AppCompatActivity {
         listView.requestLayout();
     }
 
-    private final static Comparator<listViewSpot> cmpAsc = new Comparator<listViewSpot>() {
+    private final static Comparator<TripDate> cmpAsc = new Comparator<TripDate>() {
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public int compare(listViewSpot o1, listViewSpot o2) {
-            return Collator.getInstance().compare(o1.plus,o2.plus);
+        public int compare(TripDate o1, TripDate o2) {
+            return Collator.getInstance().compare(o1.date,o2.date);
         }
     };
 

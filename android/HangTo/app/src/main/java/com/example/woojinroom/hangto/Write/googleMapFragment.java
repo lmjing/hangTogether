@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto;
+package com.example.woojinroom.hangto.Write;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -6,13 +6,17 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.woojinroom.hangto.Write.listViewSpotAdapter;
+import com.example.woojinroom.hangto.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.example.woojinroom.hangto.Write.writeActivity;
 
 /**
  * Created by woojinroom on 2017-10-12.
@@ -116,7 +120,7 @@ public class googleMapFragment extends Fragment
 
     }
 
-    public static void reMark(LatLng spot,String title){ //이전 마커가 남아있음
+    public static void reMark(LatLng spot,String title,String address){ //이전 마커가 남아있음
         LatLng reMark = new LatLng(spot.latitude,spot.longitude);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(reMark);
@@ -126,4 +130,6 @@ public class googleMapFragment extends Fragment
         googleMap2.moveCamera(CameraUpdateFactory.newLatLng(reMark));
         googleMap2.animateCamera(CameraUpdateFactory.zoomTo(13));
     }
+
+
 }

@@ -7,13 +7,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.woojinroom.hangto.R;
 
 import java.util.ArrayList;
 
 public class listViewSpotAdapter extends BaseAdapter {
+    listViewSpot item;
 
+    TripPlaces places;
+    TripDate tripDate;
 
     TextView textSpot;
     TextView textPlus;
@@ -22,7 +26,8 @@ public class listViewSpotAdapter extends BaseAdapter {
 
 
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    public ArrayList<listViewSpot> listViewItemList = new ArrayList<listViewSpot>() ;
+    public ArrayList<listViewSpot> listViewItemList = new ArrayList<listViewSpot>();
+    public ArrayList<TripDate> tripDates = new ArrayList<TripDate>();
 
     // ListViewAdapter의 생성자
     public listViewSpotAdapter() {
@@ -32,12 +37,14 @@ public class listViewSpotAdapter extends BaseAdapter {
     // Adapter에 사용되는 데이터의 개수를 리턴. : 필수 구현
     @Override
     public int getCount() {
-        return listViewItemList.size() ;
+        return tripDates.size() ;
     }
 
     // position에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴. : 필수 구현
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+
         final int pos = position;
         final Context context = parent.getContext();
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
@@ -49,7 +56,7 @@ public class listViewSpotAdapter extends BaseAdapter {
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
 
         textSpot = (TextView)convertView.findViewById(R.id.textView_spot);
-        textSpot.setOnClickListener(new View.OnClickListener() {
+        /*textSpot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int count, checked ;
@@ -68,11 +75,12 @@ public class listViewSpotAdapter extends BaseAdapter {
                     }
                 }
             }
-        });
+        });*/
         textPlus = (TextView)convertView.findViewById(R.id.textView_plus);
         textDot = (TextView)convertView.findViewById(R.id.textView_dot);
+
         cancle = (ImageButton)convertView.findViewById(R.id.imageButton_cancle);
-        cancle.setOnClickListener(new View.OnClickListener() {
+       /* cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int count, checked ;
@@ -91,15 +99,13 @@ public class listViewSpotAdapter extends BaseAdapter {
                     }
                 }
             }
-        });
+        });*/
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        listViewSpot listViewItem = listViewItemList.get(position);
+        TripDate listViewItem = tripDates.get(position);
         // 아이템 내 각 위젯에 데이터 반영
-
-        textSpot.setText(listViewItem.getSpot());
-
-        textPlus.setText(listViewItem.getPlus());
+        textPlus.setText(listViewItem.getDate());
+        textSpot.setText(listViewItem.places.getName());
 
 
         return convertView;
@@ -114,22 +120,38 @@ public class listViewSpotAdapter extends BaseAdapter {
     // 지정한 위치(position)에 있는 데이터 리턴 : 필수 구현
     @Override
     public Object getItem(int position) {
-        return listViewItemList.get(position) ;
+        return tripDates.get(position) ;
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
     public void addItem(String spot, String plus) {
-        listViewSpot item = new listViewSpot();
+        /* item = new listViewSpot();
 
         item.setSpot(spot);
         item.setPlus(plus);
 
-        listViewItemList.add(item);
+        listViewItemList.add(item);*/
+    }
+    public void addItem2(String date,String name,String address,double lat,double lng)
+    {
+
+        places = new TripPlaces();
+
+        places.setName(name);
+        places.setAddress(address);
+        places.setLat(lat);
+        places.setLng(lng);
+
+        tripDate = new TripDate();
+        tripDate.setDate(date);
+        tripDate.setPlaces(places);
+
+        tripDates.add(tripDate);
 
     }
 
     public void clear() {
-        listViewItemList.clear();
+        tripDates.clear();
     }
 }
 
