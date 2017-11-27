@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.woojinroom.hangto.R;
+import com.example.woojinroom.hangto.TabActivity.Tab1_Main.Tab1MainFragment;
 
 import java.util.Calendar;
 import java.util.Collections;
@@ -41,7 +42,6 @@ public class writeActivity extends AppCompatActivity {
     ListView listview;
     public listViewSpotAdapter adapter;
     String date, spot,address;
-
     double lat,lng;
 
 
@@ -65,6 +65,7 @@ public class writeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) { //글 작성 완료되면 글을 디비에 넣고 메인페이지 리로드
                 Toast.makeText(getApplicationContext(), "글 작성 완료", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 

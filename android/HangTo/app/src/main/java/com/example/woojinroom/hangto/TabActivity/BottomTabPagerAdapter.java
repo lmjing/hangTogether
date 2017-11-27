@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
-import com.example.woojinroom.hangto.TabActivity.Tab1Recommand.Tab1RecommandFragment;
-import com.example.woojinroom.hangto.TabActivity.Tab2Feeds.Tab2FeedsFragment;
-import com.example.woojinroom.hangto.TabActivity.Tab4Explore.Tab4ExploreFragment;
-import com.example.woojinroom.hangto.TabActivity.Tab5MyPage.Tab5MyPageFragment;
+import com.example.woojinroom.hangto.TabActivity.Tab1_Main.Tab1MainFragment;
+import com.example.woojinroom.hangto.TabActivity.Tab3_Message.Tab3MessageFragment;
+import com.example.woojinroom.hangto.TabActivity.Tab2_Recommend.Tab2RecommendFragment;
+import com.example.woojinroom.hangto.TabActivity.Tab4_MyPage.Tab4MyPageFragment;
 
 
 import java.util.ArrayList;
@@ -26,11 +26,11 @@ public class BottomTabPagerAdapter extends FragmentPagerAdapter {
         super(fm);
 
         fragments.clear();
-        fragments.add(Tab1RecommandFragment.newInstance(0));
-        fragments.add(Tab4ExploreFragment.newInstance(1));
+        fragments.add(Tab1MainFragment.newInstance(0));
+        fragments.add(Tab2RecommendFragment.newInstance(1));
 //        fragments.add(Tab3StatisFragment.newInstance(2));
-        fragments.add(Tab2FeedsFragment.newInstance(3));
-        fragments.add(Tab5MyPageFragment.newInstance(4));
+        fragments.add(Tab3MessageFragment.newInstance(3));
+        fragments.add(Tab4MyPageFragment.newInstance(4));
     }
 
     @Override

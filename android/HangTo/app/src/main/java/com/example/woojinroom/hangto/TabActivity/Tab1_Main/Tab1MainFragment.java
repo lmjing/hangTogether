@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto.TabActivity.Tab2Feeds;
+package com.example.woojinroom.hangto.TabActivity.Tab1_Main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,39 +6,44 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
+import com.example.woojinroom.hangto.searchActivity;
+import com.example.woojinroom.hangto.Write.writeActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
-public class Tab2FeedsFragment extends TabParentFragment {
+public class Tab1MainFragment extends TabParentFragment {
     TabActivity activity;
-    Button button_messagebox;
-    Button button_alarmbox;
+    ImageButton button;
+    ImageButton imageButton_search;
 
-    public Tab2FeedsAdapter adapter;
+    public Tab1MainAdapter adapter;
     private RecyclerView recyclerView;
+
     private RecyclerView.LayoutManager layoutManager;
     public LinearLayout indicator;
     public int page = 1;
-    public static int status =0;
     public boolean endOfPage = false;
+    public static boolean abc = false;
     SwipeRefreshLayout pullToRefresh;
 
     /**
      * Create a new instance of the fragment
      */
-    public static Tab2FeedsFragment newInstance(int index) {
-        Tab2FeedsFragment fragment = new Tab2FeedsFragment();
+    public static Tab1MainFragment newInstance(int index) {
+        Tab1MainFragment fragment = new Tab1MainFragment();
         Bundle b = new Bundle();
         b.putInt("index", index);
         fragment.setArguments(b);
@@ -48,7 +53,7 @@ public class Tab2FeedsFragment extends TabParentFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_feeds, container, false);
+        View view = inflater.inflate(R.layout.fragment1_main, container, false);
         initViewSetting(view);
         return view;
     }
@@ -56,6 +61,10 @@ public class Tab2FeedsFragment extends TabParentFragment {
     private void initViewSetting(View view) {
         final TabActivity tabActivity = (TabActivity) getActivity();
         this.activity = tabActivity;
+
+        Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
+        activity.setSupportActionBar(cs_toolbar);
+        activity.getSupportActionBar().setTitle("");
 
         if (recyclerView == null) {
             recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
@@ -65,7 +74,7 @@ public class Tab2FeedsFragment extends TabParentFragment {
         }
 
         if (adapter == null) {
-            adapter = new Tab2FeedsAdapter(new Tab2FeedsAdapter.OnItemClickListener() {
+            adapter = new Tab1MainAdapter(new Tab1MainAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
 
@@ -74,31 +83,31 @@ public class Tab2FeedsFragment extends TabParentFragment {
         }
         recyclerView.setAdapter(adapter);
 
-        //indicator = (LinearLayout)view.findViewById(R.id.indicator);
+       // indicator = (LinearLayout)view.findViewById(R.id.indicator);
         pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
-      pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(false);
                 refresh();
             }
         });
+        button=(ImageButton)view.findViewById(R.id.button_write);
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent posting_intent = new Intent(view.getContext(), writeActivity.class);
+                startActivity(posting_intent);
+            }
+        });
 
-     button_messagebox = (Button)view.findViewById(R.id.button_message);    //메세지함 0
-        button_messagebox.setOnClickListener(new View.OnClickListener(){
+        imageButton_search=(ImageButton)view.findViewById(R.id.imagebutton_search);
+        imageButton_search.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                status =0;
-                refresh();
+                Intent search_intent = new Intent(view.getContext(),searchActivity.class);
+                startActivity(search_intent);
             }
         });
-        button_alarmbox = (Button)view.findViewById(R.id.button_alarm); // 메세지가 갖는 status에 따라 작성자가 받는 것인지 신청자가 받는 것인지 구별해서 프린트 해줘야함
-        button_alarmbox.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                status =1;
-                refresh();
-            }
-        });
-        connectFeed();
+        connectRecommand();
     }
 
     @Override
@@ -107,7 +116,7 @@ public class Tab2FeedsFragment extends TabParentFragment {
         endOfPage = false;
         adapter.clear();
         adapter.notifyDataSetChanged();
-        connectFeed();
+        connectRecommand();
     }
 
     @Override
@@ -115,24 +124,19 @@ public class Tab2FeedsFragment extends TabParentFragment {
 
     }
 
-    void connectFeed() {
-        if(status==0) {
-            for (int i = 0; i < 10; i++)
-                adapter.addData(Food.mockFood(i));
-            adapter.notifyDataSetChanged();
-        } else if(status==1){
-            for (int i = 0; i < 10; i++)
-                adapter.addData(Food.alarm(i));
-            adapter.notifyDataSetChanged();
-        }  else {
-            for (int i = 0; i < 10; i++)
-                adapter.addData(Food.alarm_req(i));
-            adapter.notifyDataSetChanged();
-        }
-
+    void connectRecommand() {
+        for (int i=0; i<10; i++)
+            adapter.addData(Food.mockFood(i));
+        adapter.notifyDataSetChanged();
     }
-    public void startIntent(Intent intent){
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refresh();
+    }
+
+    public void profile(Intent intent){
         startActivity(intent);
     }
-
 }

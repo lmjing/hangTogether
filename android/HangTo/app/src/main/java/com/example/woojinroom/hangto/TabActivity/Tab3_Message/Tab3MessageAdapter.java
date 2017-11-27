@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto.TabActivity.Tab2Feeds;
+package com.example.woojinroom.hangto.TabActivity.Tab3_Message;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,11 +20,11 @@ import java.util.ArrayList;
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
-public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
+public class Tab3MessageAdapter extends RecyclerView.Adapter<ViewHolderParent> {
     private static final int TYPE_Message = 0;
 
     public Context context;
-    public Tab2FeedsFragment fragment;
+    public Tab3MessageFragment fragment;
     private OnItemClickListener mOnItemClickListener;
     public ArrayList<Food> mDataset = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
         void onItemClick(View view, int position);
     }
 
-    public Tab2FeedsAdapter(OnItemClickListener onItemClickListener, Context mContext, Tab2FeedsFragment mFragment) {
+    public Tab3MessageAdapter(OnItemClickListener onItemClickListener, Context mContext, Tab3MessageFragment mFragment) {
         mOnItemClickListener = onItemClickListener;
         context = mContext;
         fragment = mFragment;
@@ -72,7 +72,7 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
 
             ViewHolderMessage itemViewHolder = (ViewHolderMessage) holder;
             Food food = mDataset.get(position);
-            if(Tab2FeedsFragment.status==0) { //메세지함이면 status ==0
+            if(Tab3MessageFragment.status==0) { //메세지함이면 status ==0
                 itemViewHolder.textDocument.setVisibility(View.GONE);
                 itemViewHolder.textMessageID.setVisibility(View.GONE);
                 itemViewHolder.textMessageTime.setVisibility(View.GONE);
@@ -105,7 +105,7 @@ public class Tab2FeedsAdapter extends RecyclerView.Adapter<ViewHolderParent> {
                         Toast.makeText(view.getContext(),"메세지함에서 눌림",Toast.LENGTH_SHORT).show();
                     }
                 });
-            } else if(Tab2FeedsFragment.status==1) { //작성자의 알림함이면 status==1
+            } else if(Tab3MessageFragment.status==1) { //작성자의 알림함이면 status==1
                 itemViewHolder.textDocument.setVisibility(View.VISIBLE);
                 itemViewHolder.textMessageID.setVisibility(View.VISIBLE);
                 itemViewHolder.textMessageTime.setVisibility(View.VISIBLE);

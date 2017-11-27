@@ -1,7 +1,9 @@
 package com.example.woojinroom.hangto;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +18,10 @@ import com.example.woojinroom.hangto.Write.writeActivity;
  */
 
 public class writingActivity extends AppCompatActivity {
-    private static final boolean WIRTER =true;
+    private static final boolean WRITER =true;
 LinearLayout sidemenu;
     Button button_message,button_request,button_close;
+    ConstraintLayout layout;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing);
@@ -33,14 +36,13 @@ LinearLayout sidemenu;
                 finish();
             }
         });
-        if(WIRTER){ //DB값으로 작성자인지 아닌지 판단
+        if(WRITER){ //DB값으로 작성자인지 아닌지 판단
             ImageButton button_right =(ImageButton)findViewById(R.id.imagebutton_right);
             button_right.setImageResource(R.drawable.more);
             button_right.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view) {
                     sidemenu.bringToFront();
                     sidemenu.setVisibility(View.VISIBLE);
-
                     Button button_edit =(Button)findViewById(R.id.button_edit);
                     button_edit.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -57,6 +59,14 @@ LinearLayout sidemenu;
                             finish();
                         }
                     });
+                }
+            });
+            //sidemenu 없애기 위함
+            layout=(ConstraintLayout) findViewById(R.id.layout_write);
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sidemenu.setVisibility(View.INVISIBLE);
                 }
             });
             button_message =(Button) findViewById(R.id.button_message);

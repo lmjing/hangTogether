@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto.TabActivity.Tab4Explore;
+package com.example.woojinroom.hangto.TabActivity.Tab2_Recommend;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,10 +17,10 @@ import com.example.woojinroom.hangto.TabActivity.TabActivity;
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
-public class Tab4ExploreFragment  extends TabParentFragment {
+public class Tab2RecommendFragment extends TabParentFragment {
     TabActivity activity;
 
-    public Tab4ExploreAdapter adapter;
+    public Tab2RecommendAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     public LinearLayout indicator;
@@ -31,8 +31,8 @@ public class Tab4ExploreFragment  extends TabParentFragment {
     /**
      * Create a new instance of the fragment
      */
-    public static Tab4ExploreFragment newInstance(int index) {
-        Tab4ExploreFragment fragment = new Tab4ExploreFragment();
+    public static Tab2RecommendFragment newInstance(int index) {
+        Tab2RecommendFragment fragment = new Tab2RecommendFragment();
         Bundle b = new Bundle();
         b.putInt("index", index);
         fragment.setArguments(b);
@@ -42,7 +42,7 @@ public class Tab4ExploreFragment  extends TabParentFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_explore, container, false);
+        View view = inflater.inflate(R.layout.fragment2_recommend, container, false);
         initViewSetting(view);
         return view;
     }
@@ -61,7 +61,7 @@ public class Tab4ExploreFragment  extends TabParentFragment {
         }
 
         if (adapter == null) {
-            adapter = new Tab4ExploreAdapter(new Tab4ExploreAdapter.OnItemClickListener() {
+            adapter = new Tab2RecommendAdapter(new Tab2RecommendAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
 

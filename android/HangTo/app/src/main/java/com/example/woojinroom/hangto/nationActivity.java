@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.woojinroom.hangto.Model.joinUser;
 import com.example.woojinroom.hangto.TabActivity.TabActivity_;
 
 import org.w3c.dom.Text;
@@ -25,6 +26,7 @@ public class nationActivity extends AppCompatActivity {
     Spinner spinner,spinner2,spinner3;
     String rang1,rang2,rang3;
     boolean user;
+    joinUser userData;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

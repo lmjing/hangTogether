@@ -12,7 +12,7 @@ public class joinUser {
     public String birth;
     public String profileUrl;
     public String type;
-    public String languages;
+    public String[] languages;
     public String introduce;
 
     public String getEmail() {
@@ -71,11 +71,11 @@ public class joinUser {
         this.type = type;
     }
 
-    public String getLanguages() {
+    public String[] getLanguages() {
         return languages;
     }
 
-    public void setLanguages(String languages) {
+    public void setLanguages(String[] languages) {
         this.languages = languages;
     }
 

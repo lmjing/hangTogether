@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto.TabActivity.Tab5MyPage;
+package com.example.woojinroom.hangto.TabActivity.Tab2_Recommend;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,11 +15,11 @@ import java.util.ArrayList;
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
-public class Tab5MyPageAdapter extends RecyclerView.Adapter<Tab5MyPageAdapter.ViewHolder> {
+public class Tab2RecommendAdapter extends RecyclerView.Adapter<Tab2RecommendAdapter.ViewHolder> {
     private static final int TYPE_ITEM = 0;
 
     public Context context;
-    public Tab5MyPageFragment fragment;
+    public Tab2RecommendFragment fragment;
     private OnItemClickListener mOnItemClickListener;
     public ArrayList<Food> mDataset = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class Tab5MyPageAdapter extends RecyclerView.Adapter<Tab5MyPageAdapter.Vi
         void onItemClick(View view, int position);
     }
 
-    public Tab5MyPageAdapter(OnItemClickListener onItemClickListener, Context mContext, Tab5MyPageFragment mFragment) {
+    public Tab2RecommendAdapter(OnItemClickListener onItemClickListener, Context mContext, Tab2RecommendFragment mFragment) {
         mOnItemClickListener = onItemClickListener;
         context = mContext;
         fragment = mFragment;
@@ -47,7 +47,7 @@ public class Tab5MyPageAdapter extends RecyclerView.Adapter<Tab5MyPageAdapter.Vi
     }
 
     @Override
-    public Tab5MyPageAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Tab2RecommendAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
             return new ItemViewHolder(v);
@@ -94,8 +94,8 @@ public class Tab5MyPageAdapter extends RecyclerView.Adapter<Tab5MyPageAdapter.Vi
         public TextView foodName, foodDesc;
         public ItemViewHolder(View v) {
             super(v);
-          //  foodName = (TextView) v.findViewById(R.id.food_name);
-          //  foodDesc = (TextView) v.findViewById(R.id.food_desc);
+           // foodName = (TextView) v.findViewById(R.id.food_name);
+           // foodDesc = (TextView) v.findViewById(R.id.food_desc);
         }
     }
 

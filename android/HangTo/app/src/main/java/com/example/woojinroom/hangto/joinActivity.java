@@ -81,7 +81,7 @@ public class joinActivity extends AppCompatActivity {
         button_nickname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user_nickname = editText_nickname.getText().toString();
+               user_nickname = editText_nickname.getText().toString();
                 Call<ResponseBody> nickname = idCheck.getNickname(user_nickname);
                 nickname.enqueue(new Callback<ResponseBody>() {
                     @Override

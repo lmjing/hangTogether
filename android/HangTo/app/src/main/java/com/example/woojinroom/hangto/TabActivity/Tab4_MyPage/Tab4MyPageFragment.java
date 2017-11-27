@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto.TabActivity.Tab5MyPage;
+package com.example.woojinroom.hangto.TabActivity.Tab4_MyPage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,12 +19,12 @@ import com.example.woojinroom.hangto.History.historyActivity;
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
-public class Tab5MyPageFragment extends TabParentFragment {
+public class Tab4MyPageFragment extends TabParentFragment {
     TabActivity activity;
     Button button5;
     Button button6;
 
-    public Tab5MyPageAdapter adapter;
+    public Tab4MyPageAdapter adapter;
     //private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     public LinearLayout indicator;
@@ -35,8 +35,8 @@ public class Tab5MyPageFragment extends TabParentFragment {
     /**
      * Create a new instance of the fragment
      */
-    public static Tab5MyPageFragment newInstance(int index) {
-        Tab5MyPageFragment fragment = new Tab5MyPageFragment();
+    public static Tab4MyPageFragment newInstance(int index) {
+        Tab4MyPageFragment fragment = new Tab4MyPageFragment();
         Bundle b = new Bundle();
         b.putInt("index", index);
         fragment.setArguments(b);
@@ -46,7 +46,7 @@ public class Tab5MyPageFragment extends TabParentFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_mypage, container, false);
+        View view = inflater.inflate(R.layout.fragment4_mypage, container, false);
         initViewSetting(view);
         return view;
     }
@@ -67,7 +67,7 @@ public class Tab5MyPageFragment extends TabParentFragment {
         }*/
 
         if (adapter == null) {
-            adapter = new Tab5MyPageAdapter(new Tab5MyPageAdapter.OnItemClickListener() {
+            adapter = new Tab4MyPageAdapter(new Tab4MyPageAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
 

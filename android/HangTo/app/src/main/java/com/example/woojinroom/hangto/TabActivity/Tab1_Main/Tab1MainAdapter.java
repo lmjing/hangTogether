@@ -1,4 +1,4 @@
-package com.example.woojinroom.hangto.TabActivity.Tab1Recommand;
+package com.example.woojinroom.hangto.TabActivity.Tab1_Main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,12 +20,12 @@ import java.util.ArrayList;
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
-public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent> {
+public class Tab1MainAdapter extends RecyclerView.Adapter<ViewHolderParent> {
 
     private static final int TYPE_ITEM = 0;
 
     public Context context;
-    public Tab1RecommandFragment fragment;
+    public Tab1MainFragment fragment;
     private OnItemClickListener mOnItemClickListener;
     public ArrayList<Food> mDataset = new ArrayList<>();
 
@@ -33,7 +33,7 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
         void onItemClick(View view, int position);
     }
 
-    public Tab1RecommandAdapter(OnItemClickListener onItemClickListener, Context mContext, Tab1RecommandFragment mFragment) {
+    public Tab1MainAdapter(OnItemClickListener onItemClickListener, Context mContext, Tab1MainFragment mFragment) {
         mOnItemClickListener = onItemClickListener;
         context = mContext;
         fragment = mFragment;
