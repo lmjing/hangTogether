@@ -41,6 +41,7 @@ public class writeActivity extends AppCompatActivity {
     ListView listview;
     public listViewSpotAdapter adapter;
     String date, spot,address;
+
     double lat,lng;
 
 
@@ -91,11 +92,12 @@ public class writeActivity extends AppCompatActivity {
 
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) findViewById(R.id.listview_spot);
+
         listview.setDivider(null);
         listview.setDividerHeight(0);
         listview.setAdapter(adapter);
 
-        textspot = (TextView) findViewById(R.id.spot1);
+        textspot = (TextView) findViewById(R.id.spot1); //여행장소추가
 
         textspot.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -167,13 +169,22 @@ public class writeActivity extends AppCompatActivity {
                 if (adapter.getCount() >= 2) {
                     Collections.sort(adapter.posttriplist,cmpAsc); //오름차순 정렬
                 }
-
+                DrawLine(listview);
                 adapter.notifyDataSetChanged();
                 setListViewHeightBasedOnChildren(listview);
+
 
             }
         }
     }
+public void DrawLine(ListView listView){
+    Toast.makeText(getApplicationContext(),String.valueOf(adapter.getCount()),Toast.LENGTH_SHORT).show();
+
+    for (int i = 0; i < adapter.getCount(); i++) {
+        adapter.getView(i,null,listView);
+    }
+}
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void counttday() {

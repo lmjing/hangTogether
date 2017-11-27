@@ -19,8 +19,10 @@ public class listViewSpotAdapter extends BaseAdapter {
 
     TextView textSpot;
     TextView textPlus;
+
     public TextView textDot;
     public ImageButton cancle;
+    View top_line,bottom_line;
 
 
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
@@ -41,7 +43,6 @@ public class listViewSpotAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
         final int pos = position;
         final Context context = parent.getContext();
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
@@ -51,7 +52,10 @@ public class listViewSpotAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
+        //날짜
+        textPlus = (TextView)convertView.findViewById(R.id.textView_plus);
 
+        //장소
         textSpot = (TextView)convertView.findViewById(R.id.textView_spot);
         textSpot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,9 +77,7 @@ public class listViewSpotAdapter extends BaseAdapter {
                 }
             }
         });
-        textPlus = (TextView)convertView.findViewById(R.id.textView_plus);
-        textDot = (TextView)convertView.findViewById(R.id.textView_dot);
-
+        //취소버튼
         cancle = (ImageButton)convertView.findViewById(R.id.imageButton_cancle);
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,31 @@ public class listViewSpotAdapter extends BaseAdapter {
         textPlus.setText(listViewItem.getDate());
         textSpot.setText(listViewItem.places.getName());
 
+        //점과 선 선언
+        textDot = (TextView)convertView.findViewById(R.id.textView_dot);
+        top_line = convertView.findViewById(R.id.view_line);
+        bottom_line = convertView.findViewById(R.id.view_line2);
+
+        // 선 긋기
+        if(getCount()==1){
+            top_line.setVisibility(View.INVISIBLE);
+            textDot.setVisibility(View.VISIBLE);
+            bottom_line.setVisibility(View.INVISIBLE);
+        }
+        else if(pos == 0){
+            top_line.setVisibility(View.INVISIBLE);
+            textDot.setVisibility(View.VISIBLE);
+            bottom_line.setVisibility(View.VISIBLE);
+        }
+        else if(pos == getCount()-1){
+            top_line.setVisibility(View.VISIBLE);
+            textDot.setVisibility(View.VISIBLE);
+            bottom_line.setVisibility(View.INVISIBLE);
+        }else{
+            top_line.setVisibility(View.VISIBLE);
+            textDot.setVisibility(View.INVISIBLE);
+            bottom_line.setVisibility(View.VISIBLE);
+        }
 
         return convertView;
     }
