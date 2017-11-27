@@ -32,6 +32,7 @@ public class joinActivity extends AppCompatActivity {
     IDCheck idCheck;
     boolean email_check=false,nick_check=false;
     String user_email,user_nickname,user_password,user_sex,user_birth,user_profileUrl,user_type,user_languages,user_introduce;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
@@ -42,6 +43,7 @@ public class joinActivity extends AppCompatActivity {
         final Button button_female = (Button)findViewById(R.id.button_female);
         final EditText editText_email =(EditText)findViewById(R.id.editText_email);
         final Button button_email =(Button)findViewById(R.id.button_email);
+
         button_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +52,7 @@ public class joinActivity extends AppCompatActivity {
                 email.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        if(!editText_email.getText().toString().equals("")) {
+                            if(!editText_email.getText().toString().equals("")) {
                             try {
                                 if (response.code() == 200) {
                                     Toast.makeText(getApplicationContext(), response.body().string(), Toast.LENGTH_SHORT).show();

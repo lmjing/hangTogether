@@ -177,6 +177,7 @@ public class writeActivity extends AppCompatActivity {
             }
         }
     }
+
 public void DrawLine(ListView listView){
     Toast.makeText(getApplicationContext(),String.valueOf(adapter.getCount()),Toast.LENGTH_SHORT).show();
 
@@ -191,6 +192,7 @@ public void DrawLine(ListView listView){
         try {
             String FirstDate = button_start.getText().toString();
             String SecondDate = button_end.getText().toString();
+
 
             //2017-9-5 같은 경우
             if(FirstDate.length()==8){
@@ -218,6 +220,10 @@ public void DrawLine(ListView listView){
                     SecondDate = SecondDate.substring(0, 8) + "0" + SecondDate.substring(8, 9);
                 }
             }
+
+            Post_tripDate tripDate = new Post_tripDate();
+            tripDate.setStart(FirstDate); //2016-05-17 형식
+            tripDate.setEnd(SecondDate);  //2016-05-17 형식
 
             Calendar FirstDayCal = Calendar.getInstance(); //오늘날자 가져오기
             FirstDayCal.set(Integer.parseInt(FirstDate.substring(0,4)),Integer.parseInt(FirstDate.substring(5,7)),Integer.parseInt(FirstDate.substring(8,10)));

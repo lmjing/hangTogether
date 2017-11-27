@@ -125,7 +125,7 @@ public class googleMapFragment extends Fragment
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(reMark);
         markerOptions.title(title);
-        markerOptions.snippet("내가 선택한 위치");
+        markerOptions.snippet(address);
         googleMap2.addMarker(markerOptions);
         googleMap2.moveCamera(CameraUpdateFactory.newLatLng(reMark));
         googleMap2.animateCamera(CameraUpdateFactory.zoomTo(13));

@@ -50,6 +50,8 @@ public class nationActivity extends AppCompatActivity {
         });
         final TextView textView = (TextView)findViewById(R.id.textView18);
         spinner = (Spinner) findViewById(R.id.nation_select);
+        spinner2 = (Spinner) findViewById(R.id.nation_select2);
+        spinner3 = (Spinner) findViewById(R.id.nation_select3);
 
         spinner.setOnItemSelectedListener(mOnItemSelectedListener);
         ImageView imageView_foreigner =(ImageView)findViewById(R.id.imageView5);

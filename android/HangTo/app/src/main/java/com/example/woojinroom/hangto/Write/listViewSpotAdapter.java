@@ -101,34 +101,73 @@ public class listViewSpotAdapter extends BaseAdapter {
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Post_trip listViewItem = posttriplist.get(position);
+
         // 아이템 내 각 위젯에 데이터 반영
         textPlus.setText(listViewItem.getDate());
         textSpot.setText(listViewItem.places.getName());
 
+        Post_trip cmpItem;
+        String cmpData="";
+        if(getCount()>1 && position!=0) {
+            cmpItem = posttriplist.get(position-1);
+            cmpData=cmpItem.getDate();
+        }
         //점과 선 선언
         textDot = (TextView)convertView.findViewById(R.id.textView_dot);
         top_line = convertView.findViewById(R.id.view_line);
         bottom_line = convertView.findViewById(R.id.view_line2);
 
+
         // 선 긋기
-        if(getCount()==1){
-            top_line.setVisibility(View.INVISIBLE);
+        //날짜가 다르면
+        if(!listViewItem.getDate().equals(cmpData)){
             textDot.setVisibility(View.VISIBLE);
-            bottom_line.setVisibility(View.INVISIBLE);
+            if (getCount() == 1) {
+                top_line.setVisibility(View.INVISIBLE);
+                bottom_line.setVisibility(View.INVISIBLE);
+            }
+            // 여러개중에 첫번째
+            else if (pos == 0) {
+                top_line.setVisibility(View.INVISIBLE);
+                bottom_line.setVisibility(View.VISIBLE);
+            }
+            //여러개중에 마지막
+            else if (pos == getCount() - 1) {
+                top_line.setVisibility(View.VISIBLE);
+                bottom_line.setVisibility(View.INVISIBLE);
+            }
+            //여러개중에 중간
+            else {
+                top_line.setVisibility(View.VISIBLE);
+                bottom_line.setVisibility(View.VISIBLE);
+            }
         }
-        else if(pos == 0){
-            top_line.setVisibility(View.INVISIBLE);
-            textDot.setVisibility(View.VISIBLE);
-            bottom_line.setVisibility(View.VISIBLE);
-        }
-        else if(pos == getCount()-1){
-            top_line.setVisibility(View.VISIBLE);
-            textDot.setVisibility(View.VISIBLE);
-            bottom_line.setVisibility(View.INVISIBLE);
-        }else{
-            top_line.setVisibility(View.VISIBLE);
-            textDot.setVisibility(View.INVISIBLE);
-            bottom_line.setVisibility(View.VISIBLE);
+        //날짜가 같으면
+        else {
+            textPlus.setText("");
+            if (getCount() == 1) {
+                top_line.setVisibility(View.INVISIBLE);
+                textDot.setVisibility(View.VISIBLE);
+                bottom_line.setVisibility(View.INVISIBLE);
+            }
+            // 여러개중에 첫번째
+            else if (pos == 0) {
+                top_line.setVisibility(View.INVISIBLE);
+                textDot.setVisibility(View.VISIBLE);
+                bottom_line.setVisibility(View.VISIBLE);
+            }
+            //여러개중에 마지막
+            else if (pos == getCount() - 1) {
+                top_line.setVisibility(View.VISIBLE);
+                textDot.setVisibility(View.VISIBLE);
+                bottom_line.setVisibility(View.INVISIBLE);
+            }
+            //여러개중에 중간
+            else {
+                top_line.setVisibility(View.VISIBLE);
+                textDot.setVisibility(View.INVISIBLE);
+                bottom_line.setVisibility(View.VISIBLE);
+            }
         }
 
         return convertView;
