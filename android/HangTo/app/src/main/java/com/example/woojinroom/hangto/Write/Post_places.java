@@ -4,7 +4,7 @@ package com.example.woojinroom.hangto.Write;
  * Created by woojinroom on 2017-11-21.
  */
 
-public class TripPlaces {
+public class Post_places {
     public String name;
     public String address;
     public double lat;

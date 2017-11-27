@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.icu.text.Collator;
-import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -25,7 +24,6 @@ import com.example.woojinroom.hangto.R;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 
 /**
  * Created by woojinroom on 2017-09-25.
@@ -167,8 +165,9 @@ public class writeActivity extends AppCompatActivity {
                 adapter.addItem2(date,spot,address,lat,lng);
 
                 if (adapter.getCount() >= 2) {
-                    Collections.sort(adapter.tripDates,cmpAsc); //오름차순 정렬
+                    Collections.sort(adapter.posttriplist,cmpAsc); //오름차순 정렬
                 }
+
                 adapter.notifyDataSetChanged();
                 setListViewHeightBasedOnChildren(listview);
 
@@ -270,10 +269,10 @@ public class writeActivity extends AppCompatActivity {
         listView.requestLayout();
     }
 
-    private final static Comparator<TripDate> cmpAsc = new Comparator<TripDate>() {
+    private final static Comparator<Post_trip> cmpAsc = new Comparator<Post_trip>() {
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public int compare(TripDate o1, TripDate o2) {
+        public int compare(Post_trip o1, Post_trip o2) {
             return Collator.getInstance().compare(o1.date,o2.date);
         }
     };

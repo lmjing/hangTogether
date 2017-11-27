@@ -1,14 +1,12 @@
 package com.example.woojinroom.hangto.Write;
 
-import java.util.ArrayList;
-
 /**
  * Created by woojinroom on 2017-11-21.
  */
 
-public class TripDate {
+public class Post_trip {
     public String date;
-    public TripPlaces places;
+    public Post_places places;
 
     public String getDate() {
         return date;
@@ -18,11 +16,11 @@ public class TripDate {
         this.date = date;
     }
 
-    public TripPlaces getPlaces() {
+    public Post_places getPlaces() {
         return places;
     }
 
-    public void setPlaces(TripPlaces places) {
+    public void setPlaces(Post_places places) {
         this.places = places;
     }
 }
