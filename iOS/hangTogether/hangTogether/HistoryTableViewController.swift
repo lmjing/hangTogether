@@ -62,9 +62,7 @@ class HistoryTableViewController: UITableViewController {
         
         cell.nicknameLabel.text = post.writer.nickname
         cell.makeLanguages(languages: post.writer.languages)
-        if let profile = post.writer.profileUrl, let url = URL(string: profile) {
-            cell.profileImageView.af_setImage(withURL: url)
-        }
+        cell.profileImageView.setProfileImage(user: post.writer)
         
         cell.titleLabel.text = post.title
         cell.tripDateLabel.text = "\(post.tripDate.start.string) ~ \(post.tripDate.end.string)"

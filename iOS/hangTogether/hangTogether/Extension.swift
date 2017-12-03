@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AlamofireImage
 import UIKit
 
 extension UIColor {
@@ -186,6 +187,18 @@ extension UIImageView {
     func drawCircle() {
         self.layer.cornerRadius = self.frame.width / 2
         self.clipsToBounds = true
+    }
+    
+    func setProfileImage(user: User) {
+        //TODO: 유저 사진 활성화 되면 주석 풀 것
+//        if let profile = user.profileUrl, let url = URL(string: profile) {
+//            self.af_setImage(withURL: url)
+//            self.drawCircle()
+//        }else {
+            if let sex = user.sex {
+                self.image = sex.rawValue == "male" ? #imageLiteral(resourceName: "profile-male") : #imageLiteral(resourceName: "profile-female")
+            }
+//        }
     }
 }
 

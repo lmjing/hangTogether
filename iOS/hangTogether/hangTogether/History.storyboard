@@ -31,7 +31,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xeQ-mS-eL3">
                                             <rect key="frame" x="13" y="11" width="60" height="84.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3NA-KS-koc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-female" translatesAutoresizingMaskIntoConstraints="NO" id="3NA-KS-koc">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="3JV-gv-3Es"/>
@@ -117,4 +117,7 @@
             <point key="canvasLocation" x="-228" y="155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile-female" width="122" height="122"/>
+    </resources>
 </document>

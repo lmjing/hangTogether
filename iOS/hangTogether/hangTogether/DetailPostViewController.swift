@@ -62,7 +62,6 @@ class DetailPostViewController: UIViewController {
     }
     
     func designView() {
-        profileImageView.drawCircle()
         contentView.drawLine()
         firstButton.drawLine()
         secondButton.drawLine()

@@ -18,7 +18,7 @@ class MessageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profileImageView.drawCircle()
+//        profileImageView.drawCircle()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
