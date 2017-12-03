@@ -32,8 +32,9 @@ class MyPageViewController: UIViewController {
             profileImageView.af_setImage(withURL: profileURL)
         }
         
-        if let user = UserDefaults.standard.object(forKey: "user") as? [String:Any] {
-            nicknameLabel.text = user["nickname"] as! String
+        if let user = UserDefaults.standard.object(forKey: "user") as? [String:Any],
+            let nickname = user["nickname"] as? String {
+            nicknameLabel.text = nickname
         }
     }
 

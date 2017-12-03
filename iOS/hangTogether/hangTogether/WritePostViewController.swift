@@ -121,7 +121,7 @@ class WritePostViewController: UIViewController {
             let alert = UIAlertController.okAlert(title: nil, message: "여행 장소를 하나 이상 등록해주세요.")
             self.present(alert, animated: true, completion: nil); return
         }
-        if let user = UserDefaults.standard.object(forKey: "user") as? [String:Any], let id = user["_id"] as? String {
+        if let id = UserDefaults.standard.string(forKey: "id") {
             post["writer"] = id
         }
         post["tripDate"] = tripDate

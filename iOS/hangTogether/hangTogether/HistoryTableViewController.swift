@@ -10,11 +10,14 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
 
-    var history: [String:[[String:Any]]] = [:]
+    var history: [String:[Post]] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let id = UserDefaults.standard.string(forKey: "id") {
+            Networking.getHistory(userId: id)
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(received), name: Notification.Name.history, object: nil)
     }
 
@@ -26,8 +29,9 @@ class HistoryTableViewController: UITableViewController {
         guard let userInfo = notification.userInfo as? [String:Any] else { return }
         guard let result = userInfo["result"] as? String else { return }
         if result == "success" {
-            guard let data = userInfo["data"] as? [String:[[String:Any]]] else { return }
+            guard let data = userInfo["data"] as? [String:[Post]] else { return }
             history = data
+            print(history)
             self.tableView.reloadData()
         }
     }
@@ -37,14 +41,35 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let key = section == 0 ? "ing" : "end"
+        if let data = history[key] {
+            return data.count == 0 ? 1 : data.count
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let key = indexPath.section == 0 ? "ing" : "end"
+        if history[key]?.count == 0 {
+            let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 20))
+            cell.textLabel?.text = "작성된 글이 없습니다."
+            cell.textLabel?.textAlignment = .center
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! MainTableViewCell
-
-        cell.nicknameLabel.text = "nickname"
-        cell.tripDateLabel.text = "2011/11/11"
+        guard let post = history[key]?[indexPath.row] else { return cell }
+        
+        cell.nicknameLabel.text = post.writer.nickname
+        cell.makeLanguages(languages: post.writer.languages)
+        if let profile = post.writer.profileUrl, let url = URL(string: profile) {
+            cell.profileImageView.af_setImage(withURL: url)
+        }
+        
+        cell.titleLabel.text = post.title
+        cell.tripDateLabel.text = "\(post.tripDate.start.string) ~ \(post.tripDate.end.string)"
+        cell.timeLabel.text = post.created.time
+        
         return cell
     }
     
@@ -60,15 +85,16 @@ class HistoryTableViewController: UITableViewController {
         title.shadowOffset = CGSize(width: 100, height: 100)
         title.shadowColor = UIColor.white
         
-//        let line = UIView(frame: CGRect(x: 0, y: 15, width: width, height: 20))
-//        line.backgroundColor = UIColor.white
-//        
-//        view.addSubview(line)
         view.addSubview(title)
         return view
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let key = indexPath.section == 0 ? "ing" : "end"
+        return history[key]?.count == 0 ? 20 : 107
     }
 }

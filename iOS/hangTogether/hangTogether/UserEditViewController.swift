@@ -80,6 +80,9 @@ class UserEditViewController: UIViewController {
         if result == "success" {
             guard let user = userInfo["user"] as? [String:Any] else { return }
             UserDefaults.standard.set(user, forKey: "user")
+            if let id = user["_id"] as? String {
+                UserDefaults.standard.set(id, forKey: "id")
+            }
             
             alert = UIAlertController.okAlert(title: "수정 완료", message: "성공적으로 회원 정보가 수정되었습니다.", action: { _ in
                 self.navigationController?.popViewController(animated: true)

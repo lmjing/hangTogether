@@ -133,8 +133,18 @@ class Networking {
         Alamofire.request("\(Config.hostURL)/post/user/\(userId)").responseJSON{ response in
             switch response.result {
             case .success(let response):
-                guard let contents = response as? [String:[[String:Any]]] else { return }
-                NotificationCenter.default.post(name: Notification.Name.history, object: self, userInfo: ["result":"success","data":contents])
+                guard let res = response as? [String:[[String:Any]]] else { return }
+                var data: [String:[Post]] = [:]
+                for (key, contents) in res {
+                    var posts: [Post] = []
+                    for content in contents {
+                        if let post = Post(JSON: content) {
+                            posts.append(post)
+                        }
+                    }
+                    data[key] = posts
+                }
+                NotificationCenter.default.post(name: Notification.Name.history, object: self, userInfo: ["result":"success","data":data])
             case .failure(let error):
                 print(error)
                 NotificationCenter.default.post(name: Notification.Name.history, object: self, userInfo: ["result":"error"])

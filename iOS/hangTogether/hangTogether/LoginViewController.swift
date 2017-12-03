@@ -38,6 +38,9 @@ class LoginViewController: UIViewController {
         case "success":
             guard let user = notification.userInfo!["user"] as? [String:Any] else { print("로그인 실패: User 타입이 아님"); return }
             UserDefaults.standard.set(user, forKey: "user")
+            if let id = user["_id"] as? String {
+                UserDefaults.standard.set(id, forKey: "id")
+            }
             self.delegate?.focusOn(self.wantedPage)
             dismiss(animated: true, completion: nil)
         case "fail":

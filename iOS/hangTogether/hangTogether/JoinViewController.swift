@@ -88,6 +88,9 @@ class JoinViewController: UIViewController {
         case "success":
             guard let user = userInfo["user"] as? [String:Any] else { return }
             UserDefaults.standard.set(user, forKey: "user")
+            if let id = user["_id"] as? String {
+                UserDefaults.standard.set(id, forKey: "id")
+            }
             dismiss(animated: true, completion: nil)
         default:
             let alert = UIAlertController.okAlert(title: "회원가입 실패", message: "죄송합니다. 문제가 발생하였습니다.")
