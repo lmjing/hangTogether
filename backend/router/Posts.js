@@ -267,7 +267,6 @@ router.get('/user/:id', function(req, res) {
   .populate('guide')
   .then((posts) => {
     if(posts.length > 0) {
-      // res.status(200).json(posts)
       ing = posts
       return Post.find({
         writer: req.params.id, recruiting: false
@@ -280,11 +279,14 @@ router.get('/user/:id', function(req, res) {
       res.status(404).json('not found')
     }
   }).then((posts) => {
-    if(posts.length > 0) {
-      end = posts
+    if(posts.length == 0 && ing.length == 0){
+      res.status(404).json('not found')
+    }else {
+      if(posts.length > 0) {
+        end = posts
+      }
       return res.status(200).json({'ing': ing, 'end': end})
     }
-    res.status(404).json('not found')
   })
   .catch((err) => {
     console.log(err)
