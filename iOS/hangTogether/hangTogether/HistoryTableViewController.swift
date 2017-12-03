@@ -51,7 +51,7 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let key = indexPath.section == 0 ? "ing" : "end"
         if history[key]?.count == 0 {
-            let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 20))
+            let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 107))
             cell.textLabel?.text = "작성된 글이 없습니다."
             cell.textLabel?.textAlignment = .center
             return cell
@@ -95,6 +95,6 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let key = indexPath.section == 0 ? "ing" : "end"
-        return history[key]?.count == 0 ? 20 : 107
+        return history[key]?.count == 0 ? 50 : 107
     }
 }

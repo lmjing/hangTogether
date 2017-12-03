@@ -12,17 +12,17 @@
         <!--history-->
         <scene sceneID="lRb-JP-dTS">
             <objects>
-                <tableViewController storyboardIdentifier="history" title="history" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="4gn-o2-mZ4" customClass="HistoryTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="always" indicatorStyle="white" dataMode="prototypes" style="grouped" rowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" id="CXc-fJ-gpx">
+                <tableViewController storyboardIdentifier="history" title="history" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="4gn-o2-mZ4" customClass="HistoryTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="CXc-fJ-gpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="historyCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="107" id="kf7-CT-BAu" customClass="MainTableViewCell" customModule="hangTogether" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="107"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kf7-CT-BAu" id="Bxj-ar-Clc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
