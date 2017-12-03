@@ -128,4 +128,17 @@ class Networking {
             }
         }
     }
+    
+    static func getHistory(userId: String) {
+        Alamofire.request("\(Config.hostURL)/post/user/\(userId)").responseJSON{ response in
+            switch response.result {
+            case .success(let response):
+                guard let contents = response as? [String:[[String:Any]]] else { return }
+                NotificationCenter.default.post(name: Notification.Name.history, object: self, userInfo: ["result":"success","data":contents])
+            case .failure(let error):
+                print(error)
+                NotificationCenter.default.post(name: Notification.Name.history, object: self, userInfo: ["result":"error"])
+            }
+        }
+    }
 }

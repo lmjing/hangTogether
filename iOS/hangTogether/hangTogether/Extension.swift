@@ -22,6 +22,7 @@ extension Notification.Name {
     static let join = Notification.Name("join")
     static let getLanguages = Notification.Name("getLanguages")
     static let userEdit = Notification.Name("getUserEdit")
+    static let history = Notification.Name("getHistory")
 }
 
 extension UIStoryboard {

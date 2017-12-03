@@ -6,20 +6,24 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--history-->
         <scene sceneID="lRb-JP-dTS">
             <objects>
-                <tableViewController storyboardIdentifier="history" title="history" id="4gn-o2-mZ4" customClass="HistoryTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CXc-fJ-gpx">
+                <tableViewController storyboardIdentifier="history" title="history" modalPresentationStyle="pageSheet" id="4gn-o2-mZ4" customClass="HistoryTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="grouped" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" id="CXc-fJ-gpx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="historyCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="107" id="kf7-CT-BAu" customClass="MainTableViewCell" customModule="hangTogether" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kf7-CT-BAu" id="Bxj-ar-Clc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
@@ -92,6 +96,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="tih-AH-YyD" secondAttribute="trailing" constant="5" id="xfz-88-tDH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <viewLayoutGuide key="safeArea" id="aHG-Xg-96l"/>
                                 <connections>
                                     <outlet property="languageStackView" destination="VV4-DH-4Tv" id="ILq-Hm-0VL"/>
                                     <outlet property="nicknameLabel" destination="EoE-5G-EJ8" id="KNu-ag-cFc"/>
