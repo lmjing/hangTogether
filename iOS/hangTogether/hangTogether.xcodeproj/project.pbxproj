@@ -27,6 +27,8 @@
 		503A62F41FB04AD000D1C88E /* UserEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A62F31FB04AD000D1C88E /* UserEditViewController.swift */; };
 		505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */; };
 		505BFD941F95F9190013B804 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFD931F95F9190013B804 /* MainTabViewController.swift */; };
+		505F649E1FD3D84400FC117A /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505F649D1FD3D84400FC117A /* History.storyboard */; };
+		505F64A01FD3DA1200FC117A /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F649F1FD3DA1200FC117A /* HistoryTableViewController.swift */; };
 		5063D6AE1F7D456D009639C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063D6AD1F7D456D009639C5 /* AppDelegate.swift */; };
 		5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B31F7D456D009639C5 /* Main.storyboard */; };
 		5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5063D6B61F7D456D009639C5 /* Assets.xcassets */; };
@@ -81,6 +83,8 @@
 		503A62F31FB04AD000D1C88E /* UserEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditViewController.swift; sourceTree = "<group>"; };
 		505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		505BFD931F95F9190013B804 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		505F649D1FD3D84400FC117A /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		505F649F1FD3DA1200FC117A /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		5063D6AA1F7D456D009639C5 /* hangTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hangTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063D6AD1F7D456D009639C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5063D6B41F7D456D009639C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -236,6 +240,15 @@
 			name = UserEdit;
 			sourceTree = "<group>";
 		};
+		505F649C1FD3D7E000FC117A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				505F649D1FD3D84400FC117A /* History.storyboard */,
+				505F649F1FD3DA1200FC117A /* HistoryTableViewController.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 		5063D6A11F7D456D009639C5 = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +345,7 @@
 		50BDB6AB1F86596C0009CF60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				505F649C1FD3D7E000FC117A /* History */,
 				503A62F01FB0485000D1C88E /* UserEdit */,
 				50B39BE61F979266006A9DE2 /* Join */,
 				5095D4101F964F6B00C14B85 /* Login */,
@@ -468,6 +482,7 @@
 				5063D6B71F7D456D009639C5 /* Assets.xcassets in Resources */,
 				5063D6B51F7D456D009639C5 /* Main.storyboard in Resources */,
 				5095D4181F96545400C14B85 /* Login.storyboard in Resources */,
+				505F649E1FD3D84400FC117A /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +566,7 @@
 				50278AE51F94F2A5005AAB94 /* TabBarViewController.swift in Sources */,
 				5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */,
 				507ECD361F9279F600E75D45 /* DetailPostViewController.swift in Sources */,
+				505F64A01FD3DA1200FC117A /* HistoryTableViewController.swift in Sources */,
 				5095D4141F96501F00C14B85 /* LoginViewController.swift in Sources */,
 				5066877B1F87B7780048FBEF /* AddPlaceViewController.swift in Sources */,
 				50278AED1F95D94A005AAB94 /* MessageTableViewCell.swift in Sources */,

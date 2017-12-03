@@ -48,6 +48,8 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func historyButtonAction(_ sender: Any) {
+        let historyTableViewController = UIStoryboard.historyStoryborad.instantiateViewController(withIdentifier: "history") as! HistoryTableViewController
+        navigationController?.pushViewController(historyTableViewController, animated: true)
     }
     
     @IBAction func logoutButtonAction(_ sender: Any) {

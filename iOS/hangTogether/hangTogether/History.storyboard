@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--history-->
+        <scene sceneID="lRb-JP-dTS">
+            <objects>
+                <tableViewController storyboardIdentifier="history" title="history" id="4gn-o2-mZ4" customClass="HistoryTableViewController" customModule="hangTogether" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CXc-fJ-gpx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="historyCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="107" id="kf7-CT-BAu" customClass="MainTableViewCell" customModule="hangTogether" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kf7-CT-BAu" id="Bxj-ar-Clc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xeQ-mS-eL3">
+                                            <rect key="frame" x="13" y="11" width="60" height="84.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3NA-KS-koc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="3JV-gv-3Es"/>
+                                                        <constraint firstAttribute="width" constant="60" id="lXL-im-zsF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="subin614" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoE-5G-EJ8">
+                                                    <rect key="frame" x="0.0" y="70" width="60" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="QGL-aP-rVw"/>
+                                                <constraint firstItem="EoE-5G-EJ8" firstAttribute="width" secondItem="3NA-KS-koc" secondAttribute="width" id="VRw-ko-dEq"/>
+                                            </constraints>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 2:17" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tih-AH-YyD">
+                                            <rect key="frame" x="321.5" y="11" width="40.5" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="rdt-Hp-I44">
+                                            <rect key="frame" x="93" y="16.5" width="277" height="74"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="2017/00/00 ~ 2017/00/00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-Ex-GFA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hang Together!!! :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LC-zy-hKm">
+                                                    <rect key="frame" x="0.0" y="23" width="276.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VV4-DH-4Tv">
+                                                    <rect key="frame" x="0.0" y="54" width="277" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="dfn-3L-swr"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3LC-zy-hKm" firstAttribute="width" secondItem="rdt-Hp-I44" secondAttribute="width" id="YFU-bg-IbS"/>
+                                                <constraint firstItem="esZ-Ex-GFA" firstAttribute="width" secondItem="rdt-Hp-I44" secondAttribute="width" id="bme-rh-YSj"/>
+                                                <constraint firstItem="VV4-DH-4Tv" firstAttribute="width" relation="lessThanOrEqual" secondItem="rdt-Hp-I44" secondAttribute="width" id="dqz-2O-pNJ"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tih-AH-YyD" firstAttribute="top" secondItem="3NA-KS-koc" secondAttribute="top" id="PSa-MH-1Rm"/>
+                                        <constraint firstAttribute="trailing" secondItem="rdt-Hp-I44" secondAttribute="trailing" constant="5" id="Qhq-5c-gYB"/>
+                                        <constraint firstItem="xeQ-mS-eL3" firstAttribute="leading" secondItem="Bxj-ar-Clc" secondAttribute="leadingMargin" constant="5" id="TDO-TO-Fzj"/>
+                                        <constraint firstItem="xeQ-mS-eL3" firstAttribute="centerY" secondItem="Bxj-ar-Clc" secondAttribute="centerY" id="gft-h8-2lq"/>
+                                        <constraint firstItem="rdt-Hp-I44" firstAttribute="leading" secondItem="xeQ-mS-eL3" secondAttribute="trailing" constant="20" id="kYz-Hn-8As"/>
+                                        <constraint firstItem="rdt-Hp-I44" firstAttribute="centerY" secondItem="Bxj-ar-Clc" secondAttribute="centerY" id="srl-8h-aJW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tih-AH-YyD" secondAttribute="trailing" constant="5" id="xfz-88-tDH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="languageStackView" destination="VV4-DH-4Tv" id="ILq-Hm-0VL"/>
+                                    <outlet property="nicknameLabel" destination="EoE-5G-EJ8" id="KNu-ag-cFc"/>
+                                    <outlet property="profileImageView" destination="3NA-KS-koc" id="Oau-AD-Jvl"/>
+                                    <outlet property="timeLabel" destination="tih-AH-YyD" id="U1L-nd-Ftl"/>
+                                    <outlet property="titleLabel" destination="3LC-zy-hKm" id="2og-Uj-6ld"/>
+                                    <outlet property="tripDateLabel" destination="esZ-Ex-GFA" id="oYD-xg-I1I"/>
+                                    <outlet property="userProfileStackView" destination="xeQ-mS-eL3" id="FUB-Su-Uqj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4gn-o2-mZ4" id="yIK-Hp-Efn"/>
+                            <outlet property="delegate" destination="4gn-o2-mZ4" id="YeA-jT-Sdc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gia-Qm-VLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-228" y="155"/>
+        </scene>
+    </scenes>
+</document>

@@ -32,6 +32,7 @@ extension UIStoryboard {
     static let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
     static let joinStoryboard = UIStoryboard(name: "Join", bundle: nil)
     static let userEditStoryboard = UIStoryboard(name: "UserEdit", bundle: nil)
+    static let historyStoryborad = UIStoryboard(name: "History", bundle: nil)
 }
 
 extension DateFormatter {
