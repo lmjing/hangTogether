@@ -6,9 +6,11 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.0",
+    "http": "0.0.0",
     "moment": "^2.18.1",
     "mongoose": "^4.11.13",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "swagger-jsdoc": "^1.9.7",
