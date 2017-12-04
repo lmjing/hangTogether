@@ -8,8 +8,9 @@ target 'hangTogether' do
   # Pods for hangTogether
 
   pod 'AlamofireImage'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.5'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'ObjectMapper', '~> 3.0'
+  pod 'Socket.IO-Client-Swift', '~> 13.1.0'
 end

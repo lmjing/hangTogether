@@ -10,13 +10,17 @@ PODS:
   - GooglePlaces (2.4.0):
     - GoogleMaps/Base (= 2.4.0)
   - ObjectMapper (3.1.0)
+  - Socket.IO-Client-Swift (13.1.0):
+    - Starscream (~> 3.0.2)
+  - Starscream (3.0.2)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.5)
   - AlamofireImage
   - GoogleMaps
   - GooglePlaces
   - ObjectMapper (~> 3.0)
+  - Socket.IO-Client-Swift (~> 13.1.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -24,7 +28,9 @@ SPEC CHECKSUMS:
   GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
   GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  Socket.IO-Client-Swift: b67a96d6a9e5f271bceb93e99779d2cf77c74868
+  Starscream: b512c62f6706421221b5ceb2ba01a9f58aca5bea
 
-PODFILE CHECKSUM: bebdfb226e1798056f310347e18492b0d82bb8cc
+PODFILE CHECKSUM: f01ab821d15314d2fbaa102922d8f9290a993f30
 
 COCOAPODS: 1.3.1
