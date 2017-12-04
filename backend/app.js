@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var io = require('socket.io');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
@@ -21,6 +22,15 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(3000, function() {
   console.log('서버돌아가는 중 ~~');
 });
+
+io.listen(app);
+io.sockets.on('connection', function(socket) {
+  socket.emit('chatToMe', { hello: 'world' });
+  socket.on('chatToYou', function(data) {
+    console.log(data);
+  });
+});
+
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connect('mongodb://localhost:27017/hangTogether', {
