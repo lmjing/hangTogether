@@ -19,6 +19,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Socket.test2()
+        
         self.navigationItem.title = "글 목록"
         
         tableView.delegate = self
