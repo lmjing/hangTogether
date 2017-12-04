@@ -28,13 +28,12 @@ server.listen(3000, function() {
 });
 
 io.sockets.on('connection', function(socket) {
+  console.log('socket.io');
   socket.emit('chatToMe', { hello: 'world' });
   socket.on('chatToYou', function(data) {
     console.log(data);
   });
 });
-
-server.listen(3000);
 
 mongoose.Promise = global.Promise;
 
