@@ -25,7 +25,7 @@ class HistoryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func received(notification: Notification) {
+    @objc func received(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String:Any] else { return }
         guard let result = userInfo["result"] as? String else { return }
         if result == "success" {

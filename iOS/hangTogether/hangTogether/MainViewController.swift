@@ -45,13 +45,13 @@ class MainViewController: UIViewController {
         }
     }
     
-    func moveToWrite() {
+    @objc func moveToWrite() {
         let writePostViewController = UIStoryboard.writePostStoryboard.instantiateViewController(withIdentifier: "writePost") as! WritePostViewController
         let navigationViewController: UINavigationController = UINavigationController(rootViewController: writePostViewController)
         present(navigationViewController, animated: true, completion: nil)
     }
 
-    func recieve(notification: Notification) {
+    @objc func recieve(notification: Notification) {
         if let data = notification.userInfo?["mainList"] as? [Post] {
             mainList = data
             tableView.reloadData()

@@ -50,16 +50,16 @@ class JoinViewController: UIViewController {
         }
     }
     
-    func pickerDone(button: UIBarButtonItem) {
+    @objc func pickerDone(button: UIBarButtonItem) {
         birthTextField.text = datePicker.date.string
         self.view.endEditing(true)
     }
     
-    func textFieldDidChange(textfield: UITextField) {
+    @objc func textFieldDidChange(textfield: UITextField) {
         userCheck[textfield.tag] = false
     }
     
-    func getCheckResult(notification: Notification) {
+    @objc func getCheckResult(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String:Any] else { return }
         guard let type = userInfo["type"] as? Int else { return }
         guard let status = userInfo["status"] as? Bool else { return }
@@ -79,7 +79,7 @@ class JoinViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func getJoinResult(notification: Notification) {
+    @objc func getJoinResult(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String:Any] else { return }
         guard let result = userInfo["result"] as? String else { return }
         
@@ -97,7 +97,7 @@ class JoinViewController: UIViewController {
         }
     }
     
-    func duplicationCheck(button: UIButton) {
+    @objc func duplicationCheck(button: UIButton) {
         switch button.tag {
         case 0: // email check
             if let email = emailTextField.text, email != "" {
@@ -117,11 +117,11 @@ class JoinViewController: UIViewController {
         }
     }
     
-    func dismissView(button: UIBarButtonItem) {
+    @objc func dismissView(button: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     
-    func joinUser(button: UIBarButtonItem) {
+    @objc func joinUser(button: UIBarButtonItem) {
         guard let email = emailTextField.text, email != "", userCheck[0] else  {
             let alert = UIAlertController.okAlert(title: nil, message: "email을 입력해주세요.")
             present(alert, animated: true, completion: nil); return

@@ -46,11 +46,11 @@ class UserEditViewController: UIViewController {
         introduceTextView.text = user.introduce
     }
     
-    func textFieldDidChange(textField: UITextField) {
+    @objc func textFieldDidChange(textField: UITextField) {
         nicknameChecked = false
     }
     
-    func getNicknameCheck(notification: Notification) {
+    @objc func getNicknameCheck(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String:Any] else { return }
         guard let type = userInfo["type"] as? Int else { return }
         guard let status = userInfo["status"] as? Bool else { return }
@@ -73,7 +73,7 @@ class UserEditViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func getUserEditResult(notificatoin: Notification) {
+    @objc func getUserEditResult(notificatoin: Notification) {
         guard let userInfo = notificatoin.userInfo as? [String:Any] else { return }
         guard let result = userInfo["result"] as? String else { return }
         var alert = UIAlertController.okAlert(title: "수정 실패", message: "문제가 생겨 회원 정보 수정에 실패하였습니다.")
@@ -91,7 +91,7 @@ class UserEditViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func editUser(button: UIBarButtonItem) {
+    @objc func editUser(button: UIBarButtonItem) {
         var newInput: [String:String] = [
             "password": user.password,
             "nickname": user.nickname,

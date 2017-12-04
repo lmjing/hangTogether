@@ -74,7 +74,7 @@ class MainTabViewController: UITabBarController, focusToTabDelegate {
         return button
     }
     
-    func clickTab(button: UIButton) {
+    @objc func clickTab(button: UIButton) {
         let tag = button.tag
         if tag == 2 || tag == 3 {
             if UserDefaults.standard.object(forKey: "user") == nil {

@@ -76,11 +76,11 @@ class WritePostViewController: UIViewController {
         navigationItem.leftBarButtonItem = button
     }
     
-    func dismissView() {
+    @objc func dismissView() {
         dismiss(animated: true, completion: nil)
     }
     
-    func finishUpload(notification: Notification) {
+    @objc func finishUpload(notification: Notification) {
         guard let userInfo =  notification.userInfo as? [String:String] else { return }
         var title = "글 등록 실패"
         var message = "문제가 생겨 글 작성에 실패했습니다."
@@ -93,7 +93,7 @@ class WritePostViewController: UIViewController {
         }
         self.present(alert, animated: true, completion: nil)
     }
-    func pickerDone(button: UIBarButtonItem) {
+    @objc func pickerDone(button: UIBarButtonItem) {
         switch button.tag {
         case 1:
             startDateTextField.text = datePicker.date.string
@@ -108,7 +108,7 @@ class WritePostViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    func writeDone(button: UIBarButtonItem) {
+    @objc func writeDone(button: UIBarButtonItem) {
         guard let title = titleTextField.text, !title.isEmpty else {
             let alert = UIAlertController.okAlert(title: nil, message: "제목을 입력해주세요.")
             self.present(alert, animated: true, completion: nil); return
@@ -131,7 +131,7 @@ class WritePostViewController: UIViewController {
         Networking.uploadPost(post)
     }
     
-    func moveAddTripView(button: UIButton) {
+    @objc func moveAddTripView(button: UIButton) {
         if let min = tripDate["start"], let max = tripDate["end"] {
             let addPlaceViewController = UIStoryboard.addPlaceStoryboard.instantiateViewController(withIdentifier: "addPlace") as! AddPlaceViewController
             addPlaceViewController.datePicker.minimumDate = min.date

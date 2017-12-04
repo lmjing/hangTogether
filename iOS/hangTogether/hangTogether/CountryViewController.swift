@@ -64,7 +64,7 @@ class CountryViewController: UIViewController {
         }
     }
     
-    func deleteLanguage(_ sender: AnyObject) {
+    @objc func deleteLanguage(_ sender: AnyObject) {
         let tag = sender.view!.tag
         if selectedLanguages.count >= tag + 1 {
             let language = selectedLanguages[tag]
@@ -83,7 +83,7 @@ class CountryViewController: UIViewController {
         }
     }
     
-    func getLanguages(notification: Notification) {
+    @objc func getLanguages(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String:[String]] else { return }
         if let data = userInfo["languages"] {
             languages = data
@@ -102,18 +102,18 @@ class CountryViewController: UIViewController {
         }
     }
 
-    func dismissView(button: UIBarButtonItem) {
+    @objc func dismissView(button: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    func selectCountry(button: UIButton) {
+    @objc func selectCountry(button: UIButton) {
         let tag = button.tag
         newUser["type"] = tag == 0 ? "foreigner" : "korean"
         countryButton[tag].isSelected = true
         countryButton[1 - tag].isSelected = false
     }
     
-    func moveNext(button: UIBarButtonItem) {
+    @objc func moveNext(button: UIBarButtonItem) {
         if newUser["type"] == nil {
             let alert = UIAlertController.okAlert(title: nil, message: "국적을 선택해주세요.")
             present(alert, animated: true, completion: nil); return

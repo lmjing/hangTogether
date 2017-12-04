@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func finishLogin(notification: Notification) {
+    @objc func finishLogin(notification: Notification) {
         guard let result = notification.userInfo!["result"] as? String else { print("로그인 실패"); return }
         switch result {
         case "success":

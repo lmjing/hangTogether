@@ -60,13 +60,13 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         mapView.camera = camera
     }
     
-    func moveAutoComplete() {
+    @objc func moveAutoComplete() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
     }
     
-    func checkDate() {
+    @objc func checkDate() {
         if !dateSwitch.isOn {
             dateTextField.text = "무관"
             dateTextField.isEnabled = false
@@ -76,7 +76,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         }
     }
     
-    func done(button: UIBarButtonItem) {
+    @objc func done(button: UIBarButtonItem) {
         if dateSwitch.isOn && pickDate == nil {
             let dialog = UIAlertController.okAlert(title: nil, message: "날짜를 선택해주세요.")
             self.present(dialog, animated: true, completion: nil)
@@ -127,7 +127,7 @@ class AddPlaceViewController: UIViewController, SelectPlaceDelegate {
         }
     }
     
-    func pickerDone(button: UIBarButtonItem) {
+    @objc func pickerDone(button: UIBarButtonItem) {
         dateTextField.text = datePicker.date.string
         pickDate = datePicker.date.string
         self.view.endEditing(true)

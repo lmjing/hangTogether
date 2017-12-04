@@ -47,7 +47,7 @@ class TabBarViewController: UITabBarController {
         self.customTabBarView.addSubview(button)
     }
     
-    func clickTab(button: UIButton) {
+    @objc func clickTab(button: UIButton) {
         self.tabButton1.isSelected = false
         self.tabButton2.isSelected = false
         

@@ -25,6 +25,7 @@
 		5037F89A1F868DE7006EFB17 /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037F8991F868DE7006EFB17 /* WritePostViewController.swift */; };
 		503A62F21FB0487300D1C88E /* UserEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503A62F11FB0487300D1C88E /* UserEdit.storyboard */; };
 		503A62F41FB04AD000D1C88E /* UserEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A62F31FB04AD000D1C88E /* UserEditViewController.swift */; };
+		5043A0241FD58B0700785A35 /* SocketIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043A0231FD58B0700785A35 /* SocketIO.swift */; };
 		505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */; };
 		505BFD941F95F9190013B804 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BFD931F95F9190013B804 /* MainTabViewController.swift */; };
 		505F649E1FD3D84400FC117A /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505F649D1FD3D84400FC117A /* History.storyboard */; };
@@ -81,6 +82,7 @@
 		5037F8991F868DE7006EFB17 /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		503A62F11FB0487300D1C88E /* UserEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserEdit.storyboard; sourceTree = "<group>"; };
 		503A62F31FB04AD000D1C88E /* UserEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditViewController.swift; sourceTree = "<group>"; };
+		5043A0231FD58B0700785A35 /* SocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIO.swift; sourceTree = "<group>"; };
 		505BFCB51F8A557C00F3BB0C /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		505BFD931F95F9190013B804 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		505F649D1FD3D84400FC117A /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				501A26D71F82924E00F24081 /* Networking.swift */,
 				501A26EA1F84ADC100F24081 /* Extension.swift */,
 				5095D4191F96573F00C14B85 /* ShareView.swift */,
+				5043A0231FD58B0700785A35 /* SocketIO.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -433,7 +436,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "이미정";
 				TargetAttributes = {
 					5063D6A91F7D456D009639C5 = {
@@ -576,6 +579,7 @@
 				501A26DE1F8374CE00F24081 /* Config.swift in Sources */,
 				50278AE01F94E372005AAB94 /* TripPlaceTableViewController.swift in Sources */,
 				50278AE91F95D8C3005AAB94 /* MessageTableViewController.swift in Sources */,
+				5043A0241FD58B0700785A35 /* SocketIO.swift in Sources */,
 				50B39BEA1F979867006A9DE2 /* JoinViewController.swift in Sources */,
 				50AE6A9B1F95E2D700CF924C /* NotiTableViewCell.swift in Sources */,
 				505BFCB61F8A557C00F3BB0C /* TripTableViewCell.swift in Sources */,
@@ -640,7 +644,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -648,7 +654,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -690,7 +700,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -698,7 +710,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -734,7 +750,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mijeong.hangTogether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -748,7 +764,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mijeong.hangTogether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
