@@ -22,10 +22,12 @@ class MainTableViewCell: UITableViewCell {
     }
     
     func makeLanguages(languages: [String]) {
-        for language in languages {
-            let label = PaddingLabel()
-            label.language(text: language)
-            languageStackView.addArrangedSubview(label)
+        if languageStackView.subviews.count == 0 {
+            for language in languages {
+                let label = PaddingLabel()
+                label.language(text: language)
+                languageStackView.addArrangedSubview(label)
+            }
         }
     }
 
