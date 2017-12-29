@@ -19,8 +19,6 @@ class MainTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        profileImageView.drawCircle()
     }
     
     func makeLanguages(languages: [String]) {

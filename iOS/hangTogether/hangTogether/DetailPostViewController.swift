@@ -33,12 +33,15 @@ class DetailPostViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tabBarController?.tabBar.isHidden = true
-        
         initView()
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(moveToProfile))
+        userProfileView.addGestureRecognizer(recognizer)
     }
     
     func initView() {
+        tabBarController?.tabBar.isHidden = true
+        
         titleLabel.text = post.title
         guard let writer = post.writer else { print("no writer"); return }
         if let profileURL = URL(string: "https://scontent-icn1-1.xx.fbcdn.net/v/t31.0-8/18815155_1337595106348251_8140129323514750362_o.jpg?oh=6be0546d8c1c4399b1076a7bc49d3e75&oe=5A462372") {
@@ -51,6 +54,18 @@ class DetailPostViewController: UIViewController {
         contentLabel.text = post.content
         makeLanguages(post.writer.languages)
         designView()
+    }
+    
+    @objc func moveToProfile(gesture : UITapGestureRecognizer) {
+        //선택되었다는 배경 색 표시
+        userProfileView.backgroundColor = UIColor.lightGray
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(100)) {
+            self.userProfileView.backgroundColor = UIColor.white
+        }
+        
+        let profileVC = UIStoryboard.userProfileStoryboard.instantiateViewController(withIdentifier: "userProfile") as! UserProfileViewController
+        profileVC.user = post.writer
+        navigationController?.pushViewController(profileVC, animated: true)
     }
     
     func makeLanguages(_ languages: [String]) {

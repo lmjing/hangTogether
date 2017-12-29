@@ -83,6 +83,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.profileImageView.setProfileImage(user: post.writer)
         
         cell.makeLanguages(languages: post.writer.languages)
+        
         return cell
     }
     

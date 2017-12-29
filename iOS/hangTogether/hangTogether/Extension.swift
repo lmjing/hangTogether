@@ -210,7 +210,6 @@ extension UIView {
 }
 
 extension PaddingLabel {
-    
     func notSelect() {
         self.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
         self.font = UIFont.boldSystemFont(ofSize: 12)

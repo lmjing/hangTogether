@@ -15,16 +15,20 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var introduceLabel: UILabel!
     
-    var user = User()
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        profileImageView.setProfileImage(user: user)
-        nicknameLabel.text = user.nickname
-        languageLabel.text = user.languages.joined(separator: ",")
-        infoLabel.text = "\(user.birth.age) \(user.sex.rawValue)"
-        introduceLabel.text = user.introduce
+        
+        if let user = user {
+            profileImageView.setProfileImage(user: user)
+            nicknameLabel.text = user.nickname
+            languageLabel.text = user.languages.joined(separator: ",")
+            infoLabel.text = "\(user.birth.age) \(user.sex.rawValue)"
+            introduceLabel.text = user.introduce
+        }else {
+            print("유저가 없즘")
+        }
     }
 
     override func didReceiveMemoryWarning() {
